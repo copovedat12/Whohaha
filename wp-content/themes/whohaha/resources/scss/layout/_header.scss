@@ -1,0 +1,101 @@
+header#masthead{
+	@include background-image-3( 0deg, rgb(72,206,255) 0%, rgb(72,206,255) 20%, rgb(249,5,164) 100% );
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	z-index: 999;
+	>.row{
+		margin: 0;
+	}
+	.site-branding{
+		background: #fff;
+		padding: 15px 20px;
+		float: left;
+		height: 64px;
+		h1{
+			margin: 0;
+			background: url(../resources/images/whohaha_logo.png);
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: contain;
+			width: 231px;
+			height: 34px;
+			a{
+				height: 34px;
+				font-size: 0;
+				display: block;
+			}
+			@media (max-width: 480px){
+				width: 160px;
+			}
+		}
+		@media (max-width: $screen-xs-max){
+			position: absolute;
+			left: 60px;
+			right: 60px;
+			h1{
+				margin: auto;
+			}
+		}
+		@media (max-width: $screen-xs){
+			h1{
+				width: 180px;
+			}
+		}
+		@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+			h1{
+				width: 150px;
+				transition: width .2s;
+			}
+		}
+	}
+	.toggle-container{
+		float: left;
+		padding: 0;
+		height: 64px;
+	}
+	.navbar-toggle{
+		display: block;
+		margin: 0;
+		padding: 20px;
+		transition: all .2s;
+		.icon-bar{
+			height: 3px;
+			background-color: $white;
+			width: 30px;
+		}
+		.icon-bar+.icon-bar{
+		    margin-top: 7px;
+		    transition: all .2s;
+		}
+		&:hover{
+			margin-top: 3px;
+		    .icon-bar+.icon-bar{
+		    	margin-top: 3px;
+		    }
+		}
+		&.side{
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			height: 35px;
+			&:hover{
+				margin-top: 0;
+			}
+			.icon-bar{
+				transform: rotate(-45deg);
+				background-color: $black;
+				+.icon-bar,
+				+.icon-bar:hover{
+				    transform: rotate(45deg);
+				    margin-top: -3px;
+				}
+			}
+		}
+		@media (max-width: $screen-xs-max){
+			padding: 20px 14px;
+		}
+	}
+}

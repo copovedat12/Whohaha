@@ -1,0 +1,29 @@
+.video-embed {
+    position: relative;
+    padding-bottom: 56%;
+    height: 0;
+    overflow: hidden;
+    // &.instagram{
+    //     display: none;
+    // }
+    &.vine{
+        width: 56%;
+    }
+    &.instagram{
+        width: 47.56%;
+    }
+    iframe{
+    	position: absolute;
+    	top: 0;
+    	left: 0;
+    	width: 100%;
+    	height: 100%;
+    }
+}
+
+.video-carousel{
+    .video-embed{
+        margin: 0 auto;
+    }
+    margin-bottom: 20px;
+}

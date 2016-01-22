@@ -1,0 +1,19 @@
+.instagram-showcase{
+	margin-bottom: 60px;
+}
+.instagram-showcase .item{
+	margin-bottom: 30px;
+}
+.instagram-showcase .image{
+	position: relative;
+}
+.instagram-showcase .image .user{
+    position: absolute;
+    top: -10px;
+    left: -10px;
+}
+.instagram-showcase .image .user img{
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+}

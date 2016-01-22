@@ -1,0 +1,189 @@
+/*
+Theme Name: whohaha
+Theme URI: http://underscores.me/
+Author: Underscores.me
+Author URI: http://underscores.me/
+Description: Description
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: whohaha
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+whohaha is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+*/
+
+#main.category article.post:hover,
+section.homepage-posts article.post:hover {
+  background: #000;
+}
+#main.category article.post:hover img,
+section.homepage-posts article.post:hover img{
+   opacity: .5;
+ }
+.loop-post .break article.post {
+  margin-bottom: 0;
+}
+
+footer.post-footer article.post:hover img,
+aside.sidebar article.post:hover img{
+  opacity: 0.5;
+}
+footer.post-footer article.post:hover{
+  background: #000;
+}
+
+
+
+#home-break-slides button.slick-arrow,
+footer.entry-footer button.slick-arrow{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: 0 0;
+  border: none;
+  outline: 0;
+  font-size: 20px;
+  background: #fafafa;
+  z-index: 100;
+}
+
+
+@media (max-width: 767px){
+  #home-break-slides button.slick-arrow{
+    display: none !important;
+  }
+}
+
+.sidebar header.top-header{
+    margin-top: 0;
+}
+.sticky-sidebar{
+    position: static;
+}
+
+/* New video gallery page styles */
+
+.video-carousel .video-embed{
+    width: 1053px;
+    height: 590px;
+}
+.video-carousel .video-embed.vine{
+    width: 590px;
+}
+.video-carousel .video-embed.instagram{
+    width: 501px;
+}
+@media (max-width: 1300px){
+    .video-carousel .video-embed{
+        width: 900px;
+        height: 507px;
+    }
+    .video-carousel .video-embed.vine{
+        width: 507px;
+    }
+    .video-carousel .video-embed.instagram{
+        width: 411px;
+    }
+}
+@media (max-width: 1150px){
+    .video-carousel .video-embed{
+        width: 600px;
+        height: 337px;
+    }
+    .video-carousel .video-embed.vine{
+        width: 337px;
+    }
+    .video-carousel .video-embed.instagram{
+        width: 251px;
+    }
+}
+@media (max-width: 650px){
+    .video-carousel .video-embed{
+        width: 320px;
+        height: 217px;
+    }
+    .video-carousel .video-embed.vine{
+        width: 337px;
+    }
+    .video-carousel .video-embed.instagram{
+        width: 217px;
+    }
+}
+.video-carousel .slick-slide,
+.video-carousel .slick-slide div{
+    outline: none;
+}
+.video-carousel .slick-slide{
+    opacity: 0.2;
+    transition: opacity 0.5s;
+}
+.video-carousel .slick-slide.slick-current{
+    opacity: 1;
+}
+.video-carousel .slick-slide .video-embed::before{
+    content: " ";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
+.video-carousel .slick-slide.slick-current .video-embed::before{
+    content: none;
+}
+.video-carousel .slick-list{
+    overflow: visible;
+}
+.video-carousel .video-embed iframe {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90% !important;
+    height: 90%;
+}
+
+.video-carousel .slick-arrow{
+    position: absolute;
+    top: 0;
+    z-index: 99999;
+    bottom: 0;
+    font-size: 32px;
+    background: transparent;
+    border: 0;
+    outline: none;
+}
+.video-carousel .slick-arrow.slick-next{
+    right: 0;
+}
+.video-carousel .slick-arrow.slick-prev{
+    left: 0;
+}
+
+/* test */
+.video-carousel{
+    overflow: hidden;
+}
+.video-carousel .slick-list::before,
+.video-carousel .slick-list::after{
+    content: " ";
+    position: absolute;
+    width: 5%;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+}
+.video-carousel .slick-list::before {
+    left: 0;
+    background-image: -webkit-linear-gradient(0deg,#fafafa 0, transparent 100%);
+}
+.video-carousel .slick-list::after {
+    right: 0;
+    background-image: -webkit-linear-gradient(0deg,transparent 0, #fafafa 100%);
+}

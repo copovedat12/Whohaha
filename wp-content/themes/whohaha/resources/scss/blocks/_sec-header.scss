@@ -1,0 +1,27 @@
+header.top-header,
+header.side-header{
+    text-transform: uppercase;
+    @include background-image-3( 28deg, rgb(249,5,164) 0%, rgb(72,206,255) 77%, rgb(98,163,183) 100%);
+    text-align: center;
+    height: 2px;
+    margin-bottom: 40px;
+    span{
+    	padding: 0 7px;
+    	background-color: #fafafa;
+    	position: relative;
+	    white-space: nowrap;
+	    display: inline-block;
+	    top: -11px;
+	    font-size: 18px;
+    }
+}
+header.top-header{
+	margin-top: 8px;
+}
+
+header.page-header,
+header.entry-header{
+	margin: 0 0 30px;
+	padding: 0;
+	border-bottom: 0;
+}

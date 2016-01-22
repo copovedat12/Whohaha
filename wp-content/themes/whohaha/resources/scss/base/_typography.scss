@@ -1,0 +1,23 @@
+h1,.h1,h2,.h2,h3,.h3,h4,.h4{
+	font-family: $strong-font;
+}
+
+h2.entry-title{
+	font-size: 26px;
+}
+
+h3.entry-title{
+	font-size: 14px;
+	margin: 0;
+	line-height: 1.35;
+	padding: 10px;
+	text-align: center;
+	background-color: #000;
+	text-transform: uppercase;
+	font-style: italic;
+	font-weight: 900;
+	a{
+		color: #fff;
+	}
+}
+

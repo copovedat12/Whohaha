@@ -1,0 +1,168 @@
+section.homepage-posts,
+.post-footer,
+#main.category,
+#main.author{
+	article.post{
+		color: $white;
+		position: relative;
+		overflow: hidden;
+		margin-bottom: 30px;
+		&.top-two{
+			.entry-image > a{
+				padding-bottom: 63.49%;
+			}
+			h2.entry-title{
+				font-size: 28px;
+				@media (max-width: 991px){
+					font-size: 22px;
+				}
+			}
+		}
+		&.bottom-rest{
+			.entry-image > a{
+				padding-bottom: 75%;
+				@media (max-width: $screen-xs-max){
+					display: block;
+					padding-bottom: 0;
+				}
+				@media (min-width: $screen-sm){
+					img.gif{
+				        margin-left: -20%;
+					}
+				}
+			}
+		}
+		img{
+			height: auto;
+			width: 100%;
+		}
+		.entry-content{
+			position: absolute;
+			bottom: 10px;
+			left: 8px;
+			right: 8px;
+			@media (max-width: 767px){
+				position: relative;
+				bottom: 0;
+				left: 0;
+				right: 0;
+			}
+		}
+		h2.entry-title{
+			margin: 0;
+			font-size: 22px;
+			line-height: 1.35;
+			padding: 10px;
+			text-align: center;
+			background-color: $black;
+			text-transform: uppercase;
+			font-style: italic;
+			font-weight: 900;
+			a{
+				color: $white;
+			}
+		}
+		.entry-tags{
+			position: absolute;
+			top: -24px;
+			left: 0;
+			width: 100%;
+			a{
+				background: $pink;
+				color: $white;
+				padding: 4px 12px;
+				text-transform: uppercase;
+				font-family: $strong-font;
+				display: inline-block;
+				font-size: 10px;
+				letter-spacing: 1px;
+			}
+		}
+		@media (min-width: $screen-sm) {
+			&.top-two,
+			&.bottom-rest{
+				.entry-image > a{
+					display: block;
+					height: 0;
+					img{
+						position: absolute;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						margin: auto;
+						width: 100%;
+						max-width: 100%;
+						width: auto;
+						&.gif{
+							max-width: none !important;
+							width: auto;
+							min-height: 100%;
+							min-width: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+// styles for play button on article hover
+.circle {
+  stroke: #e4128d;
+  stroke-dasharray: 650;
+  stroke-dashoffset: 650;
+  -webkit-transition: all 0.3s ease-in-out 0.2s;
+  opacity: 0.3;
+}
+.play-btn {
+	display: inline-block;
+	-webkit-transition: all 0.3s ease;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -40px;
+	margin-top: -40px;
+	svg{
+		width: 80px;
+		height: 80px;
+	}
+	.triangle {
+	  -webkit-transition: all 0.5s ease-in-out;
+	  stroke-dasharray: 200;
+	  stroke-dashoffset: 460;
+	  stroke: #000;
+	  transform: translateY(0);
+	  opacity: 0;
+	}
+}
+
+article:hover .play-btn{
+	.triangle {
+	  stroke-dashoffset: 0;
+	  opacity: 1;
+	  stroke: #e4128d;
+	}
+	.circle {
+	  stroke-dashoffset: 0;
+	  opacity: 1;
+	}
+}
+
+.break .play-btn,
+.sidebar .play-btn{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -20px;
+	margin-top: -20px;
+	svg{
+		width: 40px;
+		height: 40px;
+	}
+}
+
+.bottom-rest .play-btn{
+  margin-top: -60px;
+}

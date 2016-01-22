@@ -1,0 +1,5 @@
+.htaccess
+wp-config.php
+/wp-content/*
+!/wp-content/themes
+cgi-bin

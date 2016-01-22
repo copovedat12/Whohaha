@@ -1,0 +1,7 @@
+.screen-reader-text.skip-link{
+	color: #fff;
+	display: none;
+	&:focus{
+		display: block;
+	}
+}

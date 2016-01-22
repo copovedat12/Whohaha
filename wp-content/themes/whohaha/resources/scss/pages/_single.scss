@@ -1,0 +1,46 @@
+.video-embed,
+.post-featured-image{
+	margin-bottom: 20px;
+	text-align: center;
+	img{
+		height: auto;
+		//not permanent
+		width: 100%;
+	}
+}
+
+header.entry-header{
+	a{
+		display: inline-block;
+		float: left;
+		height: 40px;
+		width: 40px;
+		vertical-align: bottom;
+		margin-right: 10px;
+		img{
+			height: auto;
+			border-radius: 50%;
+		}
+		+ h1.entry-title{
+		  display: block;
+		  margin-left: 50px;
+		}
+	}
+	h1.entry-title{
+		margin: 0;
+		display: inline-block;
+	}
+}
+h2.entry-subtitle{
+	margin-top: 0;
+	font-size: 18px;
+	font-family: $body-font;
+	font-style: italic;
+}
+
+@media (max-width: $screen-sm-max){
+	.pull-right,
+	.pull-left{
+		float: none !important;
+	}
+}

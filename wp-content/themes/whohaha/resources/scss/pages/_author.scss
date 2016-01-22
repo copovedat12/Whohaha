@@ -1,0 +1,23 @@
+section.author-header{
+  margin-bottom: 40px;
+  overflow: hidden;
+  img{
+    float: left;
+    margin-right: 20px;
+    width: 300px;
+    height: auto;
+    border-radius: 50%;
+  }
+  h1{
+    margin-top: 0;
+  }
+  .socicon{
+    margin-right: 5px;
+    color: #fff;
+    background: #f905a4;
+    border-radius: 50%;
+    font-size: 14px;
+    padding: 6px;
+    text-decoration: none;
+  }
+}

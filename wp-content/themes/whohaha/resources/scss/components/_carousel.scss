@@ -1,0 +1,45 @@
+.carousel .carousel-control{
+	text-shadow: none;
+	opacity: 1;
+	&.left,
+	&.right{
+		background-image: none;
+	}
+}
+
+.banner div {
+    position: relative;
+    display: none;
+    &:first-child{
+	  display: block;
+	}
+}
+
+/* Homepage Authors carousel */
+@media (max-width: $screen-xs-max){
+	section.homepage-authors{
+	  	button.slick-arrow{
+	  	    background: #fafafa;
+	  	}
+	  	#home-authors-carousel{
+	  	    padding: 0 20px;
+	  	}
+	  	button.slick-arrow{
+	  		.slick-prev{
+	  		    left: -10px;
+	  		}
+	  		.slick-next{
+	  		    right: -10px;
+	  		}
+	  	}
+	}
+}
+
+button.slick-arrow.slick-disabled{
+  opacity: 0.2;
+}
+
+/* hide author carousel on front page until slick.js loads */
+.carousel-author{
+  display: none;
+}

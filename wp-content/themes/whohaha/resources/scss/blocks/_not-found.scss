@@ -1,0 +1,35 @@
+/* Styling not-found sections (including 404 page) */
+.not-found{
+  margin-bottom: 40px;
+  .screen-reader-text{
+    display: none;
+  }
+  input.search-field{
+    width: 320px;
+    background: #fff;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 16px;
+    color: #555;
+    box-sizing: border-box;
+  }
+  input.search-submit{
+    width: 200px;
+    background: #E01B8B;
+    border: 0;
+    padding: 10px;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 100%;
+    color: #fff;
+    cursor: pointer;
+    transition: background .3s;
+    -webkit-transition: background .3s;
+    display: block;
+    &:hover,
+    &:focus{
+      background: #BD0C71;
+    }
+  }
+}

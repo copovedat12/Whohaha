@@ -1,0 +1,28 @@
+.snapchat-modal .modal-content{
+	background: #252523;
+	color: $white;
+	border-radius: 0;
+	.modal-header{
+		border-bottom: 0;
+		min-height: 50px;
+		position: relative;
+		.close{
+			color: $white;
+			font-size: 30px;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+		}
+	}
+	.modal-body{
+		text-align: center;
+		img{
+			max-width: 300px;
+			width: 100%;
+		}
+		p{
+			margin-top: 20px;
+			font-size: 16px;
+		}
+	}
+}

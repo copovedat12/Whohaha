@@ -1,0 +1,59 @@
+/*
+  base/ – contains global styles, such as resets, typography, colors, etc.
+  blocks/ – contains styles for common blocks, such as testimonials, feature slabs, etc.
+  components/ – contains each self-contained component in its own .scss partial
+  layout/ – contains styling for larger layout components; e.g. nav, header, footer, etc.
+  pages/ – contains page-specific styling, if necessary
+  utils/ – contains global mixins, functions, helper selectors, etc.
+  ALL VARIABLES GO IN utils/_variables.scss
+  SASS RULES:
+  - Follow The Inception Rule: don’t go more than 4-5 levels deep.
+    e.g. div > .child1 > .child2 > p > span{}
+    note: media queries do not count
+  - If a :hover pseudo class is styled, :focus should also be styled for accessibility.
+  - Any values commonly throughout the SASS build should be set as a variable (fonts, colors, percentages)
+    (look in _variables.scss)
+  - ALL colors should be variables
+  - Don't be afraid to add extra SASS files (like _buttons.scss, _input.scss, etc.) if necessary 
+  - Try to keep files under 200 lines (may vary)
+  - Be generous with commenting
+  - Using "// " for your comments in SASS and they will not output in the compiled CSS
+  For more info, read through: 
+  http://sass-lang.com/guide
+  http://thesassway.com/
+  http://sass-guidelin.es/
+  https://scotch.io/tutorials/aesthetic-sass-1-architecture-and-style-organization
+*/
+
+@import 'utils/variables';
+@import 'utils/helpers';
+@import 'utils/fonts';
+
+@import 'base/base';
+@import 'base/typography';
+
+@import 'layout/header';
+@import 'layout/navigation';
+@import 'layout/main';
+@import 'layout/sidebar';
+@import 'layout/footer';
+
+@import 'blocks/sec-header';
+@import 'blocks/post-footer';
+@import 'blocks/post-loop';
+@import 'blocks/loop-breaks';
+
+@import 'components/screen-reader';
+@import 'components/carousel';
+@import 'components/video-embed';
+@import 'components/social';
+@import 'components/modal';
+@import 'components/search';
+@import 'components/plugins';
+@import 'components/forms';
+
+@import 'pages/home';
+@import 'pages/single';
+@import 'pages/tags';
+@import 'pages/laughstagram';
+@import 'pages/author';

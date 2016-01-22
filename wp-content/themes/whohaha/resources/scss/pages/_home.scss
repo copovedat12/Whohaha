@@ -1,0 +1,112 @@
+section.homepage-banner{
+	margin: 0 0 25px;
+	img{
+		margin: 0 auto;
+	}
+	ul.slick-dots{
+		position: absolute;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		bottom: 5%;
+		left: 0;
+		right: 0;
+		text-align: center;
+		li{
+			display: inline-block;
+			margin-right: 15px;
+			&:last-child{
+				margin-right: 0;
+			}
+			button{
+				font-size: 0;
+			    background: $blue;
+			    border: none;
+			    width: 15px;
+			    height: 15px;
+			    border-radius: 50%;
+			    outline: none;
+			    &:hover{
+			    	background: darken($blue, 10%);
+			    }
+			}
+			&.slick-active button{
+				background: $pink;
+			    border: 2px solid $white;
+			    box-shadow: 0px 0px 0px 6px $black;
+			    padding: 0;
+			    width: 10px;
+			    height: 10px;
+			    &:hover{
+			    	background: $pink;
+			    }
+			}
+		}
+	}
+}
+
+section.homepage-authors{
+	padding: 20px 0 40px 0;
+	position: relative;
+	#home-authors-carousel{
+		padding: 0 40px;
+		.author{
+			padding: 0 15px;
+			outline: none;
+		}
+		a{
+			outline: none;
+		}
+		.glyphicon{
+			top: -20px;
+		}
+	}
+	img{
+		border: 7px solid white;
+		border-radius: 50%;
+		box-shadow: 0px 0px 5px #CCC;
+		display: block;
+		margin: auto;
+		height: auto;
+	}
+	.author-name{
+		display: block;
+		margin: 6px auto;
+		padding: 2px;
+		text-align: center;
+		font-size: 14px;
+		font-family: $secondary-body-font;
+		text-transform: uppercase;
+		background-color: #efefef;
+		max-width: 160px;
+	}
+	button.slick-arrow{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		background: transparent;
+		border: none;
+		outline: none;
+		font-size: 20px;
+		&.slick-prev{
+			left: 0;
+		}
+		&.slick-next{
+			right: 0;
+		}
+	}
+	.slick-track{
+		padding: 5px 0;
+	}
+}
+section.homepage-posts{
+	position: relative;
+	padding: 20px 0 0;
+}
+
+@media (max-width: 991px){
+	body.home #primary.content-area {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}

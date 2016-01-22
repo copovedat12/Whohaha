@@ -1,0 +1,55 @@
+footer#colophon{
+	background: black;
+	color: #fff;
+	padding: 60px 0;
+	font-size: 14px;
+	.footer-content-area{
+		padding-left: 20px;
+	    padding-right: 20px;
+	    @media (max-width: $screen-sm-max){
+	    	padding-left: 0;
+	    	padding-right: 0;
+	    }
+	}
+	nav.footer-links ul{
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		li{
+			display: inline-block;
+			margin-right: 15px;
+			&:last-child{
+				margin-right: 0;
+			}
+			a{
+				color: $white;
+			}
+		}
+	}
+	.copyright{
+		padding-top: 15px;
+		margin-top: 15px;
+		border-top: 1px solid $white;
+		a{
+			display: inline-block;
+		}
+		a.dm2-logo{
+			width: 90px;
+			height: 22px;
+			background: url(../resources/images/logo-dm2.png);
+			background-repeat: no-repeat;
+			background-size: contain;
+			margin-right: 10px;
+		}
+		a.win-logo{
+			width: 86px;
+			height: 36px;
+			background: url(../resources/images/win-logo.png);
+		}
+		@media (max-width: $screen-sm-max){
+			.logos{
+				margin-top: 20px;
+			}
+		}
+	}
+}
