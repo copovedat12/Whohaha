@@ -4,3 +4,6 @@ wp-config.php
 !/wp-content/themes
 !/wp-content/plugins
 cgi-bin
+**/.sass-cache
+**/.sass-cache/*
+**/.sass-cache**
