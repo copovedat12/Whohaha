@@ -31,7 +31,7 @@ div.wpcf7{
 		margin: 0;
 	}
 	.wpcf7-form-control{
-		width: 90%;
+		width: 95%;
 	    margin-bottom: 10px;
 	    border: 1px solid #ccc;
 	    padding: 6px;
@@ -39,6 +39,19 @@ div.wpcf7{
 	    font-size: 16px;
 	    color: #555;
 	    box-sizing: border-box;
+		@media(max-width: $screen-xs-max){
+			width: 100%;
+		}
+	}
+	.half-input{
+		width: 50%;
+		float: left;
+		.wpcf7-form-control{
+			width: 90%;
+			@media(max-width: $screen-xs-max){
+				width: 100%;
+			}
+		}
 		@media(max-width: $screen-xs-max){
 			width: 100%;
 		}

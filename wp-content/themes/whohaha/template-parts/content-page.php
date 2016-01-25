@@ -11,9 +11,15 @@
 
 <div class="row">
 	<div class="col-md-9">
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<article id="post-<?php the_ID(); ?>" class="recommend" <?php post_class(); ?>>
 			<header class="entry-header">
-				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+				<?php
+				if(get_the_ID() === 1219) {
+					echo '<img src="'.get_template_directory_uri().'/resources/images/WHH_SendLadies_Banner.jpg" alt="Who Fun The World?" width="" height="">';
+				} else {
+					the_title( '<h1 class="entry-title">', '</h1>' );
+				}
+				?>
 			</header><!-- .entry-header -->
 
 			<div class="entry-content">
