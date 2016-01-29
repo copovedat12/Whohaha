@@ -69,15 +69,5 @@
 	});*/
 </script>
 
-<!-- This is only here until all development is finished -->
-<style type="text/css">
-	#wpadminbar{
-		display: none;
-	}
-	html {
-	    margin-top: 0 !important;
-	}
-</style>
-
 </body>
 </html>
