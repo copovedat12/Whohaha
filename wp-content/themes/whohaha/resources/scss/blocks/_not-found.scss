@@ -1,6 +1,10 @@
 /* Styling not-found sections (including 404 page) */
 .not-found{
   margin-bottom: 40px;
+  form{
+    margin: 40px 0 0;
+    text-align: center;
+  }
   .screen-reader-text{
     display: none;
   }
@@ -26,7 +30,7 @@
     cursor: pointer;
     transition: background .3s;
     -webkit-transition: background .3s;
-    display: block;
+    display: inline-block;
     &:hover,
     &:focus{
       background: #BD0C71;
