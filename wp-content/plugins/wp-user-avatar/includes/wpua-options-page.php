@@ -205,20 +205,28 @@ $wpua_options_page_title = apply_filters('wpua_options_page_title', $wpua_option
   </form>
 </td>
     <td>
-    <div style="border:solid 1px #f1f1f1; background-color:white;padding:10px;"> 
-    <h2>WP User Avatar Pro <a target="_blank" href="http://www.flippercode.com/product/wp-user-avatar/?utm_source=wordpress&utm_medium=link&utm_campaign=wpuseravatar">Buy Now</a></h2>
-    <p>Introducing awesome features to enhance user experience when they upload own avatar.</p>
+    <div id="fc-sidebar">
+    <div class="fc-box">
+    <h3>WP User Avatar Pro</h3>
+    <p><a target="_blank" href="http://www.flippercode.com/product/wp-user-avatar/?utm_source=wordpress&utm_medium=banner&utm_campaign=wpuseravatar"><img width="500" src="<?php echo WPUA_URL.'images/wp-user-avatar.jpg'; ?>" /></a></p>
+    <p><em>Introducing awesome features to enhance user experience when they upload own avatar.</em></p>
+    <p>Pro features include webcam, custom folder, amazon s3 storage, dropbox storage, cropping and priority support.</p>
+    <p><a class="button button-primary button-large" target="_blank" href="http://www.flippercode.com/product/wp-user-avatar/?utm_source=wordpress&utm_medium=link&utm_campaign=wpuseravatar">Upgrade Now »</a></p>
+  </div>
+  <div class="fc-box">
+    <h4>Looking for support?</h4>
+    <p>Use the <a target="_blank" href="http://www.flippercode.com/forums">support forums</a> on flippercode.com.</p>
+  </div>
 
-        <a target="_blank" href="http://www.flippercode.com/product/wp-user-avatar/?utm_source=wordpress&utm_medium=banner&utm_campaign=wpuseravatar" title="upgrade now"><img src="https://pbs.twimg.com/media/CEZuKfgUMAEB0W7.jpg" width="400"></a>
-
-    <ul>
-      <li style="background-color:#f3f3f3;padding:5px;">Use Webcam to get Avatar instantly.</li>
-      <li style="padding:5px;">Allow user to upload avatar on Registration Page.</li>
-      <li style="background-color:#f3f3f3;padding:5px;">Upload Avatars in Custom Folder instead of Media Manager.</li>
-      <li style="padding:5px;">Save avatars on Amazon S3 Storage or Dropbox.</li>
-      <li style="background-color:#f3f3f3;padding:5px;">Innovative Upload Interface with Image Crop.</li>
+  <div class="fc-box">
+    <h4>Your Appreciation</h4>
+    <ul class="ul-square">
+      <li><a target="_blank" href="http://www.flippercode.com/product/wp-user-avatar/">Upgrade to WP User Avatar Pro</a></li>
+      <li><a target="_blank" href="https://wordpress.org/support/view/plugin-reviews/wp-user-avatar?rate=5#postform">Leave a ★★★★★ plugin review on WordPress.org</a></li>
+      <li><a target="_blank" href="https://wordpress.org/plugins/wp-user-avatar/">Vote "works" on the WordPress.org plugin page</a></li>
     </ul>
-    </div>
+  </div>
+</div>
     </td>
   </tr></table>
 </div>
