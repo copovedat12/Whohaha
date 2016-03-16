@@ -24,15 +24,15 @@
 				if(have_rows('add_more_videos')):
 				?>
 
-				<div class="video-carousel">
+				<div class="video-expanded-gallery">
 					<div>
-						<div class="video-embed">
+						<div class="video-embed<?php if(get_field('video_type') === 'instagram'): ?>-insta<?php endif; ?> <?php the_field('video_type'); ?>">
 							<?php echo get_field('video_embed_code'); ?>
 						</div>
 					</div>
 					<?php while (have_rows('add_more_videos')): the_row(); ?>
 						<div>
-							<div class="video-embed <?php the_sub_field('extra_video_type') ?>">
+							<div class="video-embed<?php if(get_field('video_type') === 'instagram'): ?>-insta<?php endif; ?> <?php the_sub_field('extra_video_type') ?>">
 								<?php the_sub_field('extra_video_code') ?>
 							</div>
 						</div>

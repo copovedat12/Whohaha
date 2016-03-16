@@ -44,3 +44,23 @@ h2.entry-subtitle{
 		float: none !important;
 	}
 }
+
+.video-expanded-gallery{
+	.video-embed{
+		margin: 0 auto 20px;
+		/* &.instagram{
+			padding-bottom: 0;
+			height: auto;
+			iframe{
+				position: static;
+				height: auto;
+			}
+		} */
+	}
+	.video-embed-insta{
+		margin: 0 auto 20px;
+		iframe{
+			margin: 0 auto!important;
+		}
+	}
+}
