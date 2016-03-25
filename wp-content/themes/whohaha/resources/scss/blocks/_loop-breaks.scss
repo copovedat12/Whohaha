@@ -48,8 +48,14 @@
 .break-social{
   position: relative;
 }
+
+.break-banner{
+  margin-bottom: 50px;
+}
 @media (max-width: 991px){
-  .break-social.tw{
+  .break-social.tw,
+  .break-banner,
+  .break-banner-first{
     margin-bottom: 20px;
   }
 }

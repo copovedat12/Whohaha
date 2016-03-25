@@ -1,3 +1,8 @@
+<div class="row break-banner">
+	<div class="col-md-12">
+		<img src="<?php echo get_template_directory_uri(); ?>/resources/images/breaks/WHH_AskABadass_Banner.gif" alt="Ask A Badass">
+	</div>
+</div>
 <div class="row">
 	<div class="col-md-6">
 		<div class="loop-break-form">
