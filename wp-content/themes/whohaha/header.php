@@ -50,7 +50,6 @@
 	<meta property="article:author" content="<?php echo $fb_url;?>" /> <!-- still need -->
 <?php endif; ?>
 
-<meta name="description" content="<?php bloginfo( 'description' ); ?>" />
 <meta name="google-site-verification" content="YLaxceYycBEBXkM_yGMEhKD0IioeOHSM_EI-nnH81pE" />
 <meta name="google-site-verification" content="civVdocHhY9An9L-iLyjzsphwp45HNfxxth8V_QsOH8" />
 
