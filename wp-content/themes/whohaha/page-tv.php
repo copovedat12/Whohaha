@@ -15,6 +15,16 @@ get_header(); ?>
 				<span>WhoHaha TV</span>
 			</header><!-- .page-header -->
 
+			<div class="whohaha-tv-intro">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<h3 class="text-center">
+							Is clicking on multiple links sometimes just too much for you? Don’t worry, we’ve got you covered. Sit back, relax, and watch every hilarious Whohaha video in one place.
+						</h3>
+					</div>
+				</div>
+			</div>
+
 			<div class="yt-section">
 				<div class="row">
 					<div class="outer-container col-md-8">
