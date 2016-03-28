@@ -1,0 +1,54 @@
+.player-container{
+	position: relative;
+	height: 0;
+	display: block;
+	padding-bottom: 56%;
+	width: 100%;
+	overflow: hidden;
+}
+.outer-container{
+	margin-bottom: 10px;
+}
+#player{
+	opacity: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+}
+.v-player-list{
+	height: 348px;
+	overflow-y: auto;
+	padding-right: 10px;
+	a{
+		display: block;
+		width: 100%;
+		overflow: hidden;
+		padding: 10px 8px;
+		color: $black;
+		&:hover{
+			background: darken($white, 10%);
+		}
+		img{
+			display: block;
+			float: left;
+			width: 32%;
+			margin-right: 2%;
+		}
+		h2{
+			width: 66%;
+			float: left;
+			margin: 0;
+			font-size: 18px;
+		}
+	}
+}
+.yt-section{
+	overflow: hidden;
+	margin-bottom: 60px;
+	img{
+		max-width: 100%;
+		height: auto;
+	}
+}

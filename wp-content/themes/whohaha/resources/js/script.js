@@ -341,6 +341,20 @@
 
 } )( jQuery );
 
+(function($){
+	var $list = $('.v-player-list'),
+		$window = $(window);
+
+	$window.on('load resize', function(){
+		if($window.outerWidth() >= 992){
+			var newHeight = $('#player').height();
+			$list.css({'height' : newHeight+'px'});
+		}else{
+			$list.css({'height' : '348px'});
+		}
+	});
+})(jQuery);
+
 // Global function for social icons on post pages
 function socialShare(url, width, height) {
     var winLeft = (window.innerWidth / 2) - (width / 2);
