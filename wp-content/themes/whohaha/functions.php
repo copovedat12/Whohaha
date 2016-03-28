@@ -130,6 +130,8 @@ function whohaha_scripts() {
 
 	wp_enqueue_script( 'dev-scripts', get_template_directory_uri() . '/resources/js/script.js', array('bootstrap-js'), '20151001', true );
 
+	wp_enqueue_script( 'yt-playlist', get_template_directory_uri() . '/resources/js/yt-playlist.js', array('jquery'), '20160328', true );
+
 	wp_enqueue_style( 'slick-styles', get_template_directory_uri() . '/css/slick.css');
 
 	wp_enqueue_style( 'foundation-font', get_template_directory_uri() . '/fonts/foundation-icons/foundation-icons.css');
