@@ -27,7 +27,8 @@
 		overflow: hidden;
 		padding: 10px 8px;
 		color: $black;
-		&:hover{
+		&:hover,
+		&.active{
 			background: darken($white, 10%);
 		}
 		img{

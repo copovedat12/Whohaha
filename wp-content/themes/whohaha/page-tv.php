@@ -38,31 +38,45 @@ get_header(); ?>
 							.animate({ opacity:1 }, 'slow');
 						}
 					},
+					numLoaded : 0,
+					playingVid : 0,
+					loadUrl : 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PL0ngUCWCffOuxSeI3U4i7JeAUSA4x7UIG&key=AIzaSyBzZ2YsFh8THdXoObeWTdfg5kyqGfUEhVI',
+					nextUrl : null,
 					onPlayerReady : function(event){
 						ytEvents.cueVideoPlaylist();
 						jQuery('#player').animate({ opacity:1 }, 'slow');
 					},
-					showPlaylistVids : function(){
+					addPlaylistVids : function(){
 						var playlistVids = player.getPlaylist();
 						//https://developers.google.com/youtube/v3/docs/playlistItems/list#request
 						var playlistInfo;
+						if(ytEvents.nextUrl !== null){
+							var ajaxUrl = ytEvents.nextUrl;
+						} else{
+							var ajaxUrl = ytEvents.loadUrl
+						}
 						jQuery.ajax({
-							url: "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PL0ngUCWCffOuxSeI3U4i7JeAUSA4x7UIG&key=AIzaSyBzZ2YsFh8THdXoObeWTdfg5kyqGfUEhVI"
+							url: ajaxUrl
 						})
 						.done(function( retVal ) {
 							playlistInfo = retVal;
-							playlistInfo = playlistInfo.items;
+							playlistItemsInfo = playlistInfo.items;
 
-							console.log(retVal);
+							ytEvents.nextUrl = ytEvents.loadUrl + '&pageToken=' + playlistInfo.nextPageToken;
+							ytEvents.numLoaded = playlistInfo.items.length;
 
-							for (var i = 0; i < playlistVids.length; i++) {
+							for (var i = 0; i < ytEvents.numLoaded; i++) {
 								if(i === 50){
 									break;
 								}
 
-								var vidInfo = playlistInfo[i];
+								var vidInfo = playlistItemsInfo[i];
 
-								var addImg = '<a href="#" onclick="event.preventDefault(); ytEvents.events.startVidByNum('+i+');">';
+								if(vidInfo.snippet.position === 0){
+									var addImg = '<a class="plist-video-'+vidInfo.snippet.position+' active" href="#" onclick="event.preventDefault(); ytEvents.events.startVidByNum('+vidInfo.snippet.position+');">';
+								}else{
+									var addImg = '<a class="plist-video-'+vidInfo.snippet.position+'" href="#" onclick="event.preventDefault(); ytEvents.events.startVidByNum('+vidInfo.snippet.position+');">';
+								}
 								addImg += '<img src="'+vidInfo.snippet.thumbnails.medium.url+'" alt="">';
 								addImg += '<h2>'+vidInfo.snippet.title+'</h2>';
 								addImg += '</a>';
@@ -70,13 +84,20 @@ get_header(); ?>
 								// console.log(i, vidInfo.snippet.thumbnails);
 							}
 
+							console.log(ytEvents.numLoaded);
+
 						});
 
 					},
 					onPlayerStateChange : function(event){
 						if(event.data === 5){
-							ytEvents.showPlaylistVids();
-							// event.target.playVideo();
+							ytEvents.addPlaylistVids();
+							event.target.playVideo();
+						}
+						if(event.data === 3){
+							jQuery('.v-player-list > a').removeClass('active');
+							ytEvents.playingVid = player.getPlaylistIndex();
+							jQuery('a.plist-video-'+ytEvents.playingVid).addClass('active');
 						}
 					},
 					cueVideoPlaylist : function(){
@@ -87,7 +108,6 @@ get_header(); ?>
 						});
 					},
 					definePlayer : function(){
-						console.log('define player');
 						player = new YT.Player('player', {
 							height: '390',
 							width: '640',
