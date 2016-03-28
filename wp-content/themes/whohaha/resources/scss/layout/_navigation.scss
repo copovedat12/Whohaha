@@ -6,39 +6,53 @@ header#masthead{
 		position: relative;
 		div.menu{
 			display: inline-block;
-			ul li:hover{
-				border-bottom: 3px solid $white;
-			}
-		}
-		ul{
-			margin: 0;
-			padding: 0;
-			list-style-type: none;
-			text-transform: uppercase;
-			display: inline-block;
-			li{
+			margin-left: 18px;
+			ul{
+				margin: 0;
+				padding: 0;
+				list-style-type: none;
+				text-transform: uppercase;
 				display: inline-block;
-				height: 64px;
-				a{
-					letter-spacing: 1px;
-					color: #fff;
-					font-size: 16px;
-					padding: 21px 18px;
+				li{
 					display: inline-block;
-					transition: padding .1s;
+					height: 64px;
 					&:hover{
-						text-decoration: none;
+						border-bottom: 3px solid $white;
 					}
-					@media (max-width: $screen-lg){
-						padding: 21px 14px;
+					a{
+						letter-spacing: 1px;
+						color: #fff;
+						font-size: 16px;
+						padding: 21px 18px;
+						display: inline-block;
+						transition: padding .1s;
+						&:hover{
+							text-decoration: none;
+						}
+						@media (max-width: $screen-lg){
+							padding: 21px 14px;
+						}
+						@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+							padding: 23px 8px;
+							font-size: 14px;
+						}
+					}
+					&:first-child{
+						&:hover{
+							border-bottom: none;
+						}
+						a{
+							padding: 21px 8px;
+							@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+								padding: 23px 8px;
+								font-size: 14px;
+							}
+						}
 					}
 				}
 			}
-		}
-		@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-			div.menu ul li a{
-				padding: 23px 8px;
-				font-size: 14px;
+			@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+				margin-left: 12px;
 			}
 		}
 	}
