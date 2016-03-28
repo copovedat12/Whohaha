@@ -22,13 +22,24 @@ get_header(); ?>
 							<div id="player"></div>
 						</div>
 					</div>
-					<div class="v-player-list col-md-4"></div>
+					<div class="col-md-4 custom-scrollbar">
+						<div class="v-player-list"></div>
+					</div>
 					<div class="result"></div>
 				</div>
 			</div>
 
 			<script>
-				var player;
+				var player,
+					apiKey = 'AIzaSyC3PT-spYsqJRlVtB_mA0A6KvknYtI7_EM',
+					playlistId = 'PL0ngUCWCffOuxSeI3U4i7JeAUSA4x7UIG';
+
+				if(window.location.host === 'localhost'){
+					apiKey = 'AIzaSyC3PT-spYsqJRlVtB_mA0A6KvknYtI7_EM';
+				}else{
+					apiKey = 'AIzaSyBzZ2YsFh8THdXoObeWTdfg5kyqGfUEhVI';
+				}
+
 				var ytEvents = {
 					events : {
 						startVidByNum : function(i){
@@ -39,8 +50,9 @@ get_header(); ?>
 						}
 					},
 					numLoaded : 0,
+					numShowing : 0,
 					playingVid : 0,
-					loadUrl : 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PL0ngUCWCffOuxSeI3U4i7JeAUSA4x7UIG&key=AIzaSyBzZ2YsFh8THdXoObeWTdfg5kyqGfUEhVI',
+					loadUrl : 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId='+playlistId+'&key='+apiKey,
 					nextUrl : null,
 					onPlayerReady : function(event){
 						ytEvents.cueVideoPlaylist();
@@ -64,15 +76,16 @@ get_header(); ?>
 
 							ytEvents.nextUrl = ytEvents.loadUrl + '&pageToken=' + playlistInfo.nextPageToken;
 							ytEvents.numLoaded = playlistInfo.items.length;
+							ytEvents.numShowing = ytEvents.numShowing + playlistInfo.items.length;
+
+							// console.log(playlistInfo);
+
+							jQuery('button.load-more').remove();
 
 							for (var i = 0; i < ytEvents.numLoaded; i++) {
-								if(i === 50){
-									break;
-								}
-
 								var vidInfo = playlistItemsInfo[i];
 
-								if(vidInfo.snippet.position === 0){
+								if(vidInfo.snippet.position === ytEvents.playingVid){
 									var addImg = '<a class="plist-video-'+vidInfo.snippet.position+' active" href="#" onclick="event.preventDefault(); ytEvents.events.startVidByNum('+vidInfo.snippet.position+');">';
 								}else{
 									var addImg = '<a class="plist-video-'+vidInfo.snippet.position+'" href="#" onclick="event.preventDefault(); ytEvents.events.startVidByNum('+vidInfo.snippet.position+');">';
@@ -81,24 +94,28 @@ get_header(); ?>
 								addImg += '<h2>'+vidInfo.snippet.title+'</h2>';
 								addImg += '</a>';
 								jQuery('.v-player-list').append(addImg);
-								// console.log(i, vidInfo.snippet.thumbnails);
 							}
-
-							console.log(ytEvents.numLoaded);
+							if(playlistInfo.nextPageToken){
+								jQuery('.v-player-list').append('<button class="load-more">Load More</button>');
+							}
 
 						});
 
 					},
 					onPlayerStateChange : function(event){
 						if(event.data === 5){
-							ytEvents.addPlaylistVids();
+							// ytEvents.addPlaylistVids();
 							event.target.playVideo();
-						}
-						if(event.data === 3){
+						}else if(event.data === 3){
 							jQuery('.v-player-list > a').removeClass('active');
 							ytEvents.playingVid = player.getPlaylistIndex();
 							jQuery('a.plist-video-'+ytEvents.playingVid).addClass('active');
+
+							if(ytEvents.numShowing <= (ytEvents.playingVid + 1)){
+								ytEvents.addPlaylistVids();
+							}
 						}
+						// console.log(event, ytEvents.playingVid, ytEvents.numShowing)
 					},
 					cueVideoPlaylist : function(){
 						player.cuePlaylist({
@@ -138,6 +155,10 @@ get_header(); ?>
 				function onYouTubeIframeAPIReady() {
 					ytEvents.definePlayer();
 				}
+
+				jQuery(document).on('click', 'button.load-more', function(){
+					ytEvents.addPlaylistVids();
+				});
 			</script>
 
 		<?php

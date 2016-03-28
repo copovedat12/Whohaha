@@ -70,3 +70,16 @@ span.popular-post{
   border-radius: 50%;
   padding: 7px;
 }
+button{
+	background: $pink;
+	color: $white;
+	border: none;
+	-webkit-transition: background .3s;
+	transition: background .3s;
+	padding: 10px;
+	&:hover,
+	&:focus{
+		background: darken($pink, 10%);
+		outline: none;
+	}
+}
