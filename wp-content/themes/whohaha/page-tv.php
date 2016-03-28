@@ -17,12 +17,12 @@ get_header(); ?>
 
 			<div class="yt-section">
 				<div class="row">
-					<div class="outer-container col-md-6">
+					<div class="outer-container col-md-8">
 						<div class="player-container">
 							<div id="player"></div>
 						</div>
 					</div>
-					<div class="v-player-list col-md-6"></div>
+					<div class="v-player-list col-md-4"></div>
 					<div class="result"></div>
 				</div>
 			</div>

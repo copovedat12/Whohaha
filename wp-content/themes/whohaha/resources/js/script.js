@@ -320,23 +320,6 @@
 				}
 			});
 		}
-
-	    /*
-	    $('.sticky-sidebar .sidebar').hcSticky({
-	        top: 70,
-	        stickTo: $('.sticky-container'),
-	        responsive: true,
-	        offResolutions : [-991]
-	    });
-	    $(window).on('scroll load', function(){
-		    $('.sidebar.sticky').css({'width' : ($('.sidebar.sticky').parent().width())+'px'});
-	    });
-	    $(window).on('resize', function(){
-			if($(window).width() < 1026){
-				$('.sticky-sidebar .sidebar').css({'width':''});
-			}
-	    });
-		*/
 	});
 
 } )( jQuery );
