@@ -25,7 +25,7 @@
 		</div>
 	</div>
 	<div class="col-md-6">
-		<a class="laughstagram-link" href="<?php echo get_permalink( get_page_by_path( 'laughstagram' ) ) ?>">
+		<a class="laughstagram-link" href="<?php echo get_permalink( get_page_by_path( 'tv' ) ) ?>">
 			<img src="<?php echo get_template_directory_uri(); ?>/resources/images/whohaha_tv.jpg" alt="Whohaha TV" width="800" height="328">
 		</a>
 	</div>
