@@ -56,6 +56,19 @@
 		max-width: 100%;
 		height: auto;
 	}
+	button{
+		background: $pink;
+		color: $white;
+		border: none;
+		-webkit-transition: background .3s;
+		transition: background .3s;
+		padding: 10px;
+		&:hover,
+		&:focus{
+			background: darken($pink, 10%);
+			outline: none;
+		}
+	}
 }
 .whohaha-tv-intro{
 	margin: 40px 0;
