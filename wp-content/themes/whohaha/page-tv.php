@@ -19,7 +19,9 @@ get_header(); ?>
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
 						<h3 class="text-center">
-							Is clicking on multiple links sometimes just too much for you? Don’t worry, we’ve got you covered. Sit back, relax, and watch every hilarious Whohaha video in one place.
+						<?php while ( have_posts() ) : the_post(); ?>
+							<?php echo get_the_content(); ?>
+						<?php endwhile; ?>
 						</h3>
 					</div>
 				</div>
