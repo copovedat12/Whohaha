@@ -14,12 +14,10 @@ get_header(); ?>
 
 		<?php while ( have_posts() ) : the_post(); 
 
-			if(get_post_format() == 'video'){
-                if(have_rows('add_more_videos') && !($_GET['display'] === 'list')){
-                    get_template_part( 'template-parts/content', 'single-video-gallery' );
-                } else{
-                    get_template_part( 'template-parts/content', 'single-video' );
-                }
+			if(get_field('video_playlist') || (have_rows('add_more_videos') && !($_GET['display'] === 'list'))){
+				get_template_part( 'template-parts/content', 'single-full-width' );
+			} else if(get_post_format() == 'video'){
+                get_template_part( 'template-parts/content', 'single-video' );
 			}else{
 				get_template_part( 'template-parts/content', 'single' );
 			}

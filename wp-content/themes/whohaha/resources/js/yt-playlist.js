@@ -1,6 +1,6 @@
 var player,
 	apiKey = 'AIzaSyC3PT-spYsqJRlVtB_mA0A6KvknYtI7_EM',
-	playlistId = 'PL0ngUCWCffOuxSeI3U4i7JeAUSA4x7UIG';
+	playlistId = 'PLdt4fwPI6A7TCF2nXileEEdj7i8HGivGt';
 
 if(window.location.host === 'localhost'){
 	apiKey = 'AIzaSyC3PT-spYsqJRlVtB_mA0A6KvknYtI7_EM';
@@ -94,7 +94,7 @@ var ytEvents = {
 	cueVideoPlaylist : function(){
 		player.cuePlaylist({
 			listType:'playlist',
-			list:'PL0ngUCWCffOuxSeI3U4i7JeAUSA4x7UIG',
+			list:playlistId,
 			index:0
 		});
 	},
@@ -102,7 +102,7 @@ var ytEvents = {
 		player = new YT.Player('player', {
 			height: '390',
 			width: '640',
-			videoId: 'N2TQiAnwGXg',
+			videoId: null,
 			playerVars: {
 				controls:1,
 				modestbranding:1,

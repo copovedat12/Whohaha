@@ -130,7 +130,9 @@ function whohaha_scripts() {
 
 	wp_enqueue_script( 'dev-scripts', get_template_directory_uri() . '/resources/js/script.js', array('bootstrap-js'), '20151001', true );
 
-	wp_enqueue_script( 'yt-playlist', get_template_directory_uri() . '/resources/js/yt-playlist.js', array('jquery'), '20160328', true );
+	if(is_page() === true){
+		wp_enqueue_script( 'yt-playlist', get_template_directory_uri() . '/resources/js/yt-playlist.js', array('jquery'), '20160328', true );
+	}
 
 	wp_enqueue_style( 'slick-styles', get_template_directory_uri() . '/css/slick.css');
 
@@ -275,6 +277,11 @@ function generate_rand_tags($tag_num, $max_len = 30){
  * Implement the Hashtagram shortcode
  */
 require get_template_directory() . '/inc/hashtagram.php';
+
+/**
+ * Implement the Youtube Playlist shortcode
+ */
+require get_template_directory() . '/inc/yt-playlist.php';
 
 /**
  * Implement the Custom Post Types
