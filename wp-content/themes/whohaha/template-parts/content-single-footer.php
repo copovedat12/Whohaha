@@ -64,7 +64,7 @@
 			<div class="col-md-4 col-sm-6">
 				<article class="post bottom-rest">
 					<div class="entry-image">
-						<a href="/ask-a-badass/">
+						<a href="/really-important-questions/">
 							<img src="<?php echo get_template_directory_uri(); ?>/resources/images/post-footer/reallyimportantquestions.jpg" alt="Really Important Questions">
 							<div class="play-btn">
 								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 213.7 213.7" enable-background="new 0 0 213.7 213.7" xml:space="preserve">
@@ -74,7 +74,7 @@
 							</div>
 						</a>
 						<div class="entry-content">
-							<h2 class="entry-title"><a href="/ask-a-badass/" rel="bookmark">Really Important Questions</a></h2>
+							<h2 class="entry-title"><a href="/really-important-questions/" rel="bookmark">Really Important Questions</a></h2>
 						</div><!-- .entry-content -->
 					</div>
 				</article><!-- #post-## -->
