@@ -33,6 +33,40 @@
 		});
 	});
 
+	var trendingOptions = {
+			dots: false,
+			infinite: true,
+			arrows: true,
+			speed: 300,
+			autoplay: false,
+			autoplaySpeed: 3000,
+			slidesToShow: 4,
+		  	slidesToScroll: 4,
+			responsive: [
+				{
+					breakpoint: 991,
+					settings: {
+					  slidesToShow: 3,
+					  slidesToScroll: 3
+					}
+				},
+				{
+					breakpoint: 700,
+					settings: {
+					  slidesToShow: 2,
+					  slidesToScroll: 2
+					}
+				},
+				{
+					breakpoint: 500,
+					settings: {
+					  slidesToShow: 1,
+					  slidesToScroll: 1
+					}
+				}
+			]
+		}
+
 	// Slick Carousels http://kenwheeler.github.io/slick/
 	$(function(){
 		$('#home-authors-carousel').slick({
@@ -114,6 +148,8 @@
 			variableWidth: true,
 			centerMode: true,
 		});
+
+		$('#page-trending-slides').slick(trendingOptions);
 	});
 
     $(function(){
@@ -265,39 +301,7 @@
 	$(function(){
 		$(document).ajaxComplete(function(){
 			if($('#home-break-slides').hasClass('slick-slider') !== true){
-				$('#home-break-slides').slick({
-					dots: false,
-					infinite: true,
-					arrows: true,
-					speed: 300,
-					autoplay: false,
-					autoplaySpeed: 3000,
-					slidesToShow: 4,
-				  	slidesToScroll: 4,
-					responsive: [
-						{
-							breakpoint: 991,
-							settings: {
-							  slidesToShow: 3,
-							  slidesToScroll: 3
-							}
-						},
-						{
-							breakpoint: 700,
-							settings: {
-							  slidesToShow: 2,
-							  slidesToScroll: 2
-							}
-						},
-						{
-							breakpoint: 500,
-							settings: {
-							  slidesToShow: 1,
-							  slidesToScroll: 1
-							}
-						}
-					]
-				});
+				$('#home-break-slides').slick(trendingOptions);
 			}
 		});
 	});

@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row whohaha-and-chill">
 	<div class="col-md-12">
 		<header class="top-header">
 			<span>WhoHaha &amp; Chill</span>

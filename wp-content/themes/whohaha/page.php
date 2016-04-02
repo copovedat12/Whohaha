@@ -23,6 +23,10 @@ get_header(); ?>
 
 			<?php endwhile; // End of the loop. ?>
 
+			<?php
+				get_template_part( 'template-parts/trending-hahas' );
+				get_template_part( 'template-parts/content', 'archive-footer' );
+			?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

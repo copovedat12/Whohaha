@@ -1,0 +1,42 @@
+.trending-hahas{
+	margin-top: 40px;
+	margin-bottom: 40px;
+	img{
+		height: auto;
+	}
+	.post-container{
+		padding: 0 15px;
+		outline: 0;
+	}
+	article.post{
+		position: relative;
+		.entry-content {
+		    position: absolute;
+		    bottom: 10px;
+		    left: 8px;
+		    right: 8px;
+		}
+		outline: none;
+		*{
+			outline: none;
+		}
+	}
+
+	button.slick-arrow{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		background: 0 0;
+		border: none;
+		outline: 0;
+		font-size: 20px;
+		background: #fafafa;
+		z-index: 100;
+		&.slick-prev{
+			left: -20px;
+		}
+		&.slick-next{
+			right: -20px;
+		}
+	}
+}

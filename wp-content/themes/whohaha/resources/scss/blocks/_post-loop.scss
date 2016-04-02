@@ -1,7 +1,8 @@
 section.homepage-posts,
 .post-footer,
 #main.category,
-#main.author{
+#main.author,
+.whohaha-and-chill{
 	article.post{
 		color: $white;
 		position: relative;
@@ -151,7 +152,8 @@ article:hover .play-btn{
 }
 
 .break .play-btn,
-.sidebar .play-btn{
+.sidebar .play-btn,
+.trending-hahas .play-btn{
 	position: absolute;
 	top: 50%;
 	left: 50%;
