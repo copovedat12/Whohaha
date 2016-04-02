@@ -138,7 +138,7 @@
 						</div>
 
 						<ul class="pages-nav">
-							<li class="page_item"><a href="<?php echo esc_url(get_permalink(get_ID_by_page_name('About'))); ?>">About</a></li>
+							<li class="page_item"><a href="/about/">About</a></li>
 							<li class="page_item"><a href="<?php echo esc_url(get_permalink(get_ID_by_page_name('Contact'))); ?>">Contact</a></li>
 							<li class="page_item"><a href="<?php echo esc_url(get_permalink(get_ID_by_page_name('Recommend'))); ?>">Recommend</a></li>
 							<li class="page_item"><a href="<?php echo esc_url(get_permalink(get_ID_by_page_name('Terms Of Use'))); ?>">Terms of Use</a></li>
