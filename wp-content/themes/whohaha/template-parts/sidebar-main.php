@@ -11,7 +11,7 @@
 		$post_tags = json_decode(json_encode($post_tags), true);
 
 		for ($i=0; $i < count($post_tags); $i++) { 
-			$available_tags[] = $post_tags[$i]['name'];
+			$available_tags[] = $post_tags[$i]['slug'];
 		}
 		$available_tags = implode (",", $available_tags);
 

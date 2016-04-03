@@ -20,11 +20,8 @@
 <!-- for facebook -->
 	<meta property="og:site_name" content="<?php bloginfo('name'); ?>"/>
 <?php if ( is_home() ): ?>
-	<meta property="og:title" content="WhoHaHa.com with Elizabeth Banks"/>
-	<meta property="og:description" content="<?php bloginfo( 'description' ); ?>"/>
 	<meta property="og:url" content="http://whohaha.com"/>
 	<meta property="og:type" content="website"/>
-	<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/resources/images/whohaha-fb.jpg" /> <!-- still need -->
 <?php elseif ( is_author() ): ?>
 	<?php
 		$curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
@@ -52,6 +49,7 @@
 
 <meta name="google-site-verification" content="YLaxceYycBEBXkM_yGMEhKD0IioeOHSM_EI-nnH81pE" />
 <meta name="google-site-verification" content="civVdocHhY9An9L-iLyjzsphwp45HNfxxth8V_QsOH8" />
+<meta name="google-site-verification" content="o3-7wzsKZSUaDQmKen8Ytcpu3stbVRTkM3yLeGsMIh4" />
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

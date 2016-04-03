@@ -41,7 +41,7 @@
 					<div class="copyright">
 						<div class="row">
 							<div class="col-md-9">
-								WhoHaha.com is for informational purposes only, and does not provide medical advice. For more information, please visit our Terms of Use.&copy; Copyright 2015. WhoHaha - All Rights Reserved. Digital Media Management
+								All rights reserved - <?php echo date("Y"); ?>. WhoHaha
 							</div>
 							<div class="col-md-3 text-right logos">
 								<a class="dm2-logo" href="http://digitalmediamanagement.com/"></a>

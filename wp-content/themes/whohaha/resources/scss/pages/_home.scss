@@ -1,5 +1,8 @@
 section.homepage-banner{
 	margin: 0 0 25px;
+	*, a{
+		outline: none;
+	}
 	img{
 		margin: 0 auto;
 	}
