@@ -18,7 +18,7 @@
 			'tag' => $available_tags
 		);
 		$post_loop = new WP_Query($args);
-		if($post_loop->have_posts() && $available_tags):
+		if($post_loop->have_posts() && $post_loop->found_posts > 1 && $available_tags):
 	?>
 	<div class="row">
 		<div class="col-md-12">
