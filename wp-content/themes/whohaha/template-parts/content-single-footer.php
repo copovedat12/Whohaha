@@ -1,5 +1,7 @@
 <footer class="post-footer">
 	<?php
+		if(get_the_id() !== 3215 && get_the_id() !== 3208):
+
 		global $do_not_duplicate;
 
 		$available_tags = array();
@@ -36,7 +38,7 @@
 			</div>
 		</div>
 	</div>
-	<?php endif; ?>
+	<?php endif; endif; ?>
 
 	<div class="row">
 		<div class="col-md-12">
