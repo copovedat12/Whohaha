@@ -48,7 +48,7 @@ get_header(); ?>
 
 			<header class="page-header top-header">
 				<!-- <h1 class="page-title"><?php //single_cat_title( '', true ); ?></h1> -->
-				<span><?php echo get_the_author(); ?> Posts</span>
+				<span>Videos Featuring <?php echo get_the_author(); ?></span>
 			</header><!-- .page-header -->
 
 			<?php /* Start the Loop */ ?>

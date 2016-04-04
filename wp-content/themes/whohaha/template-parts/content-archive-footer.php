@@ -15,7 +15,7 @@
 		<div class="col-md-4 col-sm-6">
 			<article class="post">
 				<div class="entry-image">
-					<a href="/really-important-questions/">
+					<a href="/really-important-questions-really-important-answers/">
 						<img src="<?php echo get_template_directory_uri(); ?>/resources/images/post-footer/RIQ.png" alt="Really Important Questions">
 					</a>
 				</div>
