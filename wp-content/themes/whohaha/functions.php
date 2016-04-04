@@ -257,6 +257,7 @@ function generate_rand_tags($tag_num, $max_len = 30){
             JOIN $term_tax as tt
             ON t.term_id = tt.term_id
             WHERE tt.taxonomy = 'post_tag'
+            AND tt.count > 0
             AND length(t.name) <= $max_len";
 
     $query = $wpdb->get_results($sql);
