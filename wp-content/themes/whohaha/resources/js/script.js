@@ -271,7 +271,7 @@
 	$(function(){
 		$('.generate-tags ul.menu, .generate-tags ul.category-nav').append('<li><a id="tag-generate" href="?rand"><span class="reloadtags glyphicon glyphicon-refresh" aria-hidden="true"></span></a></li>');
 
-		$(document).on("click", "a#tag-generate", function(){
+		$(document).on("click", "a#tag-generate", function(event){
 			event.preventDefault();
 
 			if(document.location.host === 'localhost'){
@@ -340,6 +340,18 @@
 			$list.css({'height' : '348px'});
 		}
 	});
+})(jQuery);
+
+(function($){
+	var $links = $('img'),
+		title = $('title').html();
+
+	$links.each(function(key, value){
+		if($(value).attr('alt') == null){
+			$(value).prop('alt', title);
+		}
+	});
+
 })(jQuery);
 
 // Global function for social icons on post pages
