@@ -31,7 +31,7 @@
 			</div>
 			<?php endif; ?>
 
-			<?php if(in_array(get_the_ID(), get_popular_posts_id(8, 'day'))): ?>
+			<?php if(in_array(get_the_ID(), get_popular_posts_id(8, 'week'))): ?>
 				<span class="glyphicon glyphicon-flash popular-post" aria-hidden="true"></span>
 			<?php endif; ?>
 			</a>
