@@ -1,6 +1,6 @@
 <div class="row break-banner">
 	<div class="col-md-12">
-		<a href="/ask-a-badass-with-megan-mackay-placeholder-post/"><img src="<?php echo get_template_directory_uri(); ?>/resources/images/breaks/WHH_AskABadass_Banner.gif" alt="Ask A Badass"></a>
+		<a href="/ask-a-badass-with-megan-mackay/"><img src="<?php echo get_template_directory_uri(); ?>/resources/images/breaks/WHH_AskABadass_Banner.gif" alt="Ask A Badass"></a>
 	</div>
 </div>
 <div class="row">
