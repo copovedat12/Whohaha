@@ -92,8 +92,42 @@
 				    </button>
 				</div>
 				<div class="site-branding">
-					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-					<!-- <p class="site-description"><?php //bloginfo( 'description' ); ?></p> -->
+					<span class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
+					<style>
+						/*
+						Only keep this here until cache is cleared.
+						This has already been copied to stylesheet
+						 */
+						header#masthead .site-branding span{
+							margin: 0;
+							background: url(<?php echo get_template_directory_uri(); ?>/resources/images/whohaha_logo_small.png) center center no-repeat;
+							background-size: contain;
+							width: 231px;
+							height: 34px;
+							display: block;
+						}
+						header#masthead .site-branding span a{
+							height: 34px;
+						    font-size: 0;
+						    display: block;
+						}
+						@media (max-width: 767px){
+							header#masthead .site-branding span{
+								margin: auto;
+							}
+						}
+						@media (max-width: 480px){
+							header#masthead .site-branding span{
+								width: 180px;
+							}
+						}
+						@media (min-width: 768px) and (max-width: 991px){
+							header#masthead .site-branding span{
+								width: 150px;
+								transition: width .2s;
+							}
+						}
+					</style>
 				</div><!-- .site-branding -->
 
 				<nav id="slide-navigation" class="slide-navigation vertical-nav" role="navigation">

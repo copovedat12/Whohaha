@@ -15,14 +15,16 @@ header#masthead{
 		padding: 15px 20px;
 		float: left;
 		height: 64px;
-		h1{
+		h1,
+		span{
 			margin: 0;
-			background: url(../resources/images/whohaha_logo.png);
+			background: url(../resources/images/whohaha_logo_small.png);
 			background-repeat: no-repeat;
 			background-position: center center;
 			background-size: contain;
 			width: 231px;
 			height: 34px;
+			display: block;
 			a{
 				height: 34px;
 				font-size: 0;
@@ -36,17 +38,20 @@ header#masthead{
 			position: absolute;
 			left: 60px;
 			right: 60px;
-			h1{
+			h1,
+			span{
 				margin: auto;
 			}
 		}
 		@media (max-width: $screen-xs){
-			h1{
+			h1,
+			span{
 				width: 180px;
 			}
 		}
 		@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-			h1{
+			h1,
+			span{
 				width: 150px;
 				transition: width .2s;
 			}
