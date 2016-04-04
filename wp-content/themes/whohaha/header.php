@@ -20,7 +20,6 @@
 <!-- for facebook -->
 	<meta property="og:site_name" content="<?php bloginfo('name'); ?>"/>
 <?php if ( is_home() ): ?>
-	<meta property="og:url" content="http://whohaha.com"/>
 	<meta property="og:type" content="website"/>
 <?php elseif ( is_author() ): ?>
 	<?php
