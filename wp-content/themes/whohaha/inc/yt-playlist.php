@@ -22,14 +22,8 @@ function getYtPlaylist($plist_url){
 	</div>
 	<script>
 		var player,
-			apiKey = 'AIzaSyC3PT-spYsqJRlVtB_mA0A6KvknYtI7_EM',
+			apiKey = 'AIzaSyBzZ2YsFh8THdXoObeWTdfg5kyqGfUEhVI',
 			playlistId = '<?php echo $plist_id; ?>';
-
-		if(window.location.host === 'localhost'){
-			apiKey = 'AIzaSyC3PT-spYsqJRlVtB_mA0A6KvknYtI7_EM';
-		}else{
-			apiKey = 'AIzaSyBzZ2YsFh8THdXoObeWTdfg5kyqGfUEhVI';
-		}
 
 		var ytEvents = {
 			events : {

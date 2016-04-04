@@ -12,7 +12,7 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main container category" role="main">
 			<header class="page-header top-header">
-				<span>WhoHaha TV</span>
+				<span>Ask A Badass</span>
 			</header><!-- .page-header -->
 
 			<div class="whohaha-tv-intro">
@@ -27,7 +27,7 @@ get_header(); ?>
 				</div>
 			</div>
 
-			<?php getYtPlaylist('https://www.youtube.com/playlist?list=PLdt4fwPI6A7TCF2nXileEEdj7i8HGivGt'); ?>
+			<?php getYtPlaylist('https://www.youtube.com/playlist?list=PLdt4fwPI6A7SD3NkDUkwO9ajxHEhksGCl'); ?>
 
 		<?php
 			get_template_part( 'template-parts/content', 'archive-footer' );
