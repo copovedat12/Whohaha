@@ -15,7 +15,7 @@
 			<header class="entry-header">
 				<?php
 				if(get_the_ID() === 1219) {
-					echo '<img src="'.get_template_directory_uri().'/resources/images/WHH_SendLadies_Banner.jpg" alt="Who Fun The World?" width="" height="">';
+					echo '<img src="'.get_template_directory_uri().'/resources/images/whofuntheworld.jpg" alt="Who Fun The World?">';
 				} else {
 					the_title( '<h1 class="entry-title">', '</h1>' );
 				}
