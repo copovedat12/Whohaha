@@ -274,6 +274,8 @@
 		$(document).on("click", "a#tag-generate", function(event){
 			event.preventDefault();
 
+			ga('send', 'event', 'Tag Generator', 'click', 'Generate random tags in navbar');
+
 			$clicked = $(this);
 			$list = $clicked.closest('ul');
 			$container = $('.generate-tags');
