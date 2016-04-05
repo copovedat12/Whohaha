@@ -274,26 +274,24 @@
 		$(document).on("click", "a#tag-generate", function(event){
 			event.preventDefault();
 
-			if(document.location.host === 'localhost'){
-				var getUrl = document.location.origin+'/whohaha/wp-content/themes/whohaha/resources/ajax.php';
-			} else{
-				var getUrl = document.location.origin+'/wp-content/themes/whohaha/resources/ajax.php';
-			}
-
 			$clicked = $(this);
 			$list = $clicked.closest('ul');
 			$container = $('.generate-tags');
 			$('.reloadtags').addClass('loading');
 
 			$.ajax({
-				url : getUrl,
-				type : 'post',
-				success: function(output){
-					// alert(output);
-					$container.html('');
-					$container.prepend(output);
-					$container.find('a').removeAttr('style');
+				url : '/wp-admin/admin-ajax.php',
+				method : 'POST',
+				data : {
+					'action' : 'generate_rand_tags_ajax',
+					'tag_num' : 3,
+					'max_len' : 13
 				}
+			})
+			.done(function(output){
+				$container.html('');
+				$container.prepend(output);
+				$container.find('a').removeAttr('style');
 			});
 		});
 	});
