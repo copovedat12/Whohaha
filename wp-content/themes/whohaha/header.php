@@ -26,6 +26,7 @@
 		$curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
 		$curauth_id = $curauth->ID;
 	?>
+	<meta name="description" content="<?php echo author_meta_info( $curauth_id )['short_desc']; ?>"/>
 	<meta property="og:title" content="<?php echo get_the_author_meta('display_name', $curauth_id); ?>"/>
 	<meta property="og:description" content="<?php echo author_meta_info( $curauth_id )['short_desc']; ?>"/>
 	<meta property="og:url" content="<?php echo get_author_posts_url( $curauth_id ); ?>"/>
