@@ -25,7 +25,7 @@
 			<article class="post">
 				<div class="entry-image">
 					<a href="/tv/">
-						<img src="<?php echo get_template_directory_uri(); ?>/resources/images/post-footer/WHHTV.png" alt="WhoHaha TV">
+						<img src="<?php echo get_template_directory_uri(); ?>/resources/images/post-footer/WHHTV.jpg" alt="WhoHaha TV">
 					</a>
 				</div>
 			</article><!-- #post-## -->
