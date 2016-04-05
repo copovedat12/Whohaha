@@ -7,7 +7,7 @@
 	</div>
 	<div class="col-md-6">
 		<div class="break-social tw">
-			<img src="<?php echo get_template_directory_uri().'/resources/images/snapchat-break-min.jpg' ?>" alt="Connect on Snapchat">
+			<a href="https://www.snapchat.com/add/who_haha" target="_blank"><img src="<?php echo get_template_directory_uri().'/resources/images/snapchat-break-min.jpg' ?>" alt="Connect on Snapchat"></a>
 		</div>
 	</div>
 </div>
