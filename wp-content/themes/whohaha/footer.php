@@ -58,16 +58,5 @@
 
 <?php wp_footer(); ?>
 
-<script>
-	function scrollLoop(){
-		console.log('ajax loaded');
-	}
-	/*jQuery(document).ready(function($){
-		$('aside.sidebar').hcSticky({
-			top: 50
-		});
-	});*/
-</script>
-
 </body>
 </html>
