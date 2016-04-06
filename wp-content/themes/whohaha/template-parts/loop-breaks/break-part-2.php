@@ -18,7 +18,7 @@
 						<div id="mce-responses" class="clear"></div>
 						<p><!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups--></p>
 						<div style="position: absolute; left: -5000px;"><input tabindex="-1" name="b_2436826a3d3ab1b2df103be72_0662565395" type="text" value=""></div>
-						<div class="clear"><input id="mc-embedded-subscribe" class="button" name="subscribe" type="submit" value="Subscribe"></div>
+						<div class="clear"><input id="mc-embedded-subscribe" class="btn btn-primary" name="subscribe" type="submit" value="Subscribe"></div>
 					</div>
 				</form>
 			</div>
