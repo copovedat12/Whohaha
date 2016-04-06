@@ -348,7 +348,7 @@
 		item:       '.loop-post',
 		pagination: 'nav.posts-navigation',
 		next:       '.posts-navigation .nav-previous a',
-		negativeMargin: 1000,
+		negativeMargin: 100,
 		delay: 1
 	});
 	ias.extension(new IASSpinnerExtension({
@@ -358,10 +358,15 @@
 		FB.XFBML.parse();
 	});
 
+	ias.on('noneLeft', function() {
+	    $('.load-more-trigger').remove();
+	});
+
 	var i = 0;
-	$.ias().on('rendered', function(items) {
+	$.ias().on('render', function(items) {
 		i++;
-		if(i === 1){
+		console.log(i);
+		if(i == 1){
 			ias.extension(new IASTriggerExtension({
 				text: 'VIEW MORE HAHAS',
 				html: '<div class="load-more-trigger text-center"><a class="btn btn-primary">{text}</a></div>'

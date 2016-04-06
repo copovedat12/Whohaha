@@ -2,12 +2,19 @@ section.homepage-posts,
 .post-footer,
 #main.category,
 #main.author,
-.whohaha-and-chill{
+.whohaha-and-chill,
+.trending-hahas{
 	article.post{
 		color: $white;
 		position: relative;
 		overflow: hidden;
 		margin-bottom: 30px;
+		&:hover{
+			background: $black;
+			img{
+				opacity: 0.5;
+			}
+		}
 		&.top-two{
 			.entry-image > a{
 				padding-bottom: 63.49%;
