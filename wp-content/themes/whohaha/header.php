@@ -161,7 +161,7 @@
 						<li class="icon"><a class="socicon" href="https://www.facebook.com/whohaha/" target="_blank">b</a></li>
 						<li class="icon"><a class="socicon" href="http://instagram.com/whohaha/" target="_blank">x</a></li>
 						<li class="icon"><a class="socicon" href="https://twitter.com/whohahadotcom/" target="_blank">a</a></li>
-						<li class="icon"><a class="socicon" href="https://www.youtube.com/channel/UC_8lIwNaMmOEyOivSV7pPIQ" target="_blank">r</a></li>
+						<li class="icon"><a class="socicon" href="https://www.youtube.com/whohaha/" target="_blank">r</a></li>
 						<!-- <li class="icon"><a class="socicon" data-toggle="modal" data-target=".snapchat-modal">`</a></li> -->
 						<li class="icon"><a data-toggle="modal" data-target=".snapchat-modal"><i class="fi-social-snapchat"></i></a></li>
 					</ul>
@@ -175,7 +175,7 @@
 						<li class="icon"><a class="socicon" href="https://www.facebook.com/whohaha/" target="_blank">b</a></li>
 						<li class="icon"><a class="socicon" href="http://instagram.com/whohaha/" target="_blank">x</a></li>
 						<li class="icon"><a class="socicon" href="https://twitter.com/whohahadotcom/" target="_blank">a</a></li>
-						<li class="icon"><a class="socicon" href="https://www.youtube.com/channel/UC_8lIwNaMmOEyOivSV7pPIQ" target="_blank">r</a></li>
+						<li class="icon"><a class="socicon" href="https://www.youtube.com/whohaha/" target="_blank">r</a></li>
 						<li class="icon"><a class="" data-toggle="modal" data-target=".snapchat-modal"><i class="fi-social-snapchat"></i></a></li>
 						<!-- <li class="icon"><a class="socicon" data-toggle="modal" data-target=".snapchat-modal">`</a></li> -->
 					</ul>
