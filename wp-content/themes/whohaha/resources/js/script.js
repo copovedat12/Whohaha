@@ -366,7 +366,7 @@
 	$.ias().on('render', function(items) {
 		i++;
 		console.log(i);
-		if(i == 1){
+		if(i == 2){
 			ias.extension(new IASTriggerExtension({
 				text: 'VIEW MORE HAHAS',
 				html: '<div class="load-more-trigger text-center"><a class="btn btn-primary">{text}</a></div>'
