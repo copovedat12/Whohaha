@@ -12,7 +12,7 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main container category" role="main">
 			<header class="page-header top-header">
-				<span>Really Important Questions &amp; Their Really Important Answers</span>
+				<span>Really Important Questions</span>
 			</header><!-- .page-header -->
 
 			<div class="whohaha-tv-intro">
