@@ -35,7 +35,7 @@ get_header(); ?>
 							<div class="entry-content">
 								<div class="row">
 									<div class="col-md-12">
-										<div style="position: relative; padding-bottom: 56.25%; height: 0; margin-bottom: 20px;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/LwuY1hKP9ug?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1" width="300" height="150" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
+										<div style="position: relative; padding-bottom: 56.25%; height: 0; margin-bottom: 20px;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/LwuY1hKP9ug?rel=0&amp;controls=1&amp;showinfo=0&amp;autoplay=1" width="300" height="150" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
 									</div>
 								</div>
 								<div class="row">
