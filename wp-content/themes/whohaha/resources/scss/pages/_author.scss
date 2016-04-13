@@ -19,6 +19,17 @@ section.author-header{
     font-size: 14px;
     padding: 6px;
     text-decoration: none;
+
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    i{
+      font-size: 16px;
+      line-height: 1;
+      vertical-align: top;
+    }
   }
 }
 
