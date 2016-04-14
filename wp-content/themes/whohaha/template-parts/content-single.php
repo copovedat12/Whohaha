@@ -19,9 +19,11 @@
 				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 			</header><!-- .entry-header -->
 
+			<?php if(!get_field('hide_image')): ?>
 			<div class="post-featured-image">
 				<?php the_post_thumbnail('full') ?>
 			</div>
+			<?php endif; ?>
 
 			<?php
 				if (get_field('socials_to_bottom') && get_field('socials_to_bottom') == true ){
