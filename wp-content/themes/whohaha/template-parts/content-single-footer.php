@@ -42,6 +42,12 @@
 
 	<div class="row">
 		<div class="col-md-12">
+			<?php get_template_part('template-parts/funny-ladies'); ?>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
 			<header class="top-header">
 				<span>WhoHaha &amp; Chill</span>
 			</header>
