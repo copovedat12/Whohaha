@@ -1,45 +1,34 @@
 <aside class="sidebar">
 	<header class="top-header">
-		<span>More Like This</span>
+		<span>More To Love</span>
 	</header>
 	<div class="posts">
 		<?php
 		global $do_not_duplicate;
 
-		$available_tags = array();
-		$post_tags = wp_get_post_tags( get_the_ID() );
-		$post_tags = json_decode(json_encode($post_tags), true);
-
-		for ($i=0; $i < count($post_tags); $i++) { 
-			$available_tags[] = $post_tags[$i]['slug'];
-		}
-		$available_tags = implode (",", $available_tags);
-
 		$args = array(
-			'orderby' => 'date',
-			'order' => 'DESC',
+			'orderby' => 'rand',
 			'post_type' => 'post',
-			'numberposts' => 3,
+			'numberposts' => 2,
 			'post__not_in' => $do_not_duplicate,
-			'tag' => $available_tags
 		);
 
-		$tag_posts = get_posts($args);
-		if ($tag_posts) {
+		$query_posts = get_posts($args);
+		if ($query_posts) {
 		echo "<div class=\"row\">";
-		foreach ($tag_posts as $tag_post) {
-			$do_not_duplicate[] = $tag_post->ID;
+		foreach ($query_posts as $query_post) {
+			$do_not_duplicate[] = $query_post->ID;
 		?>
-		    <article id="post-<?php echo $tag_post->ID; ?>" class="post col-md-12 col-sm-4">
+		    <article id="post-<?php echo $query_post->ID; ?>" class="post col-md-12 col-sm-4">
 		    	<div class="background">
 			    	<div class="entry-image">
-			    		<a href="<?php echo esc_url( get_permalink($tag_post->ID) ); ?>">
+			    		<a href="<?php echo esc_url( get_permalink($query_post->ID) ); ?>">
 			    		<?php
-			    			$gif = get_field('post_gif', $tag_post->ID);
+			    			$gif = get_field('post_gif', $query_post->ID);
 			    			if( !empty($gif) ){
 			    				echo '<img src="'.$gif['url'].'" alt="'.$gif['alt'].'">';
-			    			}else if ( get_the_post_thumbnail($tag_post->ID, 'home-posts-lg') ) {
-			    				echo get_the_post_thumbnail($tag_post->ID, 'home-posts-lg');
+			    			}else if ( get_the_post_thumbnail($query_post->ID, 'home-posts-lg') ) {
+			    				echo get_the_post_thumbnail($query_post->ID, 'home-posts-lg');
 			    			} 
 			    		?>
 			    		<div class="play-btn">
@@ -52,8 +41,8 @@
 			    	</div>
 			    	<div class="entry-content">
 			    		<h3 class="entry-title">
-			    			<a href="<?php echo esc_url( get_permalink($tag_post->ID) ); ?>" rel="bookmark">
-			    				<?php echo get_the_title($tag_post->ID); ?>
+			    			<a href="<?php echo esc_url( get_permalink($query_post->ID) ); ?>" rel="bookmark">
+			    				<?php echo get_the_title($query_post->ID); ?>
 			    			</a>
 			    		</h3>
 			    	</div><!-- .entry-content -->

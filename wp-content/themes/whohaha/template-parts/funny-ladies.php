@@ -10,8 +10,18 @@
 	</header>
 	<div id="home-authors-carousel">
 		<?php
-			while( have_rows('front_page_people') ): the_row();
-			$person = get_sub_field('person');
+			$all_ladies = get_field('front_page_people');
+			$banks = $all_ladies[0];
+			shuffle($all_ladies);
+			$ladies = array();
+			$ladies[] = $banks;
+			foreach ($all_ladies as $lady){
+				if($lady['person']['user_nicename'] !== 'elizabethbanks'){
+					$ladies[] = $lady;
+				}
+			}
+			foreach ($ladies as $lady):
+				$person = $lady['person'];
 		?>
 			<div class="author carousel-author">
 				<a href="<?php echo get_author_posts_url( $person['ID'] ); ?>">
@@ -20,10 +30,7 @@
 				</a>
 				<a class="author-name" href="<?php echo get_author_posts_url( $person['ID'] ); ?>"><?php echo $person['display_name']; ?> </a>
 			</div>
-
-		<?php 
-			endwhile;
-		?>
+		<?php endforeach; ?>
 	</div>
 </section>
 <?php 
