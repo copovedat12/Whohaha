@@ -2,9 +2,9 @@ section.author-header{
   margin-bottom: 40px;
   overflow: hidden;
   img{
-    float: left;
-    margin-right: 20px;
-    width: 300px;
+    // float: left;
+    // margin-right: 20px;
+    // width: 300px;
     height: auto;
     border-radius: 50%;
   }
@@ -30,6 +30,12 @@ section.author-header{
       line-height: 1;
       vertical-align: top;
     }
+  }
+  .author-bio{
+    margin-top: 40px;
+  }
+  @media (max-width: $screen-xs-max) {
+    text-align: center;
   }
 }
 
