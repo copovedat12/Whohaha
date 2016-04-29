@@ -22,6 +22,7 @@ function getYtPlayer($player_id, $post_id){
 			},
 			onPlayerStateChange : function(event){
 				if(event.data === 0){
+					jQuery('.video-embed').append('<div class="video-overlay"></div>')
 					player.cueVideoById({videoId:playerId});
 					jQuery.ajax({
 						url : '/wp-admin/admin-ajax.php',
@@ -32,7 +33,7 @@ function getYtPlayer($player_id, $post_id){
 						}
 					}).done(function(output){
 						console.log(output);
-						jQuery('.video-embed').append(output);
+						jQuery('.video-overlay').append(output);
 					});
 				}
 			},
@@ -73,7 +74,6 @@ function getYtPlayer($player_id, $post_id){
 }
 
 function finish_video_ajax($player_id){
-	echo '<div class="video-overlay">';
 	$args = array(
 		'post_type' => 'post',
 		'post_status' => 'publish',
@@ -100,7 +100,6 @@ function finish_video_ajax($player_id){
 
 	<?php
 	endwhile;
-	echo '</div>';
 	wp_die();
 }
 add_action( 'wp_ajax_finish_video_ajax', 'finish_video_ajax' );
