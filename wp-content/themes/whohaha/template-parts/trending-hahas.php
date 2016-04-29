@@ -5,7 +5,7 @@
 		</header>
 		<?php
 		//try http://www.wpbeginner.com/wp-tutorials/how-to-track-popular-posts-by-views-in-wordpress-without-a-plugin/
-		$popular_posts = get_popular_posts_id(8, 'day');
+		$popular_posts = get_popular_posts_id(8, 'week');
 		// print_r($popular_posts);
 		if($popular_posts) echo '<div class=""><div id="page-trending-slides">';
 		foreach ($popular_posts as $post_id):
