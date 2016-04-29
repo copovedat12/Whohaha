@@ -42,7 +42,28 @@
 				<?php else: ?>
 
 				<div class="video-embed">
-					<?php echo get_field('video_embed_code'); ?>
+					<?php
+					$iframe_string = get_field('video_embed_code');
+
+					if(preg_match('/youtube/', $iframe_string)){
+						/*
+						 * Below are my past failed attempts at regex
+						 */
+						// /embed\/(\w+((\-+\w+)?)+)((\?(rel|list)=(\w+((\-+\w+)?)+))+)?"/
+						// /embed\/(\w+((\-+\w+)?)+)(\?rel=\d+?)?"/
+						// /embed\/(\w+((\-+\w+)?)+)(\"|\?)/
+						// /embed\/(\w+((\-+\w+)?)+)\"|\?/
+						// /embed\/(\w+([\-+\w+]?)+[\-\w+]?)\"|\?/
+						preg_match('/embed\/([\w+\-+]+)[\"\?]/', $iframe_string, $match);
+						$video_id = $match[1];
+						/*echo (esc_html($iframe_string));
+						echo '<br>';
+						echo $video_id;*/
+						getYtPlayer($video_id,get_the_ID());
+					} else{
+						echo get_field('video_embed_code');
+					}
+					?>
 				</div>
 				<?php endif;?>
 			<?php else: ?>

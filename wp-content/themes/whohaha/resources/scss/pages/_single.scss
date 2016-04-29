@@ -24,6 +24,9 @@ header.entry-header{
 		+ h1.entry-title{
 		  display: block;
 		  margin-left: 50px;
+		  @media (max-width: $screen-xs){
+		  	font-size: 26px;
+		  }
 		}
 	}
 	h1.entry-title{

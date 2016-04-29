@@ -259,6 +259,7 @@ require get_template_directory() . '/inc/hashtagram.php';
  * Implement the Youtube Playlist shortcode
  */
 require get_template_directory() . '/inc/yt-playlist.php';
+require get_template_directory() . '/inc/yt-player.php';
 
 /**
  * Implement the Custom Post Types
