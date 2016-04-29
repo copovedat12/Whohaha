@@ -32,8 +32,11 @@ function getYtPlayer($player_id, $post_id){
 							'id' : '<?php echo $post_id; ?>'
 						}
 					}).done(function(output){
-						console.log(output);
 						jQuery('.video-overlay').append(output);
+						function showVids(){
+							jQuery('.video-post').removeClass('unloaded');
+						}
+						window.setTimeout(showVids, 500);
 					});
 				}
 			},
@@ -91,7 +94,7 @@ function finish_video_ajax($player_id){
 	while( $query->have_posts() ): $query->the_post();
 	?>
 	
-	<div class="video-post">
+	<div class="video-post unloaded">
 		<a href="<?php echo get_the_permalink(); ?>">
 			<?php the_post_thumbnail('home-posts-med'); ?>
 			<span><?php the_title(); ?></span>
