@@ -144,7 +144,7 @@ footer.entry-footer button.slick-arrow{
 .video-carousel .slick-arrow{
     position: absolute;
     top: 0;
-    z-index: 99999;
+    z-index: 10;
     bottom: 0;
     font-size: 32px;
     background: transparent;
