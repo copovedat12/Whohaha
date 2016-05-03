@@ -67,10 +67,20 @@
                     text-overflow: ellipsis;
                     white-space: nowrap;
                     overflow: hidden;
+                    display: block;
+                    margin-top: 5px;
                 }
             }
-            @media (max-width: 550px) {
+            @media (max-width: $screen-xs-max) {
                 width: 50%;
+            }
+            @media (max-width: 550px) and (min-width: 351px) {
+                width: 50%;
+                height: 100%;
+                img{
+                    height: auto;
+                    margin-top: 10%;
+                }
             }
             @media (max-width: 350px) {
                 width: 100%;
