@@ -377,6 +377,17 @@
 })(jQuery);
 
 (function($){
+	var $body = $('body');
+
+	$body.on('click', '.video-overlay a', function(e){
+		e.preventDefault();
+		var title = $(e.currentTarget).find('span');
+		ga('send', 'event', 'Video Overlay', 'click', ''+title.text()+'');
+		// console.log("ga('send', 'event', 'Video Overlay', 'click', '"+title.text()+"');");
+	});
+})(jQuery);
+
+(function($){
 	var $links = $('img'),
 		title = $('title').html();
 
