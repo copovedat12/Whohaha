@@ -22,7 +22,7 @@ function getYtPlayer($player_id, $post_id){
 			},
 			onPlayerStateChange : function(event){
 				if(event.data === 0){
-					jQuery('.video-embed').append('<div class="video-overlay"></div>')
+					jQuery('.video-embed').append('<div class="video-overlay"><img class="loading" alt="loading" src="/wp-content/themes/whohaha/resources/images/default.gif"></div>')
 					player.cueVideoById({videoId:playerId});
 					jQuery.ajax({
 						url : '/wp-admin/admin-ajax.php',
@@ -34,6 +34,7 @@ function getYtPlayer($player_id, $post_id){
 					}).done(function(output){
 						jQuery('.video-overlay').append(output);
 						function showVids(){
+							jQuery('img.loading').remove();
 							jQuery('.video-post').removeClass('unloaded');
 						}
 						window.setTimeout(showVids, 500);
