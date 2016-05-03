@@ -97,7 +97,14 @@ function finish_video_ajax($player_id){
 	
 	<div class="video-post unloaded">
 		<a href="<?php echo get_the_permalink(); ?>">
-			<?php the_post_thumbnail('home-posts-med'); ?>
+			<?php
+				$gif = get_field('post_gif');
+				if( !empty($gif) ){
+					echo '<img class="gif" src="'.$gif['url'].'" alt="'.$gif['alt'].'">';
+				}else{
+					the_post_thumbnail('home-posts-med');
+				}
+			?>
 			<span><?php the_title(); ?></span>
 		</a>
 	</div>
