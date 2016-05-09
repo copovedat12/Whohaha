@@ -101,3 +101,6 @@
 		?>
 	</div>
 </aside>
+
+<?php 
+$_SESSION['do_not_duplicate'] = $do_not_duplicate;

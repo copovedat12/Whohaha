@@ -98,10 +98,6 @@
 		</article>
 	</div>
 
-	<?php
-		global $do_not_duplicate;
-		$do_not_duplicate[] = $post->ID;
-	?>
 </div>
 
 <?php get_template_part( 'template-parts/content', 'single-footer' ); ?>

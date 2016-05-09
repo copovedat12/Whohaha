@@ -56,10 +56,7 @@
 						// /embed\/(\w+([\-+\w+]?)+[\-\w+]?)\"|\?/
 						preg_match('/embed\/([\w+\-+]+)[\"\?]/', $iframe_string, $match);
 						$video_id = $match[1];
-						/*echo (esc_html($iframe_string));
-						echo '<br>';
-						echo $video_id;*/
-						getYtPlayer($video_id,get_the_ID());
+						getYtPlayer($video_id, get_the_ID());
 					} else{
 						echo get_field('video_embed_code');
 					}
@@ -105,11 +102,6 @@
 			</div>
 		</article>
 	</div>
-
-	<?php
-		global $do_not_duplicate;
-		$do_not_duplicate[] = $post->ID;
-	?>
 
 	<?php if (get_field('remove_sidebar') == null || get_field('remove_sidebar') == false ): ?>
 		<div class="col-md-3 sticky-sidebar">
