@@ -103,6 +103,7 @@ function finish_video_ajax(){
 			),
 			'orderby' => 'rand',
 			'post_type' => 'post',
+			'post_status' => 'publish',
 			'posts_per_page' => $num_posts,
 			'post__not_in' => $do_not_duplicate,
 			'nopaging' => false
@@ -124,6 +125,7 @@ function finish_video_ajax(){
 		$args = array(
 			'orderby' => 'rand',
 			'post_type' => 'post',
+			'post_status' => 'publish',
 			'numberposts' => $extra_posts,
 			'post__not_in' => $do_not_duplicate,
 		);
