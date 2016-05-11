@@ -1,10 +1,33 @@
 <?php
 $authors = get_coauthors();
 if($authors[1] !== null || have_rows('things_in_post')):
+if (get_field('show_author_in_post_footer')){
+	$display_auth_foot = true;
+}
 ?>
 
 <footer class="entry-footer">
-	<div class="people-in-video">
+	<?php if ($display_auth_foot): ?>
+	<div class="author-of-post">
+		<header class="top-header">
+			<span>Author</span>
+		</header>
+		<?php
+		$post_author = $authors[0];
+		$author_id = $post_author->data->ID;
+		?>
+		<div class="row">
+			<div class="post-person">
+				<a href="<?php echo get_author_posts_url( $author_id ); ?>">
+				<?php $auth_profile_image = get_field('profile_image', 'user_'.$author_id); ?>
+				<img src="<?php echo $auth_profile_image['sizes']['thumbnail']; ?>" width="<?php echo $auth_profile_image['sizes'][ 'thumbnail-width' ]; ?>" height="<?php echo $auth_profile_image['sizes'][ 'thumbnail-height' ]; ?>">
+				</a>
+				<a href="<?php echo get_author_posts_url( $author_id ); ?>" class="author-name"><?php echo $post_author->data->display_name; ?></a>
+			</div>
+		</div>
+	</div>
+	<?php endif; ?>
+	<div class="people-in-video<?php if ($display_auth_foot) echo ' with-author'; ?>">
 		<header class="top-header">
 			<?php if ( has_post_format( 'video' )): ?>
 			<span>In This Video</span>
@@ -14,7 +37,7 @@ if($authors[1] !== null || have_rows('things_in_post')):
 		</header>
 
 		<div class="row">
-			<div class="in-post-carousel">
+			<div class="in-post-carousel<?php if ($display_auth_foot) echo '-with-author'; ?>">
 			<?php
 			/*
 			 * Check For Co-Authors
