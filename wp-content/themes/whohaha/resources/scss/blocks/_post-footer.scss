@@ -35,38 +35,29 @@ footer.entry-footer{
 			font-weight: 700;
 		}
 	}
-	.author-of-post{
-		width: 20%;
+	.author-of-post,
+	.people-in-video.with-author{
+		padding: 0 15px;
 		float: left;
 	}
-	@media (max-width: $screen-xs-max){
-		.people-in-video,
+	.author-of-post{
+		width: 25%;
+	}
+	.people-in-video.with-author{
+		width: 75%;
+	}
+	@media (max-width: 600px) {
 		.author-of-post{
-			width: 100%;
-			float: none;
+			width: 33.33333%
 		}
-		.post-author-container{
-			width: 25%;
-			margin: auto;
+		.people-in-video.with-author{
+			width: 66.666666%
 		}
 	}
-	@media (min-width: $screen-md) and (max-width: $screen-md-max){
-		.people-in-video,
-		.author-of-post{
-			width: 100%;
-			float: none;
-		}
-		.post-author-container{
-			width: 25%;
-			margin: auto;
-		}
-	}
-	@media (max-width: 500px){
-		.people-in-video .post-person{
-			width: 50%;
-		}
-		.post-author-container{
-			width: 50%;
+	@media (max-width: 480px) {
+		.author-of-post,
+		.people-in-video.with-author{
+			width: 50%
 		}
 	}
 }
