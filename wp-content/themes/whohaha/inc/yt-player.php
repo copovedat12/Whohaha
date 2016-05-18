@@ -1,9 +1,9 @@
 <?php
 
-function getYtPlayer($player_id, $post_id){
+function getYtPlayer($player_id, $post_id = null){
 	?>
 
-	<div id="player"></div>
+	<div id="player_<?php echo $player_id; ?>"></div>
 
 	<script>
 		var player,
@@ -28,7 +28,11 @@ function getYtPlayer($player_id, $post_id){
 						url : '/wp-admin/admin-ajax.php',
 						method : 'POST',
 						data : {
+							<?php if ($post_id === null): ?>
 							'action' : 'finish_video_ajax',
+							<?php else: ?>
+							'action' : 'finish_video_ajax_noid',
+							<?php endif; ?>
 							'id' : '<?php echo $post_id; ?>'
 						}
 					}).done(function(output){
@@ -42,7 +46,7 @@ function getYtPlayer($player_id, $post_id){
 				}
 			},
 			definePlayer : function(){
-				player = new YT.Player('player', {
+				player = new YT.Player('player_<?php echo $player_id; ?>', {
 					height: '390',
 					width: '640',
 					videoId: playerId,
@@ -141,7 +145,7 @@ function finish_video_ajax(){
 		$do_not_duplicate[] = $query_post->ID;
 
 	?>
-	
+
 	<div class="video-post unloaded">
 		<a href="<?php echo get_the_permalink($query_post->ID); ?>">
 			<?php
@@ -163,3 +167,59 @@ function finish_video_ajax(){
 }
 add_action( 'wp_ajax_finish_video_ajax', 'finish_video_ajax' );
 add_action( 'wp_ajax_nopriv_finish_video_ajax', 'finish_video_ajax' );
+
+function finish_video_ajax_noid(){
+	$args = array(
+		'post_type' => 'post',
+		'post_status' => 'publish',
+		'orderby' => 'rand',
+		'posts_per_page' => 6,
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'post_format',
+				'field'    => 'slug',
+				'terms'    => array( 'post-format-video' ),
+			)
+		)
+	);
+	$query = new WP_Query($args);
+	while( $query->have_posts() ): $query->the_post();
+	?>
+
+	<div class="video-post unloaded">
+		<a href="<?php echo get_the_permalink(); ?>">
+			<?php
+				$gif = get_field('post_gif');
+				if( !empty($gif) ){
+					echo '<img class="gif" src="'.$gif['url'].'" alt="'.$gif['alt'].'">';
+				}else{
+					the_post_thumbnail('home-posts-med');
+				}
+			?>
+			<span><?php the_title(); ?></span>
+		</a>
+	</div>
+
+	<?php
+	endwhile;
+	wp_die();
+}
+add_action( 'wp_ajax_finish_video_ajax_noid', 'finish_video_ajax_noid' );
+add_action( 'wp_ajax_nopriv_finish_video_ajax_noid', 'finish_video_ajax_noid' );
+
+function getYtPlayer_shortcode($atts){
+	extract(shortcode_atts(array(
+		"videoid" => "asdf"
+	), $atts));
+
+	ob_start();
+	?>
+	<div class="video-embed">
+	<?php
+	getYtPlayer($videoid, null);
+	?>
+	</div>
+	<?php
+	return ob_get_clean();
+}
+add_shortcode( 'get-yt-player', 'getYtPlayer_shortcode' );

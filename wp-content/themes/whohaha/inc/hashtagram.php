@@ -16,7 +16,7 @@ function get_hashtagram_data($url) {
 function getHashtagramImages($atts){
 	extract(shortcode_atts(array(
 		"hashtag" => ""
-    ), $atts));
+	), $atts));
 
 	$returned_content = get_hashtagram_data('http://hashtagram.cznd.co/approved.php?q='.$hashtag);
 
