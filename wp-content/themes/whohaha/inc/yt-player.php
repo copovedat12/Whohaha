@@ -211,7 +211,7 @@ add_action( 'wp_ajax_nopriv_finish_video_ajax_noid', 'finish_video_ajax_noid' );
 
 function getYtPlayer_shortcode($atts){
 	extract(shortcode_atts(array(
-		"videoid" => "asdf",
+		"id" => "asdf",
 		"autoplay" => false,
 	), $atts));
 
@@ -219,7 +219,7 @@ function getYtPlayer_shortcode($atts){
 	?>
 	<div class="video-embed">
 	<?php
-	getYtPlayer($videoid, null, $autoplay);
+	getYtPlayer($id, null, $autoplay);
 	?>
 	</div>
 	<?php
