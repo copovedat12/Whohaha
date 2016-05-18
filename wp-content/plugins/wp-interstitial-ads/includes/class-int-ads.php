@@ -130,9 +130,20 @@ class Int_Ads{
 		}
 	}
 
+	public function check_ad_enabled($opts){
+		if($opts['enable']){
+			if ($opts['dev_mode'] && (is_user_logged_in() && current_user_can( 'manage_options' )) ) {
+				return true;
+			} elseif (!isset($opts['dev_mode'])) {
+				return true;
+			}
+		}
+	}
+
 	public function check_int_active(){
 		$opts = get_option('interstitial_ads_opts', self::get_defaults());
-		if (!isset($_COOKIE['_wp_int_ad']) && $opts['enable']) {
+		$is_enabled = self::check_ad_enabled($opts);
+		if (!isset($_COOKIE['_wp_int_ad']) && $is_enabled) {
 			$type = 'int';
 			$interstitials_active = true;
 			$ads_page = $opts['page'];
@@ -147,7 +158,8 @@ class Int_Ads{
 	}
 	public function check_popup_active(){
 		$opts = get_option('interstitial_popup_ads_opts', self::get_defaults());
-		if (!isset($_COOKIE['_wp_int_ad_popup']) && $opts['popup_enable']) {
+		$is_enabled = self::check_ad_enabled($opts);
+		if (!isset($_COOKIE['_wp_int_ad_popup']) && $is_enabled) {
 			$type = 'popup';
 			$popup_active = true;
 			$ads_page = $opts['popup_page'];

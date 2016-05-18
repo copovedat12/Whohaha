@@ -24,8 +24,17 @@ $functions = new Int_Ads_Functions();
 				<?php _e( 'Enable Ads', 'wp-interstitial-ads' ); ?>
 			</th>
 			<td>
-				<input type="checkbox" id="interstitial_popup_ads_opts[popup_enable]" name="interstitial_popup_ads_opts[popup_enable]" <?php if($options['popup_enable']) echo ' checked'; ?> />
+				<input type="checkbox" id="interstitial_popup_ads_opts[enable]" name="interstitial_popup_ads_opts[enable]" <?php if($options['enable']) echo ' checked'; ?> />
 				<span class="description"><?php _e( 'Turn popup ads on', 'wp-interstitial-ads' ); ?></span>
+			</td>
+		</tr>
+		<tr valign="top">
+			<th scope="row">
+				<?php _e( 'Development Mode', 'wp-interstitial-ads' ); ?>
+			</th>
+			<td>
+				<input type="checkbox" id="interstitial_popup_ads_opts[dev_mode]" name="interstitial_popup_ads_opts[dev_mode]" <?php if($options['dev_mode']) echo ' checked'; ?> />
+				<span class="description"><?php _e( 'Only show ad if logged in as admin. No cookie will be set', 'wp-interstitial-ads' ); ?></span>
 			</td>
 		</tr>
 		<tr valign="top">

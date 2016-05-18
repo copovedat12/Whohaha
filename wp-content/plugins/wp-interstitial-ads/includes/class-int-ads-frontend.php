@@ -50,9 +50,18 @@ class Int_Ads_Frontend{
 
 				var start = <?php echo $options['timer']; ?>;
 
+				function setCookie() {
+					<?php if ($options['dev_mode']): ?>
+					console.log('Cookie would be set for <?php echo $options['cookie_duration']; ?> seconds.');
+					<?php else: ?>
+					Cookies.set('_wp_int_ad', '<?php echo $_SERVER['REQUEST_URI']; ?>', { path: '/', expires: <?php echo $options['cookie_duration']; ?> });
+					<?php endif; ?>
+				}
+
 				function countDown(){
 					if(start === 0){
 						$('.close-btn').html('<a href="#" class="int-close">Continue To Site</a>');
+						setCookie();
 						clearInterval(statTimer);
 					} else{
 						$(ctTimer).text(start);
@@ -64,7 +73,7 @@ class Int_Ads_Frontend{
 				function closeAd(){
 					ad.remove();
 					$('body').css('overflow', 'initial');
-					Cookies.set('_wp_int_ad', '<?php echo $_SERVER['REQUEST_URI']; ?>', { path: '/', expires: <?php echo $options['cookie_duration']; ?> });
+					setCookie();
 				}
 
 				$('body').on('click', 'a.int-close', function(e){
@@ -88,11 +97,19 @@ class Int_Ads_Frontend{
 		</div>
 		<script>
 			(function($){
+				function setCookie() {
+					<?php if ($options['dev_mode']): ?>
+					console.log('Cookie would be set for <?php echo ($options['cookie_duration'] / 60); ?> minutes.');
+					<?php else: ?>
+					Cookies.set('_wp_int_ad_popup', '<?php echo $_SERVER['REQUEST_URI']; ?>', { path: '/', expires: <?php echo $options['cookie_duration']; ?> });
+					<?php endif; ?>
+				}
+
 				$(document).ready(function(){
 					$('a.modal-close, .modal-overlay').click(function(){
 						$('.modal-overlay').remove();
 						$('.int-modal-wrapper').remove();
-						Cookies.set('_wp_int_ad_popup', '<?php echo $_SERVER['REQUEST_URI']; ?>', { path: '/', expires: <?php echo $options['cookie_duration']; ?> });
+						setCookie();
 					});
 				});
 			})(jQuery);
