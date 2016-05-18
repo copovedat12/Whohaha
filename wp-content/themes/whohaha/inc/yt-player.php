@@ -1,6 +1,6 @@
 <?php
 
-function getYtPlayer($player_id, $post_id = null){
+function getYtPlayer($player_id, $post_id = null, $autoplay = false){
 	?>
 
 	<div id="player_<?php echo $player_id; ?>"></div>
@@ -18,7 +18,9 @@ function getYtPlayer($player_id, $post_id = null){
 			},
 			onPlayerReady : function(event){
 				ytEvents.events.startVidByNum();
-				// event.target.playVideo();
+				<?php if ($autoplay === "true"): ?>
+				event.target.playVideo();
+				<?php endif; ?>
 			},
 			onPlayerStateChange : function(event){
 				if(event.data === 0){
@@ -209,14 +211,15 @@ add_action( 'wp_ajax_nopriv_finish_video_ajax_noid', 'finish_video_ajax_noid' );
 
 function getYtPlayer_shortcode($atts){
 	extract(shortcode_atts(array(
-		"videoid" => "asdf"
+		"videoid" => "asdf",
+		"autoplay" => false,
 	), $atts));
 
 	ob_start();
 	?>
 	<div class="video-embed">
 	<?php
-	getYtPlayer($videoid, null);
+	getYtPlayer($videoid, null, $autoplay);
 	?>
 	</div>
 	<?php
