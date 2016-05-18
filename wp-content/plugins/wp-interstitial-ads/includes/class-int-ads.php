@@ -51,6 +51,7 @@ class Int_Ads{
 		wp_enqueue_script( 'wp-color-picker');
 
 		wp_enqueue_script( 'codemirror-js', plugins_url( '/assets/codemirror-compressed.js', INT_ADS_DIR ), false, false, true  );
+		wp_enqueue_script( 'codemirror-closebrackets-js', plugins_url( '/assets/codemirror-closebrackets.js', INT_ADS_DIR ), false, false, true  );
 		wp_enqueue_style( 'codemirror-css',  plugins_url( '/assets/codemirror.css', INT_ADS_DIR ) );
 
 		wp_enqueue_script( 'intads-admin-js', plugins_url( '/assets/admin-scripts.js', INT_ADS_DIR ), array( 'jquery', 'wp-color-picker' ), false, true  );
@@ -72,6 +73,7 @@ class Int_Ads{
 			    left: 0;
 			    right: 0;
 			    overflow: auto;
+				padding-bottom: 40px;
 			    background: #fff;
 			    background-position: center;
 			    <?php Int_Ads_Functions::create_bg_css($options['bg']); ?>

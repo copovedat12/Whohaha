@@ -9,7 +9,7 @@ class Int_Ads_Frontend{
 				<div class="container close-btn">
 					<div class="countdown pull-right">
 						Continue In <span><?php echo $options['timer']; ?></span>
-						<?php if($options['skip_link']): ?> &nbsp; | &nbsp; <a href="#" class="close">or skip this ad</a><?php endif; ?>
+						<?php if($options['skip_link']): ?> &nbsp; | &nbsp; <a href="#" class="int-close">or skip this ad</a><?php endif; ?>
 					</div>
 				</div>
 			</div>
@@ -45,14 +45,14 @@ class Int_Ads_Frontend{
 				$('body').css('overflow', 'hidden');
 
 				var ad = $('.ad-container');
-				var closeBtn = ad.find('a.close'),
+				var closeBtn = ad.find('a.int-close'),
 					ctTimer = ad.find('.countdown span');
 
 				var start = <?php echo $options['timer']; ?>;
 
 				function countDown(){
 					if(start === 0){
-						$('.close-btn').html('<a href="#" class="close">Continue To Site</a>');
+						$('.close-btn').html('<a href="#" class="int-close">Continue To Site</a>');
 						clearInterval(statTimer);
 					} else{
 						$(ctTimer).text(start);
@@ -67,7 +67,7 @@ class Int_Ads_Frontend{
 					Cookies.set('_wp_int_ad', '<?php echo $_SERVER['REQUEST_URI']; ?>', { path: '/', expires: <?php echo $options['cookie_duration']; ?> });
 				}
 
-				$('body').on('click', 'a.close', function(e){
+				$('body').on('click', 'a.int-close', function(e){
 					e.preventDefault();
 					closeAd();
 				});

@@ -45,6 +45,8 @@ jQuery(document).ready(function($){
 	var myTextArea = document.getElementById('interstitial_ads_css');
 	var myCodeMirror = CodeMirror.fromTextArea(myTextArea, {
 		lineNumbers : true,
-		mode : "css"
+		mode : "css",
+        autoCloseBrackets: true,
+        tabSize : 2
 	});
 })(jQuery);
