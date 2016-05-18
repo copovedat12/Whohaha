@@ -92,7 +92,7 @@ class Int_Ads_Frontend{
 					$('a.modal-close, .modal-overlay').click(function(){
 						$('.modal-overlay').remove();
 						$('.int-modal-wrapper').remove();
-						Cookies.set('_wp_int_ad_popup', '<?php echo $_SERVER['REQUEST_URI']; ?>', { path: '/', expires: <?php echo $options['popup_cookie_duration']; ?> });
+						Cookies.set('_wp_int_ad_popup', '<?php echo $_SERVER['REQUEST_URI']; ?>', { path: '/', expires: <?php echo $options['cookie_duration']; ?> });
 					});
 				});
 			})(jQuery);

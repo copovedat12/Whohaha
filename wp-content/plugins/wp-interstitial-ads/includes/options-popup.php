@@ -25,7 +25,7 @@ $functions = new Int_Ads_Functions();
 			</th>
 			<td>
 				<input type="checkbox" id="interstitial_popup_ads_opts[popup_enable]" name="interstitial_popup_ads_opts[popup_enable]" <?php if($options['popup_enable']) echo ' checked'; ?> />
-				<span class="description"><?php _e( 'Turn popup ads on', 'wp-interstitial-ads' ); ?></span>	 
+				<span class="description"><?php _e( 'Turn popup ads on', 'wp-interstitial-ads' ); ?></span>
 			</td>
 		</tr>
 		<tr valign="top">
@@ -60,7 +60,7 @@ $functions = new Int_Ads_Functions();
 				<?php _e( 'Cookie Time', 'wp-interstitial-ads' ); ?>
 			</th>
 			<td>
-				<?php 
+				<?php
 					$cookie_dur_options = array(
 						'None' => 1,
 						'5 Minutes' => 300,
@@ -72,12 +72,12 @@ $functions = new Int_Ads_Functions();
 						'1 Week' => 604800
 					);
 				?>
-				<select name="interstitial_popup_ads_opts[popup_cookie_duration]" id="interstitial_popup_ads_opts[popup_cookie_duration]">
+				<select name="interstitial_popup_ads_opts[cookie_duration]" id="interstitial_popup_ads_opts[cookie_duration]">
 					<?php foreach ($cookie_dur_options as $duration => $seconds): ?>
 						<option value="<?php echo $seconds; ?>"<?php $functions->is_selected($seconds, 'popup', $defaults); ?>><?php echo $duration; ?></option>
 					<?php endforeach ?>
 				</select>
-				<span class="description"><?php _e( 'Time until ad shows again for the user', 'wp-interstitial-ads' ); ?></span>	 
+				<span class="description"><?php _e( 'Time until ad shows again for the user', 'wp-interstitial-ads' ); ?></span>
 			</td>
 		</tr>
 		<tr valign="top">
@@ -87,8 +87,8 @@ $functions = new Int_Ads_Functions();
 			<td>
 				<div id="<?php echo user_can_richedit() ? 'postdivrich' : 'postdiv'; ?>" class="postarea">
 					<?php wp_editor( htmlspecialchars_decode(stripslashes($options['popup_content'])), 'interstitial_popup_ads_content', array( 'media_buttons' => true, 'textarea_rows' => 10, 'teeny' => false ) ); ?>
-					<span class="description"><?php _e( 'HTML to display in the ad', 'wp-interstitial-ads' ); ?></span>	
-				</div> 
+					<span class="description"><?php _e( 'HTML to display in the ad', 'wp-interstitial-ads' ); ?></span>
+				</div>
 			</td>
 		</tr>
 	</table>

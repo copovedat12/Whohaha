@@ -24,7 +24,6 @@ class Int_Ads{
 		return array(
 			'timer' => 5,
 			'cookie_duration' => 1,
-			'popup_cookie_duration' => 300,
 			'content' => 'Ad content goes here!',
 			'popup_content' => 'Ad content goes here!',
 			'css' => '.int-ad-content{'. PHP_EOL

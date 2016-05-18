@@ -4,7 +4,7 @@ class Int_Ads_Functions{
 	public function is_selected($dur, $type = 'interstitial', $defaults = false){
 		if ($type === 'popup') {
 			$opts = get_option('interstitial_popup_ads_opts', $defaults);
-			$ads_cookie_duration = $opts['popup_cookie_duration'];
+			$ads_cookie_duration = $opts['cookie_duration'];
 		} else {
 			$opts = get_option('interstitial_ads_opts', $defaults);
 			$ads_cookie_duration = $opts['cookie_duration'];

@@ -58,8 +58,15 @@
     width: 50%;
     float: left;
 }
+.int-ad-content-bottom-half.left-half{
+    width: 30%;
+}
+.int-ad-content-bottom-half.right-half{
+    width: 70%;
+}
 @media (max-width: 700px){
-    .int-ad-content-bottom-half{
+    .int-ad-content-bottom-half.left-half,
+    .int-ad-content-bottom-half.right-half{
         width: 100%;
         float: none;
     }
