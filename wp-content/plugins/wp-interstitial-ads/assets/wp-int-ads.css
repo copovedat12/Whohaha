@@ -1,0 +1,144 @@
+/* Backup styles for if Bootstrap is not being used */
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.wp-int-navbar{
+    margin-bottom: 20px;
+}
+.modal-close {
+    float: right;
+    font-size: 21px;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .2;
+    filter: alpha(opacity=20);
+}
+
+.ad-container .wp-int-navbar{
+    background: #fafafa;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0,.2);
+    box-shadow: 0 1px 1px rgba(0,0,0,.2);
+    padding: 15px 0;
+    font-weight: 600;
+    height: 55px;
+}
+.ad-container .countdown{
+    opacity: 0.2;
+    float: right;
+}
+.int-ad-content,
+.int-ad-content-bottom-half{
+    padding: 0 15px;
+}
+.int-ad-content{
+    margin-bottom: 20px;
+}
+.int-ad-content-bottom-half{
+    width: 50%;
+    float: left;
+}
+@media (max-width: 700px){
+    .int-ad-content-bottom-half{
+        width: 100%;
+        float: none;
+    }
+}
+.int-ad-content-bottom::after{
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+/*
+ * Modal Styles
+ */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fade-in {
+    opacity:0;  /* make things invisible upon start */
+    -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+
+    -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+
+    -webkit-animation-duration:0.5s;
+    -moz-animation-duration:0.5s;
+    animation-duration:0.5s;
+}
+.modal-overlay,
+.int-modal-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.modal-overlay{
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.6);
+}
+.int-modal-wrapper{
+    z-index: 10000;
+    overflow: auto;
+    text-align: center;
+    padding: 50px 30px 30px;
+}
+.int-modal{
+    z-index: 10000;
+    max-width: 700px;
+    padding: 10px;
+    background: #ffffff;
+    position: relative;
+    display: inline-block;
+    box-shadow: 0px 0px 6px 3px rgba(0, 0, 0, 0.3);
+    text-align: initial;
+}
+.int-modal .modal-close{
+    position: absolute;
+    top: -40px;
+    right: -5px;
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1;
+    color: #fff;
+    text-shadow: 0 1px 0 #000;
+    opacity: .2;
+    filter: alpha(opacity=20);
+}
+.int-modal .modal-close:hover{
+    opacity: .5;
+    cursor: pointer;
+    text-decoration: none;
+}
+.int-modal img{
+    height: auto;
+    max-width: 100%;
+}
