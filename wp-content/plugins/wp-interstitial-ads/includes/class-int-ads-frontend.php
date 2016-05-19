@@ -6,10 +6,17 @@ class Int_Ads_Frontend{
 		?>
 		<div class="ad-container">
 			<div class="wp-int-navbar">
-				<div class="container close-btn">
-					<div class="countdown pull-right">
-						Continue In <span><?php echo $options['timer']; ?></span>
-						<?php if($options['skip_link']): ?> &nbsp; | &nbsp; <a href="#" class="int-close">or skip this ad</a><?php endif; ?>
+				<div class="container">
+					<?php if ($options['site_logo']): ?>
+						<div class="wp_int_site_logo">
+							<img src="<?php echo $options['site_logo']; ?>" alt="Logo" />
+						</div>
+					<?php endif; ?>
+					<div class="close-btn">
+						<div class="countdown pull-right">
+							Continue In <span><?php echo $options['timer']; ?></span>
+							<?php if($options['skip_link']): ?> &nbsp; | &nbsp; <a href="#" class="int-close">or skip this ad</a><?php endif; ?>
+						</div>
 					</div>
 				</div>
 			</div>

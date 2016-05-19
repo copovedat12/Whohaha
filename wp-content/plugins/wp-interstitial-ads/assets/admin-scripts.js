@@ -4,49 +4,43 @@ jQuery(document).ready(function($){
 });
 
 jQuery(document).ready(function($){
-	// Uploading files
-	var file_frame;
 
-	  jQuery('.accordion-item .button').live('click', function( event ){
+    var media_uploader = null;
+    function open_media_uploader_image(e){
+        var input_class = $(e.target).data('insert');
+        media_uploader = wp.media({
+            frame:    "post",
+            state:    "insert",
+            title: 'asdfasdf',
+            button : {
+                text : "Insert"
+            },
+            multiple: false
+        });
 
-	    event.preventDefault();
+        media_uploader.on("insert", function(){
+            var json = media_uploader.state().get("selection").first().toJSON();
 
-	    // If the media frame already exists, reopen it.
-	    if ( file_frame ) {
-	      file_frame.open();
-	      return;
-	    }
+            var image_url = json.url;
+            var image_caption = json.caption;
+            var image_title = json.title;
 
-	    // Create the media frame.
-	    file_frame = wp.media.frames.file_frame = wp.media({
-	      title: jQuery( this ).data( 'uploader_title' ),
-	      button: {
-	        text: jQuery( this ).data( 'uploader_button_text' ),
-	      },
-	      multiple: false  // Set to true to allow multiple files to be selected
-	    });
+            $('.'+ input_class ).val(image_url);
+        });
 
-	    // When an image is selected, run a callback.
-	    file_frame.on( 'select', function() {
-	      // We set multiple to false so only get one image from the uploader
-	      attachment = file_frame.state().get('selection').first().toJSON();
-
-	      // Do something with attachment.id and/or attachment.url here
-	      $('input.img_url').val(attachment.url);
-	      // console.log(attachment.url);
-	    });
-
-	    // Finally, open the modal
-	    file_frame.open();
-	  });
+        media_uploader.open();
+    }
+    $('body').on('click', 'input#interstitial_ads_bg_button, input#interstitial_ads_bg_button', function(e){
+        open_media_uploader_image(e);
+    });
 });
 
 (function($){
-	var myTextArea = document.getElementById('interstitial_ads_css');
-	var myCodeMirror = CodeMirror.fromTextArea(myTextArea, {
-		lineNumbers : true,
-		mode : "css",
+    var myTextArea = document.getElementById('interstitial_ads_css');
+    var myCodeMirror = CodeMirror.fromTextArea(myTextArea, {
+        lineNumbers : true,
+        mode : "css",
         autoCloseBrackets: true,
         tabSize : 2
-	});
+    });
 })(jQuery);

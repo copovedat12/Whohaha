@@ -51,6 +51,16 @@
     padding: 15px 0;
     font-weight: 600;
     height: 55px;
+    line-height: 25px;
+}
+.wp_int_site_logo{
+    float: left;
+    margin-right: 20px;
+}
+.wp_int_site_logo img{
+    height: 25px;
+    width: auto;
+    display: block;
 }
 .ad-container .countdown{
     opacity: 0.2;

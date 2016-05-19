@@ -128,7 +128,7 @@ $functions = new Int_Ads_Functions();
 					<label for="ads_bg_img">Image</label>
 					<article>
 						<input id="interstitial_ads_opts[bg][image]" name="interstitial_ads_opts[bg][image]" value="<?php if(isset($options['bg']['image'])) echo $options['bg']['image']; ?>" class="img_url" type="text" />
-						<input id="interstitial_ads_bg_button" class="button" name="interstitial_ads_bg_button" type="button" value="Upload" />
+						<input id="interstitial_ads_bg_button" class="button" data-insert="img_url" type="button" value="Upload" />
 						<div class="img-size">
 							<input type="radio" name="interstitial_ads_opts[bg][image_size]" value="stretch" id="interstitial_ads_bg_stretch" <?php if($options['bg']['image_size'] === 'stretch') echo ' checked'; ?>>
 							<label for="interstitial_ads_bg_stretch"> Stretch Image</label>
@@ -138,6 +138,16 @@ $functions = new Int_Ads_Functions();
 						</div>
 					</article>
 				</div>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				<?php _e( 'Site Logo', 'wp-interstitial-ads' ); ?>
+			</th>
+			<td>
+				<input id="interstitial_ads_opts[site_logo]" name="interstitial_ads_opts[site_logo]" value="<?php if(isset($options['site_logo'])) echo $options['site_logo']; ?>" class="logo_img_url" type="text" />
+				<input class="button" id="interstitial_ads_bg_button" type="button" data-insert="logo_img_url" value="Upload" />
+				<span class="description"><?php _e( 'If set, the site logo will show in the ad top-bar', 'wp-interstitial-ads' ); ?></span>
 			</td>
 		</tr>
 		<tr valign="top">
