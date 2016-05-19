@@ -60,7 +60,13 @@
 	margin-top: 10px;
 }
 
-.bottom-areas{
+.bottom-areas::after{
+	content: " ";
+	display: table;
+	clear: both;
+}
+.bottom-areas,
+.cta-option{
 	margin-top: 20px;
 }
 .bottom-areas > .input_sec{

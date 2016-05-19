@@ -188,6 +188,31 @@ $functions = new Int_Ads_Functions();
 									<?php wp_editor( htmlspecialchars_decode(stripslashes($options['content_bottom_right'])), 'interstitial_ads_content_bottom_right', array( 'media_buttons' => true, 'textarea_rows' => 6, 'teeny' => false ) ); ?>
 								</div>
 							</div>
+							<div class="cta-option">
+								<p>
+									<strong>CTA Button</strong>
+									<table>
+										<tr>
+											<td>
+												CTA Button Text
+											</td>
+											<td>
+												<input type="text" id="interstitial_ads_opts[cta_btn_text]" name="interstitial_ads_opts[cta_btn_text]" value="<?php echo $options['cta_btn_text']; ?>" />
+											</td>
+										</tr>
+										<tr>
+											<td>
+												CTA Button URL
+											</td>
+											<td>
+												<input type="text" id="interstitial_ads_opts[cta_btn_url]" name="interstitial_ads_opts[cta_btn_url]" value="<?php echo $options['cta_btn_url']; ?>" />
+											</td>
+										</tr>
+									</table>
+									<span class="description"><?php _e( 'If CTA Button URL is set, a button will show under the right bottom content' ); ?></span>
+								</p>
+
+							</div>
 						</div>
 					</article>
 				</div>

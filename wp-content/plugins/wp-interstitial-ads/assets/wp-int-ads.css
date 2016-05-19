@@ -168,3 +168,14 @@
     height: auto;
     max-width: 100%;
 }
+
+/*
+ * Custom Styles
+ */
+ .int-cta-section{
+     margin-top: 20px;
+ }
+.int-cta-section .btn.btn-large{
+    padding: 10px 40px;
+    font-size: 20px;
+}
