@@ -67,7 +67,7 @@ class Int_Ads_Frontend{
 
 				function countDown(){
 					if(start === 0){
-						$('.close-btn').html('<a href="#" class="int-close">Continue To Site</a>');
+						$('.close-btn').html('<a href="#" class="int-close">Continue</a>');
 						setCookie();
 						clearInterval(statTimer);
 					} else{
