@@ -100,6 +100,10 @@ class Int_Ads_Frontend{
 					e.preventDefault();
 					closeAd();
 				});
+
+				$('body').on('click', '.int-ad-content-container a', function(){
+					closeAd();
+				});
 			})(jQuery);
 		</script>
 		<?php
@@ -129,6 +133,10 @@ class Int_Ads_Frontend{
 					$('a.modal-close, .modal-overlay').click(function(){
 						$('.modal-overlay').remove();
 						$('.int-modal-wrapper').remove();
+						setCookie();
+					});
+
+					$('.int-modal a').click(function(){
 						setCookie();
 					});
 				});
