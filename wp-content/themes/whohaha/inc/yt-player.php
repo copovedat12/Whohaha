@@ -30,7 +30,7 @@ function render_script($video_embeds){
 			echo PHP_EOL;
 			?>
 			var player_<?php echo $index; ?>;
-			var videoId_<?php echo $video['playerid']; ?> = "<?php echo $video['playerid']; ?>";
+			var videoId_<?php echo $index; ?> = "<?php echo $video['playerid']; ?>";
 			<?php
 		}
 		?>
@@ -89,7 +89,7 @@ function render_script($video_embeds){
 				player_<?php echo $index; ?> = new YT.Player('player_<?php echo $video['playerid']; ?>', {
 					height: '390',
 					width: '640',
-					videoId: videoId_<?php echo $video['playerid']; ?>,
+					videoId: videoId_<?php echo $index; ?>,
 					playerVars: {
 						controls:1,
 						modestbranding:1,
