@@ -58,9 +58,6 @@ class Int_Ads_Frontend{
 			</div>
 		</div>
 		<script>
-			if (typeof(jQuery) == 'undefined'){
-				document.write('<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"><\/script>');
-			}
 			(function($){
 				$('body').css('overflow', 'hidden');
 
