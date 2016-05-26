@@ -143,7 +143,7 @@ class Int_Ads{
 	public function check_int_active(){
 		$opts = get_option('interstitial_ads_opts', self::get_defaults());
 		$is_enabled = self::check_ad_enabled($opts);
-		if (!isset($_COOKIE['_wp_int_ad']) && $is_enabled) {
+		if (!isset($_COOKIE['_wp_int_ad']) && $is_enabled || $opts['dev_mode'] && $is_enabled) {
 			$type = 'int';
 			$interstitials_active = true;
 			$ads_page = $opts['page'];
@@ -159,7 +159,7 @@ class Int_Ads{
 	public function check_popup_active(){
 		$opts = get_option('interstitial_popup_ads_opts', self::get_defaults());
 		$is_enabled = self::check_ad_enabled($opts);
-		if (!isset($_COOKIE['_wp_int_ad_popup']) && $is_enabled) {
+		if (!isset($_COOKIE['_wp_int_ad_popup']) && $is_enabled || $opts['dev_mode'] && $is_enabled) {
 			$type = 'popup';
 			$popup_active = true;
 			$ads_page = $opts['popup_page'];
