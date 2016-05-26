@@ -1,0 +1,18 @@
+.wp_int_site_logo{
+    display: none;
+}
+.wp-int-navbar{
+    .close-btn{
+        text-align: center;
+    }
+    .countdown{
+        float: none !important;
+    }
+    .int-close{
+        float: none;
+        opacity: 0.7;
+        :hover{
+            opacity: 0.9;
+        }
+    }
+}

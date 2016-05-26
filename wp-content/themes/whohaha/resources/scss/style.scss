@@ -14,11 +14,11 @@
   - Any values commonly throughout the SASS build should be set as a variable (fonts, colors, percentages)
     (look in _variables.scss)
   - ALL colors should be variables
-  - Don't be afraid to add extra SASS files (like _buttons.scss, _input.scss, etc.) if necessary 
+  - Don't be afraid to add extra SASS files (like _buttons.scss, _input.scss, etc.) if necessary
   - Try to keep files under 200 lines (may vary)
   - Be generous with commenting
   - Using "// " for your comments in SASS and they will not output in the compiled CSS
-  For more info, read through: 
+  For more info, read through:
   http://sass-lang.com/guide
   http://thesassway.com/
   http://sass-guidelin.es/
@@ -54,6 +54,7 @@
 @import 'components/plugins';
 @import 'components/forms';
 @import 'components/buttons';
+@import 'components/int-ads';
 
 @import 'pages/home';
 @import 'pages/single';

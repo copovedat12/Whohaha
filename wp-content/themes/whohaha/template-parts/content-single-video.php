@@ -56,7 +56,7 @@
 						// /embed\/(\w+([\-+\w+]?)+[\-\w+]?)\"|\?/
 						preg_match('/embed\/([\w+\-+]+)[\"\?]/', $iframe_string, $match);
 						$video_id = $match[1];
-						getYtPlayer($video_id, get_the_ID());
+						getYtPlayer($video_id, get_the_ID(), false);
 					} else{
 						echo get_field('video_embed_code');
 					}

@@ -1,31 +1,38 @@
 <?php
 
 function getYtPlayer($player_id, $post_id = null, $autoplay = false){
+	static $counter = 0;
+	// echo ++$counter;
 	?>
 
 	<div id="player_<?php echo $player_id; ?>"></div>
 
+	<?php
+	render_script($player_id, $post_id, $autoplay);
+}
+function render_script($player_id, $post_id = null, $autoplay = false){
+	?>
 	<script>
-		var player,
+		var player_<?php echo $player_id; ?>,
 			apiKey = 'AIzaSyC6RkDGWw1wbYXkk0-xqAxtc4eQhV4rVPs',
-			playerId = '<?php echo $player_id; ?>';
+			playerId_<?php echo $player_id; ?> = '<?php echo $player_id; ?>';
 
-		var ytEvents = {
+		var ytEvents__<?php echo $player_id; ?> = {
 			events : {
 				startVidByNum : function(i){
 					jQuery('#player').animate({ opacity:1 }, 200);
 				}
 			},
 			onPlayerReady : function(event){
-				ytEvents.events.startVidByNum();
+				ytEvents__<?php echo $player_id; ?>.events.startVidByNum();
 				<?php if ($autoplay === "true"): ?>
 				event.target.playVideo();
 				<?php endif; ?>
 			},
 			onPlayerStateChange : function(event){
 				if(event.data === 0){
-					jQuery('.video-embed').append('<div class="video-overlay"><img class="loading" alt="loading" src="/wp-content/themes/whohaha/resources/images/default.gif"></div>')
-					player.cueVideoById({videoId:playerId});
+					jQuery('.video-embed').append('<div class="video-overlay"><img class="loading" alt="loading" src="/wp-content/themes/whohaha/resources/images/default.gif"></div>');
+					player_<?php echo $player_id; ?>.cueVideoById({videoId:playerId_<?php echo $player_id; ?>});
 					jQuery.ajax({
 						url : '/wp-admin/admin-ajax.php',
 						method : 'POST',
@@ -48,10 +55,10 @@ function getYtPlayer($player_id, $post_id = null, $autoplay = false){
 				}
 			},
 			definePlayer : function(){
-				player = new YT.Player('player_<?php echo $player_id; ?>', {
+				player_<?php echo $player_id; ?> = new YT.Player('player_<?php echo $player_id; ?>', {
 					height: '390',
 					width: '640',
-					videoId: playerId,
+					videoId: playerId_<?php echo $player_id; ?>,
 					playerVars: {
 						controls:1,
 						modestbranding:1,
@@ -59,8 +66,8 @@ function getYtPlayer($player_id, $post_id = null, $autoplay = false){
 						color: 'white'
 					},
 					events: {
-						'onReady': ytEvents.onPlayerReady,
-						'onStateChange': ytEvents.onPlayerStateChange
+						'onReady': ytEvents__<?php echo $player_id; ?>.onPlayerReady,
+						'onStateChange': ytEvents__<?php echo $player_id; ?>.onPlayerStateChange
 					}
 				});
 			},
@@ -73,10 +80,11 @@ function getYtPlayer($player_id, $post_id = null, $autoplay = false){
 			}
 		}
 
-		ytEvents.init();
+		ytEvents__<?php echo $player_id; ?>.init();
 
 		function onYouTubeIframeAPIReady() {
-			ytEvents.definePlayer();
+			console.log('<?php echo $player_id; ?>');
+			ytEvents__<?php echo $player_id; ?>.definePlayer();
 		}
 
 	</script>
