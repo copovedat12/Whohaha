@@ -6,6 +6,8 @@ if(isset($_POST['interstitial_ads_section']) && $_POST['interstitial_ads_section
 	$options['popup_content'] = $ads_content;
 
 	update_option('interstitial_popup_ads_opts', $options);
+
+	header("Refresh:0");
 	?>
 	<div class="updated"><p><strong><?php _e('Options saved.' ); ?></strong></p></div>
 	<?php
@@ -17,7 +19,7 @@ $functions = new Int_Ads_Functions();
 ?>
 
 <p class="description" style="margin-top: 20px;">If Intersitial ad is active on the same page as a popup ad, the interstitial will take precedence.</p>
-<form method="post" action="" method="post" id="interstitial_ads_form" name="interstitial_ads_form">
+<form method="post" action="" method="post" id="interstitial_popup_ads_form" name="interstitial_popup_ads_form">
 	<table class="form-table">
 		<tr valign="top">
 			<th scope="row">
