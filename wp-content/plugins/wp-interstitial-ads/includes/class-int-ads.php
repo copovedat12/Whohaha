@@ -11,7 +11,7 @@ class Int_Ads{
 		add_action( 'admin_menu', array($this, 'register_submenu') );
 		add_action( 'wp_head', array($this, 'init_int_ads') );
 
-		self::$current = ($_GET['tab'] === 'popup') ? 'popup' : 'interstitial';
+		self::$current = (isset($_GET['tab']) && $_GET['tab'] === 'popup') ? 'popup' : 'interstitial';
 		self::$pagename = 'interstitial-ads';
 	}
 

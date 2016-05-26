@@ -1,6 +1,6 @@
 <?php
 $defaults = $this->get_defaults();
-if($_POST['interstitial_ads_hidden'] === 'Y') {
+if(isset($_POST['interstitial_ads_section']) && $_POST['interstitial_ads_section'] === 'popup') {
 	$ads_content = $_POST['interstitial_popup_ads_content'];
 	$options = $_POST['interstitial_popup_ads_opts'];
 	$options['popup_content'] = $ads_content;
@@ -17,14 +17,14 @@ $functions = new Int_Ads_Functions();
 ?>
 
 <p class="description" style="margin-top: 20px;">If Intersitial ad is active on the same page as a popup ad, the interstitial will take precedence.</p>
-<form method="post" action="" method="POST" id="interstitial_ads_form">
+<form method="post" action="" method="post" id="interstitial_ads_form" name="interstitial_ads_form">
 	<table class="form-table">
 		<tr valign="top">
 			<th scope="row">
 				<?php _e( 'Enable Ads', 'wp-interstitial-ads' ); ?>
 			</th>
 			<td>
-				<input type="checkbox" id="interstitial_popup_ads_opts[enable]" name="interstitial_popup_ads_opts[enable]" <?php if($options['enable']) echo ' checked'; ?> />
+				<input type="checkbox" id="interstitial_popup_ads_opts[enable]" name="interstitial_popup_ads_opts[enable]" <?php if(isset($options['enable']) && $options['enable']) echo ' checked'; ?> />
 				<span class="description"><?php _e( 'Turn popup ads on', 'wp-interstitial-ads' ); ?></span>
 			</td>
 		</tr>
@@ -33,7 +33,7 @@ $functions = new Int_Ads_Functions();
 				<?php _e( 'Development Mode', 'wp-interstitial-ads' ); ?>
 			</th>
 			<td>
-				<input type="checkbox" id="interstitial_popup_ads_opts[dev_mode]" name="interstitial_popup_ads_opts[dev_mode]" <?php if($options['dev_mode']) echo ' checked'; ?> />
+				<input type="checkbox" id="interstitial_popup_ads_opts[dev_mode]" name="interstitial_popup_ads_opts[dev_mode]" <?php if(isset($options['dev_mode']) && $options['dev_mode']) echo ' checked'; ?> />
 				<span class="description"><?php _e( 'Only show ad if logged in as admin. No cookie will be set', 'wp-interstitial-ads' ); ?></span>
 			</td>
 		</tr>
@@ -101,7 +101,7 @@ $functions = new Int_Ads_Functions();
 			</td>
 		</tr>
 	</table>
-	<input type="hidden" name="interstitial_ads_hidden" value="Y">
+	<input type="hidden" name="interstitial_ads_section" value="popup">
 	<p class="submit">
 		<input type="submit" class="button-primary" value="<?php _e( 'Save Options', 'wp-interstitial-ads' ); ?>" />
 	</p>

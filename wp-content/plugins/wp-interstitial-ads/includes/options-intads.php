@@ -1,6 +1,6 @@
 <?php
 $defaults = $this->get_defaults();
-if($_POST['interstitial_ads_hidden'] === 'Y') {
+if(isset($_POST['interstitial_ads_hidden']) && $_POST['interstitial_ads_hidden'] === 'Y') {
 	$ads_content = $_POST['interstitial_ads_content'];
 	$ads_content_top = $_POST['interstitial_ads_content_two_top'];
 	$ads_content_bottom_left = $_POST['interstitial_ads_content_bottom_left'];
@@ -29,7 +29,7 @@ $functions = new Int_Ads_Functions();
 				<?php _e( 'Enable Ads', 'wp-interstitial-ads' ); ?>
 			</th>
 			<td>
-				<input type="checkbox" id="interstitial_ads_opts[enable]" name="interstitial_ads_opts[enable]" <?php if($options['enable']) echo ' checked'; ?> />
+				<input type="checkbox" id="interstitial_ads_opts[enable]" name="interstitial_ads_opts[enable]" <?php if(isset($options['enable']) && $options['enable']) echo ' checked'; ?> />
 				<span class="description"><?php _e( 'Turn interstitial ads on', 'wp-interstitial-ads' ); ?></span>
 			</td>
 		</tr>
@@ -38,7 +38,7 @@ $functions = new Int_Ads_Functions();
 				<?php _e( 'Allow Skip Link', 'wp-interstitial-ads' ); ?>
 			</th>
 			<td>
-				<input type="checkbox" id="interstitial_ads_opts[skip_link]" name="interstitial_ads_opts[skip_link]" <?php if($options['skip_link']) echo ' checked'; ?> />
+				<input type="checkbox" id="interstitial_ads_opts[skip_link]" name="interstitial_ads_opts[skip_link]" <?php if(isset($options['skip_link']) && $options['skip_link']) echo ' checked'; ?> />
 				<span class="description"><?php _e( 'Allow skip this ad link during countdown', 'wp-interstitial-ads' ); ?></span>
 			</td>
 		</tr>
