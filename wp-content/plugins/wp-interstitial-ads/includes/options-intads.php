@@ -35,20 +35,20 @@ $functions = new Int_Ads_Functions();
 		</tr>
 		<tr valign="top">
 			<th scope="row">
-				<?php _e( 'Allow Skip Link', 'wp-interstitial-ads' ); ?>
-			</th>
-			<td>
-				<input type="checkbox" id="interstitial_ads_opts[skip_link]" name="interstitial_ads_opts[skip_link]" <?php if(isset($options['skip_link']) && $options['skip_link']) echo ' checked'; ?> />
-				<span class="description"><?php _e( 'Allow skip this ad link during countdown', 'wp-interstitial-ads' ); ?></span>
-			</td>
-		</tr>
-		<tr valign="top">
-			<th scope="row">
 				<?php _e( 'Development Mode', 'wp-interstitial-ads' ); ?>
 			</th>
 			<td>
 				<input type="checkbox" id="interstitial_ads_opts[dev_mode]" name="interstitial_ads_opts[dev_mode]" <?php if($options['dev_mode']) echo ' checked'; ?> />
 				<span class="description"><?php _e( 'Only show ad if logged in as admin. No cookie will be set', 'wp-interstitial-ads' ); ?></span>
+			</td>
+		</tr>
+		<tr valign="top">
+			<th scope="row">
+				<?php _e( 'Allow Skip Link', 'wp-interstitial-ads' ); ?>
+			</th>
+			<td>
+				<input type="checkbox" id="interstitial_ads_opts[skip_link]" name="interstitial_ads_opts[skip_link]" <?php if(isset($options['skip_link']) && $options['skip_link']) echo ' checked'; ?> />
+				<span class="description"><?php _e( 'Allow skip this ad link during countdown', 'wp-interstitial-ads' ); ?></span>
 			</td>
 		</tr>
 		<tr valign="top">
