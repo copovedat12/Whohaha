@@ -39,21 +39,40 @@
 		}
 	}
 	.loop-break-form h2{
-		font-size: 42px;
-		margin: 0 0 30px;
+		font-size: 52px;
+		margin: 0 0 50px;
 		@media (max-width: 670px){
-			font-size: 36px;
-			margin: 0 0 20px;
+			font-size: 46px;
+			margin: 0 0 40px;
 		}
 		@media (max-width: 580px){
 			font-size: 28px;
+			margin: 0 0 20px;
 		}
 		@media (max-width: 420px){
 			font-size: 24px;
-			margin: 0 0 0px;
+			margin: 0 0 5px;
 		}
 		@media (max-width: 350px){
 			font-size: 18px;
+			margin: 0;
+		}
+	}
+	.loop-break-form{
+		#mc-embedded-subscribe-form .mc-field-group input{
+			padding-right: 110px;
+		}
+		input#mc-embedded-subscribe{
+			position: absolute;
+			right: 10%;
+			bottom: 0;
+			height: 36px;
+			border-radius: 0;
+			width: 100px;
+			@media (max-width: 530px){
+				right: 30px;
+				height: 34px;
+			}
 		}
 	}
 }
