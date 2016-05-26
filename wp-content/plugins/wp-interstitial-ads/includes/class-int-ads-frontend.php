@@ -38,11 +38,11 @@ class Int_Ads_Frontend{
 						</div>
 						<div class="int-ad-content-bottom-half right-half">
 							<?php echo do_shortcode( htmlspecialchars_decode(stripslashes($options['content_bottom_right'])) ); ?>
-							<?php if (isset($options['cta_btn_url'])): ?>
+							<?php if (isset($options['cta_btn_url']) && !empty($options['cta_btn_url'])): ?>
 								<div class="int-cta-section">
 									<a class="btn btn-primary btn-large" href="<?php echo $options['cta_btn_url']; ?>">
 										<?php
-										if ( isset($options['cta_btn_text']) ) {
+										if ( isset($options['cta_btn_text']) && !empty($options['cta_btn_text']) ) {
 											echo $options['cta_btn_text'];
 										} else {
 											echo 'Click Here';
