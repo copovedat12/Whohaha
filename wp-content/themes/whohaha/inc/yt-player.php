@@ -26,10 +26,10 @@ function render_script($video_embeds){
 	?>
 	<script>
 		<?php
-		foreach ($video_embeds as $video){
+		foreach ($video_embeds as $index => $video){
 			echo PHP_EOL;
 			?>
-			var player_<?php echo $video['playerid']; ?>;
+			var player_<?php echo $index; ?>;
 			var videoId_<?php echo $video['playerid']; ?> = "<?php echo $video['playerid']; ?>";
 			<?php
 		}
@@ -84,9 +84,9 @@ function render_script($video_embeds){
 			},
 			definePlayer : function(){
 				<?php
-				foreach ($video_embeds as $video) {
+				foreach ($video_embeds as $index => $video) {
 				?>
-				player_<?php echo $video['playerid']; ?> = new YT.Player('player_<?php echo $video['playerid']; ?>', {
+				player_<?php echo $index; ?> = new YT.Player('player_<?php echo $video['playerid']; ?>', {
 					height: '390',
 					width: '640',
 					videoId: videoId_<?php echo $video['playerid']; ?>,
