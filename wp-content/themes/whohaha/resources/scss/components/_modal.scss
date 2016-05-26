@@ -26,3 +26,34 @@
 		}
 	}
 }
+
+.int-modal-wrapper{
+	padding-top: 150px;
+}
+.int-modal{
+	max-width: 630px;
+	.modal-close{
+		opacity: 0.5;
+		&:hover{
+			opacity: 0.8;
+		}
+	}
+	.loop-break-form h2{
+		font-size: 42px;
+		margin: 0 0 30px;
+		@media (max-width: 670px){
+			font-size: 36px;
+			margin: 0 0 20px;
+		}
+		@media (max-width: 580px){
+			font-size: 28px;
+		}
+		@media (max-width: 420px){
+			font-size: 24px;
+			margin: 0 0 0px;
+		}
+		@media (max-width: 350px){
+			font-size: 18px;
+		}
+	}
+}

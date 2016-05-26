@@ -94,9 +94,10 @@ input.button{
 .loop-break-form {
 	margin-bottom: 20px;
  	position: relative;
- 	#mc-embedded-subscribe-form, 
+ 	#mc-embedded-subscribe-form,
  	div.wpcf7 {
  		margin-top: 2%;
+		position: relative;
  	}
  	#mc-embedded-subscribe-form{
  		.mc-field-group input{
@@ -145,16 +146,13 @@ input.button{
 
  	@media (max-width: 530px){
  		#mc-embedded-subscribe-form{
- 			.mc-field-group{
-	 			text-align: left;
-	 			width: 60%;
-	 			margin: 0;
-	 			position: absolute;
-	 			bottom: 2%;
-	 			left: 10%;
-	 		}
+			.mc-field-group{
+				padding: 0 30px;
+			}
 	 		.mc-field-group input{
 	 		    border: 0;
+				width: 100%;
+				padding-right: 110px;
 	 		}
 	 		p{
 	 		    margin: 0;
@@ -162,9 +160,11 @@ input.button{
  		}
  		input#mc-embedded-subscribe{
  		    width: 100px;
+			height: 34px;
  		    position: absolute;
- 		    bottom: 2%;
- 		    right: 10%;
+ 		    bottom: 0;
+ 		    right: 30px;
+			border-radius: 0;
  		}
  	}
 }
