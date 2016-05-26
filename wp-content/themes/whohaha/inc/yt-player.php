@@ -15,10 +15,12 @@ function getYtPlayer($player_id, $post_id = null, $autoplay = false){
 	<?php
 }
 
-add_action('wp_footer', 'check_yt_vids', 15);
+add_action('wp_footer', 'check_yt_vids', 20);
 function check_yt_vids(){
 	global $video_embeds;
-	render_script($video_embeds);
+	if (!empty($video_embeds)) {
+		render_script($video_embeds);
+	}
 }
 
 // function render_script($player_id, $post_id = null, $autoplay = false){
