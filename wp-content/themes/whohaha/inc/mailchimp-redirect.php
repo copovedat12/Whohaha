@@ -16,9 +16,10 @@ function js_cookie_code(){
     ?>
     <script>
     function SetCookie(c_name,expiredays) {
-        value = window.location.pathname;
+        var plusDays = expiredays ? expiredays : 1;
+        var value = window.location.pathname;
         var exdate = new Date();
-        exdate.setDate(exdate.getDate()+1);
+        exdate.setDate(exdate.getDate()+plusDays);
         document.cookie=c_name+ "="+escape(value)+";path=/;expires="+exdate.toGMTString();
     }
     </script>
