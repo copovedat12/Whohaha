@@ -246,6 +246,11 @@ function get_nav_menu_count(){
 }
 
 /**
+ * Mailchimp redirect functions
+ */
+require get_template_directory() . '/inc/mailchimp-redirect.php';
+
+/**
  * Implement the Hashtagram shortcode
  */
 require get_template_directory() . '/inc/random-tags.php';

@@ -98,8 +98,8 @@ class Int_Ads_Frontend{
 					closeAd();
 				});
 
-				$('body').on('click', '.int-ad-content-container a', function(){
-					closeAd();
+				$('body').on('click', '.int-ad-content-container a, .int-ad-content-container input[type="submit"]', function(){
+					setCookie();
 				});
 			})(jQuery);
 		</script>
@@ -133,7 +133,7 @@ class Int_Ads_Frontend{
 						setCookie();
 					});
 
-					$('.int-modal a').click(function(){
+					$('.int-modal a, .int-modal input[type="submit"]').click(function(){
 						setCookie();
 					});
 				});
