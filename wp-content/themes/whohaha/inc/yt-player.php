@@ -188,13 +188,12 @@ function finish_video_ajax(){
 	if ($query_posts):
 	foreach ($query_posts as $query_post):
 		$do_not_duplicate[] = $query_post->ID;
-
 	?>
 
-	<div class="video-post unloaded">
+	<div class="video-post with-post-id unloaded">
 		<a href="<?php echo get_the_permalink($query_post->ID); ?>">
 			<?php
-				$gif = get_field($query_post->ID, 'post_gif');
+				$gif = get_field('post_gif', $query_post->ID);
 				if( !empty($gif) ){
 					echo '<img class="gif" src="'.$gif['url'].'" alt="'.$gif['alt'].'">';
 				}else{
@@ -231,7 +230,7 @@ function finish_video_ajax_noid(){
 	while( $query->have_posts() ): $query->the_post();
 	?>
 
-	<div class="video-post unloaded">
+	<div class="video-post without-post-id unloaded">
 		<a href="<?php echo get_the_permalink(); ?>">
 			<?php
 				$gif = get_field('post_gif');
