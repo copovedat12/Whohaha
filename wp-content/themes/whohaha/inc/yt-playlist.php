@@ -2,9 +2,9 @@
 
 function getYtPlaylist($plist_url){
 
-    $parts = parse_url($plist_url);
-    parse_str($parts['query'], $query);
-    $plist_id = $query['list'];
+	$parts = parse_url($plist_url);
+	parse_str($parts['query'], $query);
+	$plist_id = $query['list'];
 
 	?>
 	<div class="yt-section">
@@ -88,10 +88,11 @@ function getYtPlaylist($plist_url){
 
 			},
 			onPlayerStateChange : function(event){
-				if(event.data === 5){
-					// ytEvents.addPlaylistVids();
-					event.target.playVideo();
-				}else if(event.data === 3){
+				// if(event.data === 5){
+				// 	// ytEvents.addPlaylistVids();
+				// 	event.target.playVideo();
+				// }
+				if(event.data === -1){
 					jQuery('.v-player-list > a').removeClass('active');
 					ytEvents.playingVid = player.getPlaylistIndex();
 					jQuery('a.plist-video-'+ytEvents.playingVid).addClass('active');
