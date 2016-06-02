@@ -6,7 +6,7 @@ class Int_Ads_Frontend{
 		?>
 		<div class="ad-container">
 			<div class="wp-int-navbar">
-				<div class="container">
+				<div class="intads-bootstrap-container">
 					<?php if ($options['site_logo']): ?>
 						<div class="wp_int_site_logo">
 							<img src="<?php echo $options['site_logo']; ?>" alt="Logo" />
@@ -20,7 +20,7 @@ class Int_Ads_Frontend{
 					</div>
 				</div>
 			</div>
-			<div class="container">
+			<div class="intads-bootstrap-container">
 			<?php if ($options['content_layout'] === 'layout1'): ?>
 				<div class="int-ad-content-container">
 					<div class="int-ad-content">
