@@ -437,3 +437,21 @@ function socialShare(url, width, height) {
 	var winTop = (window.innerHeight / 2) - (height / 2);
 	window.open(url, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height='+height+',width='+width+',top='+winTop+',left='+winLeft);
 }
+
+/*
+ * Add google event when youtube subscribe iframe is clicked in interstitial ad
+ */
+(function($){
+	$(window).load(function(){
+		if ($('#___ytsubscribe_0').length > 0) {
+			var iframeYt = document.getElementById('___ytsubscribe_0').firstElementChild;
+			focus();
+			var listener = addEventListener('blur', function() {
+				if(document.activeElement === iframeYt) {
+					ga('send', 'event', 'Interstitial Ad', 'click', 'Subscribe to WhoHaha on Youtube');
+				}
+				removeEventListener('blur', listener);
+			});
+		}
+	});
+})(jQuery);
