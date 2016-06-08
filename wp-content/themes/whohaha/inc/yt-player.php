@@ -11,7 +11,7 @@ function getYtPlayer($player_id, $post_id = null, $autoplay = false){
 		'autoplay' => $autoplay
 	);
 	?>
-	<div id="player_<?php echo $player_id; ?>" data-videoid="<?php echo $player_id; ?>" <?php if ($post_id) echo ' data-postid="'.$post_id.'"'; ?><?php if ($autoplay) echo ' data-autoplay="'.$autoplay.'"'; ?>></div>
+	<div id="player_<?php echo $player_id; ?>" data-videoid="<?php echo $player_id; ?>" data-vidurl="https://www.youtube.com/embed/<?php echo $player_id; ?>" <?php if ($post_id) echo ' data-postid="'.$post_id.'"'; ?><?php if ($autoplay) echo ' data-autoplay="'.$autoplay.'"'; ?>></div>
 	<?php
 }
 
