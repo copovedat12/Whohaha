@@ -17,36 +17,6 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-<!-- for facebook -->
-	<meta property="og:site_name" content="<?php bloginfo('name'); ?>"/>
-<?php if ( is_home() ): ?>
-	<meta property="og:type" content="website"/>
-<?php elseif ( is_author() ): ?>
-	<?php
-		$curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
-		$curauth_id = $curauth->ID;
-	?>
-	<meta name="description" content="<?php echo author_meta_info( $curauth_id )['short_desc']; ?>"/>
-	<meta property="og:title" content="<?php echo get_the_author_meta('display_name', $curauth_id); ?>"/>
-	<meta property="og:description" content="<?php echo author_meta_info( $curauth_id )['short_desc']; ?>"/>
-	<meta property="og:url" content="<?php echo get_author_posts_url( $curauth_id ); ?>"/>
-	<meta property="og:type" content="website"/>
-	<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/resources/images/whohaha-fb.jpg" />
-<?php else: ?>
-	<meta property="og:title" content="<?php the_title(); ?>"/>
-	<meta property="og:description" content="<?php echo get_excerpt_by_id($post_id); ?>"/>
-	<meta property="og:url" content="<?php the_permalink(); ?>"/>
-	<meta property="og:type" content="<?php if (is_single() || is_page()) { echo "article"; } else { echo "website";} ?>"/>
-	<?php
-		$thumb_id = get_post_thumbnail_id();
-		$thumb_url = wp_get_attachment_image_src($thumb_id,'thumbnail-size', true);
-	?>
-	<meta property="og:image" content="<?php echo $thumb_url[0]; ?>" />
-	<?php global $post; $author_id=$post->post_author;$fb_url = get_field('user_fb', 'user_' . $author_id); ?>
-	<meta property="article:publisher" content="<?php echo $fb_url;?>" /> <!-- still need -->
-	<meta property="article:author" content="<?php echo $fb_url;?>" /> <!-- still need -->
-<?php endif; ?>
-
 <meta name="google-site-verification" content="YLaxceYycBEBXkM_yGMEhKD0IioeOHSM_EI-nnH81pE" />
 <meta name="google-site-verification" content="civVdocHhY9An9L-iLyjzsphwp45HNfxxth8V_QsOH8" />
 <meta name="google-site-verification" content="o3-7wzsKZSUaDQmKen8Ytcpu3stbVRTkM3yLeGsMIh4" />
