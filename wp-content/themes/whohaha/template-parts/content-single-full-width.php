@@ -50,8 +50,8 @@
 			<div class="video-embed">
 				<?php echo get_field('video_embed_code'); ?>
 			</div>
-		<?php 
-			endif; 
+		<?php
+			endif;
 		endif;
 		?>
 
@@ -72,12 +72,22 @@
 			<div class="row">
 				<div class="<?php echo ($socials_bottom === true ? "col-md-12" : "col-md-9 pull-right"); ?>">
 					<div class="entry-content">
-						<?php if ( get_field('post_sub_header') ): ?>
-						<h2 class="entry-subtitle">
-							<?php the_field('post_sub_header'); ?>
-						</h2>
-						<?php endif; ?>
-						
+						<?php
+							if (get_post_format() == 'video'):
+							if(have_rows('add_more_videos')): ?>
+								<div class="caption-slider">
+									<div class="caption"><?php the_field('video_caption'); ?></div>
+									<?php while (have_rows('add_more_videos')): the_row(); ?>
+										<div class="caption"><?php the_sub_field('extra_video_caption'); ?></div>
+									<?php endwhile; ?>
+								</div>
+							<?php else: ?>
+							<div class="caption"><?php the_field('video_caption'); ?></div>
+							<?php
+							endif;
+							endif;
+						?>
+
 						<?php
 							the_content();
 						?>

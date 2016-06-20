@@ -179,6 +179,16 @@
 			slidesToShow : 1,
 			variableWidth: true,
 			centerMode: true,
+			draggable: false,
+			asNavFor: '.caption-slider'
+		});
+		$('.caption-slider').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: false,
+			fade: true,
+			draggable: false,
+			adaptiveHeight: true
 		});
 
 		$('#page-trending-slides').slick(trendingOptions);

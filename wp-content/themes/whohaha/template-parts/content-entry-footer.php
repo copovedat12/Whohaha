@@ -83,4 +83,3 @@ if (get_field('show_author_in_post_footer')){
 
 <?php
 endif;
-?>

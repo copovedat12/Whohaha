@@ -22,8 +22,8 @@ get_header(); ?>
 			if(get_field('video_playlist') || (have_rows('add_more_videos') && !($_GET['display'] === 'list'))){
 				get_template_part( 'template-parts/content', 'single-full-width' );
 			} else if(get_post_format() === 'video'){
-                get_template_part( 'template-parts/content', 'single-video' );
-			}else{
+				get_template_part( 'template-parts/content', 'single-video' );
+			} else{
 				get_template_part( 'template-parts/content', 'single' );
 			}
 
@@ -31,6 +31,6 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-	
+
 <?php //get_sidebar(); ?>
 <?php get_footer(); ?>
