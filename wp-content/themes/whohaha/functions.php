@@ -304,3 +304,5 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 require get_template_directory() . '/inc/yoast.php';
+
+require get_template_directory() . '/inc/instant-articles.php';

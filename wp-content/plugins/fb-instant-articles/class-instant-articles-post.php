@@ -671,6 +671,8 @@ class Instant_Articles_Post {
 
 		$document = apply_filters( 'instant_articles_parsed_document', $document );
 
+		do_action( 'instant_articles_before_article_content', $this );
+
 		if ( $result ) {
 			$transformer->transform( $this->instant_article, $document );
 		}
