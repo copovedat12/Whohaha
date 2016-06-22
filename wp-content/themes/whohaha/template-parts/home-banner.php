@@ -8,7 +8,7 @@
 	<div class="banner">
 		<?php
 			$banners = get_field('carousel_posts');
-			shuffle($banners);
+			// shuffle($banners);
 			foreach ($banners as $banner):
 			$image = $banner['post_image'];
 			$url = $banner['post_url'];
@@ -17,8 +17,7 @@
 		<?php endforeach; ?>
 	</div>
 
-<?php 
-	endwhile; 
-	wp_reset_postdata(); 
+<?php
+	endwhile;
+	wp_reset_postdata();
 	endif;
-?>
