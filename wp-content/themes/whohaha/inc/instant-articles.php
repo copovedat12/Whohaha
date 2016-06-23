@@ -18,7 +18,8 @@ function incl_video($ia_post) {
 	if($iframe_string){
 		preg_match('/src="([^"]+)"/', $iframe_string, $match);
 		$video_url = $match[1];
-		$instant_article->addChild( SocialEmbed::create()->withSource($video_url) );
+		$instant_article->addChild( SocialEmbed::create()->withSource($video_url)->withWidth(640)->withHeight(390) );
+		// $instant_article->addChild( SocialEmbed::create()->withWidth(300) );
 	}
 }
 
