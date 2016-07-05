@@ -18,14 +18,15 @@
 	$offset = ( $paged - 1 ) * $display_count;
 	// offest +2 posts so first 2 posts on home page aren't used in the loop
 	$offset = $offset + 2;
-	$homepage_loop = new WP_Query(array('paged' => $paged, 'offset' => $offset));
+	if(get_option( 'sticky_posts' )) $offset = $offset - 1;
+	$homepage_loop = new WP_Query(array('paged' => $paged, 'offset' => $offset, 'post__not_in' => get_option( 'sticky_posts' ) ));
 ?>
 
 <?php include(get_template_directory() . '/template-parts/infinite-loop-break.php'); ?>
 
 <?php
 	$loop_index = 0;
-	while ( $homepage_loop->have_posts() ) : $homepage_loop->the_post(); 
+	while ( $homepage_loop->have_posts() ) : $homepage_loop->the_post();
 	$loop_index++;
 	$do_not_duplicate[] = $post->ID;
 

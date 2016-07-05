@@ -5,8 +5,9 @@ if(have_posts() && is_front_page() && !is_paged() ):
 ?>
 	<div class="row">
 		<?php
-		$homepage_loop = new WP_Query('posts_per_page=2');
-		while ( $homepage_loop->have_posts() ) : $homepage_loop->the_post(); 
+		$posts_per_page = get_option( 'sticky_posts' ) ? 1 : 2;
+		$homepage_loop = new WP_Query('posts_per_page='.$posts_per_page);
+		while ( $homepage_loop->have_posts() ) : $homepage_loop->the_post();
 		// $loop_index++;
 		$do_not_duplicate[] = $post->ID;
 		?>
