@@ -23,6 +23,79 @@
 
 <meta property="fb:pages" content="707649489340379" />
 
+<script type='text/javascript'>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+  (function() {
+    var gads = document.createElement('script');
+    gads.async = true;
+    gads.type = 'text/javascript';
+    var useSSL = 'https:' == document.location.protocol;
+    gads.src = (useSSL ? 'https:' : 'http:') +
+      '//www.googletagservices.com/tag/js/gpt.js';
+    var node = document.getElementsByTagName('script')[0];
+    node.parentNode.insertBefore(gads, node);
+  })();
+</script>
+
+<script type='text/javascript'>
+    var gptAdSlots = [];
+    googletag.cmd.push(function() {
+        var mapping1 = googletag.sizeMapping().
+            addSize([0, 0], [300, 250]).
+            addSize([500, 400], [450, 375]).
+            addSize([768, 225], [720, 225]).
+            addSize([992, 300], [940, 294]).
+            addSize([1300, 400], [1190, 372]).
+            build();
+        gptAdSlots[0] = googletag.defineSlot('/4738791/WHH_Spot_1', [1260, 394], 'div-gpt-ad-1468262599942-0').
+            defineSizeMapping(mapping1).
+            setCollapseEmptyDiv(true).
+            addService(googletag.pubads());
+        // googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+    });
+
+    googletag.cmd.push(function() {
+        var mapping2 = googletag.sizeMapping().
+            addSize([0, 0], [300, 250]).
+            addSize([500, 400], [450, 375]).
+            addSize([768, 225], [720, 225]).
+            addSize([992, 300], [940, 294]).
+            addSize([1300, 400], [1190, 372]).
+            build();
+        gptAdSlots[1] = googletag.defineSlot('/4738791/WHH_Spot_2', [1260, 394], 'div-gpt-ad-1468262843164-0').
+            defineSizeMapping(mapping2).
+            setCollapseEmptyDiv(true).
+            addService(googletag.pubads());
+        // googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+    });
+
+    var refreshSlots = function() {
+        googletag.cmd.push(function() {
+            googletag.pubads().refresh([gptAdSlots[0], gptAdSlots[1]]);
+        });
+    };
+
+    /*
+     *	Reinit Ads on resize
+     */
+    (function($){
+        var beforesize = $(window).width();
+        var sizeChanges = [500, 768, 992, 1220];
+        $(window).on('resize', function(){
+            var size = $(window).width();
+            for($i = 0; $i < sizeChanges.length; $i++){
+                if((beforesize > sizeChanges[$i] && size <= sizeChanges[$i]) || (beforesize <= sizeChanges[$i] && size > sizeChanges[$i])){
+                    refreshSlots();
+                }
+            }
+            beforesize = size;
+        });
+    })(jQuery);
+</script>
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

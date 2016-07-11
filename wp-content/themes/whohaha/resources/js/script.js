@@ -398,6 +398,7 @@
 	}));
 	ias.on('rendered', function(items){
 		FB.XFBML.parse();
+		refreshSlots();
 	});
 
 	ias.on('noneLeft', function() {
