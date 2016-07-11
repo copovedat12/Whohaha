@@ -83,7 +83,7 @@
      */
     (function($){
         var beforesize = $(window).width();
-        var sizeChanges = [500, 768, 992, 1220];
+        var sizeChanges = [500, 768, 992, 1300];
         $(window).on('resize', function(){
             var size = $(window).width();
             for($i = 0; $i < sizeChanges.length; $i++){
