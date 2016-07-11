@@ -77,23 +77,6 @@
             googletag.pubads().refresh([gptAdSlots[0], gptAdSlots[1]]);
         });
     };
-
-    /*
-     *	Reinit Ads on resize
-     */
-    (function($){
-        var beforesize = $(window).width();
-        var sizeChanges = [500, 768, 992, 1300];
-        $(window).on('resize', function(){
-            var size = $(window).width();
-            for($i = 0; $i < sizeChanges.length; $i++){
-                if((beforesize > sizeChanges[$i] && size <= sizeChanges[$i]) || (beforesize <= sizeChanges[$i] && size > sizeChanges[$i])){
-                    refreshSlots();
-                }
-            }
-            beforesize = size;
-        });
-    })(jQuery);
 </script>
 
 <script>
