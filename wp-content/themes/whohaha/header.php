@@ -46,7 +46,7 @@
             addSize([500, 400], [450, 375]).
             addSize([768, 225], [720, 225]).
             addSize([992, 300], [940, 294]).
-            addSize([1300, 400], [1190, 372]).
+            addSize([1300, 400], [1260, 394]).
             build();
         gptAdSlots[0] = googletag.defineSlot('/4738791/WHH_Spot_1', [1260, 394], 'div-gpt-ad-1468262599942-0').
             defineSizeMapping(mapping1).
@@ -62,7 +62,7 @@
             addSize([500, 400], [450, 375]).
             addSize([768, 225], [720, 225]).
             addSize([992, 300], [940, 294]).
-            addSize([1300, 400], [1190, 372]).
+            addSize([1300, 400], [1260, 394]).
             build();
         gptAdSlots[1] = googletag.defineSlot('/4738791/WHH_Spot_2', [1260, 394], 'div-gpt-ad-1468262843164-0').
             defineSizeMapping(mapping2).
