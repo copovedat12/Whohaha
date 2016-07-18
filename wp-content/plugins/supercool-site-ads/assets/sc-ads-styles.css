@@ -1,0 +1,191 @@
+/* Backup styles for if Bootstrap is not being used */
+.sc-ads-bootstrap-container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .sc-ads-bootstrap-container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .sc-ads-bootstrap-container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .sc-ads-bootstrap-container {
+    width: 1170px;
+  }
+}
+
+.ad-container{
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
+    padding-bottom: 40px;
+    background-position: center;
+}
+.sc-int-ad-content-container{
+    margin: auto;
+}
+.sc-int-ad-content-container img{
+    width: 100%;
+    height: auto;
+}
+
+.sc-int-navbar{
+    margin-bottom: 20px;
+}
+.int-close{
+    float: right;
+    font-size: 16px;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .4;
+    filter: alpha(opacity=20);
+    text-transform: uppercase;
+}
+.int-close:hover,
+.int-close:focus{
+    color: #000;
+    opacity: .8;
+}
+.countdown .int-close{
+    opacity: 0.6;
+    text-transform: none;
+}
+
+.ad-container .sc-int-navbar{
+    background: #fafafa;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0,.2);
+    box-shadow: 0 1px 1px rgba(0,0,0,.2);
+    padding: 15px 0;
+    font-weight: 600;
+    height: 55px;
+    line-height: 25px;
+}
+.ad-container .countdown{
+    opacity: 0.2;
+    float: right;
+}
+.sc-int-ad-content,
+.sc-int-ad-content-bottom-half{
+    padding: 0 15px;
+}
+.sc-int-ad-content{
+    margin-bottom: 20px;
+}
+.sc-int-ad-content-bottom-half{
+    width: 50%;
+    float: left;
+}
+.sc-int-ad-content-bottom-half.left-half{
+    width: 30%;
+}
+.sc-int-ad-content-bottom-half.right-half{
+    width: 70%;
+}
+@media (max-width: 700px){
+    .sc-int-ad-content-bottom-half.left-half,
+    .sc-int-ad-content-bottom-half.right-half{
+        width: 100%;
+        float: none;
+    }
+}
+.sc-int-ad-content-bottom::after{
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+/*
+ * Modal Styles
+ */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fade-in {
+    opacity:0;  /* make things invisible upon start */
+    -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+
+    -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+
+    -webkit-animation-duration:0.5s;
+    -moz-animation-duration:0.5s;
+    animation-duration:0.5s;
+}
+.modal-overlay,
+.sc-ad-modal-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.modal-overlay{
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.6);
+}
+.sc-ad-modal-wrapper{
+    z-index: 10000;
+    overflow: auto;
+    text-align: center;
+    padding: 0 30px 30px;
+}
+.sc-ad-modal{
+    z-index: 10000;
+    max-width: 700px;
+    padding: 10px;
+    background: #ffffff;
+    position: relative;
+    display: inline-block;
+    box-shadow: 0px 0px 6px 3px rgba(0, 0, 0, 0.3);
+    text-align: initial;
+}
+.sc-ad-modal .modal-close{
+    position: absolute;
+    top: -40px;
+    right: -5px;
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1;
+    color: #fff;
+    text-shadow: 0 1px 0 #000;
+    opacity: .5;
+    filter: alpha(opacity=50);
+}
+.sc-ad-modal .modal-close:hover{
+    opacity: .8;
+    cursor: pointer;
+    text-decoration: none;
+}
+.sc-ad-modal img{
+    height: auto;
+    max-width: 100%;
+}
+
+/*
+ * Custom Styles
+ */
+ .int-cta-section{
+     margin-top: 20px;
+ }
+.int-cta-section .btn.btn-large{
+    padding: 10px 40px;
+    font-size: 20px;
+}
