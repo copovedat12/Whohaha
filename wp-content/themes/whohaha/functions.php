@@ -306,3 +306,8 @@ require get_template_directory() . '/inc/jetpack.php';
 require get_template_directory() . '/inc/yoast.php';
 
 require get_template_directory() . '/inc/instant-articles.php';
+
+/*
+ * Load Woocommerce custom functions
+ */
+require get_template_directory() . '/inc/woocommerce.php';

@@ -27,56 +27,56 @@
   var googletag = googletag || {};
   googletag.cmd = googletag.cmd || [];
   (function() {
-    var gads = document.createElement('script');
-    gads.async = true;
-    gads.type = 'text/javascript';
-    var useSSL = 'https:' == document.location.protocol;
-    gads.src = (useSSL ? 'https:' : 'http:') +
-      '//www.googletagservices.com/tag/js/gpt.js';
-    var node = document.getElementsByTagName('script')[0];
-    node.parentNode.insertBefore(gads, node);
+	var gads = document.createElement('script');
+	gads.async = true;
+	gads.type = 'text/javascript';
+	var useSSL = 'https:' == document.location.protocol;
+	gads.src = (useSSL ? 'https:' : 'http:') +
+	  '//www.googletagservices.com/tag/js/gpt.js';
+	var node = document.getElementsByTagName('script')[0];
+	node.parentNode.insertBefore(gads, node);
   })();
 </script>
 
 <script type='text/javascript'>
-    var gptAdSlots = [];
-    googletag.cmd.push(function() {
-        var mapping1 = googletag.sizeMapping().
-            addSize([0, 0], [300, 250]).
-            addSize([500, 400], [450, 375]).
-            addSize([768, 225], [720, 225]).
-            addSize([992, 300], [952, 298]).
-            addSize([1300, 400], [1260, 394]).
-            build();
-        gptAdSlots[0] = googletag.defineSlot('/4738791/WHH_Spot_1', [1260, 394], 'div-gpt-ad-1468262599942-0').
-            defineSizeMapping(mapping1).
-            setCollapseEmptyDiv(true).
-            addService(googletag.pubads());
-        // googletag.pubads().enableSingleRequest();
-        googletag.enableServices();
-    });
+	var gptAdSlots = [];
+	googletag.cmd.push(function() {
+		var mapping1 = googletag.sizeMapping().
+			addSize([0, 0], [300, 250]).
+			addSize([500, 400], [450, 375]).
+			addSize([768, 225], [720, 225]).
+			addSize([992, 300], [952, 298]).
+			addSize([1300, 400], [1260, 394]).
+			build();
+		gptAdSlots[0] = googletag.defineSlot('/4738791/WHH_Spot_1', [1260, 394], 'div-gpt-ad-1468262599942-0').
+			defineSizeMapping(mapping1).
+			setCollapseEmptyDiv(true).
+			addService(googletag.pubads());
+		// googletag.pubads().enableSingleRequest();
+		googletag.enableServices();
+	});
 
-    googletag.cmd.push(function() {
-        var mapping2 = googletag.sizeMapping().
-            addSize([0, 0], [300, 250]).
-            addSize([500, 400], [450, 375]).
-            addSize([768, 225], [720, 225]).
-            addSize([992, 300], [952, 298]).
-            addSize([1300, 400], [1260, 394]).
-            build();
-        gptAdSlots[1] = googletag.defineSlot('/4738791/WHH_Spot_2', [1260, 394], 'div-gpt-ad-1468262843164-0').
-            defineSizeMapping(mapping2).
-            setCollapseEmptyDiv(true).
-            addService(googletag.pubads());
-        // googletag.pubads().enableSingleRequest();
-        googletag.enableServices();
-    });
+	googletag.cmd.push(function() {
+		var mapping2 = googletag.sizeMapping().
+			addSize([0, 0], [300, 250]).
+			addSize([500, 400], [450, 375]).
+			addSize([768, 225], [720, 225]).
+			addSize([992, 300], [952, 298]).
+			addSize([1300, 400], [1260, 394]).
+			build();
+		gptAdSlots[1] = googletag.defineSlot('/4738791/WHH_Spot_2', [1260, 394], 'div-gpt-ad-1468262843164-0').
+			defineSizeMapping(mapping2).
+			setCollapseEmptyDiv(true).
+			addService(googletag.pubads());
+		// googletag.pubads().enableSingleRequest();
+		googletag.enableServices();
+	});
 
-    var refreshSlots = function() {
-        googletag.cmd.push(function() {
-            googletag.pubads().refresh([gptAdSlots[0], gptAdSlots[1]]);
-        });
-    };
+	var refreshSlots = function() {
+		googletag.cmd.push(function() {
+			googletag.pubads().refresh([gptAdSlots[0], gptAdSlots[1]]);
+		});
+	};
 </script>
 
 <script>
@@ -114,11 +114,11 @@
 			<div class="row">
 				<div class="toggle-container">
 					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
-				        <span class="sr-only">Toggle navigation</span>
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				    </button>
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
 				</div>
 				<div class="site-branding">
 					<span class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
@@ -127,10 +127,10 @@
 				<nav id="slide-navigation" class="slide-navigation vertical-nav" role="navigation">
 					<div class="menu">
 						<button class="navbar-toggle side visible-xs-block" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
-					        <span class="sr-only">Toggle navigation</span>
-					        <span class="icon-bar"></span>
-					        <span class="icon-bar"></span>
-					    </button>
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
 
 						<div class="generate-tags hidden-md hidden-lg">
 						<?php
@@ -216,8 +216,8 @@
 			<div class="modal-dialog modal-md">
 				<div class="modal-content">
 					<div class="modal-header">
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				    </div>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					</div>
 					<div class="modal-body">
 						<img src="<?php echo get_template_directory_uri(); ?>/resources/images/snap_chat.png" alt="snapchat">
 						<p>
@@ -229,3 +229,4 @@
 		</div>
 
 		<div id="content" class="site-content">
+        <?php do_action('whh_before_content'); ?>
