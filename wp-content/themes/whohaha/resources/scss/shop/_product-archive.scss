@@ -1,0 +1,116 @@
+.woocommerce ul.products{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    &::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+.woocommerce .products .product{
+    width: 33.333%;
+    display: block;
+    float: left;
+    padding: 20px 30px;
+    max-width: 430px;
+    margin: auto;
+    img{
+        width: 100%;
+        height: auto;
+    }
+    h3{
+        text-transform: uppercase;
+        height: 44px;
+        font-size: 20px;
+    }
+    .price{
+        display: inline-block;
+        color: #888;
+        font-weight: 500;
+        line-height: 35px;
+    }
+    .add_to_cart_button{
+        float: right;
+        padding: 8px 20px;
+        background-image: -ms-linear-gradient(270deg,#f905a4 0,#48ceff 100%);
+        background-image: -webkit-linear-gradient(270deg,#f905a4 0,#48ceff 100%);
+        background-image: linear-gradient(270deg,#f905a4 0,#48ceff 100%);
+        border-radius: 0;
+        opacity: 0;
+        &:hover,
+        &:focus{
+            opacity: 0.8;
+        }
+    }
+    &.outofstock{
+        opacity: 0.5;
+        a{
+            pointer-events: none;
+            cursor: default;
+        }
+        .add_to_cart_button{
+            float: right;
+            padding: 8px 20px;
+            background: #111;
+            border-radius: 0;
+            opacity: 0;
+            &:hover,
+            &:focus{
+                opacity: 0.8;
+            }
+        }
+    }
+    &:hover{
+        .add_to_cart_button{
+            opacity: 1;
+            &:hover,
+            &:focus{
+                opacity: 0.8;
+            }
+        }
+    }
+    @media (max-width: $screen-sm-max) {
+        width: 50%;
+        .add_to_cart_button,
+        &.outofstock .add_to_cart_button{
+            opacity: 0.8;
+        }
+    }
+    @media (max-width: $screen-xs-max) {
+        width: 100%;
+        float: none;
+    }
+}
+.woocommerce-pagination{
+    display: block;
+    text-align: right;
+    ul{
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        list-style: none;
+        li,
+        a,
+        span{
+            display: inline-block;
+        }
+        li > a,
+        li > span{
+            padding: 5px 10px;
+            &.current{
+                background: $pink;
+                color: $white;
+                &:hover,
+                &:focus{
+                    color: $white;
+                }
+            }
+            &:hover,
+            &:focus{
+                color: $pink;
+                text-decoration: none;
+            }
+        }
+    }
+}
