@@ -32,6 +32,11 @@ remove_action('woocommerce_single_product_summary', 'woocommerce_template_single
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50);
 
 /*
+ * Edit cart actions
+ */
+remove_action('woocommerce_cart_collaterals', 'woocommerce_cross_sell_display', 10);
+
+/*
  * Replace add to cart button on archive pages
  */
 remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
@@ -43,6 +48,27 @@ function replace_add_to_cart() {
 		echo do_shortcode('<a href="'.$link.'" class="btn btn-primary add_to_cart_button">GET IT</a>');
 	} else {
 		echo do_shortcode('<a href="'.$link.'" class="btn btn-primary disabled add_to_cart_button">Out of Stock</a>');
+	}
+}
+
+add_action('whh_before_end_navigation', 'shop_navigation', 20);
+function shop_navigation(){
+	if(is_woocommerce()||is_cart()||is_checkout()){
+		?>
+		<div id="shop-nav">
+			<div class="left-sec">
+				<ul>
+					<li><a href="#">FAQ's</a></li>
+					<li><a href="/my-account">My Account</a></li>
+				</ul>
+			</div>
+			<div class="right-sec">
+				<div class="cart">
+					<a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+				</div>
+			</div>
+		</div>
+		<?php
 	}
 }
 

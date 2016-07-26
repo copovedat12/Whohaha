@@ -98,11 +98,11 @@
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
-  fjs.parentNode.insertBefore(js, fjs);
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+	fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <div id="page" class="hfeed site">
@@ -209,6 +209,7 @@
 					</ul>
 				</div>
 			</div>
+            <?php do_action('whh_before_end_navigation'); ?>
 		</header><!-- #masthead -->
 
 		<!-- snapchat modal -->
@@ -229,4 +230,4 @@
 		</div>
 
 		<div id="content" class="site-content">
-        <?php do_action('whh_before_content'); ?>
+		<?php do_action('whh_before_content'); ?>
