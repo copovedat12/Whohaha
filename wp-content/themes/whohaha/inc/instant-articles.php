@@ -1,16 +1,8 @@
 <?php
 
-use Facebook\InstantArticles\Elements\Interactive;
-
-function incl_video($ia_post) {
-	$instant_article = $ia_post->instant_article;
-	$post_id = $ia_post->get_the_id();
-	$iframe_string = get_post_meta( $post_id, 'video_embed_code', true );
-	if($iframe_string){
-		preg_match('/src="([^"]+)"/', $iframe_string, $match);
-		$video_url = $match[1];
-		$instant_article->addChild( Interactive::create()->withSource($video_url)->withWidth(640)->withHeight(390) );
-	}
-}
-
-add_action( 'instant_articles_before_article_content', 'incl_video' );
+add_filter('instant_articles_content', 'add_youtube_video', 10);
+function add_youtube_video($content) {
+  $iframe_string = get_field('video_embed_code');
+  $content = $iframe_string . $content;
+  return $content;
+};
