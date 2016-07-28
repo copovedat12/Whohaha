@@ -466,3 +466,38 @@ function socialShare(url, width, height) {
 		}
 	});
 })(jQuery);
+
+(function($){
+	var woo = $('.woocommerce');
+	var input = $(woo).find('.product-quantity input');
+	var val = input.val();
+	var inputMin = input.attr('min');
+	var incrBtn = $('.input-number-increment');
+	var decrBtn = $('.input-number-decrement');
+
+	$(document).on('click', '.input-num', function(e){
+		// redefine input in case button replaced with ajax
+		input = $(woo).find('.product-quantity input');
+		val = input.val();
+
+		if($(e.target).hasClass('input-number-decrement')){
+			decrease();
+		}
+		else if($(e.target).hasClass('input-number-increment')){
+			increase();
+		}
+		val = input.val();
+		$('input[name="update_cart"]').attr('disabled', false);
+	});
+
+	function increase(){
+		console.log(input);
+		$(input).attr('value', parseInt(val)+1);
+	}
+	function decrease(){
+		if(val > inputMin){
+			$(input).attr('value', parseInt(val)-1);
+		}
+	}
+
+})(jQuery);

@@ -48,6 +48,9 @@
             &:focus{
                 text-decoration: underline;
             }
+            @media (max-width: $screen-xs) {
+                padding: 10px;
+            }
         }
     }
     .right-sec{
@@ -62,6 +65,17 @@
             &:hover,
             &:focus{
                 background: $blue;
+            }
+            small{
+                vertical-align: text-bottom;
+            }
+            @media (max-width: $screen-xs) {
+                font-size: 16px;
+                padding: 7px 10px;
+                line-height: 23px;
+                small{
+                    vertical-align: baseline;
+                }
             }
         }
     }

@@ -53,7 +53,7 @@ function replace_add_to_cart() {
 
 add_action('whh_before_end_navigation', 'shop_navigation', 20);
 function shop_navigation(){
-	if(is_woocommerce()||is_cart()||is_checkout()){
+	if(is_woocommerce()||is_cart()||is_checkout()||is_account_page()){
 		?>
 		<div id="shop-nav">
 			<div class="left-sec">
@@ -64,12 +64,39 @@ function shop_navigation(){
 			</div>
 			<div class="right-sec">
 				<div class="cart">
-					<a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+					<?php if(is_cart()): ?>
+						<a href="/shop">
+							<span class="glyphicon glyphicon-shopping-cart"></span>
+							<small>Back to Shop</small>
+						</a>
+					<?php else: ?>
+						<a class="cart-contents" href="<?php echo (!empty(WC()->cart->cart_contents)) ? '/cart' : '/shop'; ?>">
+							<span class="glyphicon glyphicon-shopping-cart"></span>
+							<?php if(!empty(WC()->cart->cart_contents)): ?>
+							<?php echo WC()->cart->get_cart_contents_count(); ?>
+							<?php endif; ?>
+						</a>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
 		<?php
 	}
+}
+
+add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment' );
+function woocommerce_header_add_to_cart_fragment( $fragments ) {
+	ob_start();
+	?>
+	<a class="cart-contents" href="<?php echo (!empty(WC()->cart->cart_contents)) ? '/cart' : '/shop'; ?>">
+		<span class="glyphicon glyphicon-shopping-cart"></span>
+		<?php if(!empty(WC()->cart->cart_contents)): ?>
+		<?php echo WC()->cart->get_cart_contents_count(); ?>
+		<?php endif; ?>
+	</a>
+	<?php
+	$fragments['a.cart-contents'] = ob_get_clean();
+	return $fragments;
 }
 
 /*

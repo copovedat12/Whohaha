@@ -1,0 +1,73 @@
+.woocommerce-checkout{
+    .woocommerce-info{
+        margin-bottom: 20px;
+        a{
+            color: $pink;
+            font-weight: 600;
+        }
+    }
+    form.checkout_coupon{
+        input.input-text{
+            width: 300px;
+
+            border: 1px solid #ccc;
+            padding: 6px;
+            font-family: 'Open Sans',sans-serif;
+            font-size: 16px;
+            color: #555;
+            box-sizing: border-box;
+        }
+    }
+    form.checkout{
+        h3{
+            margin-bottom: 30px;
+        }
+        p.form-row{
+            margin-bottom: 20px;
+        }
+        label{
+            display: block;
+            font-weight: 300;
+            margin: 0;
+            abbr{
+                border: 0;
+                cursor: default;
+            }
+        }
+        input.input-text,
+        textarea,
+        select{
+            width: 100%;
+
+            border: 1px solid #ccc;
+            padding: 6px;
+            font-family: 'Open Sans',sans-serif;
+            font-size: 16px;
+            color: #555;
+            box-sizing: border-box;
+        }
+        .select2-container{
+            a{
+                padding: 6px;
+                border-radius: 0;
+            }
+        }
+    }
+    #order_review{
+        .place-order{
+            text-align: right;
+        }
+        .wc_payment_methods{
+            margin-bottom: 20px;
+            label{
+                font-weight: 600;
+                a{
+                    font-weight: 300;
+                }
+            }
+        }
+        .payment_method_paypal img{
+            display: none;
+        }
+    }
+}

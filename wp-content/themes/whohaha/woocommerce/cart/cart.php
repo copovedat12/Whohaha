@@ -112,8 +112,9 @@ do_action( 'woocommerce_before_cart' ); ?>
 									'min_value'   => '0'
 								), $_product, false );
 							}
-
+							if(!$_product->is_sold_individually()) echo '<span class="input-num input-number-decrement">-</span>';
 							echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item );
+							if(!$_product->is_sold_individually()) echo '<span class="input-num input-number-increment">+</span>';
 						?>
 					</td>
 
