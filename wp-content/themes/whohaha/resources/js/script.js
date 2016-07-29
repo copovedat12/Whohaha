@@ -467,9 +467,17 @@ function socialShare(url, width, height) {
 	});
 })(jQuery);
 
+/*
+ * Add controls to number input
+ */
 (function($){
-	var woo = $('.woocommerce');
-	var input = $(woo).find('.product-quantity input');
+	var woo = $(document);
+	var input = $(woo).find('.quantity input');
+
+    // $(woo).find('.quantity');
+        // .prepend('<span class="input-num input-number-decrement">-</span>')
+        // .append('<span class="input-num input-number-increment">+</span>');
+
 	var val = input.val();
 	var inputMin = input.attr('min');
 	var incrBtn = $('.input-number-increment');
@@ -477,7 +485,7 @@ function socialShare(url, width, height) {
 
 	$(document).on('click', '.input-num', function(e){
 		// redefine input in case button replaced with ajax
-		input = $(woo).find('.product-quantity input');
+		input = $(e.currentTarget).siblings('.quantity').find('input');
 		val = input.val();
 
 		if($(e.target).hasClass('input-number-decrement')){
@@ -499,5 +507,22 @@ function socialShare(url, width, height) {
 			$(input).attr('value', parseInt(val)-1);
 		}
 	}
+})(jQuery);
 
+(function($){
+    var main_img_link = $('a.woocommerce-main-image');
+    var main_img = $(main_img_link).find('img');
+
+    $('.images .thumbnails > a').on('click', function(e){
+        e.preventDefault();
+        var selected = $(this);
+        var selectedImg = $(selected).find('img');
+
+        var newLink = $(selected).attr('href');
+        var newSrc = $(selectedImg).attr('src');
+        var newSrcset = $(selectedImg).attr('srcset');
+
+        $(main_img_link).attr('href', newLink);
+        $(main_img).attr('src', newSrc).attr('srcset', newSrcset);
+    });
 })(jQuery);
