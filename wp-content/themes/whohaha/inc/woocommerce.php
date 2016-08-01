@@ -5,6 +5,19 @@ add_theme_support( 'woocommerce' );
 // And put everything in here to make sure nothing breaks
 if( class_exists( 'WooCommerce' ) ):
 
+// Hide woocommerce pages to anyone NOT logged in (temporary)
+function wpse_131562_redirect() {
+    if (
+        ! is_user_logged_in()
+        && (is_woocommerce() || is_cart() || is_checkout())
+    ) {
+        // feel free to customize the following line to suit your needs
+        wp_redirect(home_url());
+        exit;
+    }
+}
+add_action('template_redirect', 'wpse_131562_redirect');
+
 // Disable woocommerce styles
 add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
