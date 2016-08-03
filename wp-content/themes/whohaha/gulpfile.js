@@ -1,18 +1,19 @@
 var gulp = require('gulp'),
-	sass = require('gulp-ruby-sass'),
-	rename = require('gulp-rename'),
-	rename = require('gulp-minify-css');
+	sass = require('gulp-sass'),
+  notify = require('gulp-notify');
 
 gulp.task('twbs-styles', function(){
-  sass('./bootstrap/assets/stylesheets/bootstrap.scss', {style: 'expanded'})
-	.pipe(rename('bootstrap.css'))
-    .pipe(gulp.dest('css'));
+  gulp.src('./bootstrap/assets/stylesheets/bootstrap.scss')
+    .pipe(sass({outputStyle : 'compressed'}).on('error', sass.logError))
+    .pipe(gulp.dest('css'))
+    .pipe(notify('Bootstrap Styles compressed'));
 });
 
 gulp.task('styles', function(){
-  sass('./resources/scss/style.scss', {style: 'expanded'})
-  	.pipe(rename('dev_styles.css'))
-    .pipe(gulp.dest('css'));
+  gulp.src('./resources/scss/style.scss')
+    .pipe(sass({outputStyle : 'compressed'}).on('error', sass.logError))
+    .pipe(gulp.dest('css'))
+    .pipe(notify('Styles compressed'));
 });
 
 gulp.task('watch', function(){
