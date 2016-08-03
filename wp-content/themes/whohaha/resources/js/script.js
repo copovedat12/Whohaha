@@ -526,3 +526,10 @@ function socialShare(url, width, height) {
         $(main_img).attr('src', newSrc).attr('srcset', newSrcset);
     });
 })(jQuery);
+
+(function($){
+	lightbox.option({
+      'resizeDuration': 300,
+			'disableScrolling' : true
+    });
+})(jQuery);

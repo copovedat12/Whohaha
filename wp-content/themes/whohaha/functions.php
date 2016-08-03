@@ -119,8 +119,6 @@ add_action( 'widgets_init', 'whohaha_widgets_init' );
  */
 function whohaha_scripts() {
 
-	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.css');
-
 	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/bootstrap/assets/javascripts/bootstrap.min.js', array('jquery'), '', true );
 
 	wp_enqueue_script( 'slick-js', get_template_directory_uri() . '/js/slick.js', array('jquery'), '1.2.43', true );
@@ -129,23 +127,33 @@ function whohaha_scripts() {
 
 	wp_enqueue_script( 'sticky-kit', get_template_directory_uri() . '/js/sticky-kit.js', array('jquery'), '', true );
 
+	wp_enqueue_script( 'lightbox-script', get_template_directory_uri() . '/js/lightbox.min.js', array('jquery'), '2.8.2', true );
+
+	// wp_enqueue_script( 'whohaha-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+
+	// wp_enqueue_script( 'whohaha-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
+
 	wp_enqueue_script( 'dev-scripts', get_template_directory_uri() . '/resources/js/script.js', array('bootstrap-js'), '20151001', true );
+
+	/*
+	 * enqueue styles here
+	 */
+
+	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.css');
 
 	wp_enqueue_style( 'slick-styles', get_template_directory_uri() . '/css/slick.css');
 
 	wp_enqueue_style( 'foundation-font', get_template_directory_uri() . '/fonts/foundation-icons/foundation-icons.css');
 
+	wp_enqueue_style( 'lightbox-style', get_template_directory_uri() . '/css/lightbox.min.css');
+
 	wp_enqueue_style( 'dev-styles', get_template_directory_uri() . '/css/style.css');
 
 	wp_enqueue_style( 'whohaha-style', get_stylesheet_uri() );
-
-	wp_enqueue_script( 'whohaha-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
-	wp_enqueue_script( 'whohaha-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
 }
 add_action( 'wp_enqueue_scripts', 'whohaha_scripts' );
 
