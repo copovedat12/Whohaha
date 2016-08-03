@@ -127,7 +127,8 @@ function whohaha_scripts() {
 
 	wp_enqueue_script( 'sticky-kit', get_template_directory_uri() . '/js/sticky-kit.js', array('jquery'), '', true );
 
-	wp_enqueue_script( 'lightbox-script', get_template_directory_uri() . '/js/lightbox.min.js', array('jquery'), '2.8.2', true );
+	wp_enqueue_script( 'lightbox-dev', get_template_directory_uri() . '/js/lightbox.js', array('jquery'), '2.8.2', true );
+	// wp_enqueue_script( 'lightbox-script', get_template_directory_uri() . '/js/lightbox.min.js', array('jquery'), '2.8.2', true );
 
 	// wp_enqueue_script( 'whohaha-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
