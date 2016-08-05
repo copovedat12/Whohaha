@@ -6,7 +6,6 @@ class SC_Ads_Admin{
 	public function __construct($opts){
 		self::$pagename = 'sc-ads';
 
-		add_action( 'admin_enqueue_scripts', array($this, 'load_admin_scripts') );
 		add_action( 'admin_init', array($opts, 'sc_ads_settings_init') );
 		add_action( 'admin_menu', array($this, 'register_submenu') );
 	}
@@ -29,7 +28,11 @@ class SC_Ads_Admin{
 		);
 	}
 
-	public function load_admin_scripts(){
+	public function load_admin_scripts($hook){
+		global $sc_settings_page;
+		if( $hook != $sc_settings_page )
+			return;
+
 		wp_enqueue_script( 'word-count' );
 		wp_enqueue_script('post');
 		if ( user_can_richedit() ){
@@ -57,13 +60,15 @@ class SC_Ads_Admin{
 	}
 
 	public function register_submenu() {
-		add_options_page(
+		global $sc_settings_page;
+		$sc_settings_page = add_options_page(
 			'Supercool Ads Options',
 			'Supercool Ads',
 			'manage_options',
 			self::$pagename,
 			array($this, 'display_plugin_options')
 		);
+		add_action( 'admin_enqueue_scripts', array($this, 'load_admin_scripts') );
 	}
 
 	public function display_plugin_options(){

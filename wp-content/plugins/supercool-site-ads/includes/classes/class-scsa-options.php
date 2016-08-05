@@ -97,14 +97,6 @@ class SC_Ads_Options{
 			'sc_int_ads_options_group',
 			'sc_int_ads_section'
 		);
-		// sc_int_cookie_reset_render
-		/*add_settings_field(
-			'sc_int_cookie_reset_field',
-			__( 'Force Cookie Reset', 'sc_ads' ),
-			array($this, 'sc_int_cookie_reset_render'),
-			'sc_int_ads_options_group',
-			'sc_int_ads_section'
-		);*/
 		// Ad Background
 		// sc_ads_opts_int[sc_int_ads_bg]
 		// sc_ads_opts_int[sc_int_ads_bg][type]
@@ -336,17 +328,6 @@ class SC_Ads_Options{
 		<span class="description">Time until ad shows again for the user</span>
 		<?php
 	}
-
-	/*public function sc_int_cookie_reset_render(){
-		$rand_str = rand_string();
-
-		$options = get_option(self::$int_option_name, array('sc_int_cookie_val' => $rand_str));
-		echo $rand_str;
-		?>
-		<input type="text" value="<?php echo $options['sc_int_cookie_val'] ?>" disabled>
-		<span class="description">Only do this if you NEED the user to see this next time they view the site</span>
-		<?php
-	}*/
 
 	public function sc_int_ads_bg_render(){
 		$bg_default = array(
