@@ -275,7 +275,7 @@
 			});
 
 			$(document).keydown(function(e) {
-				if (e.keyCode == CODES.CTRL || e.metaKey || e.ctrlKey){
+				if (e.keyCode === CODES.CTRL || e.metaKey || e.ctrlKey){
 					ctrlDown = true;
 					console.log('ctrl pressed');
 				} else{
@@ -409,7 +409,7 @@
 	$.ias().on('render', function(items) {
 		i++;
 		console.log(i);
-		if(i == 2){
+		if(i === 2){
 			ias.extension(new IASTriggerExtension({
 				text: 'VIEW MORE HAHAS',
 				html: '<div class="load-more-trigger text-center"><a class="btn btn-primary">{text}</a></div>'

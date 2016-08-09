@@ -20,7 +20,14 @@
 			</header><!-- .entry-header -->
 
 			<?php
-			if ( get_field('video_embed_code') ):
+			if ( get_field('dailymotion_video_embed_code') ):
+				?>
+				<div class="video-embed">
+				<?php echo get_field('dailymotion_video_embed_code'); ?>
+				</div>
+				<?php
+			elseif ( get_field('video_embed_code') ):
+				// If video gallery
 				if(have_rows('add_more_videos')):
 				?>
 
@@ -44,7 +51,6 @@
 				<div class="video-embed">
 					<?php
 					$iframe_string = get_field('video_embed_code');
-
 					if(preg_match('/youtube/', $iframe_string)){
 						/*
 						 * Below are my past failed attempts at regex
@@ -101,13 +107,14 @@
 				</div>
 			</div>
 		</article>
-	</div>
+	</div><!-- .col-md-9 -->
 
 	<?php if (get_field('remove_sidebar') == null || get_field('remove_sidebar') == false ): ?>
-		<div class="col-md-3 sticky-sidebar">
-			<?php get_template_part( 'template-parts/sidebar', 'main' ); ?>
-		</div>
+	<div class="col-md-3 sticky-sidebar">
+		<?php get_template_part( 'template-parts/sidebar', 'main' ); ?>
+	</div><!-- .col-md-3 -->
 	<?php endif; ?>
-</div>
+
+</div> <!-- .row.sticky-container -->
 
 <?php get_template_part( 'template-parts/content', 'single-footer' ); ?>
