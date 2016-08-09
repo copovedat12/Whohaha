@@ -5,7 +5,7 @@
  * Description: Receive payments using Paypal Powered by Braintree.  A server with cURL, SSL support, and a valid SSL certificate is required (for security reasons) for this gateway to function. Requires PHP 5.4+
  * Author: WooThemes
  * Author URI: http://woothemes.com/
- * Version: 1.2.2
+ * Version: 1.2.3
  *
  * Copyright (c) 2016 WooThemes
  *
@@ -256,7 +256,10 @@ class WC_PayPal_Braintree_Loader {
 	 * @return string Braintree checkout setting link
 	 */
 	public function get_setting_link() {
-		$use_id_as_section = version_compare( WC()->version, '2.6', '>=' );
+		$use_id_as_section = true;
+		if ( function_exists( 'WC' ) ) {
+			$use_id_as_section = version_compare( WC()->version, '2.6', '>=' );
+		}
 
 		if ( $this->subscription_support_enabled ) {
 			$section_slug = $use_id_as_section ? 'paypalbraintree_cards' : strtolower( 'WC_Gateway_Paypal_Braintree_Pay_With_Card_Subscription' );
@@ -377,6 +380,9 @@ class WC_PayPal_Braintree_Loader {
 	 * @since 1.0.0
 	 */
 	function possibly_enqueue_scripts() {
+		if ( ! function_exists( 'is_checkout' ) || ! function_exists( 'is_cart' ) ) {
+			return;
+		}
 
 		if ( ! is_checkout() && ! is_cart() ) {
 			return;
@@ -421,7 +427,13 @@ class WC_PayPal_Braintree_Loader {
 		$braintree_gateway = new Braintree_Gateway( array(
 			'accessToken' => $merchant_access_token,
 		) );
-		$client_token = $braintree_gateway->clientToken()->generate();
+
+		try {
+			$client_token = $braintree_gateway->clientToken()->generate();
+		} catch ( Exception $e ) {
+			$this->log( __FUNCTION__, 'Error: Unable to generate client token. Reason: ' . $e->getMessage() );
+			return;
+		}
 
 		$paypal_braintree_data = array(
 			'token'                       => $client_token,
@@ -588,7 +600,7 @@ class WC_PayPal_Braintree_Loader {
 	 */
 	public function possibly_cancel_checkout_with_paypal() {
 
-		if ( is_cart() && ! empty( $_GET['wc_paypal_braintree_clear_session'] ) ) {
+		if ( function_exists( 'is_cart' ) && is_cart() && ! empty( $_GET['wc_paypal_braintree_clear_session'] ) ) {
 			$this->possibly_clear_session_data();
 			wc_add_notice( __( 'You have cancelled Checkout with PayPal. Please try to process your order again.', 'woocommerce-gateway-paypal-braintree' ), 'notice' );
 		}
@@ -832,16 +844,25 @@ class WC_PayPal_Braintree_Loader {
 				'accessToken' => $token,
 			) );
 
-			$transaction_details = $trans_id ? $gateway->transaction()->find( $trans_id ) : false;
+			$transaction_details = false;
+			if ( $trans_id ) {
+				try {
+					$transaction_details = $gateway->transaction()->find( $trans_id );
+				} catch ( Exception $e ) {
+					$order->add_order_note( __( 'Unable to capture charge!', 'woocommerce-gateway-paypal-braintree' ) . ' ' . $e->getMessage() );
+					$this->log( __FUNCTION__, "Error: Unable to find transaction with transaction ID {$trans_id}. Reason: " . $e->getMessage() );
+					return;
+				}
+			}
 
 			if ( $trans_id && 'authorized' === $transaction_details->status ) {
-				$result = $gateway->transaction()->submitForSettlement( $trans_id, floatval( $order->order_total ) );
+				try {
+					$result = $gateway->transaction()->submitForSettlement( $trans_id, floatval( $order->order_total ) );
 
-				if ( is_wp_error( $result ) ) {
-					$order->add_order_note( __( 'Unable to capture charge!', 'woocommerce-gateway-paypal-braintree' ) . ' ' . $result->get_error_message() );
-				} else {
 					$order->add_order_note( sprintf( __( 'PayPal Braintree charge complete (Charge ID: %s)', 'woocommerce-gateway-paypal-braintree' ), $result->transaction->id ) );
 					update_post_meta( $order->id, '_pp_braintree_charge_captured', 'yes' );
+				} catch ( Exception $e ) {
+					$order->add_order_note( __( 'Unable to capture charge!', 'woocommerce-gateway-paypal-braintree' ) . ' ' . $result->get_error_message() );
 				}
 			}
 		}
@@ -866,17 +887,27 @@ class WC_PayPal_Braintree_Loader {
 				'accessToken' => $token,
 			) );
 
-			$transaction_details = $trans_id ? $gateway->transaction()->find( $trans_id ) : false;
+			$transaction_details = false;
+			if ( $trans_id ) {
+				try {
+					$transaction_details = $gateway->transaction()->find( $trans_id );
+				} catch ( Exception $e ) {
+					$this->log( __FUNCTION__, "Error: Unable to find transaction with transaction ID {$trans_id}. Reason: " . $e->getMessage() );
+					$order->add_order_note( __( 'Unable to void charge!', 'woocommerce-gateway-paypal-braintree' ) . ' ' . $e->getMessage() );
+					return;
+				}
+			}
 
 			if ( $trans_id && 'authorized' === $transaction_details->status ) {
-				$result = $gateway->transaction()->void( $trans_id );
+				try {
+					$result = $gateway->transaction()->void( $trans_id );
 
-				if ( is_wp_error( $result ) ) {
-					$order->add_order_note( __( 'Unable to void charge!', 'woocommerce-gateway-paypal-braintree' ) . ' ' . $result->get_error_message() );
-				} else {
 					$order->add_order_note( sprintf( __( 'PayPal Braintree charge voided (Charge ID: %s)', 'woocommerce-gateway-paypal-braintree' ), $result->transaction->id ) );
 					delete_post_meta( $order->id, '_pp_braintree_charge_captured' );
 					delete_post_meta( $order->id, '_transaction_id' );
+				} catch ( Exception $e ) {
+					$this->log( __FUNCTION__, 'Error: Unable to void charge. Reason: ' . $e->getMessage() );
+					$order->add_order_note( __( 'Unable to void charge!', 'woocommerce-gateway-paypal-braintree' ) . ' ' . $e->getMessage() );
 				}
 			}
 		}

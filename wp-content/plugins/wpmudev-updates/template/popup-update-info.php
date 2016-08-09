@@ -238,7 +238,7 @@ jQuery(function(){
 		data.pid = pid;
 		data.is_network = +(jQuery('body').hasClass('network-admin'));
 
-		popup.loading(true, <?php echo json_encode( __( "Hang on while we're installing the update...", 'wpmudev' ) ); ?>);
+		popup.loading(true, <?php echo json_encode( __( "Hang on while we're installing the update...", 'wpmudev' ) ); ?>);		      	 			 	    
 		jQuery.post(
 			window.ajaxurl,
 			data,
@@ -266,7 +266,7 @@ jQuery(function(){
 				);
 
 				// Update number in the counter-badges in the menu.
-				jQuery(document).trigger( 'wpmu:update-done' );
+				jQuery(document).trigger( 'wpmu:update-done', pid );
 			},
 			'json'
 		).always(function() {

@@ -107,7 +107,13 @@ abstract class WC_Gateway_Paypal_Braintree_Subscription extends WC_Gateway_Paypa
 				'paymentMethodNonce'	=> $paypal_braintree_nonce
 			);
 
-			$result = $gateway->customer()->create( $customer_args );
+			try {
+				$result = $gateway->customer()->create( $customer_args );
+			} catch ( Exception $e ) {
+				$this->log( __FUNCTION__, 'Error: Unable to create customer. Reason: ' . $e->getMessage() );
+				wc_add_notice( __( 'Error: PayPal Powered by Braintree was unable to create a customer record for you. Please try again later or use another means of payment.', 'woocommerce-gateway-paypal-braintree' ), 'error' );
+				return false;
+			}
 
 			if ( ! $result->success ) {
 				$this->log( __FUNCTION__, "Error: Unable to create customer: {$result->message}" );
@@ -286,14 +292,20 @@ abstract class WC_Gateway_Paypal_Braintree_Subscription extends WC_Gateway_Paypa
 			'recurring' => true,
 			'customerId' => $braintree_customer_id,
 			'channel' => 'WooThemes_BT', // aka BN tracking code
-			'orderId' => $order_id,
+			'orderId' => $order->id,
 			'options' => array(
 				'submitForSettlement' => true,
 				'storeInVaultOnSuccess' => true
 			)
 		);
 
-		$result = $gateway->transaction()->sale( $sale_args );
+		try {
+			$result = $gateway->transaction()->sale( $sale_args );
+		} catch ( Exception $e ) {
+			$this->log( __FUNCTION__, 'Error: Unable to process scheduled payment. Reason: ' . $e->getMessage() );
+			return false;
+		}
+
 		if ( ! $result->success ) {
 			$this->log( __FUNCTION__, "Error: Unable to process scheduled payment: {$result->message}" );
 			return false;

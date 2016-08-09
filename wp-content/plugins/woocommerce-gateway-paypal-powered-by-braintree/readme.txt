@@ -1,9 +1,9 @@
 === WooCommerce PayPal Powered by Braintree Payment Gateway ===
-Contributors: automattic, woothemes, akeda, allendav, royho, slash1andy, woosteve, spraveenitpro, mikedmoore, fernashes, shellbeezy
+Contributors: automattic, woothemes, akeda, allendav, royho, slash1andy, woosteve, spraveenitpro, mikedmoore, fernashes, shellbeezy, BFTrick
 Tags: ecommerce, e-commerce, commerce, woothemes, wordpress ecommerce, store, sales, sell, shop, shopping, cart, checkout, configurable, paypal, braintree
 Requires at least: 4.4
 Tested up to: 4.5.2
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -77,6 +77,16 @@ For help setting up and configuring, please refer to our [user guide](http://doc
 
 Make sure PayPal is enabled on your Braintree account by following the [Braintree PayPal Setup Guide](https://articles.braintreepayments.com/guides/paypal/setup-guide).
 
+= What do I need to do if I'm updating from the retired premium Braintree plugin from WooThemes.com?
+
+You'll need to go through the same installation process as everyone else. Luckily it's only a few clicks (no need to copy and paste API keys) so it should only take a minute.
+
+Credit card tokens will not migrate. Your customers will have to reenter their CC details once. All  transactions made with the new plugin will let the user choose if they want their CC details saved (as tokens of course) so they don't have to reneter them every time.
+
+= Can I use this extension just for PayPal and use another gateway for Credit Cards? =
+
+You have to connect to PayPal through your Braintree account so it doesn't make a lot of sense to use this just for PayPal. But there's nothing stopping you from adding another gateway to accept credit cards.
+
 = Where can I get support or talk to other users? =
 
 If you get stuck, you can ask for help in the Plugin Forum.
@@ -99,6 +109,10 @@ New feature requests and bugs reports can be made in the plugin forum.
 4. Checkout with PayPal or Credit and Debit Cards.
 
 == Changelog ==
+
+= 1.2.3 =
+* Fix - Handle uncaught exceptions thrown by Braintree SDK. API calls from SDK may throws exception, thus it need to be handled properly in try/catch block.
+* Fix - Issue where deactivating WooCommerce might throws an error
 
 = 1.2.2 =
 * Tweak - Updated FAQ that emphasizes this plugin only works in the U.S. currently

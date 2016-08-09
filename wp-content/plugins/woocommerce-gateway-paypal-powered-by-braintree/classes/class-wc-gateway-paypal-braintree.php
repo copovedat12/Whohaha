@@ -829,7 +829,14 @@ abstract class WC_Gateway_Paypal_Braintree extends WC_Payment_Gateway {
 			'accessToken' => $this->merchant_access_token,
 		) );
 
-		$result = $gateway->transaction()->sale( $sale_args );
+		try {
+			$result = $gateway->transaction()->sale( $sale_args );
+		} catch ( Exception $e ) {
+			$notice = sprintf( __( 'Error: PayPal Powered by Braintree was unable to complete the transaction. Please try again later or use another means of payment. Reason: %s', 'woocommerce-gateway-paypal-braintree' ), $e->getMessage() );
+			wc_add_notice( $notice, 'error' );
+			$this->log( __FUNCTION__, 'Error: Unable to complete transaction. Reason: ' . $e->getMessage() );
+			return false;
+		}
 
 		// Check result
 		if ( ! $result->success ) {
@@ -957,7 +964,7 @@ abstract class WC_Gateway_Paypal_Braintree extends WC_Payment_Gateway {
 		try {
 			$transaction = $gateway->transaction()->find( $transaction_id );
 		} catch ( Exception $e ) {
-			$this->log( __FUNCTION__, "Error: Unable to find transaction with transaction ID {$transaction_id}" );
+			$this->log( __FUNCTION__, "Error: Unable to find transaction with transaction ID {$transaction_id}. Reason: " . $e->getMessage() );
 			return false;
 		}
 
@@ -983,10 +990,15 @@ abstract class WC_Gateway_Paypal_Braintree extends WC_Payment_Gateway {
 			return false;
 		}
 
-		if ( "void" === $action_to_take ) {
-			$result = $gateway->transaction()->void( $transaction_id );
-		} else {
-			$result = $gateway->transaction()->refund( $transaction_id, $refund_amount );
+		try {
+			if ( "void" === $action_to_take ) {
+				$result = $gateway->transaction()->void( $transaction_id );
+			} else {
+				$result = $gateway->transaction()->refund( $transaction_id, $refund_amount );
+			}
+		} catch ( Exception $e ) {
+			$this->log( __FUNCTION__, 'Error: The transaction cannot be voided nor refunded. Reason: ' . $e->getMessage() );
+			return false;
 		}
 
 		if ( ! $result->success ) {
