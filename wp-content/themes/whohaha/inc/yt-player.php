@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Create video container
+ */
 function getYtPlayer($player_id, $post_id = null, $autoplay = false){
 	global $video_embeds;
 	if (!isset($video_embeds)) {
@@ -13,121 +16,26 @@ function getYtPlayer($player_id, $post_id = null, $autoplay = false){
 	?>
 	<div id="player_<?php echo $player_id; ?>" data-videoid="<?php echo $player_id; ?>" data-vidurl="https://www.youtube.com/embed/<?php echo $player_id; ?>" class="video-iframe" <?php if ($post_id) echo ' data-postid="'.$post_id.'"'; ?><?php if ($autoplay) echo ' data-autoplay="'.$autoplay.'"'; ?>></div>
 	<?php
-}
 
-add_action('wp_footer', 'check_yt_vids', 20);
-function check_yt_vids(){
-	global $video_embeds;
 	if (!empty($video_embeds)) {
 		render_script($video_embeds);
 	}
 }
 
-// function render_script($player_id, $post_id = null, $autoplay = false){
+/**
+ * Load JS File
+ */
 function render_script($video_embeds){
-	?>
-	<script>
-		<?php
-		foreach ($video_embeds as $index => $video){
-			echo PHP_EOL;
-			?>
-			var player_<?php echo $index; ?>;
-			var videoId_<?php echo $index; ?> = "<?php echo $video['playerid']; ?>";
-			<?php
-		}
-		?>
-
-		var ytEvents = {
-			events : {
-				startVidByNum : function(i){
-					jQuery('#player').animate({ opacity:1 }, 200);
-				}
-			},
-			onPlayerReady : function(event){
-				ytEvents.events.startVidByNum();
-				var autoplay = jQuery(event.target.a).data('autoplay');
-				if (autoplay && autoplay === true) {
-					event.target.playVideo();
-				}
-			},
-			onPlayerStateChange : function(event){
-				if(event.data === 0){
-					var selectedVideo = event.target;
-					var $this = selectedVideo.a;
-					var ajaxAction,
-						$parent = $this.offsetParent,
-						thisVideoId = jQuery($this).data('videoid'),
-						thisPostId = jQuery($this).data('postid');
-
-					jQuery($parent).append('<div class="video-overlay"><img class="loading" alt="loading" src="/wp-content/themes/whohaha/resources/images/default.gif"></div>');
-					selectedVideo.cueVideoById({videoId:thisVideoId});
-
-					if(thisPostId){
-						ajaxAction = 'finish_video_ajax';
-					} else {
-						ajaxAction = 'finish_video_ajax_noid';
-					}
-					jQuery.ajax({
-						url : '/wp-admin/admin-ajax.php',
-						method : 'POST',
-						data : {
-							'action' : ajaxAction,
-							'id' : thisPostId
-						}
-					}).done(function(output){
-						jQuery('.video-overlay').append(output);
-						function showVids(){
-							jQuery('img.loading').remove();
-							jQuery('.video-post').removeClass('unloaded');
-						}
-						window.setTimeout(showVids, 500);
-					});
-				}
-			},
-			definePlayer : function(){
-				<?php
-				foreach ($video_embeds as $index => $video) {
-				?>
-				player_<?php echo $index; ?> = new YT.Player('player_<?php echo $video['playerid']; ?>', {
-					height: '390',
-					width: '640',
-					videoId: videoId_<?php echo $index; ?>,
-					playerVars: {
-						controls:1,
-						modestbranding:1,
-						showinfo:0,
-						color: 'white'
-					},
-					events: {
-						'onReady': ytEvents.onPlayerReady,
-						'onStateChange': ytEvents.onPlayerStateChange
-					}
-				});
-				<?php
-				}
-				?>
-			},
-			init : function(){
-				var tag = document.createElement('script');
-
-				tag.src = "https://www.youtube.com/iframe_api";
-				var firstScriptTag = document.getElementsByTagName('script')[0];
-				firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-			}
-		}
-
-		ytEvents.init();
-
-		function onYouTubeIframeAPIReady() {
-			ytEvents.definePlayer();
-		}
-
-	</script>
-	<?php
+	$var_array = array(
+		'video_embeds' => $video_embeds,
+		'ajax_url' => admin_url( 'admin-ajax.php' )
+	);
+	wp_enqueue_script( 'youtube_player', get_template_directory_uri() . '/resources/js/youtube-player.js', array('jquery'), false, true );
+	wp_localize_script( 'youtube_player', 'YOUTUBE_ARRAY', $var_array );
 }
 
 function finish_video_ajax(){
-	session_start();
+	if(session_id() == '') session_start();
 	$do_not_duplicate = $_SESSION['do_not_duplicate'];
 	$post_id = ($_POST['id']) ? $_POST['id'] : 0;
 	$authors = get_coauthors($post_id);
@@ -251,9 +159,13 @@ function finish_video_ajax_noid(){
 add_action( 'wp_ajax_finish_video_ajax_noid', 'finish_video_ajax_noid' );
 add_action( 'wp_ajax_nopriv_finish_video_ajax_noid', 'finish_video_ajax_noid' );
 
+/**
+ * Create shortcode for videos to be embedded into posts
+ * Usage: [get-yt-player id="LwuY1hKP9ug" autoplay="false"]
+ */
 function getYtPlayer_shortcode($atts){
 	extract(shortcode_atts(array(
-		"id" => "asdf",
+		"id" => null,
 		"autoplay" => false,
 	), $atts));
 

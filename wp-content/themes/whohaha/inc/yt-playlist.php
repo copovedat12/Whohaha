@@ -1,7 +1,6 @@
 <?php
 
 function getYtPlaylist($plist_url){
-
 	$parts = parse_url($plist_url);
 	parse_str($parts['query'], $query);
 	$plist_id = $query['list'];
@@ -63,8 +62,6 @@ function getYtPlaylist($plist_url){
 					ytEvents.numLoaded = playlistInfo.items.length;
 					ytEvents.numShowing = ytEvents.numShowing + playlistInfo.items.length;
 
-					// console.log(playlistInfo);
-
 					jQuery('button.load-more').remove();
 
 					for (var i = 0; i < ytEvents.numLoaded; i++) {
@@ -88,10 +85,6 @@ function getYtPlaylist($plist_url){
 
 			},
 			onPlayerStateChange : function(event){
-				// if(event.data === 5){
-				// 	// ytEvents.addPlaylistVids();
-				// 	event.target.playVideo();
-				// }
 				if(event.data === -1){
 					jQuery('.v-player-list > a').removeClass('active');
 					ytEvents.playingVid = player.getPlaylistIndex();
@@ -107,7 +100,6 @@ function getYtPlaylist($plist_url){
 						ytEvents.addPlaylistVids();
 					}
 				}
-				// console.log(event, ytEvents.playingVid, ytEvents.numShowing)
 			},
 			cueVideoPlaylist : function(){
 				player.cuePlaylist({
