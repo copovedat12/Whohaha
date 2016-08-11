@@ -21,7 +21,7 @@
 
 			<?php
 			if ( get_field('dailymotion_video_embed_code') ):
-				?>
+			?>
 
 				<div class="video-embed">
 					<?php
@@ -36,7 +36,7 @@
 					?>
 				</div>
 
-				<?php
+			<?php
 			elseif ( get_field('video_embed_code') ):
 				// If video gallery
 				if(have_rows('add_more_videos')):

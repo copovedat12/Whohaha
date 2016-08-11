@@ -18,14 +18,14 @@ function getYtPlayer($player_id, $post_id = null, $autoplay = false){
 	<?php
 
 	if (!empty($video_embeds)) {
-		render_script($video_embeds);
+		yt_player_render_script($video_embeds);
 	}
 }
 
 /**
  * Load JS File
  */
-function render_script($video_embeds){
+function yt_player_render_script($video_embeds){
 	$var_array = array(
 		'video_embeds' => $video_embeds,
 		'ajax_url' => admin_url( 'admin-ajax.php' )
