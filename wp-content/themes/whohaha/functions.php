@@ -269,10 +269,15 @@ require get_template_directory() . '/inc/random-tags.php';
 require get_template_directory() . '/inc/hashtagram.php';
 
 /**
- * Implement the Youtube Playlist shortcode
+ * Implement the video functions
+ * Includes Youtube player, playlist, shortcode
+ * Includes Dailymotion Player
+ * Include video ajax (overlay and post rendering)
  */
 require get_template_directory() . '/inc/yt-playlist.php';
 require get_template_directory() . '/inc/yt-player.php';
+require get_template_directory() . '/inc/dm-player.php';
+require get_template_directory() . '/inc/video-ajax.php';
 
 /**
  * Implement the Custom Post Types

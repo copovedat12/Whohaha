@@ -22,9 +22,20 @@
 			<?php
 			if ( get_field('dailymotion_video_embed_code') ):
 				?>
+
 				<div class="video-embed">
-				<?php echo get_field('dailymotion_video_embed_code'); ?>
+					<?php
+					$iframe_string = get_field('dailymotion_video_embed_code');
+					if(preg_match('/dailymotion/', $iframe_string)){
+						preg_match('/embed\/video\/([\w+\-+\_+]+)[\"\?]/', $iframe_string, $match);
+						$video_id = $match[1];
+						getDmPlayer($video_id, get_the_ID(), false);
+					} else{
+						echo get_field('video_embed_code');
+					}
+					?>
 				</div>
+
 				<?php
 			elseif ( get_field('video_embed_code') ):
 				// If video gallery

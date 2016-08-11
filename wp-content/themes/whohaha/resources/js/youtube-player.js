@@ -1,4 +1,4 @@
-var video_embeds = YOUTUBE_ARRAY.video_embeds,
+var video_embeds = (typeof(YOUTUBE_ARRAY) !== 'undefined') ? YOUTUBE_ARRAY.video_embeds : null,
 	player = [],
 	videoId = [];
 
@@ -8,12 +8,12 @@ for (var index = 0; index < video_embeds.length; index++) {
 
 var ytEvents = {
 	events : {
-		startVidByNum : function(i){
+		startVid : function(i){
 			jQuery('#player').animate({ opacity:1 }, 200);
 		}
 	},
 	onPlayerReady : function(event){
-		ytEvents.events.startVidByNum();
+		ytEvents.events.startVid();
 		var autoplay = jQuery(event.target.a).data('autoplay');
 		if (autoplay && autoplay === true) {
 			event.target.playVideo();
@@ -24,11 +24,10 @@ var ytEvents = {
 			var selectedVideo = event.target;
 			var $this = selectedVideo.a;
 			var ajaxAction,
-				$parent = $this.offsetParent,
 				thisVideoId = jQuery($this).data('videoid'),
 				thisPostId = jQuery($this).data('postid');
 
-			jQuery($parent).append('<div class="video-overlay"><img class="loading" alt="loading" src="/wp-content/themes/whohaha/resources/images/default.gif"></div>');
+			jQuery($this).after('<div class="video-overlay"><img class="loading" alt="loading" src="/wp-content/themes/whohaha/resources/images/default.gif"></div>');
 			selectedVideo.cueVideoById({videoId:thisVideoId});
 
 			if(thisPostId){
