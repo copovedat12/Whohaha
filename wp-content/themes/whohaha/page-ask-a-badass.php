@@ -27,7 +27,7 @@ get_header(); ?>
 				</div>
 			</div>
 
-			<?php getVideoPlaylist('https://www.youtube.com/playlist?list=PLdt4fwPI6A7SD3NkDUkwO9ajxHEhksGCl'); ?>
+			<?php getVideoPlaylist('http://www.dailymotion.com/playlist/x4lrg2_WhoHaha_ask-a-badass/1#video=x4kw90c'); ?>
 
 		<?php
 			get_template_part( 'template-parts/content', 'archive-footer' );

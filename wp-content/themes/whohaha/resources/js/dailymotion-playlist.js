@@ -36,9 +36,9 @@ var dmPlaylist = (function($){
 				var vid = videos[index];
 
 				if(pListEvents.currentLoaded === vid.id){
-					var addImg = '<a class="plist-video plist-video-'+vid.id+' active" href="#" onclick="event.preventDefault(); dmPlaylist.startVidByNum(\''+vid.id+'\');">';
+					var addImg = '<a class="plist-video plist-video-'+vid.id+' active" href="#" data-videoid="'+vid.id+'">';
 				} else {
-					var addImg = '<a class="plist-video plist-video-'+vid.id+'" href="#" onclick="event.preventDefault(); dmPlaylist.startVidByNum(\''+vid.id+'\');">';
+					var addImg = '<a class="plist-video plist-video-'+vid.id+'" href="#" data-videoid="'+vid.id+'">';
 				}
 				addImg += '<img src="'+vid.thumbnail_180_url+'" alt="">';
 				addImg += '<h2>'+vid.title+'</h2>';
@@ -109,6 +109,13 @@ var dmPlaylist = (function($){
 
 	$(document).on('click', 'button.load-more', function(){
 		pListEvents.addPlaylistVids();
+	});
+
+	$(document).on('click', 'a.plist-video', function(e){
+		var $this = e.currentTarget;
+		var vidId = $($this).data('videoid');
+		pListEvents.startVidByNum(vidId);
+		return false;
 	});
 
 	$('.v-player-list').hover(function(){
