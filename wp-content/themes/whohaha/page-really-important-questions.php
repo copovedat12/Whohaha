@@ -27,7 +27,7 @@ get_header(); ?>
 				</div>
 			</div>
 
-			<?php getYtPlaylist('https://www.youtube.com/playlist?list=PLdt4fwPI6A7SqDGWYcVSUbgoir84t24Wf'); ?>
+			<?php getVideoPlaylist('https://www.youtube.com/playlist?list=PLdt4fwPI6A7SqDGWYcVSUbgoir84t24Wf'); ?>
 
 		<?php
 			get_template_part( 'template-parts/content', 'archive-footer' );

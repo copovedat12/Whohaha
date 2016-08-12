@@ -274,9 +274,9 @@ require get_template_directory() . '/inc/hashtagram.php';
  * Includes Dailymotion Player
  * Include video ajax (overlay and post rendering)
  */
-require get_template_directory() . '/inc/yt-playlist.php';
 require get_template_directory() . '/inc/yt-player.php';
 require get_template_directory() . '/inc/dm-player.php';
+require get_template_directory() . '/inc/video-playlist.php';
 require get_template_directory() . '/inc/video-ajax.php';
 
 /**

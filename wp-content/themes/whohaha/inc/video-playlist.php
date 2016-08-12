@@ -1,5 +1,5 @@
 <?php
-function getYtPlaylist($plist_url, $post_id = null){
+function getVideoPlaylist($plist_url, $post_id = null){
 	?>
 	<div class="yt-section">
 		<div class="row">

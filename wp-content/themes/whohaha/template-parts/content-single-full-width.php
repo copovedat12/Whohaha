@@ -24,7 +24,7 @@
 		<?php
 		if(get_field('video_playlist')):
 
-			getYtPlaylist(get_field('video_playlist'));
+			getVideoPlaylist(get_field('video_playlist'));
 
 		elseif(get_post_format() == 'video'):
 			if(have_rows('add_more_videos')):
