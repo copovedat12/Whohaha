@@ -20,6 +20,7 @@
 <meta name="google-site-verification" content="YLaxceYycBEBXkM_yGMEhKD0IioeOHSM_EI-nnH81pE" />
 <meta name="google-site-verification" content="civVdocHhY9An9L-iLyjzsphwp45HNfxxth8V_QsOH8" />
 <meta name="google-site-verification" content="o3-7wzsKZSUaDQmKen8Ytcpu3stbVRTkM3yLeGsMIh4" />
+<meta name="dailymotion-domain-verification" content="dm0i69zu6gv3wixpq" />
 
 <meta property="fb:pages" content="707649489340379" />
 
