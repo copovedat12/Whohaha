@@ -1,18 +1,23 @@
-var video_embeds = (typeof(DM_ARRAY) !== 'undefined') ? DM_ARRAY.video_embeds : null,
-	player = [],
-	videoId = [];
+var dm_video_embeds = (typeof(DM_ARRAY) !== 'undefined') ? DM_ARRAY.video_embeds : null,
+	dmPlayer = [];
 
-for (var index = 0; index < video_embeds.length; index++) {
-	var videoObj = video_embeds[index];
+for (var index = 0; index < dm_video_embeds.length; index++) {
+	var videoObj = dm_video_embeds[index];
+
+	if(videoObj.autoplay === 'true'){
+		var autoplay = true;
+	} else {
+		var autoplay = false;
+	}
 	/**
 	 * Initialize player
 	 */
-	player[index] = DM.player(document.getElementById("player_"+videoObj.playerid), {
+	dmPlayer[index] = DM.player(document.getElementById("player_"+videoObj.playerid), {
 		video: videoObj.playerid,
 		width: "100%",
 		height: "100%",
 		params: {
-			autoplay: false,
+			autoplay: autoplay,
 			mute: false
 		}
 	});
@@ -20,7 +25,7 @@ for (var index = 0; index < video_embeds.length; index++) {
 	/**
 	 * Events when player ends
 	 */
-	player[index].addEventListener('end', function(e){
+	dmPlayer[index].addEventListener('end', function(e){
 		var thisPostId = videoObj.postid,
 			ajaxAction;
 
@@ -30,7 +35,7 @@ for (var index = 0; index < video_embeds.length; index++) {
 		});
 
 		// Add overlay with loader
-		jQuery("#player_"+videoObj.playerid).after('<div class="video-overlay"><img class="loading" alt="loading" src="/wp-content/themes/whohaha/resources/images/default.gif"></div>');
+		jQuery(e.target).after('<div class="video-overlay"><img class="loading" alt="loading" src="/wp-content/themes/whohaha/resources/images/default.gif"></div>');
 
 		// Use ajax to get overlay videos
 		if(typeof(thisPostId) !== 'undefined'){
