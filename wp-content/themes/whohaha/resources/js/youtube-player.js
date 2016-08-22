@@ -1,5 +1,5 @@
 var video_embeds = (typeof(YOUTUBE_ARRAY) !== 'undefined') ? YOUTUBE_ARRAY.video_embeds : null,
-	player = [],
+	ytPlayer = [],
 	videoId = [];
 
 for (var index = 0; index < video_embeds.length; index++) {
@@ -55,7 +55,7 @@ if(video_embeds !== null){
 		},
 		definePlayer : function(){
 			for (var index = 0; index < videoId.length; index++) {
-				player[index] = new YT.Player('player_' + videoId[index], {
+				ytPlayer[index] = new YT.Player('player_' + videoId[index], {
 					height: '390',
 					width: '640',
 					videoId: videoId[index],
