@@ -31,6 +31,7 @@ class SC_Ads_Frontend{
 	}
 
 	public function load_scripts(){
+		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'cookies-js', plugins_url( '/assets/cookies.js', SC_ADS_DIR ), array(), '', true );
 		wp_enqueue_style( 'sc-ads', plugins_url( '/assets/sc-ads-styles.css', SC_ADS_DIR ) );
 	}
@@ -49,6 +50,15 @@ class SC_Ads_Frontend{
 		if($int_option['sc_int_ads_enable']) $is_enabled[] = 'interstital';
 		if($popup_option['sc_popup_ads_enable']) $is_enabled[] = 'popup';
 		return $is_enabled;
+	}
+
+	public function check_dev_mode(){
+		$int_option = get_option('sc_ads_opts_int');
+		$popup_option = get_option('sc_ads_opts_popup');
+		$in_dev_mode = array();
+		if($int_option['sc_int_ads_dev_mode']) $in_dev_mode[] = 'interstital';
+		if($popup_option['sc_popup_ads_dev_mode']) $in_dev_mode[] = 'popup';
+		return $in_dev_mode;
 	}
 
 	public function check_page_active($pages){
@@ -70,15 +80,17 @@ class SC_Ads_Frontend{
 
 		$cookies = self::check_for_cookies();
 		$is_enabled = self::check_is_enabled();
+		$dev_mode = self::check_dev_mode();
+		$is_admin = current_user_can('manage_options');
 
 		$is_active = array();
-		if(in_array('interstital', $is_enabled) && (!in_array('interstital', $cookies)) || isset($int_option['sc_int_ads_dev_mode'])){
+		if( in_array('interstital', $is_enabled) && ( ( !in_array('interstital', $cookies) && !in_array('interstital', $dev_mode) ) || ( in_array('interstital', $dev_mode) && $is_admin ) ) ){
 			$pages = $int_option['sc_int_ads_pages'];
 			if(self::check_page_active($pages)){
 				$is_active[] = 'interstital';
 			}
 		}
-		if(in_array('popup', $is_enabled) && (!in_array('popup', $cookies)) || isset($popup_option['sc_popup_ads_dev_mode'])){
+		if ( in_array('popup', $is_enabled) && ( ( !in_array('popup', $cookies) && !in_array('popup', $dev_mode) ) || ( in_array('popup', $dev_mode) && $is_admin ) ) ){
 			$pages = $popup_option['sc_popup_ads_pages'];
 			if(self::check_page_active($pages)){
 				$is_active[] = 'popup';

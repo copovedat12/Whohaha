@@ -17,7 +17,7 @@ $options = get_option('sc_ads_opts_int');
 			<div class="int-ad-content">
 				<?php echo do_shortcode( htmlspecialchars_decode(stripslashes($options['sc_int_ads_content'])) ); ?>
 			</div>
-			<?php if (isset($options['sc_int_ads_bl_content']) || $options['sc_int_ads_br_content'])): ?>
+			<?php if (isset($options['sc_int_ads_bl_content']) || $options['sc_int_ads_br_content']): ?>
 				<div class="int-ad-content-bottom">
 					<div class="int-ad-content-bottom-half left-half">
 						<?php echo do_shortcode( htmlspecialchars_decode(stripslashes($options['sc_int_ads_bl_content'])) ); ?>
