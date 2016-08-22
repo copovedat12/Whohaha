@@ -3,7 +3,10 @@
 }
 .sc-int-navbar{
     .close-btn{
-        text-align: center;
+        text-align: right;
+        background-image: url(/wp-content/themes/whohaha/resources/images/whohaha_logo_small.png);
+        background-repeat: no-repeat;
+        background-size: contain;
     }
     .countdown{
         float: none !important;
@@ -11,8 +14,21 @@
     .int-close{
         float: none;
         opacity: 0.7;
-        :hover{
+        &::after{
+            content: "\e080";
+            font-family: 'Glyphicons Halflings';
+            display: inline-block;
+            margin-left: 6px;
+            font-size: 13px;
+            position: relative;
+            right: 0;
+            @include transition(0.2s);
+        }
+        &:hover{
             opacity: 0.9;
+            &::after{
+                right: -5px;
+            }
         }
     }
 }
