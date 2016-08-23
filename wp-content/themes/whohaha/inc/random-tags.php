@@ -35,7 +35,7 @@ function generate_rand_tags(){
         }
         ?>
         <li class="page_item"><a href="<?php echo esc_url(get_permalink(get_ID_by_page_name('TV'))); ?>">WhoHaha TV</a></li>
-        <li class="page_item shop"><a href="https://cznd.co/collections/whohaha">Shop</a></li>
+        <li class="page_item shop"><a target="_blank" href="https://cznd.co/collections/whohaha">Shop</a></li>
     </ul>
     <?php
 }
@@ -75,7 +75,7 @@ function generate_rand_tags_ajax(){
         }
         ?>
         <li class="page_item"><a href="<?php echo esc_url(get_permalink(get_ID_by_page_name('TV'))); ?>">WhoHaha TV</a></li>
-        <li class="page_item shop"><a href="https://cznd.co/collections/whohaha">Shop</a></li>
+        <li class="page_item shop"><a target="_blank" href="https://cznd.co/collections/whohaha">Shop</a></li>
     </ul>
     <?php
     wp_die();
