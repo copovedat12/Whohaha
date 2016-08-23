@@ -328,7 +328,7 @@
 				method : 'POST',
 				data : {
 					'action' : 'generate_rand_tags_ajax',
-					'tag_num' : 3,
+					'tag_num' : 2,
 					'max_len' : 13
 				}
 			})
@@ -337,6 +337,12 @@
 				$container.prepend(output);
 				$container.find('a').removeAttr('style');
 			});
+		});
+	});
+
+	$(function(){
+		$('li.page_item.shop a').click(function(){
+			ga('send', 'event', 'Nav Shop Link', 'click', 'Click on shop link in nav bar');
 		});
 	});
 

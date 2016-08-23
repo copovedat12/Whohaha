@@ -1,7 +1,7 @@
 <?php
 
 function generate_rand_tags(){
-    $tag_num = 3;
+    $tag_num = 2;
     $max_len = 13;
 
     global $wpdb;
@@ -35,12 +35,13 @@ function generate_rand_tags(){
         }
         ?>
         <li class="page_item"><a href="<?php echo esc_url(get_permalink(get_ID_by_page_name('TV'))); ?>">WhoHaha TV</a></li>
+        <li class="page_item shop"><a href="https://cznd.co/collections/whohaha">Shop</a></li>
     </ul>
     <?php
 }
 
 function generate_rand_tags_ajax(){
-    $tag_num = ($_POST['tag_num']) ? $_POST['tag_num'] : 3;
+    $tag_num = ($_POST['tag_num']) ? $_POST['tag_num'] : 2;
     $max_len = ($_POST['max_len']) ? $_POST['max_len'] : 13;
 
     global $wpdb;
@@ -74,6 +75,7 @@ function generate_rand_tags_ajax(){
         }
         ?>
         <li class="page_item"><a href="<?php echo esc_url(get_permalink(get_ID_by_page_name('TV'))); ?>">WhoHaha TV</a></li>
+        <li class="page_item shop"><a href="https://cznd.co/collections/whohaha">Shop</a></li>
     </ul>
     <?php
     wp_die();
