@@ -149,8 +149,15 @@ class SC_Ads_Frontend{
 		</div>
 		<script>
 			(function($){
-				$('body').css('overflow', 'hidden');
+				$(document).ready(function(){
+					if(typeof(Cookies.get('_sc_ads_int')) !== 'undefined'){
+						ad.remove();
+						$('body').css('overflow', 'initial');
+						// window.location.reload();
+					}
+				});
 
+				$('body').css('overflow', 'hidden');
 				var ad = $('.ad-container');
 				var closeBtn = ad.find('a.int-close'),
 					ctTimer = ad.find('.countdown span');
@@ -216,12 +223,20 @@ class SC_Ads_Frontend{
 					Cookies.set('_sc_ads_popup', '<?php echo $_SERVER['REQUEST_URI']; ?>', { path: '/', expires: <?php echo $options['sc_popup_cookie_time']; ?> });
 					<?php endif; ?>
 				}
+				function reload(){
+					window.location.reload();
+				}
 
 				$(document).ready(function(){
+					if(typeof(Cookies.get('_sc_ads_popup')) !== 'undefined'){
+						$('.modal-overlay').remove();
+						$('.sc-ad-modal-wrapper').remove();
+					}
+
 					$('a.modal-close, .modal-overlay').click(function(){
 						$('.modal-overlay').remove();
 						$('.sc-ad-modal-wrapper').remove();
-						setCookie();
+						setCookie(reload);
 					});
 
 					$('.sc-ad-modal a, .sc-ad-modal input[type="submit"]').click(function(){
