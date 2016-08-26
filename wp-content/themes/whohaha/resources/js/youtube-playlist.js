@@ -5,19 +5,17 @@ var player,
 
 if(playlistId !== null){
 	var ytEvents = {
-		events : {
-			startVidByNum : function(i){
-				jQuery('#player').animate({ opacity:0 }, 'slow', function(){
-					player.playVideoAt(i);
-				})
-				.animate({ opacity:1 }, 'slow');
-			}
-		},
 		numLoaded : 0,
 		numShowing : 0,
 		playingVid : 0,
 		loadUrl : 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=30&playlistId='+playlistId+'&key='+apiKey,
 		nextUrl : null,
+		startVidByNum : function(i){
+			jQuery('#player').animate({ opacity:0 }, 'slow', function(){
+				player.playVideoAt(i);
+			})
+			.animate({ opacity:1 }, 'slow');
+		},
 		onPlayerReady : function(event){
 			ytEvents.cueVideoPlaylist();
 			jQuery('#player').animate({ opacity:1 }, 'slow');
@@ -48,9 +46,9 @@ if(playlistId !== null){
 					var vidInfo = playlistItemsInfo[i];
 
 					if(vidInfo.snippet.position === ytEvents.playingVid){
-						var addImg = '<a class="plist-video-'+vidInfo.snippet.position+' active" href="#" onclick="event.preventDefault(); ytEvents.events.startVidByNum('+vidInfo.snippet.position+');">';
+						var addImg = '<a class="plist-video-'+vidInfo.snippet.position+' active" href="#" onclick="event.preventDefault(); ytEvents.startVidByNum('+vidInfo.snippet.position+');">';
 					}else{
-						var addImg = '<a class="plist-video-'+vidInfo.snippet.position+'" href="#" onclick="event.preventDefault(); ytEvents.events.startVidByNum('+vidInfo.snippet.position+');">';
+						var addImg = '<a class="plist-video-'+vidInfo.snippet.position+'" href="#" onclick="event.preventDefault(); ytEvents.startVidByNum('+vidInfo.snippet.position+');">';
 					}
 					addImg += '<img src="'+vidInfo.snippet.thumbnails.medium.url+'" alt="">';
 					addImg += '<h2>'+vidInfo.snippet.title+'</h2>';
@@ -65,6 +63,7 @@ if(playlistId !== null){
 
 		},
 		onPlayerStateChange : function(event){
+			// unstarted
 			if(event.data === -1){
 				jQuery('.v-player-list > a').removeClass('active');
 				ytEvents.playingVid = player.getPlaylistIndex();
@@ -87,6 +86,14 @@ if(playlistId !== null){
 				list:playlistId,
 				index:0
 			});
+			ytEvents.checkPlayFromNum();
+		},
+		checkPlayFromNum : function(){
+			var urlVars = getUrlVars();
+			if(typeof(urlVars['playfrom']) !== 'undefined'){
+				var playfrom = (urlVars['playfrom'] - 1);
+				ytEvents.startVidByNum(playfrom);
+			}
 		},
 		definePlayer : function(){
 			player = new YT.Player('player', {
@@ -115,6 +122,18 @@ if(playlistId !== null){
 	}
 
 	ytEvents.init();
+
+	function getUrlVars(){
+		var vars = [], hash;
+		var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		for(var i = 0; i < hashes.length; i++)
+		{
+			hash = hashes[i].split('=');
+			vars.push(hash[0]);
+			vars[hash[0]] = hash[1];
+		}
+		return vars;
+	}
 
 	function onYouTubeIframeAPIReady() {
 		ytEvents.definePlayer();
