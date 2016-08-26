@@ -7,6 +7,7 @@ if(playlistId !== null){
 	var ytEvents = {
 		numLoaded : 0,
 		numShowing : 0,
+		pagesLoaded : 0,
 		playingVid : 0,
 		loadUrl : 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=30&playlistId='+playlistId+'&key='+apiKey,
 		nextUrl : null,
@@ -33,6 +34,8 @@ if(playlistId !== null){
 				url: ajaxUrl
 			})
 			.done(function( retVal ) {
+				ytEvents.pagesLoaded++;
+
 				playlistInfo = retVal;
 				playlistItemsInfo = playlistInfo.items;
 
@@ -50,7 +53,8 @@ if(playlistId !== null){
 					}else{
 						var addImg = '<a class="plist-video-'+vidInfo.snippet.position+'" href="#" onclick="event.preventDefault(); ytEvents.startVidByNum('+vidInfo.snippet.position+');">';
 					}
-					addImg += '<img src="'+vidInfo.snippet.thumbnails.medium.url+'" alt="">';
+					if(typeof(vidInfo.snippet.thumbnails) !== 'undefined')
+						addImg += '<img src="'+vidInfo.snippet.thumbnails.medium.url+'" alt="">';
 					addImg += '<h2>'+vidInfo.snippet.title+'</h2>';
 					addImg += '</a>';
 					jQuery('.v-player-list').append(addImg);
@@ -59,6 +63,7 @@ if(playlistId !== null){
 					jQuery('.v-player-list').append('<button class="load-more">Load More</button>');
 				}
 
+				if(ytEvents.pagesLoaded === 1) ytEvents.checkPlayFromNum();
 			});
 
 		},
@@ -86,7 +91,6 @@ if(playlistId !== null){
 				list:playlistId,
 				index:0
 			});
-			ytEvents.checkPlayFromNum();
 		},
 		checkPlayFromNum : function(){
 			var urlVars = getUrlVars();
