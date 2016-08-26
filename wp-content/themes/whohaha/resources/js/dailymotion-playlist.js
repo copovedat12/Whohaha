@@ -9,7 +9,7 @@ var dmPlaylist = (function($){
 		currentLoaded : null,
 		currentLoadedIndex : 0,
 		hasMoreVideos : false,
-		startVidByNum : function(i){
+		startVidById : function(i){
 			$('#player').animate({ opacity:0 }, 'slow', function(){
 				pListEvents.loadVideo(i);
 			})
@@ -24,21 +24,27 @@ var dmPlaylist = (function($){
 				$(".v-player-list").animate({scrollTop: position});
 			}
 		},
+		startVidByNum : function(i){
+			if($('.plist-video-'+i).length > 0){
+				var vidId = $('.plist-video-'+i).data('videoid');
+				pListEvents.startVidById(vidId);
+			}
+		},
 		loadVideo : function(videoId){
 			player.load(videoId,{
 				autoplay : true
 			});
 		},
-		renderPlaylistVids : function(videos){
+		renderPlaylistVids : function(videos, callback){
 			$('button.load-more').remove();
 
 			for (var index = 0; index < videos.length; index++) {
 				var vid = videos[index];
 
 				if(pListEvents.currentLoaded === vid.id){
-					var addImg = '<a class="plist-video plist-video-'+vid.id+' active" href="#" data-videoid="'+vid.id+'">';
+					var addImg = '<a class="plist-video plist-video-'+(index+1)+' plist-video-'+vid.id+' active" href="#" data-videoid="'+vid.id+'">';
 				} else {
-					var addImg = '<a class="plist-video plist-video-'+vid.id+'" href="#" data-videoid="'+vid.id+'">';
+					var addImg = '<a class="plist-video plist-video-'+(index+1)+' plist-video-'+vid.id+'" href="#" data-videoid="'+vid.id+'">';
 				}
 				addImg += '<img src="'+vid.thumbnail_180_url+'" alt="">';
 				addImg += '<h2>'+vid.title+'</h2>';
@@ -49,6 +55,8 @@ var dmPlaylist = (function($){
 			if(pListEvents.hasMoreVideos === true){
 				$('.v-player-list').append('<button class="load-more">Load More</button>');
 			}
+
+			if(callback) callback();
 		},
 		addPlaylistVids : function(){
 			ajaxUrl = 'https://api.dailymotion.com/playlist/'+playlistId+'/videos?fields=id,thumbnail_180_url,thumbnail_url,title,&sort=recent&page='+(pListEvents.currentpage + 1)+'&limit=10';
@@ -62,8 +70,15 @@ var dmPlaylist = (function($){
 				pListEvents.renderPlaylistVids(videos);
 			});
 		},
+		checkPlayFromNum : function(){
+			var urlVars = getUrlVars();
+			if(typeof(urlVars['playfrom']) !== 'undefined'){
+				// console.log(urlVars['playfrom']);
+				pListEvents.startVidByNum(urlVars['playfrom']);
+			}
+		},
 		init : function(){
-			ajaxUrl = 'https://api.dailymotion.com/playlist/'+playlistId+'/videos?fields=id,thumbnail_180_url,thumbnail_url,title,&sort=recent&page='+pListEvents.currentpage+'&limit=10';
+			ajaxUrl = 'https://api.dailymotion.com/playlist/'+playlistId+'/videos?fields=id,thumbnail_180_url,thumbnail_url,title,&sort=recent&page='+pListEvents.currentpage+'&limit=30';
 			$.ajax({
 				url: ajaxUrl
 			})
@@ -87,6 +102,7 @@ var dmPlaylist = (function($){
 				 */
 				player.addEventListener('load', function(){
 					$('#player').animate({ opacity:1 }, 'slow');
+					pListEvents.renderPlaylistVids(videos, pListEvents.checkPlayFromNum);
 				});
 				player.addEventListener('end', function(){
 					var $nextVideo = $('.plist-video-'+pListEvents.currentLoaded).next('a.plist-video');
@@ -100,12 +116,23 @@ var dmPlaylist = (function($){
 					}
 				});
 
-				pListEvents.renderPlaylistVids(videos);
 			});
 		}
 	}
 
 	pListEvents.init();
+
+	function getUrlVars(){
+		var vars = [], hash;
+		var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		for(var i = 0; i < hashes.length; i++)
+		{
+			hash = hashes[i].split('=');
+			vars.push(hash[0]);
+			vars[hash[0]] = hash[1];
+		}
+		return vars;
+	}
 
 	$(document).on('click', 'button.load-more', function(){
 		pListEvents.addPlaylistVids();
@@ -114,7 +141,7 @@ var dmPlaylist = (function($){
 	$(document).on('click', 'a.plist-video', function(e){
 		var $this = e.currentTarget;
 		var vidId = $($this).data('videoid');
-		pListEvents.startVidByNum(vidId);
+		pListEvents.startVidById(vidId);
 		return false;
 	});
 
@@ -126,5 +153,5 @@ var dmPlaylist = (function($){
 		document.body.style.overflow='auto';
 	});
 
-	return {startVidByNum : pListEvents.startVidByNum};
+	return {startVidById : pListEvents.startVidById};
 })(jQuery);
