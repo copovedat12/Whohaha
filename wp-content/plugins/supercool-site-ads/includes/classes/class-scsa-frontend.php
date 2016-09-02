@@ -153,7 +153,7 @@ class SC_Ads_Frontend{
 					if(typeof(Cookies.get('_sc_ads_int')) !== 'undefined'){
 						ad.remove();
 						$('body').css('overflow', 'initial');
-						// window.location.reload();
+						window.location.reload();
 					}
 				});
 
@@ -228,6 +228,7 @@ class SC_Ads_Frontend{
 					if(typeof(Cookies.get('_sc_ads_popup')) !== 'undefined'){
 						$('.modal-overlay').remove();
 						$('.sc-ad-modal-wrapper').remove();
+						window.location.reload();
 					}
 
 					$('a.modal-close, .modal-overlay').click(function(){
