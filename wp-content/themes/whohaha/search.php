@@ -18,21 +18,23 @@ get_header(); ?>
 				<span>Results for <?php echo get_search_query(); ?></span>
 			</header>
 
-			<div class="row">
-			<?php while ( have_posts() ) : the_post(); ?>
-				<?php if (is_search() && ($post->post_type=='page')) continue; ?>
+			<div id="archiveposts">
+				<div class="row loop-post">
+				<?php while ( have_posts() ) : the_post(); ?>
+					<?php if (is_search() && ($post->post_type=='page')) continue; ?>
 
-				<?php
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				//get_template_part( 'template-parts/content', 'search' );
-				get_template_part( 'template-parts/content-displayposts', 'medium' );
-				?>
+					<?php
+					/**
+					* Run the loop for the search to output the results.
+					* If you want to overload this in a child theme then include a file
+					* called content-search.php and that will be used instead.
+					*/
+					//get_template_part( 'template-parts/content', 'search' );
+					get_template_part( 'template-parts/content-displayposts', 'medium' );
+					?>
 
-			<?php endwhile; ?>
+				<?php endwhile; ?>
+				</div>
 			</div>
 
 			<?php the_posts_navigation(); ?>

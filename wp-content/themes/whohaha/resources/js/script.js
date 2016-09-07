@@ -391,8 +391,16 @@
 })(jQuery);
 
 (function($){
+	var containerName;
+	if($('#homeposts').length > 0){
+		containerName = '#homeposts';
+	} else if ($('#archiveposts').length > 0){
+		containerName = '#archiveposts';
+	} else {
+		containerName = null;
+	}
 	var ias = $.ias({
-		container:  '#homeposts',
+		container:  containerName,
 		item:       '.loop-post',
 		pagination: 'nav.posts-navigation',
 		next:       '.posts-navigation .nav-previous a',
@@ -408,7 +416,7 @@
 	});
 
 	ias.on('noneLeft', function() {
-	    $('.load-more-trigger').remove();
+			$('.load-more-trigger').remove();
 	});
 
 	var i = 0;
