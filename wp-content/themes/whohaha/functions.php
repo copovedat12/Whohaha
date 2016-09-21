@@ -253,6 +253,16 @@ function get_nav_menu_count(){
 	}
 }
 
+/*
+ * Create wp admin theme
+ */
+function my_admin_theme_style() {
+  wp_enqueue_style( 'Global Stylesheet', get_stylesheet_directory_uri() . '/admin-style.css' );
+    // wp_enqueue_style('my-admin-theme', plugins_url('wp-admin.css', __FILE__));
+}
+add_action('admin_enqueue_scripts', 'my_admin_theme_style');
+add_action('login_enqueue_scripts', 'my_admin_theme_style');
+
 /**
  * Mailchimp redirect functions
  */
