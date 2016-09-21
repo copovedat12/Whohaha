@@ -335,6 +335,18 @@ abstract class WC_Gateway_Paypal_Braintree extends WC_Payment_Gateway {
 					<tr>
 						<th>
 							<?php _e( 'Connect/Disconnect', 'woocommerce-gateway-paypal-braintree' ); ?>
+							<?php
+							$connect_help_tip = __( 'Click button to create an account with Braintree and start transacting.', 'woocommerce-gateway-paypal-braintree' );
+							if ( ! empty( $this->merchant_access_token ) ) {
+								$connect_help_tip = sprintf(
+									'%s<br><br>%s<br><br>%s',
+									__( 'You just connected your Braintree account to WooCommerce. You can start taking payments now.', 'woocommerce-gateway-paypal-braintree' ),
+									__( 'Once you have processed a payment, PayPal will review your application for final approval. Before you ship any goods make sure you have received a final approval for your Braintree account.', 'woocommerce-gateway-paypal-braintree' ),
+									__( 'Questions? We are a phone call away: 1-855-489-0345.', 'woocommerce-gateway-paypal-braintree' )
+								);
+							}
+							echo wc_help_tip( $connect_help_tip );
+							?>
 						</th>
 						<td>
 							<?php if ( ! empty( $this->merchant_access_token ) ) { ?>
