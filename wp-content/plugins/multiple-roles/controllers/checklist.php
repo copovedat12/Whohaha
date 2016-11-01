@@ -8,7 +8,7 @@ class MDMR_Checklist_Controller {
 	/**
 	 * The model object.
 	 *
-	 * @var object
+	 * @var \MDMR_Model $model
 	 */
 	var $model;
 
@@ -27,9 +27,10 @@ class MDMR_Checklist_Controller {
 	 * @param string $hook The current admin screen.
 	 */
 	public function remove_dropdown( $hook ) {
-		if ( $hook != 'user-edit.php' )
+		if ( 'user-edit.php' !== $hook && 'user-new.php' !== $hook) {
 			return;
-		wp_enqueue_script( 'md-multiple-roles', MDMR_URL . 'views/js/scripts.js', array( 'jquery' ) );
+		}
+		wp_enqueue_script( 'md-multiple-roles', MDMR_URL . 'views/js/scripts.js', array( 'jquery' ), '1.0' );
 	}
 
 	/**
@@ -40,15 +41,16 @@ class MDMR_Checklist_Controller {
 	 */
 	public function output_checklist( $user ) {
 
-		if ( !$this->model->can_update_roles() )
+		if ( ! $this->model->can_update_roles() ) {
 			return;
+		}
 
 		wp_nonce_field( 'update-md-multiple-roles', 'md_multiple_roles_nonce' );
 
-		$roles        = $this->model->get_roles();
-		$user_roles   = $user->roles;
+		$roles        = $this->model->get_editable_roles();
+        $user_roles   = ( isset( $user->roles ) ) ? $user->roles : null;
 
-		include( MDMR_PATH . 'views/checklist.html.php' );
+		include( apply_filters( 'mdmr_checklist_template', MDMR_PATH . 'views/checklist.html.php' ) );
 
 	}
 
@@ -60,16 +62,22 @@ class MDMR_Checklist_Controller {
 	 */
 	public function process_checklist( $user_id ) {
 
-		if ( isset( $_POST['md_multiple_roles_nonce'] ) && !wp_verify_nonce( $_POST['md_multiple_roles_nonce'], 'update-md-multiple-roles' ) )
-			return;
+		do_action( 'mdmr_before_process_checklist', $user_id, $_POST['md_multiple_roles_nonce'] );
 
-		if ( !$this->model->can_update_roles() )
+		if ( isset( $_POST['md_multiple_roles_nonce'] ) && ! wp_verify_nonce( $_POST['md_multiple_roles_nonce'], 'update-md-multiple-roles' ) ) {
 			return;
+		}
 
-		$new_roles = isset( $_POST['md_multiple_roles'] ) ? $_POST['md_multiple_roles'] : array();
+		if ( ! $this->model->can_update_roles() ) {
+			return;
+		}
+
+		$new_roles = ( isset( $_POST['md_multiple_roles'] ) && is_array( $_POST['md_multiple_roles'] ) ) ? $_POST['md_multiple_roles'] : array();
+		if ( empty( $new_roles ) ) {
+			return;
+		}
 
 		$this->model->update_roles( $user_id, $new_roles );
-
 	}
 
 }
