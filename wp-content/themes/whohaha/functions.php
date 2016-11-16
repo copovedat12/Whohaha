@@ -264,6 +264,12 @@ add_action('admin_enqueue_scripts', 'my_admin_theme_style');
 add_action('login_enqueue_scripts', 'my_admin_theme_style');
 
 /**
+ * Add Custom Meta Box functionality
+ */
+if( file_exists( get_template_directory() . '/cmb2/init.php' ) )
+	require get_template_directory() . '/cmb2/init.php';
+
+/**
  * Mailchimp redirect functions
  */
 require get_template_directory() . '/inc/mailchimp-redirect.php';
@@ -312,7 +318,7 @@ require get_template_directory() . '/inc/template-tags.php';
 /**
  * Custom functions that act independently of the theme templates.
  */
-require get_template_directory() . '/inc/extras.php';
+// require get_template_directory() . '/inc/extras.php';
 
 /**
  * Customizer additions.
@@ -332,3 +338,10 @@ require get_template_directory() . '/inc/instant-articles.php';
  * Load Woocommerce custom functions
  */
 require get_template_directory() . '/inc/woocommerce.php';
+
+/**
+ * Load custom Video Post Type
+ * Load custom Video Playlist taxonomy
+ */
+require get_template_directory() . '/inc/video-custom-post-type.php';
+require get_template_directory() . '/inc/video-playlist-taxonomy.php';
