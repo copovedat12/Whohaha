@@ -274,9 +274,9 @@ require get_template_directory() . '/inc/mailchimp-redirect.php';
 require get_template_directory() . '/inc/random-tags.php';
 
 /**
- * Implement the Hashtagram shortcode
+ * Implement extra contact fields for socials
  */
-require get_template_directory() . '/inc/hashtagram.php';
+require get_template_directory() . '/inc/contact-fields.php';
 
 /**
  * Implement the video functions
@@ -298,8 +298,6 @@ require get_template_directory() . '/inc/post-types.php';
  * Implement the Wordpress Popular Posts functions
  */
 require get_template_directory() . '/inc/wpp-custom.php';
-
-// require get_template_directory() . '/inc/jetpack-infinite-scroll.php';
 
 /**
  * Implement the Custom Header feature.
