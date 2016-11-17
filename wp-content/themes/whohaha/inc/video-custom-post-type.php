@@ -12,7 +12,7 @@ function create_video_posttype() {
 			'has_archive' => true,
 			'rewrite' => array('slug' => 'videos'),
 			'menu_icon' => 'dashicons-video-alt3',
-			'taxonomies' => 'playlists',
+			'taxonomies' => array('playlists','post_tag'),
 			'exclude_from_search' => true
 		)
 	);
