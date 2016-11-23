@@ -299,6 +299,7 @@ require get_template_directory() . '/inc/video-ajax.php';
  * Implement the Custom Post Types
  */
 require get_template_directory() . '/inc/post-types.php';
+require get_template_directory() . '/inc/options-pages.php';
 
 /**
  * Implement the Wordpress Popular Posts functions
