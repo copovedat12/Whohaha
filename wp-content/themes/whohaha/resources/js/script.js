@@ -547,3 +547,12 @@ function socialShare(url, width, height) {
 			'disableScrolling' : true
     });
 })(jQuery);
+
+(function($){
+	if ( $('.match-height').length > 0 )
+		$('.match-height').matchHeight();
+
+	$('#page.sweepspage .bg-pink span').fitText(.58);
+	$('#page.sweepspage .bg-purple span').fitText(1.05);
+	$('#page.sweepspage .bg-blue span').fitText(.87);
+})(jQuery);

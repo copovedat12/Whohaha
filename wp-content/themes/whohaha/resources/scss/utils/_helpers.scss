@@ -13,10 +13,26 @@
   }
 }
 
+@mixin translate($x, $y) {
+  -webkit-transform: translate($x, $y);
+      -ms-transform: translate($x, $y); // IE9 only
+       -o-transform: translate($x, $y);
+          transform: translate($x, $y);
+}
+
 @mixin background-image-3 ($deg, $color1, $color2, $color3) {
   background-image: -moz-linear-gradient( $deg, $color1, $color2, $color3);
   background-image: -webkit-linear-gradient( $deg, $color1, $color2, $color3);
   background-image: -ms-linear-gradient( $deg, $color1, $color2, $color3);
+}
+
+@mixin background-image-to-gradient ($imageurl, $start, $middle, $end) {
+  background: -moz-linear-gradient(top, $start, $middle, $end), url($imageurl);
+  // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(59%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.65))), url($imageurl);
+  background: -webkit-linear-gradient(top, $start, $middle, $end), url($imageurl);
+  background: -o-linear-gradient(top, $start, $middle, $end), url($imageurl);
+  background: -ms-linear-gradient(top, $start, $middle, $end), url($imageurl);
+  background: linear-gradient(to bottom, $start, $middle, $end), url($imageurl);
 }
 
 @mixin transform-animation ($name, $duration, $iteration, $timing){
