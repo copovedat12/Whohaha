@@ -30,8 +30,7 @@ get_header(); ?>
 					</div>
 				</div>
 			</div>
-
-			<?php getVideoPlaylist('https://www.youtube.com/playlist?list=PLdt4fwPI6A7TCF2nXileEEdj7i8HGivGt'); ?>
+			<?php if( get_field('video_playlist') ) getVideoPlaylist( get_field('video_playlist') ); ?>
 
 		<?php
 			get_template_part( 'template-parts/content', 'archive-footer' );
