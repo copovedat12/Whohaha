@@ -1,0 +1,214 @@
+.heroscope-content-area{
+	background: url(../resources/images/heroscope/background.jpg) no-repeat;
+	background-size: 100% auto;
+	background-position: center top;
+	color: $white;
+	position: relative;
+	#particles-js{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: #1c1b20;
+	}
+	.heroscope-container{
+		position: relative;
+		background: url(../resources/images/heroscope/zodiac-wheel.png) no-repeat;
+		background-position: -30px 10px;
+	}
+	header.page-header{
+		padding: 50px 0;
+		background: url(../resources/images/heroscope/logo-stars.png) no-repeat;
+		background-position: right center;
+	    background-size: 85% auto;
+		img{
+			display: inline-block;
+			width: 47%;
+		}
+		@media (max-width: $screen-sm-max) {
+			background-size: 100% auto;
+			img{
+				width: 70%;
+			}
+		}
+	}
+	.yt-section{
+		margin-bottom: 30px;
+		.v-player-list{
+			padding-right: 0;
+			font-size: 30px;
+			height: auto;
+			a{
+				position: relative;
+				padding: 0;
+				width: 49%;
+				height: 0;
+				padding-bottom: 17.8%;
+				margin-bottom: 2%;
+				float: left;
+				&:nth-child(2n+1){
+					margin-right: 2%;
+				}
+				&:nth-last-child(-n+2){
+					margin-bottom: 0;
+				}
+				background-position: 0 0;
+				background-size: 100% 200%;
+				background-repeat: no-repeat;
+				@include transition(background-color 0.2s);
+				&:hover{
+					background-position: 0 100%;
+				}
+				&.aries{
+					background-image: url(../resources/images/heroscope/signs/aries.gif);
+					background-color: #ea2b2b;
+					&:hover{
+						background-color: darken(#ea2b2b, 10%);
+					}
+				}
+				&.libra{
+					background-image: url(../resources/images/heroscope/signs/libra.gif);
+					background-color: #40d6a9;
+					&:hover{
+						background-color: darken(#40d6a9, 10%);
+					}
+				}
+				&.taurus{
+					background-image: url(../resources/images/heroscope/signs/taurus.gif);
+					background-color: #ed5830;
+					&:hover{
+						background-color: darken(#ed5830, 10%);
+					}
+				}
+				&.scorpio{
+					background-image: url(../resources/images/heroscope/signs/scorpio.gif);
+					background-color: #3bc8d5;
+					&:hover{
+						background-color: darken(#3bc8d5, 10%);
+					}
+				}
+				&.gemini{
+					background-image: url(../resources/images/heroscope/signs/gemini.gif);
+					background-color: #f48453;
+					&:hover{
+						background-color: darken(#f48453, 10%);
+					}
+				}
+				&.sagittarius{
+					background-image: url(../resources/images/heroscope/signs/sagittarius.gif);
+					background-color: #326aea;
+					&:hover{
+						background-color: darken(#326aea, 10%);
+					}
+				}
+				&.cancer{
+					background-image: url(../resources/images/heroscope/signs/cancer.gif);
+					background-color: #efca1d;
+					&:hover{
+						background-color: darken(#efca1d, 10%);
+					}
+				}
+				&.capricorn{
+					background-image: url(../resources/images/heroscope/signs/capricorn.gif);
+					background-color: #9a32ea;
+					&:hover{
+						background-color: darken(#9a32ea, 10%);
+					}
+				}
+				&.leo{
+					background-image: url(../resources/images/heroscope/signs/leo.gif);
+					background-color: #abd32e;
+					&:hover{
+						background-color: darken(#abd32e, 10%);
+					}
+				}
+				&.aquarius{
+					background-image: url(../resources/images/heroscope/signs/aquarius.gif);
+					background-color: #d83ceb;
+					&:hover{
+						background-color: darken(#d83ceb, 10%);
+					}
+				}
+				&.virgo{
+					background-image: url(../resources/images/heroscope/signs/virgo.gif);
+					background-color: #47b229;
+					&:hover{
+						background-color: darken(#47b229, 10%);
+					}
+				}
+				&.pisces{
+					background-image: url(../resources/images/heroscope/signs/pisces.gif);
+					background-color: #ea3281;
+					&:hover{
+						background-color: darken(#ea3281, 10%);
+					}
+				}
+				@media (max-width: $screen-sm-max) and (min-width: $screen-sm) {
+					width: 32%;
+					padding-bottom: 12%;
+					margin-right: 2%;
+					&:nth-child(3n){
+						margin-right: 0;
+					}
+					&:nth-last-child(-n+3){
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+	.post-content{
+		margin-bottom: 20px;
+	}
+	.socials{
+		margin-bottom: 30px;
+		.social-icon{
+			display: inline-block;
+			margin-right: 20px;
+			position: relative;
+			a{
+				position: relative;
+				display: block;
+				font-size: 30px;
+				width: 50px;
+				height: 50px;
+				line-height: 50px;
+				color: $white;
+				text-align: center;
+				border-radius: 50%;
+				i{
+					@include transition(all 0.4s);
+
+				}
+				&:hover i{
+					transform: rotate(360deg);
+				}
+				&.facebook{
+					background: #3b5999;
+				}
+				&.twitter{
+					background: #55acee;
+				}
+				&.pinterest{
+					background: #bd081c;
+				}
+				&::after{
+					content: "";
+					display: block;
+					width: 116%;
+					height: 116%;
+					position: absolute;
+					top: -8%;
+					left: -8%;
+					background: url(../resources/images/heroscope/star-pattern.png);
+					background-size: cover;
+				}
+			}
+		}
+	}
+	.planets{
+		margin-bottom: 10px;
+		text-align: right;
+	}
+}

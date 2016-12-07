@@ -132,6 +132,7 @@ function whohaha_scripts() {
 	wp_enqueue_script( 'match-height', '//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js', array('jquery'), '0.7.0', true);
 
 	wp_enqueue_script( 'fittext', '//cdnjs.cloudflare.com/ajax/libs/FitText.js/1.2.0/jquery.fittext.min.js', array('jquery'), '1.2.0', true );
+	// wp_enqueue_script( 'bigtext', get_template_directory_uri() . '/node_modules/bigtext/src/bigtext.js', array('jquery'), '0.1.8', true );
 
 	// wp_enqueue_script( 'whohaha-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
@@ -152,6 +153,8 @@ function whohaha_scripts() {
 	wp_enqueue_style( 'slick-styles', get_template_directory_uri() . '/css/slick.css');
 
 	wp_enqueue_style( 'foundation-font', get_template_directory_uri() . '/fonts/foundation-icons/foundation-icons.css');
+
+	wp_enqueue_style( 'fontawesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' );
 
 	wp_enqueue_style( 'lightbox-style', get_template_directory_uri() . '/css/lightbox.min.css');
 
@@ -350,3 +353,8 @@ require get_template_directory() . '/inc/woocommerce.php';
  */
 require get_template_directory() . '/inc/video-custom-post-type.php';
 require get_template_directory() . '/inc/video-playlist-taxonomy.php';
+
+/**
+ * Video playlist for Heroscope page
+ */
+require get_template_directory() . '/inc/heroscope-playlist.php';
