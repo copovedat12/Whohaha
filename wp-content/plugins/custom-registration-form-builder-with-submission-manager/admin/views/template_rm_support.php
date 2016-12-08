@@ -10,7 +10,7 @@
             <div class="rm-support-block-image">
                 <img src="<?php echo plugin_dir_url(dirname(dirname(__FILE__))) . 'images/help_us.jpg'; ?>">
             </div>
-            <div class="rm-support-block-text">If you like RegistrationMagic, please give us 5 star rating on our WP Org plage. This helps immensely in motivating us and keeping the momentum going.</div>
+            <div class="rm-support-block-text">If you like RegistrationMagic, please give us 5 star rating on our WP Org page. This helps immensely in motivating us and keeping the momentum going.</div>
             <div class="rm-support-block-button"><a href="https://wordpress.org/plugins/custom-registration-form-builder-with-submission-manager/">Yes, I want to help!</a></div>
         </div>
 
@@ -20,7 +20,7 @@
                 <img src="<?php echo plugin_dir_url(dirname(dirname(__FILE__))) . 'images/new_feature.jpg'; ?>">
             </div>
             <div class="rm-support-block-text">Yes, we are waiting to hear from you! If you want us to add something you need in RegistrationMagic, please use this link. We try to accommodate all feature requests within 2 weeks of upgrade cycle.</div>
-            <div class="rm-support-block-button"><a href="http://registrationmagic.com/#contact">Request Now</a></div>
+            <div class="rm-support-block-button"><a href="https://registrationmagic.com/help-support/">Request Now</a></div>
         </div>
 
         <div class="rm-support-block">
@@ -29,7 +29,7 @@
                 <img src="<?php echo plugin_dir_url(dirname(dirname(__FILE__))) . 'images/support_rm.jpg'; ?>">
             </div>
             <div class="rm-support-block-text">Want support for an issue, bug, broken install or just about anything related to RegistrationMagic? Contact one of our awesome support associates by creating new support ticket.</div>
-            <div class="rm-support-block-button"><a href="http://registrationmagic.com/#contact">Yes, I Need Help!</a></div>
+            <div class="rm-support-block-button"><a href="https://registrationmagic.com/help-support/">Yes, I Need Help!</a></div>
         </div>
 
         <div class="rm-support-block">

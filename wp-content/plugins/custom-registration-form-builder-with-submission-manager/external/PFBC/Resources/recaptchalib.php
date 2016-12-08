@@ -89,7 +89,7 @@ function recaptcha_get_html ($pubkey, $error = null, $use_ssl = false)
            $errorpart = "&amp;error=" . $error;
         }
 
-        return '<pre class="rm-pre-wrapper-for-script-tags"><script type=text/javascript>if(typeof rm_captcha_site_key === "undefined")rm_captcha_site_key="'.$pubkey.'";</script></pre><div class="g-recaptcha" data-sitekey="'.$pubkey.'"></div>';
+        return '<pre class="rm-pre-wrapper-for-script-tags"><script type=text/javascript>if(typeof rm_captcha_site_key === "undefined")rm_captcha_site_key="'.$pubkey.'";</script></pre><div style="overflow:hidden" class="g-recaptcha" data-sitekey="'.$pubkey.'"></div>';
 
 }
 

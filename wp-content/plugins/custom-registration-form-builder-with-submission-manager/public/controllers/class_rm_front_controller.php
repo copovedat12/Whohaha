@@ -204,6 +204,7 @@ class RM_Front_Controller {
                 } elseif ($data->is_user === true) {
                     $data->payments = false;
                     $data->submissions = false;
+                    $data->active_tab_index = 0;
                     $view = $this->mv_handler->setView('front_submissions', true);
                     return $view->read($data);
                 } else {

@@ -76,6 +76,7 @@
                         ?>
                     <div class="rm-popup-item dbfl" id="rm-submissions-open"><?php echo RM_UI_Strings::get('LABEL_MY_SUBS'); ?></div>
                     <div class="rm-popup-item dbfl" id="rm-transactions-open"><?php echo RM_UI_Strings::get('LABEL_PAYMENTS'); ?></div>
+                    <div class="rm-popup-item dbfl" id="rm-account-open"><?php echo RM_UI_Strings::get('LABEL_MY_DETAILS'); ?></div>
                     <?php if($this->user_level !== 0x1 && !is_user_logged_in()){ ?>
                     <div class="rm-popup-item dbfl" id="rm_log_off" onclick="document.getElementById('rm_floating_btn_nav_form').submit()"><?php echo RM_UI_Strings::get('LABEL_LOG_OFF'); ?></div>
                    

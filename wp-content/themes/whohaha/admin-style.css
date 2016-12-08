@@ -12,6 +12,9 @@ body.login{
     margin-top: 8%;
     margin-bottom: 20px;
 }
+.interim-login #login {
+    padding: 10px 0 0;
+}
 .login h1 a{
     background-image: url(./resources/images/whohaha_logo_small.png);
     background-size: contain;
@@ -55,4 +58,13 @@ body.login{
 .login form .button.button-large:hover,
 .login form .button.button-large:focus{
     background: #BD0C71;
+}
+
+#wp-auth-check-wrap #wp-auth-check {
+    background-image: -moz-linear-gradient(0deg, #48ceff 0%, #48ceff 20%, #f905a4 100%);
+    background-image: -webkit-linear-gradient(0deg, #48ceff 0%, #48ceff 20%, #f905a4 100%);
+    background-image: -ms-linear-gradient(0deg, #48ceff 0%, #48ceff 20%, #f905a4 100%);
+}
+#wp-auth-check-wrap button.wp-auth-check-close{
+    color: #fff;
 }

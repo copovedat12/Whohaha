@@ -101,13 +101,12 @@ class RM_Front_Form_Controller
         if ($subbed_form_no && ($fe_form->get_form_number() == $subbed_form_no) && $form_preproc_response && $this->mv_handler->validateForm($form_name."_".$subbed_form_no) && !$service->is_browser_reload_duplication($stat_id))
         {         
             $primary_data = $fe_form->get_prepared_data($request->req, 'primary');
-
-            $service->update_stat_entry($stat_id);
-    
             $db_data = $fe_form->get_prepared_data($request->req, 'dbonly');
 
             $sub_detail = $service->save_submission($form_id, $db_data, $primary_data['user_email']->value);
                         
+            if(isset($sub_detail))
+                $service->update_stat_entry($stat_id,'update',$sub_detail->submission_id);
             
             $form_options = $fe_form->get_form_options();
             

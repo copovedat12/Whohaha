@@ -5,7 +5,7 @@ Tags: custom registration, custom form fields, custom registration fields, multi
 
 Requires at least: 3.5
 Tested up to: 4.6.1
-Stable tag: 3.5.4.1
+Stable tag: 3.5.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -282,6 +282,15 @@ Please update to version 1.4.2. It fixes an old bug that always moved the form a
 14. Global Settings.
 
 == Changelog ==
+
+= 3.5.4.2 =
+* Fixed: CSV export containing limited submissions.
+* Fixed: rare reCaptcha issue due to 3rd party conflict.
+* Fixed: reCaptcha sometimes overlapping submit button thus rendering it unclickable.
+* Fixed: SMTP email test nullifying banned email settings (Gold bundle).
+* Fixed: Broken support link.
+* Fixed: Conflicts with third party css for certain ui elements.
+* Typo fixes.
 
 = 3.5.4.1 =
 Fixed: Blocks showing up on front-end with some WP themes.
@@ -684,6 +693,15 @@ Fixed: Blocks showing up on front-end with some WP themes.
 * Added Custom Fields
 
 == Upgrade Notice ==
+
+= 3.5.4.2 =
+* Fixed: CSV export containing limited submissions.
+* Fixed: rare reCaptcha issue due to 3rd party conflict.
+* Fixed: reCaptcha sometimes overlapping submit button thus rendering it unclickable.
+* Fixed: SMTP email test nullifying banned email settings (Gold bundle).
+* Fixed: Broken support link.
+* Fixed: Conflicts with third party css for certain ui elements.
+* Typo fixes.
 
 = 3.5.4.1 =
 Fixed: Blocks showing up on front-end with some WP themes.

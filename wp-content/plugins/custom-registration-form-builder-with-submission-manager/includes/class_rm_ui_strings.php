@@ -3092,7 +3092,7 @@ class RM_UI_Strings {
             return __("Map you Aweber field with form field.", 'custom-registration-form-builder-with-submission-manager');
                 
             case 'HELP_OPT_IN_CB_AW':
-            return __("This will add an checkbox to form for subscribe aweber.", 'custom-registration-form-builder-with-submission-manager');
+            return __("This will add a checkbox to form for subscribe aweber.", 'custom-registration-form-builder-with-submission-manager');
                 
             case 'HELP_ADD_FIELD_CC':
                 return __("This will map the selected field to the corresponding constant contact field.", 'custom-registration-form-builder-with-submission-manager');
@@ -3392,7 +3392,7 @@ class RM_UI_Strings {
                 return __("Windows Client ID", 'custom-registration-form-builder-with-submission-manager');
                 
             case 'HELP_OPTIONS_THIRDPARTY_WIN_CLIENT_ID':
-                return __("To make Windows login work, you’ll need an Client ID. More information <a target='blank' class='rm_help_link' href='https://msdn.microsoft.com/en-in/library/bb676626.aspx'>here</a>.", 'custom-registration-form-builder-with-submission-manager');
+                return __("To make Windows login work, you’ll need a Client ID. More information <a target='blank' class='rm_help_link' href='https://msdn.microsoft.com/en-in/library/bb676626.aspx'>here</a>.", 'custom-registration-form-builder-with-submission-manager');
 
             case 'FD_LABEL_ADD_NEW':
                 return __("Add New", 'custom-registration-form-builder-with-submission-manager');
@@ -3532,10 +3532,10 @@ class RM_UI_Strings {
                 return __("Twitter Consumer Secret", 'custom-registration-form-builder-with-submission-manager');    
             
             case 'HELP_OPTIONS_THIRDPARTY_TW_CONSUMER_KEY':    
-                return __("To make Twitter login work, you’ll need an Client ID. More information <a target='blank' class='rm_help_link' href='https://apps.twitter.com/'>here</a>.", 'custom-registration-form-builder-with-submission-manager');    
+                return __("To make Twitter login work, you’ll need a Client ID. More information <a target='blank' class='rm_help_link' href='https://apps.twitter.com/'>here</a>.", 'custom-registration-form-builder-with-submission-manager');    
             
             case 'HELP_OPTIONS_THIRDPARTY_TW_CONSUMER_SEC':    
-                return __("To make Twitter login work, you’ll need an Client ID. More information <a target='blank' class='rm_help_link' href='https://apps.twitter.com/'>here</a>.", 'custom-registration-form-builder-with-submission-manager');    
+                return __("To make Twitter login work, you’ll need a Client ID. More information <a target='blank' class='rm_help_link' href='https://apps.twitter.com/'>here</a>.", 'custom-registration-form-builder-with-submission-manager');    
                 
             
             case 'LABEL_LOGIN_INSTAGRAM_OPTION':
@@ -3548,7 +3548,7 @@ class RM_UI_Strings {
                 return __("Instagram Client ID", 'custom-registration-form-builder-with-submission-manager');
                 
             case 'HELP_OPTIONS_THIRDPARTY_INS_CLIENT_ID':
-                return __("To make Instagram login work, you’ll need an Client ID. More information <a target='blank' class='rm_help_link' href='https://www.instagram.com/developer/authentication/'>here</a>.", 'custom-registration-form-builder-with-submission-manager');
+                return __("To make Instagram login work, you’ll need a Client ID. More information <a target='blank' class='rm_help_link' href='https://www.instagram.com/developer/authentication/'>here</a>.", 'custom-registration-form-builder-with-submission-manager');
 
             case 'LABEL_MARK_ALL_READ':    
                 return __("Mark all read", 'custom-registration-form-builder-with-submission-manager');
