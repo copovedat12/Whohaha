@@ -11,7 +11,7 @@
  * @package whohaha
  */
 
-get_header('sweeps'); ?>
+get_header('gopitchyourself'); ?>
 
 <div class="enter-header">
 	<div class="container">
@@ -51,4 +51,4 @@ get_header('sweeps'); ?>
 
 <?php
 
-get_footer('sweeps');
+get_footer('gopitchyourself');

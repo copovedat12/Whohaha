@@ -1,9 +1,16 @@
-header#sweeps{
-	box-shadow: 0 0 4px rgba(0,0,0,0.15);
-	position: relative;
+$gpy-pink: #d437b7;
+$gpy-yellow: #d5ca2e;
+$gpy-purple: #7532b1;
+header#masthead.sweeps{
+	// box-shadow: 0 0 4px rgba(0,0,0,0.15);
+	box-shadow: none;
+	position: static;
+	background: transparent;
 	.navbar{
 		margin: 0;
 		height: 76px;
+		border: 0;
+		position: relative;
 	}
 
 	.sweeps-name{
@@ -14,15 +21,21 @@ header#sweeps{
 	}
 	.site-branding{
 		position: absolute;
-		top: 10px;
+		top: 0;
+		padding: 9px 10px;
 		left: 50%;
 		text-align: center;
 		font-size: 14px;
 		font-family: $strong-font;
 		font-weight: 900;
+		height: auto;
 		@include translate(-50%, 0);
+		background: $white;
 		span{
 			display: block;
+			background: none;
+			height: auto;
+			width: auto;
 			&.site-title{
 				margin-bottom: 5px;
 			}
@@ -37,11 +50,19 @@ header#sweeps{
 		li > a{
 			font-size: 14px;
 			padding: 27px 10px;
-			color: $black;
+			color: $white;
 		}
 	}
 }
-#page.sweepspage{
+
+#page.gopitchyourself{
+	@include gradient-horizontal(#7f30b6, #5b37a8, 0%, 100%);
+	.inner-wrap{
+		background-image: url(/wp-content/themes/whohaha/resources/images/pitchperfect/background-gradient.png);
+		background-repeat: no-repeat;
+		background-position: top center;
+		background-size: 100% auto;
+	}
 	img{
 		max-width: 100%;
 		height: auto;
@@ -50,7 +71,7 @@ header#sweeps{
 		font-family: $body-font;
 		font-weight: 900;
 		margin: 30px 0;
-		color: $pink;
+		color: $white;
 		position: relative;
 		overflow: hidden;
 		span{
@@ -63,7 +84,7 @@ header#sweeps{
 				display:block;
 				height: 4px;
 				width: 42px;
-				background: $pink;
+				background: $white;
 				position: absolute;
 				top: 50%;
 				margin-top: -2px;
@@ -79,12 +100,71 @@ header#sweeps{
 	h4{
 		font-family: "brandon-grotesque", $strong-font;
 		font-size: 36px;
-		color: $pink;
+		color: $gpy-pink;
 		text-align: center;
 		text-transform: uppercase;
 		margin: 30px 0;
 	}
+	#content{
+		background: transparent;
+		padding-top: 0;
+	}
+	#primary{
+		padding-top: 10px;
+	}
+	.pp-head-banner{
+		position: relative;
+		.bellas{
+			max-width: 80%;
+			display: block;
+			margin: auto;
+		}
+		.gopitchyourself{
+			position: absolute;
+			bottom: 5%;
+			left: 20%;
+			width: 60%;
+		}
+	}
+	.blackbox{
+		color: $white;
+		padding: 20px 40px;
+		font-size: 20px;
+		text-align: center;
+		font-family: $body-font;
+		font-weight: 900;
+
+		position: relative;
+		top: -10px;
+		// -webkit-perspective: 1000px;
+		// -webkit-perspective-origin: 50% 50%;
+		// perspective: 1000px;
+		// perspective-origin: 70% 40%;
+		// &:before{
+		// 	content: "";
+		// 	position: absolute;
+		// 	background: $gpy-pink;
+		// 	display: block;
+		// 	top: 0;
+		// 	left: 0;
+		// 	width: 100%;
+		// 	height: 100%;
+		// 	-webkit-transform: rotateX(-10deg) rotateY(2deg);
+		// 	-moz-transform: rotateX(-10deg) rotateY(2deg);
+		// 	transform: rotateX(-10deg) rotateY(2deg);
+		// }
+		background: url(/wp-content/themes/whohaha/resources/images/pitchperfect/callout-bg.png) no-repeat;
+		background-size: 100% 100%;
+		padding: 20px 40px 50px;
+		.text{
+			position: relative;
+			max-width: 790px;
+			display: inline-block;
+		}
+	}
+
 	#main{
+		color: $white;
 		ul{
 			font-size: 20px;
 			list-style-image: url('/wp-content/themes/whohaha/resources/images/pitchperfect/bullet.png');
@@ -95,45 +175,8 @@ header#sweeps{
 			}
 		}
 	}
-	#content{
-		background: url(/wp-content/themes/whohaha/resources/images/pitchperfect/pattern.jpg);
-		background-repeat: repeat;
-		background-position: center;
-		padding-top: 0;
-		background: url(/wp-content/themes/whohaha/resources/images/pitchperfect/pattern.jpg) repeat;
-		&.gopitchyourself{
-			@include background-image-to-gradient('/wp-content/themes/whohaha/resources/images/pitchperfect/pattern.jpg', rgba(230, 252, 255, 0) 0%, rgba(230, 252, 255, .80) 50%, rgba(230, 252, 255, 1) 100%);
-		}
-	}
-	#primary{
-		padding-top: 10px;
-	}
-	.pp-head-banner{
-		position: relative;
-		.gopitchyourself{
-			position: absolute;
-			bottom: 5%;
-			left: 20%;
-			width: 60%;
-		}
-	}
-	.blackbox{
-		background: $black;
-		color: $white;
-		border: 4px solid $white;
-		outline: 7px solid $black;
-		padding: 20px 40px;
-		font-size: 20px;
-		text-align: center;
-		font-family: $body-font;
-		font-weight: 900;
-		.text{
-			max-width: 790px;
-			display: inline-block;
-		}
-	}
 	.callout-boxes{
-		color: $white;
+		color: $gpy-purple;
 		font-family: "brandon-grotesque", $strong-font;
 		text-align: center;
 		font-size: 26px;
@@ -142,26 +185,24 @@ header#sweeps{
 			line-height: 1;
 			text-transform: uppercase;
 			width: 100%;
+			background: $gpy-yellow;
 			span{
 				display: block;
 				width: 100%;
 			}
 			&.bg-pink{
-				background: #e13f9f;
 				span{
 					font-size: 1.85em;
 					padding: 0.6em .5em;
 				}
 			}
 			&.bg-purple{
-				background: #9455ad;
 				span{
 					font-size: 1em;
 					padding: 0.67em .5em;
 				}
 			}
 			&.bg-blue{
-				background: #29b4e5;
 				span{
 					font-size: 1.24em;
 					padding: 0.28em .5em;
@@ -200,20 +241,12 @@ header#sweeps{
 			margin-bottom: 10px;
 			font-size: 2em;
 			padding: 0.5em 2em;
-			background: -moz-linear-gradient(top, $pink 0%, #cb439e 100%);
-			background: -webkit-linear-gradient(top, $pink 0%, #cb439e 100%);
-			background: -o-linear-gradient(top, $pink 0%, #cb439e 100%);
-			background: -ms-linear-gradient(top, $pink 0%, #cb439e 100%);
-			background: linear-gradient(to bottom, $pink 0%, #cb439e 100%);
+			background: $gpy-yellow;
+			color: $black;
 			@include transition(all 0.3s);
 			box-shadow: 0 2px 5px rgba(0,0,0,0.4);
 			&:hover,
 			&:focus{
-				background: -moz-linear-gradient(top, darken($pink, 10%) 0%, #cb439e 100%);
-				background: -webkit-linear-gradient(top, darken($pink, 10%) 0%, #cb439e 100%);
-				background: -o-linear-gradient(top, darken($pink, 10%) 0%, #cb439e 100%);
-				background: -ms-linear-gradient(top, darken($pink, 10%) 0%, #cb439e 100%);
-				background: linear-gradient(to bottom, darken($pink, 10%) 0%, #cb439e 100%);
 				box-shadow: 0 2px 8px rgba(0,0,0,0.5);
 			}
 			@media (max-width: $screen-xs){
@@ -222,7 +255,7 @@ header#sweeps{
 			}
 		}
 		a.rules{
-			color: $black;
+			color: $white;
 			text-decoration: underline;
 			text-transform: uppercase;
 			font-weight: 900;
@@ -249,5 +282,15 @@ header#sweeps{
 				margin-bottom: 10px;
 			}
 		}
+	}
+
+	.gpy-footer{
+		background: $gpy-pink;
+		text-align: center;
+		color: $white;
+		padding: 12px;
+		text-transform: uppercase;
+		font-size: 14px;
+		font-weight: 700;
 	}
 }

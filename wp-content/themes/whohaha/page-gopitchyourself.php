@@ -12,7 +12,7 @@
  * @package whohaha
  */
 
-get_header('sweeps'); ?>
+get_header('gopitchyourself'); ?>
 
 <div id="primary" class="content-area">
 	
@@ -21,8 +21,8 @@ get_header('sweeps'); ?>
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">
 					<div class="pp-head-banner">
-						<img src="/wp-content/themes/whohaha/resources/images/pitchperfect/pitch-perfect-squad.png" width="1270" height="576" alt="Pitch Perfect Girls">
-						<img class="gopitchyourself" src="/wp-content/themes/whohaha/resources/images/pitchperfect/go-pitch-yourself.png" width="1504" height="414" alt="Go Pitch Yourself">
+						<img class="bellas" src="/wp-content/themes/whohaha/resources/images/pitchperfect/bellas.png" width="1053" height="550" alt="Pitch Perfect Girls">
+						<img class="gopitchyourself" src="/wp-content/themes/whohaha/resources/images/pitchperfect/go-pitch-yourself-black.png" width="1504" height="414" alt="Go Pitch Yourself">
 					</div>
 				</div>
 			</div>
@@ -133,4 +133,4 @@ get_header('sweeps'); ?>
 
 <?php
 
-get_footer('sweeps');
+get_footer('gopitchyourself');

@@ -22,6 +22,10 @@
 			<?php get_search_form(); ?>
 		</div>
 
+		<div class="gpy-footer">
+			Pitch Perfect 3 in theaters December 22, 2017
+		</div>
+
 		<footer id="colophon" class="site-footer" role="contentinfo">
 			<div class="site-info container">
 				<div class="footer-content-area">

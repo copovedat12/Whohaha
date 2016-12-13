@@ -53,14 +53,14 @@
 	fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<div id="page" class="sweepspage site">
+<div id="page" class="gopitchyourself site">
 	<div class="inner-wrap">
 
 		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'whohaha' ); ?></a>
 
-		<header id="sweeps" class="site-header" role="banner">
+		<header id="masthead" class="sweeps site-header" role="banner">
 			<nav class="navbar">
-				<div class="sweeps-name navbar-left">
+				<div class="sweeps-name navbar-left hidden-xs">
 					<?php echo get_the_title(); ?>
 				</div>
 
@@ -73,13 +73,30 @@
 					<span>PRESENTS</span>
 				</div><!-- .site-branding -->
 
-				<ul class="nav-social nav navbar-nav navbar-right">
-					<li class="icon"><a class="socicon" href="https://www.facebook.com/whohaha/" target="_blank">b</a></li>
-					<li class="icon"><a class="socicon" href="http://instagram.com/whohaha/" target="_blank">x</a></li>
-					<li class="icon"><a class="socicon" href="https://twitter.com/whohahadotcom/" target="_blank">a</a></li>
-					<li class="icon"><a class="socicon" href="https://www.youtube.com/whohaha/?sub_confirmation=1" target="_blank">r</a></li>
-					<li class="icon"><a data-toggle="modal" data-target=".snapchat-modal"><i class="fi-social-snapchat"></i></a></li>
-				</ul>
+				<div class="nav-social">
+					<ul class="hidden-xs">
+						<li class="icon"><a class="socicon" href="https://www.facebook.com/whohaha/" target="_blank">b</a></li>
+						<li class="icon"><a class="socicon" href="http://instagram.com/whohaha/" target="_blank">x</a></li>
+						<li class="icon"><a class="socicon" href="https://twitter.com/whohahadotcom/" target="_blank">a</a></li>
+						<li class="icon"><a class="socicon" href="https://www.youtube.com/whohaha/?sub_confirmation=1" target="_blank">r</a></li>
+						<!-- <li class="icon"><a class="socicon" data-toggle="modal" data-target=".snapchat-modal">`</a></li> -->
+						<li class="icon"><a data-toggle="modal" data-target=".snapchat-modal"><i class="fi-social-snapchat"></i></a></li>
+					</ul>
+					<div class="social-toggle">
+						<a class="glyphicon glyphicon-option-vertical"></a>
+					</div>
+				</div>
+
+				<div id="slide-nav-social" class="slide-nav-social">
+					<ul>
+						<li class="icon"><a class="socicon" href="https://www.facebook.com/whohaha/" target="_blank">b</a></li>
+						<li class="icon"><a class="socicon" href="http://instagram.com/whohaha/" target="_blank">x</a></li>
+						<li class="icon"><a class="socicon" href="https://twitter.com/whohahadotcom/" target="_blank">a</a></li>
+						<li class="icon"><a class="socicon" href="https://www.youtube.com/whohaha/?sub_confirmation=1" target="_blank">r</a></li>
+						<li class="icon"><a class="" data-toggle="modal" data-target=".snapchat-modal"><i class="fi-social-snapchat"></i></a></li>
+						<!-- <li class="icon"><a class="socicon" data-toggle="modal" data-target=".snapchat-modal">`</a></li> -->
+					</ul>
+				</div>
 			</nav>
 		</header><!-- #masthead -->
 
