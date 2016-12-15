@@ -60,17 +60,22 @@
 
 		<header id="masthead" class="sweeps site-header" role="banner">
 			<nav class="navbar">
-				<div class="sweeps-name navbar-left hidden-xs">
-					<?php echo get_the_title(); ?>
-				</div>
+				<?php if ($post->post_name === 'gopitchyourself'): ?>
+					<div class="sweeps-name navbar-left">
+						<a href="/gopitchyourself/enter" class="btn btn-primary">ENTER HERE!</a>
+					</div>
+				<?php else: ?>
+					<div class="sweeps-name navbar-left hidden-xs">
+						<a href="/gopitchyourself" class="back-btn"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> back</a>
+					</div>
+				<?php endif; ?>
 
 				<div class="site-branding">
 					<span class="site-title">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-						<img src="/wp-content/themes/whohaha/resources/images/whohaha_logo_small.png" alt="WhoHaha">
-					</a>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+							<img src="/wp-content/themes/whohaha/resources/images/pitchperfect/gpy-site-logo.png" alt="WhoHaha">
+						</a>
 					</span>
-					<span>PRESENTS</span>
 				</div><!-- .site-branding -->
 
 				<div class="nav-social">
@@ -94,10 +99,10 @@
 						<li class="icon"><a class="socicon" href="https://twitter.com/whohahadotcom/" target="_blank">a</a></li>
 						<li class="icon"><a class="socicon" href="https://www.youtube.com/whohaha/?sub_confirmation=1" target="_blank">r</a></li>
 						<li class="icon"><a class="" data-toggle="modal" data-target=".snapchat-modal"><i class="fi-social-snapchat"></i></a></li>
-						<!-- <li class="icon"><a class="socicon" data-toggle="modal" data-target=".snapchat-modal">`</a></li> -->
 					</ul>
 				</div>
 			</nav>
+			<div class="present"><span>PRESENT</span></div>
 		</header><!-- #masthead -->
 
 		<!-- snapchat modal -->

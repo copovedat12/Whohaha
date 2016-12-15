@@ -121,6 +121,8 @@ function whohaha_scripts() {
 
 	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/bootstrap/assets/javascripts/bootstrap.min.js', array('jquery'), '', true );
 
+	wp_enqueue_script( 'select2', '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js', array('jquery'), '4.0.3', true);
+
 	wp_enqueue_script( 'slick-js', get_template_directory_uri() . '/js/slick.js', array('jquery'), '1.2.43', true );
 
 	wp_enqueue_script( 'jquery-ias', get_template_directory_uri() . '/js/jquery-ias.min.js', array('jquery'), '', true );
@@ -132,7 +134,6 @@ function whohaha_scripts() {
 	wp_enqueue_script( 'match-height', '//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js', array('jquery'), '0.7.0', true);
 
 	wp_enqueue_script( 'fittext', '//cdnjs.cloudflare.com/ajax/libs/FitText.js/1.2.0/jquery.fittext.min.js', array('jquery'), '1.2.0', true );
-	// wp_enqueue_script( 'bigtext', get_template_directory_uri() . '/node_modules/bigtext/src/bigtext.js', array('jquery'), '0.1.8', true );
 
 	// wp_enqueue_script( 'whohaha-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
@@ -148,7 +149,11 @@ function whohaha_scripts() {
 	 * enqueue styles here
 	 */
 
+	// Remove this after 01.13.17
+	// it's being loaded into the dev-styles
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.css');
+
+	wp_enqueue_style( 'select2', '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css' );
 
 	wp_enqueue_style( 'slick-styles', get_template_directory_uri() . '/css/slick.css');
 
@@ -259,6 +264,11 @@ function get_nav_menu_count(){
 		return true;
 	}
 }
+
+/**
+ * Remove Contact Form 7 styles
+ */
+add_filter( 'wpcf7_load_css', '__return_false' );
 
 /*
  * Create wp admin theme

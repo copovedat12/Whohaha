@@ -11,6 +11,25 @@ header#masthead.sweeps{
 		height: 76px;
 		border: 0;
 		position: relative;
+		background: url(/wp-content/themes/whohaha/resources/images/pitchperfect/nav-bg.jpg) no-repeat;
+		background-size: cover;
+		background-position: bottom center;
+		border-radius: 0;
+	}
+	.present{
+		position: relative;
+		display: block;
+		margin: -1px auto -30px;
+		background: url(/wp-content/themes/whohaha/resources/images/pitchperfect/nav-bg-addon.png) no-repeat;
+		width: 300px;
+		height: 57px;
+		background-size: cover;
+		text-align: center;
+		font-weight: 900;
+		span{
+			position: relative;
+			top: -6px;
+		}
 	}
 
 	.sweeps-name{
@@ -18,31 +37,66 @@ header#masthead.sweeps{
 		margin-left: 15px;
 		color: $blue;
 		font-family: "brandon-grotesque", $strong-font;
+		.btn.btn-primary{
+			padding: 18px 20px;
+			background: $gpy-pink;
+		}
+		.back-btn{
+			font-size: 16px;
+			text-transform: uppercase;
+			color: $gpy-pink;
+			text-decoration: none;
+			&:hover{
+				color: darken($gpy-pink, 10%);
+			}
+		}
+		@media (max-width: $screen-xs-max) {
+			display: inline-block;
+			margin: 0;
+			padding: 0;
+			line-height: normal;
+			position: fixed;
+			bottom: 10px;
+		    left: 15px;
+			z-index: 1000;
+		}
 	}
 	.site-branding{
 		position: absolute;
 		top: 0;
-		padding: 9px 10px;
-		left: 50%;
+		padding: 10px;
 		text-align: center;
 		font-size: 14px;
 		font-family: $strong-font;
 		font-weight: 900;
 		height: auto;
+		left: 50%;
+		right: auto;
 		@include translate(-50%, 0);
-		background: $white;
+		background: transparent;
 		span{
 			display: block;
 			background: none;
 			height: auto;
 			width: auto;
-			&.site-title{
-				margin-bottom: 5px;
-			}
+		}
+		a{
+			height: auto;
 		}
 		img{
-			width: 231px;
-			height: 34px;
+			width: auto;
+			height: 56px;
+		}
+		@media (max-width: $screen-xs-max) {
+		    padding: 18px 10px;
+		    img{
+		    	height: 40px;
+		    	max-width: none;
+		    }
+		}
+		@media (max-width: 400px) {
+			left: 0;
+			@include translate(0,0);
 		}
 	}
 	.nav-social{
@@ -50,7 +104,11 @@ header#masthead.sweeps{
 		li > a{
 			font-size: 14px;
 			padding: 27px 10px;
-			color: $white;
+			color: $gpy-pink;
+		}
+		.social-toggle a{
+			color: $gpy-pink;
+			padding: 24px 20px;
 		}
 	}
 }
@@ -62,18 +120,28 @@ header#masthead.sweeps{
 		background-repeat: no-repeat;
 		background-position: top center;
 		background-size: 100% auto;
+		@media (min-width: 501px) and (max-width: $screen-sm-max) {
+			background-image: url(/wp-content/themes/whohaha/resources/images/pitchperfect/background-gradient-md.png);
+		}
+		@media (max-width: 500px) {
+			background-image: url(/wp-content/themes/whohaha/resources/images/pitchperfect/background-gradient-sm.png);
+		}
 	}
 	img{
 		max-width: 100%;
 		height: auto;
 	}
-	h3{
+	h2,
+	h3,
+	h4{
 		font-family: $body-font;
 		font-weight: 900;
 		margin: 30px 0;
 		color: $white;
 		position: relative;
 		overflow: hidden;
+		text-transform: uppercase;
+		text-align: center;
 		span{
 			display: inline-block;
 			position: relative;
@@ -97,13 +165,31 @@ header#masthead.sweeps{
 			}
 		}
 	}
+	h2{
+		font-family: "brandon-grotesque", $strong-font;
+		color: $gpy-yellow;
+		span{
+			&::before,
+			&::after{
+				background: $gpy-yellow;
+			}
+		}
+	}
 	h4{
 		font-family: "brandon-grotesque", $strong-font;
 		font-size: 36px;
 		color: $gpy-pink;
-		text-align: center;
-		text-transform: uppercase;
-		margin: 30px 0;
+		span{
+			&::before,
+			&::after{
+				background: $gpy-pink;
+			}
+		}
+	}
+	@media (max-width: $screen-sm) {
+		h2, h3, h4{
+			font-size: 22px;
+		}
 	}
 	#content{
 		background: transparent;
@@ -114,7 +200,14 @@ header#masthead.sweeps{
 	}
 	.pp-head-banner{
 		position: relative;
+		.callout{
+			position: absolute;
+			top: 15%;
+		    left: -12%;
+		    width: 24%;
+		}
 		.bellas{
+			position: relative;
 			max-width: 80%;
 			display: block;
 			margin: auto;
@@ -124,6 +217,27 @@ header#masthead.sweeps{
 			bottom: 5%;
 			left: 20%;
 			width: 60%;
+		}
+		@media (max-width: $screen-sm-max) {
+			.bellas{
+				margin-right: 0;
+			}
+			.callout{
+				width: 22%;
+				left: 0;
+			}
+		}
+		@media (max-width: 500px) {
+			.bellas{
+				max-width: 100%;
+				margin: 0;
+			}
+			.callout{
+				position: relative;
+				width: 50%;
+				margin-left: 25%;
+				margin-bottom: -50px;
+			}
 		}
 	}
 	.blackbox{
@@ -136,26 +250,35 @@ header#masthead.sweeps{
 
 		position: relative;
 		top: -10px;
-		// -webkit-perspective: 1000px;
-		// -webkit-perspective-origin: 50% 50%;
-		// perspective: 1000px;
-		// perspective-origin: 70% 40%;
-		// &:before{
-		// 	content: "";
-		// 	position: absolute;
-		// 	background: $gpy-pink;
-		// 	display: block;
-		// 	top: 0;
-		// 	left: 0;
-		// 	width: 100%;
-		// 	height: 100%;
-		// 	-webkit-transform: rotateX(-10deg) rotateY(2deg);
-		// 	-moz-transform: rotateX(-10deg) rotateY(2deg);
-		// 	transform: rotateX(-10deg) rotateY(2deg);
-		// }
+		margin-bottom: -30px;
 		background: url(/wp-content/themes/whohaha/resources/images/pitchperfect/callout-bg.png) no-repeat;
 		background-size: 100% 100%;
 		padding: 20px 40px 50px;
+		@media (max-width: $screen-sm-max) {
+			background-size: cover;
+		}
+		@media (max-width: $screen-xs-max) {
+			font-size: 14px;
+			background: none;
+			padding: 20px;
+			-webkit-perspective: 1000px;
+			-webkit-perspective-origin: 50% 50%;
+			perspective: 1000px;
+			perspective-origin: 70% 40%;
+			&:before{
+				content: "";
+				position: absolute;
+				background: $gpy-pink;
+				display: block;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				-webkit-transform: rotateX(-10deg) rotateY(2deg);
+				-moz-transform: rotateX(-10deg) rotateY(2deg);
+				transform: rotateX(-10deg) rotateY(2deg);
+			}
+		}
 		.text{
 			position: relative;
 			max-width: 790px;
@@ -163,16 +286,53 @@ header#masthead.sweeps{
 		}
 	}
 
-	#main{
+	#main,
+	.enter-header{
 		color: $white;
 		ul{
-			font-size: 20px;
-			list-style-image: url('/wp-content/themes/whohaha/resources/images/pitchperfect/bullet.png');
 			padding-left: 24px;
 			li{
+				// list-style-image: url('/wp-content/themes/whohaha/resources/images/pitchperfect/bullet.png');
+				list-style: none;
 				margin-bottom: 20px;
 				padding-left: 20px;
+				position: relative;
+				&::before{
+					content: "";
+					display: block;
+					position: absolute;
+					background: url(/wp-content/themes/whohaha/resources/images/pitchperfect/list-bullets.png) no-repeat;
+					background-size: 100% auto;
+					width: 45px;
+					height: 50px;
+					top: 0;
+					left: -35px;
+				}
+				&:nth-child(2)::before{
+					background-position: 0 26%;
+				}
+				&:nth-child(3)::before{
+					background-position: 0 65%;
+				}
+				&:nth-child(4)::before{
+					background-position: 0 85%;
+				}
+				&:nth-child(5)::before{
+					background-position: 0 104%;
+				}
+				@media (max-width: $screen-sm) {
+					&::before{
+					    width: 35px;
+					    left: -25px;
+					}
+				}
 			}
+		}
+	}
+	#main ul{
+		font-size: 20px;
+		@media (max-width: $screen-sm) {
+			font-size: 16px;
 		}
 	}
 	.callout-boxes{
@@ -185,24 +345,57 @@ header#masthead.sweeps{
 			line-height: 1;
 			text-transform: uppercase;
 			width: 100%;
+			max-width: 350px;
+			margin: 0 auto 30px;
+			position: relative;
 			background: $gpy-yellow;
+			@media (min-width: $screen-sm) {
+				background: transparent;
+				&::before{
+					content: "";
+					display: block;
+					position: absolute;
+					top: -5%;
+					left: 0;
+					width: 100%;
+					// height: 100%;
+					height: 148%;
+					background-position: top center;
+					background-repeat: no-repeat;
+					background-size: 100% auto;
+				}
+			}
+			@media (max-width: $screen-xs-max) {
+				width: 350px;
+			    max-width: 70%;
+			}
 			span{
 				display: block;
 				width: 100%;
+				position: relative;
 			}
 			&.bg-pink{
+				&::before{
+					background-image: url(/wp-content/themes/whohaha/resources/images/pitchperfect/callout-box-1.png);
+				}
 				span{
 					font-size: 1.85em;
 					padding: 0.6em .5em;
 				}
 			}
 			&.bg-purple{
+				&::before{
+					background-image: url(/wp-content/themes/whohaha/resources/images/pitchperfect/callout-box-2.png);
+				}
 				span{
 					font-size: 1em;
 					padding: 0.67em .5em;
 				}
 			}
 			&.bg-blue{
+				&::before{
+					background-image: url(/wp-content/themes/whohaha/resources/images/pitchperfect/callout-box-3.png);
+				}
 				span{
 					font-size: 1.24em;
 					padding: 0.28em .5em;
@@ -211,14 +404,23 @@ header#masthead.sweeps{
 		}
 	}
 	.callout-text{
+		position: relative;
 		font-size: 24px;
 		font-family: $body-font;
 		font-weight: 900;
 		text-transform: uppercase;
 		line-height: 1.3;
+		margin-top: 10px;
 		margin-bottom: 40px;
 		span.large{
-			font-size: 33px;
+			// font-size: 33px;
+			font-size: 40px;
+		}
+		@media (max-width: $screen-xs-max){
+			font-size: 18px;
+			span.large{
+				font-size: 22px;
+			}
 		}
 	}
 	.still-stumped-header{
@@ -228,6 +430,107 @@ header#masthead.sweeps{
 		}
 		p{
 			margin-bottom: 40px;
+		}
+	}
+
+	.video-examples{
+		text-align: center;
+		h5{
+			font-size: 20px;
+			position: relative;
+			display: inline-block;
+			margin-bottom: 40px;
+			span{
+				position: relative;
+				&.yellow,
+				&.pink{
+					display: block;
+					position: absolute;
+					top: -6px;
+					bottom: -6px;
+				}
+				&.yellow{
+					background: $gpy-yellow;
+					transform: rotate(-2deg);
+					left: -18px;
+					right: -18px;
+				}
+				&.pink{
+					background: $gpy-pink;
+					transform: rotate(2deg);
+					left: -15px;
+					right: -15px;
+				}
+			}
+		}
+	}
+
+	.entry-list-rules{
+		background-image: url(/wp-content/themes/whohaha/resources/images/pitchperfect/entry-list-rules-bg.png);
+		background-repeat: no-repeat;
+		// background-size: contain;
+		background-size: 98% 100%;
+		background-position: top center;
+		margin-top: 20px;
+		padding: 3% 10% 11%;
+		ul{
+			margin: auto;
+			width: 80%;
+		}
+
+		@media (max-width: $screen-xs-max) {
+			font-size: 14px;
+			background: none;
+			padding: 20px;
+			position: relative;
+			-webkit-perspective: 1000px;
+			-webkit-perspective-origin: 50% 50%;
+			perspective: 1000px;
+			perspective-origin: 70% 40%;
+			&:before{
+				content: "";
+				position: absolute;
+				background: $gpy-pink;
+				display: block;
+				top: 0;
+				left: 5%;
+				width: 90%;
+				height: 100%;
+				-webkit-transform: rotateX(-10deg) rotateY(2deg);
+				-moz-transform: rotateX(-10deg) rotateY(2deg);
+				transform: rotateX(-10deg) rotateY(2deg);
+			}
+			ul{
+				width: 90%;
+			}
+			h2{
+				margin-top: 0;
+				padding: 0 20px;
+			}
+		}
+	}
+
+	.entry-form-container{
+		input.submit{
+			font-family: "brandon-grotesque", $strong-font;
+			margin-bottom: 10px;
+			font-size: 2em;
+			padding: 0.5em 2em;
+			width: auto;
+			// background: $gpy-yellow;
+			background: url(/wp-content/themes/whohaha/resources/images/pitchperfect/yellow-btn-bg.png) no-repeat;
+			background-size: cover;
+			color: $black;
+			@include transition(all 0.3s);
+			box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+			&:hover,
+			&:focus{
+				box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+			}
+			@media (max-width: $screen-xs){
+				font-size: 1.5em;
+				padding: 0.5em 2em;
+			}
 		}
 	}
 
@@ -241,7 +544,10 @@ header#masthead.sweeps{
 			margin-bottom: 10px;
 			font-size: 2em;
 			padding: 0.5em 2em;
-			background: $gpy-yellow;
+			width: auto;
+			// background: $gpy-yellow;
+			background: url(/wp-content/themes/whohaha/resources/images/pitchperfect/yellow-btn-bg.png) no-repeat;
+			background-size: cover;
 			color: $black;
 			@include transition(all 0.3s);
 			box-shadow: 0 2px 5px rgba(0,0,0,0.4);
@@ -263,25 +569,8 @@ header#masthead.sweeps{
 		}
 	}
 	.enter-header{
-		background: #9a1189;
 		padding: 20px 0 30px;
 		color: $white;
-		font-weight: 900;
-		text-transform: uppercase;
-		h2{
-			font-family: $body-font;
-			font-weight: 900;
-		}
-		ul{
-			list-style-type: none;
-			text-align: center;
-			padding: 0;
-			margin: 0;
-			font-size: 14px;
-			li{
-				margin-bottom: 10px;
-			}
-		}
 	}
 
 	.gpy-footer{
@@ -292,5 +581,112 @@ header#masthead.sweeps{
 		text-transform: uppercase;
 		font-size: 14px;
 		font-weight: 700;
+		@media (max-width: $screen-xs-max) {
+			font-size: 12px;
+		}
+	}
+}
+
+.entry-form-container form{
+	label{
+		font-size: 22px;
+		position: relative;
+		left: 10px;
+		font-family: "brandon-grotesque", $strong-font;
+		@media (max-width: $screen-xs-max) {
+			font-size: 18px;
+		}
+	}
+	.form-group{
+		margin-bottom: 0;
+	}
+	.form-control{
+		width: 100%;
+		border-radius: 0;
+		border: 0;
+		padding: 10px;
+		color: $white;
+		font-size: 22px;
+		outline: none;
+		box-shadow: none;
+		font-family: $strong-font;
+		margin-bottom: 40px;
+		@media (max-width: $screen-xs-max) {
+			font-size: 18px;
+		}
+	}
+	input.form-control{
+		background: transparent;
+		border-bottom: 2px solid $white;
+	}
+	textarea.form-control{
+		background: transparent;
+		border: 2px solid $white;
+		&::-webkit-input-placeholder{
+			color: $white;
+		}
+		&::-moz-placeholder { /* Firefox 19+ */
+		  color: $white;
+		}
+		&:-ms-input-placeholder { /* IE 10+ */
+		  color: $white;
+		}
+		&:-moz-placeholder { /* Firefox 18- */
+		  color: $white;
+		}
+	}
+	select.form-control{
+		width: 200px;
+		margin: auto;
+		background-color: $gpy-pink;
+		height: 45px;
+		font-size: 20px;
+	}
+	// select2 styles
+	.select2-container{
+		display: block;
+		margin: auto;
+		.select2-selection--single{
+			background-color: $gpy-pink;
+			height: 45px;
+			font-size: 20px;
+			border: 0;
+			.select2-selection__rendered{
+			    line-height: 45px;
+			    color: $white;
+			}
+			.select2-selection__arrow{
+				height: 45px;
+				top: 0;
+				b{
+					color: $white;
+					border-color: $white transparent transparent transparent;
+				}
+			}
+			@media (max-width: $screen-xs-max) {
+				font-size: 16px;
+			}
+		}
+	}
+	.floatlabel{
+		position: relative;
+		label{
+			position: absolute;
+			top: 0;
+			@include transition(all 0.15s);
+			&.active{
+				top: -20px;
+				font-size: 12px;
+				left: 0;
+				// opacity: 0.8;
+				color: $gpy-pink;
+			}
+		}
+		input, textarea, select{
+			position: relative;
+		}
+	}
+	.submit-button{
+		margin-top: 50px;
 	}
 }

@@ -16,18 +16,20 @@ get_header('gopitchyourself'); ?>
 <div class="enter-header">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8 col-md-offset-2 text-center">
-				<img class="gopitchyourself" src="/wp-content/themes/whohaha/resources/images/pitchperfect/go-pitch-yourself.png" width="1504" height="414" alt="Go Pitch Yourself">
+			<div class="col-md-8 col-md-offset-2">
+				<img class="gopitchyourself" src="/wp-content/themes/whohaha/resources/images/pitchperfect/go-pitch-yourself-black.png" width="1504" height="414" alt="Go Pitch Yourself">
 				
-				<h2>More Important Details...</h2>
-				<ul class="unstyled">
-					<li>1. PARTICIPANTS MUST BE AT LEAST 13 YEARS OLD</li>
-					<li>2. YOUR VIDEO(S) SHOULD NOT BE LONGER THAN 90 SECONDS (1 1/2 MINUTES) IN LENGTH</li>
-					<li>3. YOU MAY SUBMIT UP TO 5 NEW AND UNIQUE VIDEOS.</li>
-					<li>4. EACH VIDEO MUST BE POSTED NATIVELY TO ONE OR MORE OF THE FOLLOWING SOCIAL MEDIA CHANNELS: YOUTUBE, FACEBOOK,TWITTER, INSTAGRAM, OR TUMBLR.</li>
-					<li>5. EACH VIDEO MUST INCLUDE THE CAMPAIGN HASHTAGS #GOPITCHYOURSELF AND #PITCHPERFECT3.</li>
-					<li>6. ALL PARTICIPANTS MUST FILL OUT THE OFFICIAL SUBMISSION FORM AND INCLUDE DIRECT LINKS TO THEIR ENTRY(IES).</li>
-				</ul>
+				<div class="entry-list-rules">
+					<h2 class="text-center"><span>More Important Details</span></h2>
+					<ul>
+						<li>Participants must be at least 13 years old.</li>
+						<li>Your video(s) should not be longer than 90 seconds (1 1/2 minutes) in length.</li>
+						<li>You may submit up to 5 new and unique videos.</li>
+						<li>Each video must be posted natively to one or more of the following social media channels: Youtube, Facebook, Twitter, Instagram, or Tumblr.</li>
+						<li>Each video MUST include the campaign hashtags #gopitchyourself and #pitchperfect3.</li>
+						<li>All participants must fill out the official submission form and include direct links to their entry(ies).</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -38,11 +40,15 @@ get_header('gopitchyourself'); ?>
 	<main id="main" class="site-main" role="main">
 		<div class="container">
 
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<div class="entry-form-container">
+						<?php echo do_shortcode('[contact-form-7 id="9370" title="GoPitchYourself"]'); ?>
+					</div>
+				</div>
+			</div>
+
 			<div class="bottom-cta text-center">
-				<a href="#rules" class="btn btn-primary btn-large">
-					SUBMIT!
-				</a>
-				<br>
 				<a class="rules" href="#rules">Official Rules and Regulations</a>
 			</div>
 		</div>

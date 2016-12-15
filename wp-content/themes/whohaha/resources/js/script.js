@@ -556,3 +556,25 @@ function socialShare(url, width, height) {
 	$('#page.gopitchyourself .bg-purple span').fitText(1.05);
 	$('#page.gopitchyourself .bg-blue span').fitText(.87);
 })(jQuery);
+
+(function($){
+	function floatLabel(inputType){
+		$(inputType).each(function(){
+			var $this = $(this).find('input');
+			// on focus add cladd active to label
+			$this.focus(function(){
+				$this.parent().siblings('label').addClass("active");
+			});
+			//on blur check field and remove class if needed
+			$this.blur(function(){
+				if($this.val() === '' || $this.val() === 'blank'){
+					$this.parent().siblings('label').removeClass();
+				}
+			});
+		});
+	}
+	// just add a class of "floatLabel to the input field!"
+	floatLabel(".floatlabel");
+
+	jQuery('.entry-form-container select.form-control').select2();
+})(jQuery);
