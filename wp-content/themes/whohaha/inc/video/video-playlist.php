@@ -18,13 +18,11 @@ function getVideoPlaylist($plist_url, $post_id = null){
 	if(preg_match('/dailymotion/', $plist_url)){
 		preg_match('/playlist\/([\w+\-+\_+]+)[\"\?\/]/', $plist_url, $match);
 		$plist_id = $match[1];
-
 		render_dmplaylist_script($plist_id);
 	} elseif(preg_match('/youtube/', $plist_url)){
 		$parts = parse_url($plist_url);
 		parse_str($parts['query'], $query);
 		$plist_id = $query['list'];
-
 		render_ytplaylist_script($plist_id);
 	}
 }
@@ -38,7 +36,6 @@ function render_ytplaylist_script($plist_id){
 	wp_enqueue_script( 'youtube_playlist', get_template_directory_uri() . '/resources/js/youtube-playlist.js', array('jquery'), false, true );
 	wp_localize_script( 'youtube_playlist', 'YOUTUBE_PL_ARRAY', $var_array );
 }
-
 function render_dmplaylist_script($plist_id){
 	$var_array = array(
 		'playlistId' => $plist_id

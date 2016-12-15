@@ -97,24 +97,6 @@ function whohaha_content_width() {
 add_action( 'after_setup_theme', 'whohaha_content_width', 0 );
 
 /**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function whohaha_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'whohaha' ),
-		'id'            => 'sidebar-1',
-		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-}
-add_action( 'widgets_init', 'whohaha_widgets_init' );
-
-/**
  * Enqueue scripts and styles.
  */
 function whohaha_scripts() {
@@ -307,16 +289,25 @@ require get_template_directory() . '/inc/contact-fields.php';
  * Includes Dailymotion Player
  * Include video ajax (overlay and post rendering)
  */
-require get_template_directory() . '/inc/yt-player.php';
-require get_template_directory() . '/inc/dm-player.php';
-require get_template_directory() . '/inc/video-playlist.php';
-require get_template_directory() . '/inc/video-ajax.php';
+require get_template_directory() . '/inc/video/yt-player.php';
+require get_template_directory() . '/inc/video/dm-player.php';
+require get_template_directory() . '/inc/video/video-playlist.php';
+require get_template_directory() . '/inc/video/video-ajax.php';
+// Heroscope page
+require get_template_directory() . '/inc/video/heroscope-playlist.php';
 
 /**
  * Implement the Custom Post Types
  */
-require get_template_directory() . '/inc/post-types.php';
+require get_template_directory() . '/inc/post-types/front-page-people.php';
 require get_template_directory() . '/inc/options-pages.php';
+
+/**
+ * Load custom Video Post Type
+ * Load custom Video Playlist taxonomy
+ */
+require get_template_directory() . '/inc/post-types/videos.php';
+require get_template_directory() . '/inc/taxonomies/playlists.php';
 
 /**
  * Implement the Wordpress Popular Posts functions
@@ -324,47 +315,16 @@ require get_template_directory() . '/inc/options-pages.php';
 require get_template_directory() . '/inc/wpp-custom.php';
 
 /**
- * Implement the Custom Header feature.
+ * Customize yoast meta tag imnplementation
  */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Custom functions that act independently of the theme templates.
- */
-// require get_template_directory() . '/inc/extras.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/inc/jetpack.php';
-
 require get_template_directory() . '/inc/yoast.php';
 
+/**
+ * Customize Instant Articles
+ */
 require get_template_directory() . '/inc/instant-articles.php';
 
 /*
  * Load Woocommerce custom functions
  */
 require get_template_directory() . '/inc/woocommerce.php';
-
-/**
- * Load custom Video Post Type
- * Load custom Video Playlist taxonomy
- */
-require get_template_directory() . '/inc/video-custom-post-type.php';
-require get_template_directory() . '/inc/video-playlist-taxonomy.php';
-
-/**
- * Video playlist for Heroscope page
- */
-require get_template_directory() . '/inc/heroscope-playlist.php';
