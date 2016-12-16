@@ -42,6 +42,15 @@ function check_guide_page($type){
             return $thumb_url[0];
         }
     }
+    elseif (get_post_type() === 'quizzes') {
+        if ($type === 'image'){
+            global $wp_query;
+            if ( isset($wp_query->query_vars['page']) && $wp_query->query_vars['page'] > 0 ) {
+                return '/wp-content/uploads/user-images/'.$wp_query->query_vars['quizzes'].'_'.$wp_query->query_vars['page'].'.png';
+            }
+        }
+    }
+    // $wp_query->query_vars
 }
 function meta_change(){
     add_filter('wpseo_title', 'filter_wpseo_title', 10, 1);

@@ -1,6 +1,4 @@
-(function($){
-
-(function(){
+var fbFriendFind = (function($){
 
 	/**
 	 * All variables sored in a data object
@@ -66,17 +64,16 @@
 	/**
 	 * Use FB API to share page
 	 */
-	var share = function(){
+	$('body').on('click', '#sharequizbutton', function(){
 		if (data.user && data.user.id !== null) {
 			FB.ui({
 			  method: 'share',
-			  // href: 'https://developers.facebook.com/docs/',
-			  href: url + '?res_id=' + data.user.id,
+			  href: window.location.href,
 			}, function(response){
-				// console.log(response);
+				console.log(response);
 			});
 		}
-	}
+	});
 
 	/**
 	 * Check if user is logged in
@@ -244,7 +241,5 @@
 			start:start
 		}
 	})();
-
-})();
 
 })(jQuery);
