@@ -1,4 +1,6 @@
 <?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
 /**
  * whohaha functions and definitions.
  *
@@ -101,6 +103,8 @@ add_action( 'after_setup_theme', 'whohaha_content_width', 0 );
  */
 function whohaha_scripts() {
 
+	wp_enqueue_script( 'lodash', '//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.2/lodash.min.js', null, '4.17.12', true );
+
 	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/bootstrap/assets/javascripts/bootstrap.min.js', array('jquery'), '', true );
 
 	wp_enqueue_script( 'select2', '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js', array('jquery'), '4.0.3', true);
@@ -126,6 +130,8 @@ function whohaha_scripts() {
 	}
 
 	wp_enqueue_script( 'dev-scripts', get_template_directory_uri() . '/resources/js/script.js', array('bootstrap-js'), '20151001', true );
+
+	wp_enqueue_script( 'friend-finder', get_template_directory_uri() . '/resources/js/friend-finder.js', array('jquery'), '1.0.0', true );
 
 	/*
 	 * enqueue styles here
@@ -300,6 +306,8 @@ require get_template_directory() . '/inc/video/heroscope-playlist.php';
  * Implement the Custom Post Types
  */
 require get_template_directory() . '/inc/post-types/front-page-people.php';
+require get_template_directory() . '/inc/post-types/quiz.php';
+
 require get_template_directory() . '/inc/options-pages.php';
 
 /**
@@ -328,3 +336,8 @@ require get_template_directory() . '/inc/instant-articles.php';
  * Load Woocommerce custom functions
  */
 require get_template_directory() . '/inc/woocommerce.php';
+
+/**
+ * Make images for WHH FB Quizzes
+ */
+require get_template_directory() . '/inc/quiz-image.php';

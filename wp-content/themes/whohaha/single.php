@@ -18,11 +18,12 @@ get_header(); ?>
 			$do_not_duplicate = array();
 			$do_not_duplicate[] = get_the_ID();
 
-
 			if(get_field('video_playlist') || (have_rows('add_more_videos') && !($_GET['display'] === 'list'))){
 				get_template_part( 'template-parts/content', 'single-full-width' );
 			} else if(get_post_format() === 'video'){
 				get_template_part( 'template-parts/content', 'single-video' );
+			} else if(get_post_type() === 'quizzes'){
+				get_template_part( 'template-parts/content', 'quiz' );
 			} else{
 				get_template_part( 'template-parts/content', 'single' );
 			}

@@ -326,6 +326,7 @@
 			$.ajax({
 				url : '/wp-admin/admin-ajax.php',
 				method : 'POST',
+				dataType:"json",
 				data : {
 					'action' : 'generate_rand_tags_ajax',
 					'tag_num' : 2,

@@ -1,0 +1,15 @@
+article#quiz{
+	.post-featured-image{
+		position: relative;
+		button.btn{
+			position: absolute;
+			bottom: 5%;
+			left: 50%;
+			transform: translateX(-50%);
+			// font-size: 1.8em;
+			font-size: 2em;
+			padding: .4em .7em;
+			background-color: $black;
+		}
+	}
+}
