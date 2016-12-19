@@ -33,7 +33,7 @@ var fbFriendFind = (function($){
 				status  : true,
 				version : 'v2.7',
 			});
-			$('#loginbutton').removeAttr('disabled').text('FIND OUT');
+			// $('#loginbutton').removeAttr('disabled').text('FIND OUT');
 			checkLoginStatus();
 		});
 	});
@@ -45,6 +45,11 @@ var fbFriendFind = (function($){
 	var checkLoginStatus = function(){
 		FB.getLoginStatus(function(response){
 			data.user.loggedIn = (response.status === 'connected');
+			if (data.user.loggedIn === true) {
+				$('#loginbutton').removeAttr('disabled').removeClass('facebook').text('FIND OUT');
+			} else {
+				$('#loginbutton').removeAttr('disabled');
+			}
 		});
 	}
 	/**
@@ -56,8 +61,8 @@ var fbFriendFind = (function($){
 			if (response.authResponse) {
 				FriendFind.start();
 			} else {
-				// console.log('not really logged in');
-				$('#loginbutton').removeAttr('disabled').text('FIND OUT');
+				console.log('User Login Failed');
+				$('#loginbutton').removeAttr('disabled').html('<i class="fa fa-facebook" aria-hidden="true"></i> LOG IN TO FIND OUT');
 			}
 		},
 		{ scope:'user_posts,user_photos,email,public_profile' });
@@ -74,6 +79,8 @@ var fbFriendFind = (function($){
 			}, function(response){
 				console.log(response);
 			});
+		} else {
+			alert('something went wrong');
 		}
 	});
 
@@ -82,7 +89,8 @@ var fbFriendFind = (function($){
 	 * If true: start FriendFind
 	 * If false: login()
 	 */
-	$('button#loginbutton').click(function(){
+	// $('#canvas').click(function(){
+	$('#loginbutton').click(function(){
 		$('#loginbutton').attr('disabled', 'disabled').text('LOADING...');
 		if(data.user.loggedIn){
 			FriendFind.start();
@@ -236,7 +244,7 @@ var fbFriendFind = (function($){
 		}
 
 		var replaceViews = function(slug, user_id, img_path){
-			$('.post-featured-image').empty().append('<img width="1200" height="630" src="/wp-content/uploads/user-images/'+img_path+'" alt="Rendered quiz image"></img><button id="sharequizbutton" class="btn btn-primary">SHARE</button>');
+			$('.post-featured-image').empty().append('<div id="share_canvas_img"><img width="1200" height="630" src="/wp-content/uploads/user-images/'+img_path+'" alt="Rendered quiz image"></img><button id="sharequizbutton" class="btn btn-primary">SHARE</button></div>');
 		}
 
 		return{

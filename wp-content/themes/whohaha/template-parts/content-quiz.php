@@ -20,8 +20,10 @@
 			</header><!-- .entry-header -->
 
 			<div class="post-featured-image">
-				<?php the_post_thumbnail('full') ?>
-				<button disabled id="loginbutton" class="btn btn-primary">FIND OUT</button>
+				<div id="canvas">
+					<?php the_post_thumbnail('full') ?>
+					<button disabled id="loginbutton" class="btn btn-primary facebook"><i class="fa fa-facebook" aria-hidden="true"></i> LOG IN TO FIND OUT</button>
+				</div>
 			</div>
 
 			<?php
