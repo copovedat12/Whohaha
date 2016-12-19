@@ -658,8 +658,32 @@ class RM_Front_Form_Service extends RM_Services {
 
             foreach ($params->req as $key => $val) {
                 //echo "<pre", var_dump($request->req),die;
-                if (!is_array($val))
-                    $email_content = str_replace('{{' . $key . '}}', $val, $email_content);
+                if (!is_array($val)){
+                    $key_parts = explode('_', $key);
+                    if ($key_parts[0] == 'File' || $key_parts[0] == 'Image') {
+                
+                        $field_id = $key_parts[1];
+                        //Try to find value in db_data if provided.                        
+                        $values='';
+                        if(isset($params->db_data, $params->db_data[$field_id]))
+                        {
+                            /*
+                            * Grab all the attachments as links
+                            */
+                            if(is_array($params->db_data[$field_id]->value) && count($params->db_data[$field_id]->value)>0)
+                            foreach ($params->db_data[$field_id]->value as $attachment_id) {
+                                if($attachment_id != 'File')
+                                $values .= wp_get_attachment_link($attachment_id) . '    ';
+                            }
+                            
+                        }
+                       
+                        $email_content = str_replace('{{' . $key . '}}', $values, $email_content);
+                    
+                    }
+                    else
+                        $email_content = str_replace('{{' . $key . '}}', $val, $email_content);                   
+                }
                 else {
                     if (isset($val['rm_field_type']) && $val['rm_field_type'] == 'Address'){
                         unset($val['rm_field_type']);

@@ -137,7 +137,7 @@ class Registration_Magic
         $this->loader->add_action('wp_ajax_set_default_form', 'RM_Utilities', 'set_default_form');
         $this->loader->add_action('wp_ajax_rm_activate_user', 'RM_Utilities', 'link_activate_user');
         $this->loader->add_action('wp_ajax_nopriv_rm_activate_user', 'RM_Utilities', 'link_activate_user');
-        $this->loader->add_action('wp_ajax_import_first', 'RM_Services', 'import_form_first');
+        $this->loader->add_action('wp_ajax_import_first', 'RM_Services', 'import_form_first_ajax');
         $this->loader->add_filter('plugin_action_links', $this, 'add_plugin_link', 10, 5);
         $this->loader->add_action('media_buttons', $rm_admin, 'add_new_form_editor_button');
         $this->loader->add_action('media_buttons', $rm_admin, 'add_field_autoresponder');
@@ -146,7 +146,9 @@ class Registration_Magic
         $this->loader->add_action('wp_ajax_import_data', 'RM_Services', 'import_form');
         $this->loader->add_action('wp_ajax_rm_admin_js_data', 'RM_Utilities', 'load_admin_js_data');
         $this->loader->add_action('wp_ajax_rm_add_default_form', 'RM_User_Services', 'add_default_form');
-        $this->loader->add_action('wp_ajax_send_email_user_view', 'RM_User_Services', 'send_email_ajax'); 
+        $this->loader->add_action('wp_ajax_send_email_user_view', 'RM_User_Services', 'send_email_ajax');
+        $this->loader->add_filter('admin_notices', $rm_admin, 'add_global_setting_notice', 10, 5); 
+        $this->loader->add_action('wp_ajax_joyride_tour_update', 'RM_Utilities', 'update_tour_state_ajax');
    }
 
     /**
@@ -196,8 +198,8 @@ class Registration_Magic
      */
     public function define_global_hooks()
     {
-        $this->loader->add_filter('login_redirect', $this, 'after_login_redirect', 10, 3);
-        $this->loader->add_filter('register_url', $this, 'rm_register_redirect');
+        $this->loader->add_filter('login_redirect', $this, 'after_login_redirect', 12, 3);
+        $this->loader->add_filter('register_url', $this, 'rm_register_redirect', 12);
         $this->loader->add_action('wp_login', $this, 'prevent_deactivated_logins');
         $this->loader->add_filter('login_message', $this, 'login_notice');
         $this->loader->add_action('wpmu_new_blog', 'RM_Table_Tech', 'on_create_blog',10,6);

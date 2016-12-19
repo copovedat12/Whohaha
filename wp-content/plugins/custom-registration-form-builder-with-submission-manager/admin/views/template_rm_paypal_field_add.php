@@ -56,16 +56,11 @@ $form->render();
 ?>
          
     </div>
-    <div class="rm-upgrade-note-gold">
-        <div class="rm-banner-title">Unlock multiple pricing configurations by upgrading<img src="<?php echo RM_IMG_URL.'logo.png'?>"> </div>
-        <div class="rm-banner-subtitle">Choose from two powerful extension bundles</div>
-        <div class="rm-banner-box"><a href="https://registrationmagic.com/buy-silver-bundle/" target="blank"><img src="<?php echo RM_IMG_URL.'silver-logo.png'?>"></a>
-
-        </div>
-        <div class="rm-banner-box"><a href="https://registrationmagic.com/buy-gold-bundle/" target="blank"><img src="<?php echo RM_IMG_URL.'gold-logo.png'?>"></a>
-
-        </div>
-    </div>
+    <?php     
+    $rm_promo_banner_title = "Unlock multiple pricing configurations by upgrading";
+    include RM_ADMIN_DIR.'views/template_rm_promo_banner_bottom.php';
+    ?>
+    
 </div>
 
 <?php   

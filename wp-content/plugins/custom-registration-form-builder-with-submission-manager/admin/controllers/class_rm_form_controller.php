@@ -115,6 +115,12 @@ class RM_Form_Controller {
         {
             $view_data->newsletter_sub_link = null;
         }
+        //Include joyride script and style
+        wp_enqueue_script('rm_joyride_js', RM_BASE_URL.'admin/js/jquery.joyride-2.1.js');
+        wp_enqueue_style('rm_joyride_css', RM_BASE_URL.'admin/css/joyride-2.1.css');
+        
+        $view_data->autostart_tour = !RM_Utilities::has_taken_tour('form_manager_tour');
+        
         $view_data->submission_type=$submission_type;
         $view_data->review_event=$service->get_review_event();
         $view_data->review_message=  RM_UI_Strings::get('REVIEW_MESSAGE_EVENT'.$view_data->review_event);

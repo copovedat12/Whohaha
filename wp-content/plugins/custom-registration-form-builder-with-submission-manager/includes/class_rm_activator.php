@@ -29,9 +29,10 @@ class RM_Activator
      * @since    3.0.0
      */
     public static function activate($network_wide)
-    {
+    { 
         RM_Table_Tech::create_tables($network_wide);
         RM_Utilities::create_submission_page();
+        self::insert_sample_data();
         error_log(self::migrate($network_wide));
     }
 
@@ -300,6 +301,47 @@ class RM_Activator
 
         //update_option('rm_option_rm_version', RM_PLUGIN_VERSION);
         return 'migrate_success';
+    }
+    
+    public static function insert_sample_data()
+    {
+        global $wpdb;
+        
+        $existing_rm_db_version = get_site_option('rm_option_db_version', false);
+        $existing_rm_plugin_version = get_site_option('rm_option_rm_version', false);
+        
+        //Check if it is fresh RM installation
+        if(!$existing_rm_db_version && !$existing_rm_plugin_version)
+        {
+            $datafile = RM_EXTERNAL_DIR."sample_data.xml";
+            $id = RM_Services::import_form_first($datafile);
+            $id = RM_Services::import_form_first($datafile, intval($id));
+            
+            //Now get the ids of these forms and save them so we can check in future if given form is sample form or not.
+            //Usecase: Form manager template requires exclusive ids for sample form cards.
+           
+            $inserted_sample_data = new stdClass;
+            $inserted_sample_data->forms = array();
+            $form_table = RM_Table_Tech::get_table_name_for('FORMS');
+            $sfids = $wpdb->get_results("SELECT `form_id`, `form_type` FROM $form_table ORDER BY `form_id` DESC LIMIT 2");
+            
+            if($sfids && is_array($sfids))
+            {
+                foreach($sfids as $sfid)
+                {
+                    $inserted_sample_data->forms[] = (object)array('form_id'=>$sfid->form_id, 'form_type'=>$sfid->form_type);                    
+                }                
+            }
+            
+            update_site_option('rm_option_inserted_sample_data', $inserted_sample_data);            
+        }
+        else
+        {
+            //set tours as taken.
+            RM_Utilities::update_tour_state('form_manager_tour', 'taken');
+            RM_Utilities::update_tour_state('form_gensett_tour', 'taken');
+        }
+                
     }
 
 }

@@ -719,7 +719,7 @@ iframe.regmagic_embed body {background-color: #FFF !important;}
 
 
 
-.rm-panel-field {font-weight: bold;}
+.rm-panel-field {font-weight: bold; word-break: break-word;}
 
 
 

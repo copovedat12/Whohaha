@@ -9,9 +9,9 @@
 class RM_Frontend_Form_Contact extends RM_Frontend_Form_Multipage//RM_Frontend_Form_Base
 {
 
-    public function __construct(RM_Forms $be_form)
+    public function __construct(RM_Forms $be_form, $ignore_expiration=false)
     {
-        parent::__construct($be_form);
+        parent::__construct($be_form, $ignore_expiration);
         $this->set_form_type(RM_CONTACT_FORM);
     }
 
@@ -25,7 +25,7 @@ class RM_Frontend_Form_Contact extends RM_Frontend_Form_Multipage//RM_Frontend_F
         if(isset($params['paystate']) && $params['paystate'] != 'post_payment')      
             if ($this->service->get_setting('enable_mailchimp') == 'yes')
             {
-                if($this->form_options->form_is_opt_in_checkbox == 1)
+                if($this->form_options->form_is_opt_in_checkbox == 1 || (isset($this->form_options->form_is_opt_in_checkbox[0]) && $this->form_options->form_is_opt_in_checkbox[0] == 1))
                 {
                     if(isset($request['rm_subscribe_mc']))
                         $this->service->subscribe_to_mailchimp($request, $this->get_form_options());

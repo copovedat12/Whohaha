@@ -30,7 +30,7 @@ abstract class RM_Base_Model
     }
 
     abstract public function load_from_db($id);
-    abstract public function insert_into_db();
+    //abstract public function insert_into_db(); // Removed due many non-compatible variations of the function in children classes.
     abstract public function update_into_db();
     abstract public function remove_from_db();
 }

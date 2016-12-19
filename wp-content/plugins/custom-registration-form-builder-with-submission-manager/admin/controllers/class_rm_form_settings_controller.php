@@ -79,7 +79,11 @@ class RM_Form_Settings_Controller {
                 return;
             }
         }
+        //Include joyride script and style
+        wp_enqueue_script('rm_joyride_js', RM_BASE_URL.'admin/js/jquery.joyride-2.1.js');
+        wp_enqueue_style('rm_joyride_css', RM_BASE_URL.'admin/css/joyride-2.1.css');
         $data = new stdClass();
+        $data->autostart_tour = !RM_Utilities::has_taken_tour('form_gensett_tour');
         $view = $this->mv_handler->setView('form_gen_sett');
         if (isset($request->req['rm_form_id']) && (int)$request->req['rm_form_id'])
             $model->load_from_db($request->req['rm_form_id']);

@@ -290,16 +290,9 @@
         <input type="hidden" name="rm_slug" value="" id="rm_slug_input_field">
         <input type="hidden" name="rm_users[]" value="<?php echo $data->user->ID; ?>">
     </form>
-<div class="rm-upgrade-note-gold">
-        <div class="rm-banner-title">Upgrade and expand the power of<img src="<?php echo RM_IMG_URL.'logo.png'?>"> </div>
-        <div class="rm-banner-subtitle">Choose from two powerful extension bundles</div>
-        <div class="rm-banner-box"><a href="https://registrationmagic.com/buy-silver-bundle/" target="blank"><img src="<?php echo RM_IMG_URL.'silver-logo.png'?>"></a>
-
-        </div>
-        <div class="rm-banner-box"><a href="https://registrationmagic.com/buy-gold-bundle/" target="blank"><img src="<?php echo RM_IMG_URL.'gold-logo.png'?>"></a>
-
-        </div>
-    </div>
+<?php     
+    include RM_ADMIN_DIR.'views/template_rm_promo_banner_bottom.php';
+    ?>
 </div>
 
 <pre class='rm-pre-wrapper-for-script-tags'><script>

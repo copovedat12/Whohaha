@@ -182,7 +182,7 @@
 .rmagic tr:nth-child(odd) {background-color: rgb(250,250,250);
 }
 
-.rmagic table.rm-table, td, th {
+.rmagic table.rm-table, .rmagic table.rm-table td, .rmagic table.rm-table th  {
     text-align: center;
 }
 
@@ -321,6 +321,7 @@ tr {
     margin: 10px;
     font-weight: 200;
     padding-top: 0px;
+    width: 100%;
 }
 
 .rm-user-image-container {

@@ -171,9 +171,11 @@ span.rm-grid-button {
     -webkit-border-radius: 2px;
     -o-border-radius: 2px;
     -moz-border-radius: 2px;
-    height: 24px;
+    padding: 0 4px;
+    height: 2em;
+    line-height: 2;
     min-width: 30px;
-    padding: 4px;
+    font-weight: 200;
 }
 
 img.rm-grid-icon {

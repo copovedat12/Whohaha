@@ -18,6 +18,47 @@
         <div class="rm-panel-value difl"><?php echo $data->user->description; ?></div>
     </div>
     <?php
+        if ($data->user->user_email)
+        {
+            ?>
+
+            <div class="rm-panel-row dbfl">
+                <div class="rm-panel-field difl"><?php echo RM_UI_Strings::get('LABEL_EMAIL'); ?>:</div>
+                <div class="rm-panel-value difl"><?php echo $data->user->user_email; ?></div>
+            </div>
+            <?php
+        }
+        if ($data->user->sec_email)
+        {
+            ?>
+
+            <div class="rm-panel-row dbfl">
+                <div class="rm-panel-field difl"><?php echo RM_UI_Strings::get('LABEL_SECEMAIL'); ?>:</div>
+                <div class="rm-panel-value difl"><?php echo $data->user->sec_email; ?></div>
+            </div>
+            <?php
+        }
+        if ($data->user->nickname)
+        {
+            ?>
+
+            <div class="rm-panel-row dbfl">
+                <div class="rm-panel-field difl"><?php echo RM_UI_Strings::get('FIELD_TYPE_NICKNAME'); ?>:</div>
+                <div class="rm-panel-value difl"><?php echo $data->user->nickname; ?></div>
+            </div>
+            <?php
+        }
+        if ($data->user->user_url)
+        {
+            ?>
+
+            <div class="rm-panel-row dbfl">
+                <div class="rm-panel-field difl"><?php echo RM_UI_Strings::get('FIELD_TYPE_WEBSITE'); ?>:</div>
+                <div class="rm-panel-value difl"><?php echo $data->user->user_url; ?></div>
+            </div>
+            <?php
+        }
+
     $editable_forms = array();
     if (is_array($data->custom_fields) || is_object($data->custom_fields)) {
         foreach ($data->custom_fields as $field_id => $sub) {
@@ -70,6 +111,7 @@
                                     } else {
                                         if($sub->type=='Rating')
                                         {
+                                           echo RM_Utilities::enqueue_external_scripts('script_rm_rating', RM_BASE_URL . 'public/js/rating3/jquery.rateit.js');
                                            echo '<div class="rateit" id="rateit5" data-rateit-min="0" data-rateit-max="5" data-rateit-value="'.$meta.'" data-rateit-ispreset="true" data-rateit-readonly="true"></div>';
                                  
                                         }

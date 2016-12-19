@@ -1594,6 +1594,8 @@ class RM_DBManager
           $where_array = array();
           $format_clause = "";
           $where_clause = "";
+          
+          $wpdb->query('SET time_zone = "+00:00"');
 
           if($form_id != null)
               $where_array[] = "`form_id` = $form_id";

@@ -15,6 +15,10 @@ class RM_Services {
 
     private $model;
     public $mailchimpService;
+    public $form_id_array = array();
+    public $field_id_array = array();
+    public $submission_id_array = array();
+    public $user_id_array = array();
 
     public function __construct($model = null) {
         $this->model = $model;
@@ -131,14 +135,20 @@ class RM_Services {
         } else
             return false;
     }
-
-    public function import_form_first() {
+    
+    public static function import_form_first_ajax() {
         $form_id = null;
         if (isset($_POST['form_id'])) {
             $form_id = $_POST['form_id'];
-        }
+        }        
+        echo self::import_form_first(null, $form_id);
+        wp_die();
+    }
+    
+    public static function import_form_first($custom_file = null, $form_id = null) {
+        
         $form_id_next = null;
-        $name = get_temp_dir() . 'RMagic.xml';
+        $name = !$custom_file ? get_temp_dir() . 'RMagic.xml': $custom_file;
         $xml = simplexml_load_file($name) or die('Incorrect XML File.');
         $rm_ser_tmp = new RM_Services;
         $xmldata = $rm_ser_tmp->xml2array($xml);
@@ -183,8 +193,7 @@ class RM_Services {
                             } else {
                                 if (isset($form_data->OPTIONS->form_id) && $form_data->OPTIONS->form_id >= $form_id) {
                                     $form_id_next = $form_data->OPTIONS->form_id;
-                                    echo $form_id_next;
-                                    die();
+                                    return $form_id_next;
                                 } else {
                                     $form_data_tmp = null;
                                 }
@@ -197,10 +206,9 @@ class RM_Services {
                             } else {
                                 if (isset($form_data->OPTIONS->form_id)) {
                                     $form_id_next = $form_data->OPTIONS->form_id;
-                                    echo $form_id_next;
-                                    die();
+                                    return $form_id_next;
                                 } else
-                                    echo 0;die;
+                                    return 0;
                             }
                         }
                     }
@@ -208,8 +216,7 @@ class RM_Services {
                 else {
                     $form_data_tmp = $rm_ser_tmp->xml2array($data_value);
                     $rm_ser_tmp->import_form($form_data_tmp);
-                    echo 0;
-                    die;
+                    return 0;
                 }
             }
         }
@@ -1240,7 +1247,11 @@ class RM_Services {
         if (!$csv) {
             return false;
         }
-
+        
+        //Add UTF-8 header for proper encoding of the file
+        //Thanks to Kristjan Johanson.
+        fputs($csv, chr(0xEF).chr(0xBB).chr(0xBF) );
+        
         foreach ($data as $a) {
             if (!fputcsv($csv, $a))
                 return false;
@@ -1434,7 +1445,7 @@ class RM_Services {
         global $wpdb;
         $table_name = $wpdb->prefix.'rm_fields';
         if ((int) $form_id) {
-            $db_fields = $wpdb->get_results("SELECT * FROM `$table_name` WHERE `form_id` = $form_id AND `field_is_editable` = 1 AND `field_type` != 'Price' ORDER BY `field_order`,`field_id`");
+            $db_fields = $wpdb->get_results("SELECT * FROM `$table_name` WHERE `form_id` = $form_id AND `field_is_editable` = 1 AND `field_type` != 'Price' ORDER BY `page_no` ASC, `field_order` ASC");
 
             if (!$db_fields || !is_array($db_fields))
                 return null;

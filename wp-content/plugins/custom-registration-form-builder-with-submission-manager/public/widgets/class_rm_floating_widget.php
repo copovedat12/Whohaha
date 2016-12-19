@@ -42,7 +42,7 @@
             ?>
 
             <div class="rm-magic-popup">
-                <div class="rm-popup-menu rm-rounded-corners rm-white-box rm-shadow-10 dbfl" id="rm-menu">
+                <div class="rm-popup-menu rm-rounded-corners rm-white-box rm-shadow-10 dbfl" id="rm-menu" style="display:none">
                     <?php
                     if($this->user_level === 0x4){
                     ?>

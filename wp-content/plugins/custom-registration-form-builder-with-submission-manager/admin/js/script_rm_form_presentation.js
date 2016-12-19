@@ -179,9 +179,7 @@ formStyleApp.directive('styleActionBox', function (MediaUploader) {
                     // Place holder color
                     if (scope.styles.placeholder_color) {
                         var placeholder_color = "#" + scope.styles.placeholder_color;
-                        var style = '<style>' + '::-webkit-input-placeholder {color:' + placeholder_color + ';}' +
-                                ':-moz-placeholder { color: red; } ::-moz-placeholder {color:' + placeholder_color + ';}' +
-                                ':-ms-input-placeholder {color:' + placeholder_color + ';}</style>';
+                        var style = '<style>' + '::-webkit-input-placeholder {color:' + placeholder_color + ';} ::-moz-placeholder {color:' + placeholder_color + ';} ::-ms-input-placeholder {color:' + placeholder_color + ';}</style>';
                         jQuery("#rm_custom_style").html(style);
                     }
 

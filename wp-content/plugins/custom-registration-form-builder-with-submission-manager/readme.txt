@@ -4,8 +4,8 @@ Donate link: http://registrationmagic.com/
 Tags: custom registration, custom form fields, custom registration fields, multiple registration forms, wordpress registration form, customize wordpress registration form, advance registration form for wordpress, registration form manager, wordpress custom fields, wordpress custom contact, form autoresponder, terms and conditions checkbox, form terms and conditions, form required fields, auto generate password, simple contact form, simple registration form, easy contact form, easy registration form, wordpress form save, save form submissions, wordpress simple registration form, wordpress simple contact form, form success message, wordpress form redirect, wordpress form success message,wordpress form manager, create wordpress forms, wordpress user registration plugin, wordpress new user registration, new user registration wordpress, registration form wordpress, wordpress user registration captcha, user registration plugin for wordpress, wordpress plugin for registration form, custom contact, custom contact form fields, custom contact fields, multiple contact forms, wordpress contact form, customize wordpress contact form, advance contact form for wordpress, contact form manager, form IP capture, form browser capture, form submit user location, default register page, mail merge, paypal, payment form, paypal payment form, registration payment, pay to register, paid registrations, form attachments, User Registration, Registration Magic, paypal registration, paypal wordpress registration, custom user roles, user role manager, create custom user roles, user manager, deactivate user, activate user, edit user, custom user fields, registration captcha, registration, register, online registration, user registration form, registration page, user registration spam, front-end registration, custom registration page, custom registration url, register form, registration form, custom registration form, user management, custom login, wp registration, class registration, custom field registration, front-end user registration, Social Login, Custom Login, Facebook Login, Front-end Login, Custom Login Widget, Twitter Login, Social Network Login, Google Login, Log In, Login Captcha, Login With Facebook, WordPress Login, Login Form, Online Registration, User Registration Spam, Autoresponder, Webform, Paypal
 
 Requires at least: 3.5
-Tested up to: 4.6.1
-Stable tag: 3.5.4.2
+Tested up to: 4.7
+Stable tag: 3.6.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -282,6 +282,20 @@ Please update to version 1.4.2. It fixes an old bug that always moved the form a
 14. Global Settings.
 
 == Changelog ==
+
+= 3.6.0.1 =
+1. Added: Product tour for fresh installations.
+2. Added: Sample forms for fresh installation.
+3. Fixed: Wrong date of payment when using Stripe.
+4. Other minor bugfixes.
+
+= 3.6.0.0 =
+1. New: WooCommerce integration. (Platinum bundle)
+2. Fixed: Notices appearing with php v7.
+3. Fixed: Auto responder email not containing correct values for file, image fields.
+4. Fixed: Form design: Placeholder color applying globally.
+5. Fixed: Magic popup blocking click to area underneath even after hiding.
+6. Lots of other minor fixes and improvements.
 
 = 3.5.4.2 =
 * Fixed: CSV export containing limited submissions.
@@ -693,6 +707,20 @@ Fixed: Blocks showing up on front-end with some WP themes.
 * Added Custom Fields
 
 == Upgrade Notice ==
+
+= 3.6.0.1 =
+1. Added: Product tour for fresh installations.
+2. Added: Sample forms for fresh installation.
+3. Fixed: Wrong date of payment when using Stripe.
+4. Other minor bugfixes.
+
+= 3.6.0.0 =
+1. New: WooCommerce integration. (Platinum bundle)
+2. Fixed: Notices appearing with php v7.
+3. Fixed: Auto responder email not containing correct values for file, image fields.
+4. Fixed: Form design: Placeholder color applying globally.
+5. Fixed: Magic popup blocking click to area underneath even after hiding.
+6. Lots of other minor fixes and improvements.
 
 = 3.5.4.2 =
 * Fixed: CSV export containing limited submissions.

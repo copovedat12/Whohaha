@@ -160,7 +160,7 @@ $form->addElement(new Element_Checkbox("<b>" . RM_UI_Strings::get('LABEL_SHOW_ON
 $form->addElement(new Element_Checkbox("<b>" . RM_UI_Strings::get('LABEL_IS_FIELD_EDITABLE') . ":</b>", "field_is_editable", array(1 => ""), array("id" => "rm_field_is_editable", "class" => "rm_static_field", "value" => $data->model->get_field_is_editable(), "longDesc"=>RM_UI_Strings::get('HELP_LABEL_IS_FIELD_EDITABLE'))));
 
 $form->addElement(new Element_HTML('<div id="scroll" style="display:none">'));
- $form->addElement(new Element_Checkbox("<b>" . RM_UI_Strings::get('LABEL_IS_REQUIRED_SCROLL') . ":</b>", "field_is_required_scroll", array(1 => ""), array("id" => "rm_field_is_required_scroll", "class" => "rm_static_field rm_required", "value" => $data->model->field_options->field_is_required_scroll, "longDesc" => RM_UI_Strings::get('HELP_ADD_FIELD_SHOW_ON_USERPAGE'))));
+ $form->addElement(new Element_Checkbox("<b>" . RM_UI_Strings::get('LABEL_IS_REQUIRED_SCROLL') . ":</b>", "field_is_required_scroll", array(1 => ""), array("id" => "rm_field_is_required_scroll", "class" => "rm_static_field rm_required", "value" => $data->model->field_options->field_is_required_scroll, "longDesc" => RM_UI_Strings::get('HELP_ADD_FIELD_REQUIRED_SCROLL'))));
 $form->addElement(new Element_HTML('</div>'));
 $form->addElement(new Element_HTML('<div id="date_range" style="display:none" >'));
 $form->addElement(new Element_HTML('<div class="rmrow rm_sub_heading">' . RM_UI_Strings::get('TEXT_RANGE') . '</div>'));
@@ -191,16 +191,10 @@ $form->render();
 }
 ?>  
 </div>
-<div class="rm-upgrade-note-gold">
-        <div class="rm-banner-title">Unlock all custom field types by upgrading<img src="<?php echo RM_IMG_URL.'logo.png'?>"> </div>
-        <div class="rm-banner-subtitle">Choose from two powerful extension bundles</div>
-        <div class="rm-banner-box"><a href="https://registrationmagic.com/buy-silver-bundle/" target="blank"><img src="<?php echo RM_IMG_URL.'silver-logo.png'?>"></a>
-
-        </div>
-        <div class="rm-banner-box"><a href="https://registrationmagic.com/buy-gold-bundle/" target="blank"><img src="<?php echo RM_IMG_URL.'gold-logo.png'?>"></a>
-
-        </div>
-    </div>
+<?php 
+    $rm_promo_banner_title = "Unlock all custom field types by upgrading";
+    include RM_ADMIN_DIR.'views/template_rm_promo_banner_bottom.php';
+    ?>
     </div>
 
 <?php
@@ -345,7 +339,7 @@ function rm_get_help_text(ftype){
                    e.preventDefault();
                }
                }
-               if(jQuery("#rm_field_max_length").val()!='')
+               /*if(jQuery("#rm_field_max_length").val()!='')
                {
                    var max=jQuery("#rm_field_max_length").val();
                     if(max<10)
@@ -354,7 +348,7 @@ function rm_get_help_text(ftype){
                         jQuery('#rm_length_error_row').show();
                         e.preventDefault();
                     }
-               }
+               }*/
             }            
         );
     });

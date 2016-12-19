@@ -20,13 +20,14 @@ abstract class RM_Frontend_Form_Base
     protected $service;
     protected $contains_price_fields;
     protected $form_number;//Keeps track of the how many of the same forms have been rendered
+    protected $ignore_expiration;
 
     //Submission related function, must be implemented by child class
     abstract function pre_sub_proc($request, $params);
 
     abstract function post_sub_proc($request, $params);
 
-    public function __construct(RM_Forms $be_form)
+    public function __construct(RM_Forms $be_form, $ignore_expiration=false)
     {
         $this->fields = array();
         $this->form_type = RM_BASE_FORM;
@@ -37,6 +38,7 @@ abstract class RM_Frontend_Form_Base
         $this->form_options = $be_form->get_form_options();
         $this->form_options->form_should_auto_expire = $be_form->get_form_should_auto_expire();
         $this->form_options->form_should_send_email = $be_form->get_form_should_send_email();
+        $this->ignore_expiration = $ignore_expiration;
 
         if (isset($be_form->form_redirect) && $be_form->form_redirect != "none" && $be_form->form_redirect != "")
             $this->form_options->redirection_type = $be_form->form_redirect;
@@ -89,6 +91,9 @@ abstract class RM_Frontend_Form_Base
 
     public function is_expired()
     {
+        if($this->ignore_expiration)
+            return false;
+        
         if (!$this->form_options->form_should_auto_expire)
             return false;
         else
@@ -158,7 +163,9 @@ abstract class RM_Frontend_Form_Base
     protected function pre_render()
     {
         $important = ' !important';      
-        echo $this->form_options->placeholder_css;
+        $p_css = str_replace("::-", ' #form_' . $this->form_id . "_" . $this->form_number .' ::-', $this->form_options->placeholder_css);
+        $p_css = str_replace("}:-", '} #form_' . $this->form_id . "_" . $this->form_number .' ::-', $p_css);
+        echo $p_css;
         echo '<style>';
         if($this->form_options->btn_hover_color)
             echo '.rmagic #form_' . $this->form_id . "_" . $this->form_number .' .buttonarea input[type="button"]:hover{ background-color:'.$this->form_options->btn_hover_color.$important.';}';

@@ -67,7 +67,7 @@
             <div class="rm-grid-section-title dbfl">
                 <?php echo RM_UI_Strings::get('FD_BASIC_DASHBOARD'); ?> <span class="rm-query-ask">?</span>
                 <div class="difr rm-grid-section-title-button"><span class="rm-grid-button"><a target="_blank" href="https://registrationmagic.com/comparison/" class="rm_fd_link">upgrade</a></span></div>
-                <div style="display:none" class="rm-query-answer">Standard Edition dashboard offers you all the features to get starting with building registration system on your site. For more powerful options consider upgrading to <a href="http://registrationmagic.com/?download_id=19544&edd_action=add_to_cart">Gold</a> or <a href="http://registrationmagic.com/?download_id=317&edd_action=add_to_cart">Silver Bundle</a></div>
+                <div style="display:none" class="rm-query-answer">Standard Edition dashboard offers you all the features to get starting with building registration system on your site. For more powerful options consider upgrading to <a href="http://registrationmagic.com/?download_id=22865&edd_action=add_to_cart">Platinum</a>, <a href="https://registrationmagic.com/?download_id=23029&edd_action=add_to_cart">Gold</a> or <a href="http://registrationmagic.com/?download_id=317&edd_action=add_to_cart">Silver Bundle</a></div>
             </div>
             <div class="rm-grid-icon difl">
                 <a href="?page=rm_submission_manage&rm_form_id=<?php echo $data->form_id; ?>" class="rm_fd_link">   

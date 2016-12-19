@@ -76,12 +76,31 @@ JS;
 			echo '/> ', $text, ' </li> ';
 			++$count;
 		}
-                if(isset($this->_attributes["rm_is_other_option"]) && $this->_attributes["rm_is_other_option"] == 1){                        
-                   echo '<li>'.
-                        '<input type="checkbox" value="" id="'.$this->_attributes["id"].'_other" name="'.$this->getAttribute("name").'" style="'.$this->getAttribute("style").'">Other</li>'.
+                if(isset($this->_attributes["rm_is_other_option"]) && $this->_attributes["rm_is_other_option"] == 1){                    
+                    $other_val = '';
+                    if(isset($this->_attributes["value"])):
+                    //get value of "other" field to be prefilled if provided.
+                    $diff = array_diff($this->_attributes["value"], array_keys($this->options));                    
+                    if(count($diff)===1)
+                    {
+                        $other_val = array_values($diff);
+                        $other_val = $other_val[0];
+                    }
+                    endif;
+                   echo '<li>';
+                   if(!$other_val)
+                   {
+                   echo '<input type="checkbox" value="" id="'.$this->_attributes["id"].'_other" name="'.$this->getAttribute("name").'" style="'.$this->getAttribute("style").'">Other</li>'.
                         '<li id="'.$this->_attributes["id"].'_other_section" style="display:none">'.
-                        '<input style="'.$this->getAttribute("style").'" type="text" id="'.$this->_attributes["id"].'_other_input" disabled>'.
-                        '</li>';
+                        '<input style="'.$this->getAttribute("style").'" type="text" id="'.$this->_attributes["id"].'_other_input" disabled>';
+                   }
+                   else
+                   {
+                    echo '<input type="checkbox" value="" id="'.$this->_attributes["id"].'_other" name="'.$this->getAttribute("name").'" style="'.$this->getAttribute("style").'" checked>Other</li>'.
+                        '<li id="'.$this->_attributes["id"].'_other_section">'.
+                        '<input style="'.$this->getAttribute("style").'" type="text" id="'.$this->_attributes["id"].'_other_input" value="'.$other_val.'">';   
+                   }
+                   echo  '</li>';
                 }
                     echo '</ul>';
 	}

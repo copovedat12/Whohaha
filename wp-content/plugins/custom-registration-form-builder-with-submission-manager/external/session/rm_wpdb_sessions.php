@@ -35,8 +35,8 @@ class RM_WPDB_Session_Handler {
 	 */
 	public function read( $id ) {
 		if ( ! $this->wpdb )
-			return null;
-                //error_reporting(E_ALL ^ E_WARNING); 
+			return false;
+                
                 return $this->wpdb->get_var( $this->wpdb->prepare("SELECT `data` FROM {$this->wpdb->prefix}{$this->table} WHERE id = %s", $id ) );
 	}
 
@@ -48,9 +48,9 @@ class RM_WPDB_Session_Handler {
 	 */
 	public function write( $id, $data ) {
 		if ( ! $this->wpdb )
-			return null;
+			return false;
 
-		return $this->wpdb->query( $this->wpdb->prepare( "REPLACE INTO {$this->wpdb->prefix}{$this->table} VALUES ( %s, %s, %d );", $id, $data, time() ) );
+		return (bool)$this->wpdb->query( $this->wpdb->prepare( "REPLACE INTO {$this->wpdb->prefix}{$this->table} VALUES ( %s, %s, %d );", $id, $data, time() ) );
 	}
 
 	/**

@@ -64,14 +64,26 @@ JS;
 			//echo '/> ', $text, ' </label> ';
 			echo '/> ', $text, ' </li> ';
 			++$count;
-		}
-                
-                if(isset($this->_attributes["rm_is_other_option"]) && $this->_attributes["rm_is_other_option"] == 1){                        
-                   echo '<li>'.
-                        '<input id="'.$this->_attributes["id"].'_other" type="radio" value="" name="'.$this->getAttribute("name").'" style="'.$this->getAttribute("style").'">Other</li>'.
+		}                
+                 
+                if(isset($this->_attributes["rm_is_other_option"]) && $this->_attributes["rm_is_other_option"] == 1){                       //get value of "other" field to be prefilled if provided.
+                    $other_val = '';
+                    if(isset($this->_attributes["value"]) && !in_array($this->_attributes["value"], array_values($this->options)))
+                            $other_val = $this->_attributes["value"];
+                   echo '<li>';
+                   if($other_val){
+                     echo      '<input id="'.$this->_attributes["id"].'_other" type="radio" value="" name="'.$this->getAttribute("name").'" style="'.$this->getAttribute("style").'" checked>Other</li>'.
+                        '<li id="'.$this->_attributes["id"].'_other_section">'.
+                        '<input style="'.$this->getAttribute("style").'" type="text" id="'.$this->_attributes["id"].'_other_input" name="'.$this->getAttribute("name").'" value="'.$other_val.'">';
+                   }
+                   else
+                   {
+                     echo  '<input id="'.$this->_attributes["id"].'_other" type="radio" value="" name="'.$this->getAttribute("name").'" style="'.$this->getAttribute("style").'">Other</li>'.
                         '<li id="'.$this->_attributes["id"].'_other_section" style="display:none">'.
-                        '<input style="'.$this->getAttribute("style").'" type="text" id="'.$this->_attributes["id"].'_other_input" name="'.$this->getAttribute("name").'" disabled>'.
-                        '</li>';
+                        '<input style="'.$this->getAttribute("style").'" type="text" id="'.$this->_attributes["id"].'_other_input" name="'.$this->getAttribute("name").'" disabled>';
+
+                   }
+                    echo   '</li>';
                 }
             echo '</ul>';
 	}

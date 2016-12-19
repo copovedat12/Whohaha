@@ -357,7 +357,7 @@ class WPMUDEV_Dashboard_Message {
 	public function maybe_setup_message() {
 		// Initialize the WPMUDEV message only for authorized admins.
 		if ( WPMUDEV_Dashboard::$site->allowed_user() ) {
-			add_action( 'all_admin_notices', array( $this, 'setup_message' ), 999 );
+			add_action( 'all_admin_notices', array( $this, 'setup_message' ), 999 );		      	 			 	    
 		}
 	}
 

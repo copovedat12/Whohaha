@@ -57,12 +57,22 @@ class RM_Submissions extends RM_Base_Model
     }
 
         
-   public function get_submission_ip()
+  public function get_submission_ip()
     {
-       $sub_id=$this->submission_id;
+       $service = new RM_Services;
+       $sub_id = $service->get_oldest_submission_from_group($this->submission_id);
        $where=array('submission_id'=>$sub_id);
        $sub_ip=  RM_DBManager::get('STATS', $where,array('%d'), 'col', 0,1,'user_ip');
-       return $sub_ip['0'];
+       return isset($sub_ip['0'])?$sub_ip['0']:null;
+    }
+    
+    public function get_submission_browser()
+    {
+       $service = new RM_Services;
+       $sub_id = $service->get_oldest_submission_from_group($this->submission_id);
+       $where=array('submission_id'=>$sub_id);
+       $sub_bw=  RM_DBManager::get('STATS', $where,array('%d'), 'col', 0,1,'browser_name');
+       return isset($sub_bw['0'])?$sub_bw['0']:null;
     }
     public function get_form_id()
     {

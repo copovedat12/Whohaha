@@ -82,7 +82,7 @@ class RM_Xurl
 
         foreach ($fields as $field => $value)
         {
-            $req_str .= $field . "=" . urlencode($value) . "&";
+            $req_str .= urlencode($field) . "=" . urlencode($value) . "&";
         }
         rtrim($req_str, '&');
 
@@ -97,7 +97,7 @@ class RM_Xurl
 
         foreach ($fields as $field => $value)
         {
-            $req_str .= $field . "=" . urlencode($value) . "&";
+            $req_str .= urlencode($field) . "=" . urlencode($value) . "&";
         }
         rtrim($req_str, '&');
 

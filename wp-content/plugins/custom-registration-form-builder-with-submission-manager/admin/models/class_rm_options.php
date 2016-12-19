@@ -77,6 +77,7 @@ class RM_Options
         );
         $this->default['show_asterix'] = 'yes';
         $this->default['rm_option_default_forms'] = null;
+        $this->default['tour_state'] = array('form_manager_tour' => false,'form_gensett_tour' => false);
         
         //Initialize options' names and sanitizers if any.
         $this->options_name_and_methods = array(
@@ -144,7 +145,8 @@ class RM_Options
             'submission_on_card' => null,
             'review_events' => null,
             'show_asterix' =>null,
-            'rm_option_default_forms' =>null
+            'rm_option_default_forms' =>null,
+            'tour_state' => null
             );
     }
 
@@ -545,4 +547,5 @@ class RM_Options
         $emails = explode(' ', $val);
         return $emails;
     }
+       
 }

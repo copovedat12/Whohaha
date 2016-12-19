@@ -36,15 +36,8 @@
         $form->render();
         ?>
     </div>
-    <div class="rm-upgrade-note-gold">
-        <div class="rm-banner-title">Upgrade and expand the power of<img src="<?php echo RM_IMG_URL.'logo.png'?>"> </div>
-        <div class="rm-banner-subtitle">Choose from two powerful extension bundles</div>
-        <div class="rm-banner-box"><a href="https://registrationmagic.com/buy-silver-bundle/" target="blank"><img src="<?php echo RM_IMG_URL.'silver-logo.png'?>"></a>
+    <?php 
+    include RM_ADMIN_DIR.'views/template_rm_promo_banner_bottom.php';
+    ?>
 
-        </div>
-        <div class="rm-banner-box"><a href="https://registrationmagic.com/buy-gold-bundle/" target="blank"><img src="<?php echo RM_IMG_URL.'gold-logo.png'?>"></a>
-
-        </div>
-    </div>
-</div>
 </div>

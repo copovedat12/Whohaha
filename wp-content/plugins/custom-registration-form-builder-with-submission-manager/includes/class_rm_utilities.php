@@ -1023,7 +1023,8 @@ class RM_Utilities {
         die;
          
     }
- public static function save_submit_label(){
+    
+    public static function save_submit_label(){
      $form_id=$_POST['form_id'];
      $label=$_POST['label'];
     
@@ -1032,5 +1033,39 @@ class RM_Utilities {
      $form->form_options->form_submit_btn_label=$label;
      $form->update_into_db();
      echo "changed";die;
+    }
+    
+    public static function update_tour_state($tour_id, $state)
+    {
+        $gopts = new RM_Options;
+        
+        $existing_tour = $gopts->get_value_of('tour_state');
+        
+        if(is_array($existing_tour))
+        {
+            $existing_tour[$tour_id] = strtolower($state);
+        }
+        $gopts->set_value_of('tour_state', $existing_tour);
+    }    
+    
+    public static function has_taken_tour($tour_id)
+    {
+        $gopts = new RM_Options;
+        
+        $existing_tour = $gopts->get_value_of('tour_state');
+        
+        if(isset($existing_tour[$tour_id]))
+            return ($existing_tour[$tour_id] == 'taken');
+        else
+            return false;
+    }
+    
+    public static function update_tour_state_ajax()
+    {
+        $tour_id = $_POST['tour_id'];
+        $state = $_POST['state'];
+        
+        self::update_tour_state($tour_id, $state);
+        wp_die();
     }
 }

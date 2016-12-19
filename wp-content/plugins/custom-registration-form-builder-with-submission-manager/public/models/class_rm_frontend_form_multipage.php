@@ -10,9 +10,9 @@ class RM_Frontend_Form_Multipage extends RM_Frontend_Form_Base
 
     protected $form_pages;
 
-    public function __construct(RM_Forms $be_form)
+    public function __construct(RM_Forms $be_form, $ignore_expiration=false)
     {
-        parent::__construct($be_form);
+        parent::__construct($be_form, $ignore_expiration);
 
         if ($this->form_options->form_pages == null)
             $this->form_pages = array('Page 1');

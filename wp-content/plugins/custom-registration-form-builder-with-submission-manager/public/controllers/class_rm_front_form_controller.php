@@ -101,13 +101,14 @@ class RM_Front_Form_Controller
         if ($subbed_form_no && ($fe_form->get_form_number() == $subbed_form_no) && $form_preproc_response && $this->mv_handler->validateForm($form_name."_".$subbed_form_no) && !$service->is_browser_reload_duplication($stat_id))
         {         
             $primary_data = $fe_form->get_prepared_data($request->req, 'primary');
+    
             $db_data = $fe_form->get_prepared_data($request->req, 'dbonly');
 
             $sub_detail = $service->save_submission($form_id, $db_data, $primary_data['user_email']->value);
-                        
-            if(isset($sub_detail))
-                $service->update_stat_entry($stat_id,'update',$sub_detail->submission_id);
             
+            if(isset($sub_detail))
+                $service->update_stat_entry($stat_id,'update',$sub_detail->submission_id);            
+
             $form_options = $fe_form->get_form_options();
             
             if((int)($form_options->should_export_submissions) === 1)
@@ -124,6 +125,7 @@ class RM_Front_Form_Controller
             {
                 $parameters = new stdClass; //This is different then the $params in the argument of this function!
                 $parameters->req = $request->req;
+                $parameters->db_data = $db_data;
                 $parameters->email = $primary_data['user_email']->value;
                 $parameters->email_content = $form_options->form_email_content;
                 $parameters->email_subject = $form_options->form_email_subject;
@@ -266,6 +268,11 @@ class RM_Front_Form_Controller
               {
               $service->export_to_external_url($form_options->export_submissions_to_url, $db_data);
               } */
+            
+            if((int)($form_options->should_export_submissions) === 1)
+            {
+                $service->export_to_external_url($form_options->export_submissions_to_url, $db_data);
+            }
 
             if ($form_options->form_is_unique_token)
                 $token = $sub_detail->token;

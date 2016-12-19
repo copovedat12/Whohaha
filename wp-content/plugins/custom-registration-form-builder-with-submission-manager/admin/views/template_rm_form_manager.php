@@ -10,8 +10,7 @@
 global $rm_env_requirements;
 global $regmagic_errors;
 ?>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
- 
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
  <?php if (($rm_env_requirements & RM_REQ_EXT_CURL) && $data->newsletter_sub_link){ ?>
  <div class="rm-newsletter-banner" id="rm_newsletter_sub"><?php echo $data->newsletter_sub_link;?><img src="<?php echo plugin_dir_url(dirname(dirname(__FILE__))) . 'images/close-rm.png'; ?>" onclick="jQuery('#rm_newsletter_sub').hide()"></div>
  <?php } ?>
@@ -27,25 +26,65 @@ global $regmagic_errors;
  }
  ?>
 <div class="rmagic rmbasic">
- 
+    
+    <!-- Joyride Magic begins -->
+    <ol id="rm-form-man-joytips" style="display:none">
+        <li>
+            <h2>
+                Welcome to RegistrationMagic
+            </h2>
+            <p>RegistrationMagic is a powerful plugin that allows you to build custom registration system on your WordPress site. This is the main landing page - Forms Manager. Click <b>Next</b> to start a quick tour of this page. To stop at anytime, click the close icon on top right.</p>
+        </li>
+    <li data-id="rmbar" data-options="tipLocation:bottom">You will see this flat white box on top of different sections inside RegistrationMagic. We call it operations bar. It contains...</li>
+         <li data-id="rm-tour-title" data-options="tipLocation:bottom">The heading of the section you are presently in...</li>
+        <li data-id="rm-ob-icons" data-options="nubPosition:bottom-right;tipAdjustmentX:-330">Quick access icons relevant to the section...</li>
+        <li data-id="rm-ob-sort" data-options="nubPosition:bottom-right;tipAdjustmentX:-320">A filter and sort drop down menu. In this section, it allows you to sort your forms.</li>
+        <li data-id="rm-ob-nav">And a navigation menu with most important functions laid horizontally. Let's look at the Form Manager functions one by one.</li>
+        <li data-id="rm-ob-new">This allows you to create new forms.</li>
+        <li data-id="rm-ob-duplicate">This allows you to duplicate one or multiple forms. Form's settings and fields are also duplicated.</li>
+        <li data-id="rm-ob-delete">This allows you to delete one or multiple forms. All associated form data is deleted.</li>
+        <li data-id="rm-ob-export">This allows you to export all your forms and associated data in a single XML file. Handy if you are reinstalling your site, moving forms to another site or simply backing up your hard work.</li>
+        <li data-id="rm-ob-import">Import button allows you to import the XML file saved on your computer.</li>
+        <li><h3>
+            Forms As Cards
+            </h3>
+        <p>RegistrationMagic displays all forms as rectangular cards. This is a novel new approach. You will later see that a form card is much more than a symbolic representation of a form. It can show you form related data and stats at a glance. </p>
+        </li>
+        <li data-id="rm-card-area">All form cards are displayed as grid, starting from here. You may not need to create more than one registrations form, but it's totally up to you. RegistrationMagic gives a playground to experiment and play to find the best combination for your site. First two card slots are reserved for <b>Add New Form</b> and <b>Login Form</b></li>
+        <li data-class="rm-card-tour">This is a form card. We automatically created it for you to give you a head start.</li>
+        <li data-class="rm-title-tour">This shows title of the form. When you create a new form, you can define its title. You can always change title of this form later, by going into its <b>General Settings</b></li>
+        <li data-class="rm-checkbox-tour" data-options="tipAdjustmentX:-28;tipAdjustmentY:-5">The checkbox on left side of the title allows you to select multiple forms and perform batch operations. For example, deleting multiple forms. Of course there's nothing stopping you from deleting or duplicating a single form.</li>
+        <li data-class="unread-box" data-options="tipAdjustmentX:-22;tipAdjustmentY:-5">On top right side of each card is a red number badge. This is the count of total times this form has been filled and submitted on your site by visitors.</li>
+        <li data-class="rm-last-submission">This area displays 3 latest submissions for this form. On new forms it will be empty in the start. Each submission will also show user's Gravatar and time stamp.</li>
+        <li data-class="rm-shortcode-tour" data-options="tipAdjustmentX:50">Now this is important. RegistrationMagic works through shortcodes. That means, to display a form on the site, you must paste its shortcode inside a page, post or a widget (where you want this form to appear). Form shortcodes are always in this format - <b>[RM_Form id='x']</b></li>
+        <li data-class="material-icons" data-options="tipAdjustmentX:-24;tipAdjustmentY:-5">This little star allows you to mark a form as your default registration form.</li>
+        <li data-class="rm-form-settings">Each form has its own dashboard or operations area, that is accessible by clicking the <b>Settings</b> button on the respective form card.</li>
+        <li data-class="rm-form-fields" data-options="tipAdjustmentX:-12">Any form once created is empty. Form fields need to be added manually. This is where <b>Custom Fields Manager</b> comes in. Clicking it will take you to a separate section, where you can add all sorts of fields and pages to your form.</li>
+        <li>This ends our tour of Forms Manager. Feel free to explore other sections of RegistrationMagic. We would recommend visiting the form Dashboard first. If anything does not works as expected, please write to us <a href="https://registrationmagic.com/help-support"><u>here</u></a> and we will help you sort it out asap.</li>
+        <li><h2>But one more thing!</h2></li>
+        <li data-id="rm-new-form" data-button="Done">You can quickly create a new form by typing its title below and clicking on <b>CREATE NEW FORM</b> button. That's about it folks! You can restart the tour anytime by clicking <b>Tour</b> on operations bar.</li>
+
+   </ol>
+  <!-- Joyride Magic ends -->
 
     <!--  Operations bar Starts  -->
     <form name="rm_form_manager" id="rm_form_manager_operartionbar" class="rm_static_forms" method="post" action="">
         <input type="hidden" name="rm_slug" value="" id="rm_slug_input_field">
-        <div class="operationsbar">
-            <div class="rmtitle"><?php echo RM_UI_Strings::get('TITLE_FORM_MANAGER');?></div>
-            <div class="icons">
+        <div class="operationsbar" id="rmbar">
+            <div class="rmtitle" id="rm-tour-title"><?php echo RM_UI_Strings::get('TITLE_FORM_MANAGER');?></div>
+            <div class="icons" id="rm-ob-icons">
                 <a href="?page=rm_options_general"><img alt="" src="<?php echo plugin_dir_url(dirname(dirname(__FILE__))) . 'images/general-settings.png'; ?>"></a>
             </div>
-            <div class="nav">
+            <div class="nav" id="rm-ob-nav">
                 <ul>
-                    <li><a href="admin.php?page=rm_form_sett_general"><?php echo RM_UI_Strings::get('LABEL_ADD_NEW');?></a></li>
-                    <li onclick="jQuery.rm_do_action('rm_form_manager_operartionbar','rm_form_duplicate')"><a href="javascript:void(0)"><?php echo RM_UI_Strings::get('LABEL_DUPLICATE'); ?></a></li>
-                    <li onclick="jQuery.rm_do_action_with_alert('<?php echo RM_UI_Strings::get('ALERT_DELETE_FORM'); ?>','rm_form_manager_operartionbar','rm_form_remove')"><a href="javascript:void(0)"><?php echo RM_UI_Strings::get('LABEL_REMOVE'); ?></a></li>
-                    <li onclick="jQuery.rm_do_action('rm_form_manager_operartionbar','rm_form_export')"><a href="javascript:void(0)"><?php echo RM_UI_Strings::get('LABEL_EXPORT_ALL'); ?></a></li>
-                     <li><a href="admin.php?page=rm_form_import"><?php echo RM_UI_Strings::get('LABEL_IMPORT'); ?></a></li>
+                    <li id="rm-ob-new"><a href="admin.php?page=rm_form_sett_general"><?php echo RM_UI_Strings::get('LABEL_ADD_NEW');?></a></li>
+                    <li id="rm-ob-duplicate" onclick="jQuery.rm_do_action('rm_form_manager_operartionbar','rm_form_duplicate')"><a href="javascript:void(0)"><?php echo RM_UI_Strings::get('LABEL_DUPLICATE'); ?></a></li>
+                    <li id="rm-ob-delete" onclick="jQuery.rm_do_action_with_alert('<?php echo RM_UI_Strings::get('ALERT_DELETE_FORM'); ?>','rm_form_manager_operartionbar','rm_form_remove')"><a href="javascript:void(0)"><?php echo RM_UI_Strings::get('LABEL_REMOVE'); ?></a></li>
+                    <li id="rm-ob-export" onclick="jQuery.rm_do_action('rm_form_manager_operartionbar','rm_form_export')"><a href="javascript:void(0)"><?php echo RM_UI_Strings::get('LABEL_EXPORT_ALL'); ?></a></li>
+                    <li id="rm-ob-import"><a href="admin.php?page=rm_form_import"><?php echo RM_UI_Strings::get('LABEL_IMPORT'); ?></a></li>
+                    <li><a href="javascript:void(0)" onclick="rm_start_joyride()"><?php echo RM_UI_Strings::get('LABEL_TOUR'); ?></a></li>
                     
-                    <li class="rm-form-toggle">Sort by<select onchange="rm_sort_forms(this,'<?php echo $data->curr_page;?>')">
+                    <li class="rm-form-toggle" id="rm-ob-sort">Sort by<select onchange="rm_sort_forms(this,'<?php echo $data->curr_page;?>')">
                             <option value=null><?php echo RM_UI_Strings::get('LABEL_SELECT'); ?></option>
                             <option value="form_name"><?php echo RM_UI_Strings::get('LABEL_NAME'); ?></option>
                             <option value="form_id"><?php echo RM_UI_Strings::get('FIELD_TYPE_DATE'); ?></option>
@@ -62,9 +101,9 @@ global $regmagic_errors;
 
     <!--  ****Content area Starts****  -->
 
-    <div class="rmagic-cards">
+    <div class="rmagic-cards" id="rm-card-area">
 
-        <div class="rmcard">
+        <div class="rmcard" id="rm-new-form">
             <?php
             $form = new RM_PFBC_Form("rm_form_quick_add");
             $form->configure(array(
@@ -94,16 +133,26 @@ global $regmagic_errors;
                 else
                     $subcount_display = null;//$entry->count;
                 
+                //Check if form is one of the sample forms.
+                $ex_form_card_class = '';
+                $sample_data = get_site_option('rm_option_inserted_sample_data', null);
+                if(isset($sample_data->forms) && is_array($sample_data->forms)):
+                    foreach($sample_data->forms as $sample_form):
+                        if($entry->form_id == $sample_form->form_id):
+                            $ex_form_card_class = ($sample_form->form_type == RM_REG_FORM)? 'rm-sample-reg-form-card' : 'rm-sample-contact-form-card';                            
+                        endif;
+                    endforeach;
+                endif;                
+                    
                 ?>
 
-                <div id="<?php echo $entry->form_id; ?>" class="rmcard">
+                <div id="<?php echo $entry->form_id; ?>" class="rmcard  rm-card-tour <?php echo $ex_form_card_class; ?>">
 <div class='unread-box'><a href="?page=rm_submission_manage&rm_form_id=<?php echo $entry->form_id; ?>&rm_interval=<?php echo $data->submission_type; ?>"><?php echo $entry->count; ?></a></div>
-                    <div class="cardtitle">
-                        <input class="rm_checkbox" type="checkbox" name="rm_selected_forms[]" value="<?php echo $entry->form_id; ?>"><span class="rm_form_name" ><?php echo $entry->form_name; ?></span></div>
+                    <div class="cardtitle rm-title-tour">
+                        <input class="rm_checkbox rm-checkbox-tour" type="checkbox" name="rm_selected_forms[]" value="<?php echo $entry->form_id; ?>"><span class="rm_form_name" ><?php echo $entry->form_name; ?></span></div>
                     <div class="rm-last-submission">
-                          <b><?php echo RM_UI_Strings::get('LABEL_REGISTRATIONS');
-                          if($subcount_display)
-                              echo " ($subcount_display Left)";
+                          <b><?php if($subcount_display)
+                              printf(RM_UI_Strings::get('RM_SUB_LEFT_CAPTION'),$subcount_display);
                               ?></b></div>
                             
                     <?php
@@ -143,11 +192,11 @@ global $regmagic_errors;
                         <?php } else { ?>
                     <i class="material-icons rm_not_def_form_star" onclick="make_me_a_star(this)" id="rm-star_<?php echo $entry->form_id; ?>">&#xe838</i>
                         <?php } ?>
-                    <b>[RM_Form id='<?php echo $entry->form_id; ?>']</b></div>
+                    <b class="rm-shortcode-tour">[RM_Form id='<?php echo $entry->form_id; ?>']</b></div>
                     <div class="rm-form-embedcode"  onclick="rm_open_dial(<?php echo $entry->form_id; ?>)"><?php echo RM_UI_Strings::get('MSG_GET_EMBED'); ?></div>
                     <div class="rm-form-links">
-                        <div class="rm-form-row"><a href="admin.php?page=rm_form_sett_manage&rm_form_id=<?php echo $entry->form_id; ?>"><?php echo RM_UI_Strings::get('SETTINGS'); ?></a></div>
-                        <div class="rm-form-row"><a href="admin.php?page=rm_field_manage&rm_form_id=<?php echo $entry->form_id; ?>"><?php echo RM_UI_Strings::get('LABEL_FIELDS'); ?></a></div>
+                        <div class="rm-form-row"><a class="rm-form-settings" href="admin.php?page=rm_form_sett_manage&rm_form_id=<?php echo $entry->form_id; ?>"><?php echo RM_UI_Strings::get('SETTINGS'); ?></a></div>
+                        <div class="rm-form-row"><a class="rm-form-fields" href="admin.php?page=rm_field_manage&rm_form_id=<?php echo $entry->form_id; ?>"><?php echo RM_UI_Strings::get('LABEL_FIELDS'); ?></a></div>
                     </div>
                     <div style="display:none" class="rm_form_card_settings_dialog" id="rm_settings_dailog_<?php echo $entry->form_id; ?>"><ul class="rm_form_settings_list"><a href="?page=rm_form_sett_general&rm_form_id=<?php echo $entry->form_id; ?>"><li><?php echo RM_UI_Strings::get('LABEL_F_GEN_SETT'); ?></li></a><a href="?page=rm_form_sett_view&rm_form_id=<?php echo $entry->form_id; ?>"><li><?php echo RM_UI_Strings::get('LABEL_F_VIEW_SETT'); ?></li></a><a href="?page=rm_form_sett_accounts&rm_form_id=<?php echo $entry->form_id; ?>"><li><?php echo RM_UI_Strings::get('LABEL_F_ACC_SETT'); ?></li></a><a href="?page=rm_form_sett_post_sub&rm_form_id=<?php echo $entry->form_id; ?>"><li><?php echo RM_UI_Strings::get('LABEL_F_PST_SUB_SETT'); ?></li></a><a href="?page=rm_form_sett_autoresponder&rm_form_id=<?php echo $entry->form_id; ?>"><li><?php echo RM_UI_Strings::get('LABEL_F_AUTO_RESP_SETT'); ?></li></a><a href="?page=rm_form_sett_limits&rm_form_id=<?php echo $entry->form_id; ?>"><li><?php echo RM_UI_Strings::get('LABEL_F_LIM_SETT'); ?></li></a><a href="?page=rm_form_sett_mailchimp&rm_form_id=<?php echo $entry->form_id; ?>"><li><?php echo RM_UI_Strings::get('LABEL_F_MC_SETT'); ?></li></a><a href="?page=rm_form_sett_access_control&rm_form_id=<?php echo $entry->form_id; ?>"><li><?php echo RM_UI_Strings::get('LABEL_F_ACTRL_SETT'); ?></li></a><a href="?page=rm_form_sett_aweber&rm_form_id=<?php echo $entry->form_id; ?>"><li><?php echo RM_UI_Strings::get('LABEL_AWEBER_OPTION'); ?></li></a><a href="?page=rm_form_sett_ccontact&rm_form_id=<?php echo $entry->form_id; ?>"><li><?php echo RM_UI_Strings::get('LABEL_CONSTANT_CONTACT_OPTION'); ?></li></a><a href="?page=rm_field_manage&rm_form_id=<?php echo $entry->form_id; ?>"><li><?php echo RM_UI_Strings::get('LABEL_F_FIELDS'); ?></li></a></ul></div>
                 </div>
@@ -184,142 +233,6 @@ global $regmagic_errors;
    
 <?php endif;
    $current_user = wp_get_current_user();
-if($data->review_popup_flag=='show')
-{
-    $opt=new RM_Options;
-
-?>
-    
-<div id="rm-rate-popup-wrap">
-	<div class="rm-rate-popup">
-
-		<div class="rm-pop-up-head">
-        	<h1>Congratulations, <span class="rm-user-name"><?php echo  $current_user->user_nicename?>!</span></h1>
-            <p class="rm-user-milestone"><?php echo $data->review_message;?> </p>
-                </div>
-        
-        <div class="rm-pop-up-rating">
-        	<p class="rm-pop-up-title">How would you rate <span class="rm-registration-magic">RegistrationMagic?</span></p>
-        	<div class="rm-pop-up-rate-stars">
-	           <div  class="rateit  bigstars" data-rateit-starwidth="48" data-rateit-starheight="48" id="rm_rateit_banner" data-rateit-resetable="false" data-rateit-min="0" data-rateit-max="5" data-rateit-value="0" data-rateit-ispreset="true">
-                    </div>
-           	</div>
-            <div class="rm-pop-up-skip">
-            	<a href=""  onclick="handle_review_banner_click('skip','null')">Skip</a>
-            </div>
-        </div>    
-    </div>
-</div>
-        
-   
-    <div class="feedback_message" id="feedback_message" style="display:none">
-         <div id="rm-rate-popup-wrap">
-	<div class="rm-rate-popup">
-
-		<div class="rm-pop-up-head">
-        	<h1>Congratulations, <span class="rm-user-name"><?php echo  $current_user->user_nicename?>!</span></h1>
-            <p class="rm-user-milestone"><?php echo $data->review_message;?> </p>
-                </div>
-        
-        <div class="rm-pop-up-rating">
-            <p class="rm-pop-up--wordpress-message">Please let us know how we can improve by taking out few minutes to <a href=""   onclick="handle_review_banner_click('feedback','null')">Fill this form</a></p>
-                <p class="rm-pop-up--wordpress-sub-message">(This is really important to us.)</p>
-        	
-                 <div class="rm-pop-up-skip">
-            	<a href=""  onclick="handle_review_banner_click('skip','null')">Skip</a>
-            </div>
-        </div>    
-    </div>
-</div>
-    </div>
-    <div class="wordpress_review" id="wordpress_review" style="display:none">
-            <div id="rm-rate-popup-wrap">
-	<div class="rm-rate-popup">
-
-		<div class="rm-pop-up-head">
-        	<h1>Congratulations, <span class="rm-user-name"><?php echo  $current_user->user_nicename?>!</span></h1>
-            <p class="rm-user-milestone"><?php echo $data->review_message;?> </p>
-                </div>
-        
-        <div class="rm-pop-up-rating">
-        	<p class="rm-pop-up--wordpress-message">Would you like to rate us on WordPress.org</p>
-                <p class="rm-pop-up--wordpress-sub-message">(This is really important to us.)</p>
-        	<div class="rm-popup-anchors">
-                
-                <a onclick="handle_review_banner_click('wordpress','null')" href="" id="review_anchor"> Review</a> 
-                <a onclick="handle_review_banner_click('remind','null')" href="" id="remind_anchor" > Remind me later</a>
-                </div>
-           
-        </div>    
-    </div>
-</div>
-      </div>
-     <pre class='rm-pre-wrapper-for-script-tags'><script>
-    jQuery(document).ready(function(){
-     jQuery('#rm-rate-popup-wrap').addClass('rm-hop');
-     jQuery('#rm-rate-popup-wrap').siblings().addClass('rm-blur');
-      });</script></pre>
-<?php
-;}
-elseif($data->review_popup_flag=='remind')
-{
-    ?> <div class="wordpress_review" id="wordpress_review">
-            <div id="rm-rate-popup-wrap">
-	<div class="rm-rate-popup">
-
-		<div class="rm-pop-up-head">
-        	<h1>Congratulations, <span class="rm-user-name"><?php echo  $current_user->user_nicename?>!</span></h1>
-            <p class="rm-user-milestone"><?php echo $data->review_message;?> </p>
-                </div>
-        
-        <div class="rm-pop-up-rating">
-        	<p class="rm-pop-up--wordpress-message">Would you like to rate us on WordPress.org</p>
-                <p class="rm-pop-up--wordpress-sub-message">(This is really important to us.)</p>
-        	<div class="rm-popup-anchors">
-                
-                <a onclick="handle_review_banner_click('wordpress','null')" href=""id="review_anchor"> Review</a> 
-                <a onclick="handle_review_banner_click('remind','null')" href="" id="remind_anchor" href="" > Remind me later</a>
-                </div>
-           
-        </div>    
-    </div>
-</div>
-      </div>
-     <pre class='rm-pre-wrapper-for-script-tags'><script>
-    jQuery(document).ready(function(){
-     jQuery('#wordpress_review').addClass('rm-hop');
-     jQuery('#wordpress_review').siblings().addClass('rm-blur');
-      });</script></pre>
-    <?php
-}
-elseif($data->review_popup_flag=='feedback')
-{
-    ?>   <div class="feedback_message" id="feedback_message">
-         <div id="rm-rate-popup-wrap">
-	<div class="rm-rate-popup">
-
-		<div class="rm-pop-up-head">
-        	<h1>Congratulations, <span class="rm-user-name"><?php echo  $current_user->user_nicename?>!</span></h1>
-            <p class="rm-user-milestone"><?php echo $data->review_message;?> </p>
-                </div>
-        
-        <div class="rm-pop-up-rating">
-            <p class="rm-pop-up--wordpress-message">Please let us know how we can improve by taking out few minutes to <a href=""   onclick="handle_review_banner_click('feedback','null')">fill this form</a></p>
-                <p class="rm-pop-up--wordpress-sub-message">(This is really important to us.)</p>
-            <div class="rm-pop-up-skip">
-            	<a href=""  onclick="handle_review_banner_click('skip','null')" >Skip</a>
-            </div>
-        </div>    
-    </div>
-</div>
-    </div>
-    <pre class='rm-pre-wrapper-for-script-tags'><script>
-    jQuery(document).ready(function(){
-     jQuery('#feedback_message').addClass('rm-hop');
-     jQuery('#feedback_message').siblings().addClass('rm-blur');
-      });</script></pre>
-    <?php
-}
 ?>
         <div id="rm_embed_code_dialog" style="display:none"><textarea readonly="readonly" id="rm_embed_code" onclick="jQuery(this).focus().select()"></textarea><img class="rm-close" src="<?php echo plugin_dir_url(dirname(dirname(__FILE__))) . 'images/close-rm.png'; ?>" onclick="jQuery('#rm_embed_code_dialog').fadeOut()"></div>
         
@@ -334,16 +247,19 @@ elseif($data->review_popup_flag=='feedback')
 
             <div class="sidebanner-content-wrapper">
                 <div class="sidebanner-text-content">
-                    <p>While Standard Edition is pretty powerful system in its own right, there's more from where it's coming from. RegistrationMagic's Silver and Gold upgrades are crammed to the top with features, great new options and comes with top class support. It takes less than <b>5 minutes</b> to upgrade and all your stuff is <b>transferred automatically</b></p>			
+                    <p>While Standard Edition is pretty powerful system in its own right, there's a lot more waiting for you! RegistrationMagic's Silver, Gold and Platinum upgrades are crammed to the top with features, great new options and comes with top class support. It takes less than <b>5 minutes</b> to upgrade and all your stuff is <b>transferred automatically</b></p>			
                 </div>
                 <div class="rm-sidebanner-buttons">
                     <div class="rm-sidebanner-button silver">
-                        <a href="http://registrationmagic.com/?download_id=317&edd_action=add_to_cart">GET SILVER</a>				
+                        <a href="https://registrationmagic.com/?download_id=317&edd_action=add_to_cart">GET SILVER</a>				
                     </div>
 
                     <div class="rm-sidebanner-button gold">
-                        <a href="http://registrationmagic.com/?download_id=19544&edd_action=add_to_cart">GET GOLD</a>
-                    </div>			
+                        <a href="https://registrationmagic.com/?download_id=23029&edd_action=add_to_cart">GET GOLD</a>
+                    </div>
+                    <div class="rm-sidebanner-button platinum">
+                        <a href="https://registrationmagic.com/?download_id=22865&edd_action=add_to_cart">GET PLATINUM</a>
+                    </div>
                 </div>
 
                 <div class="rm-sidebanner-compare">
@@ -364,8 +280,38 @@ elseif($data->review_popup_flag=='feedback')
 
             </div> <!-- sidebanner-content-wrapper -->
         </div>
+
+
   <pre class="rm-pre-wrapper-for-script-tags"><script type="text/javascript">
    
+    jQuery(document).ready(function(){
+       //Configure joyride
+       //If autostart is false, call again "jQuery("#rm-form-man-joytips").joyride()" to start the tour.
+       <?php if($data->autostart_tour): ?>
+       jQuery("#rm-form-man-joytips").joyride({tipLocation: 'top',
+                                               autoStart: true,
+                                               postRideCallback: rm_joyride_tour_taken});
+        <?php else: ?>
+            jQuery("#rm-form-man-joytips").joyride({tipLocation: 'top',
+                                               autoStart: false,
+                                               postRideCallback: rm_joyride_tour_taken});
+        <?php endif; ?>
+    });
+   
+   function rm_start_joyride(){
+       jQuery("#rm-form-man-joytips").joyride();
+    }
+    
+    function rm_joyride_tour_taken(){
+        var data = {
+			'action': 'joyride_tour_update',
+			'tour_id': 'form_manager_tour',
+                        'state': 'taken'
+		};
+
+        jQuery.post(ajaxurl, data, function(response) {});
+    }
+    
     function rm_open_dial(form_id){
         jQuery('textarea#rm_embed_code').html('<?php echo RM_UI_Strings::get('MSG_BUY_PRO_GOLD_EMBED'); ?>');
         jQuery('#rm_embed_code_dialog').fadeIn(100);
@@ -427,6 +373,7 @@ jQuery("#rm_rateit_banner").bind('rated', function (event, value) {
     
     });
   </script></pre>
+
 
 
 

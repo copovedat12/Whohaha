@@ -3646,6 +3646,12 @@ class RM_UI_Strings {
              case 'MSG_NO_SENT_EMAIL_INTERVAL':
                 return __('No email sent during the period.', 'custom-registration-form-builder-with-submission-manager');
             
+             case 'RM_SUB_LEFT_CAPTION' : 
+                return __ ('%s submission slots remain', 'custom-registration-form-builder-with-submission-manager');
+                 
+             case 'LABEL_TOUR' : 
+                return __ ('Tour', 'custom-registration-form-builder-with-submission-manager');
+
             default:
                 return __('NO STRING FOUND', 'custom-registration-form-builder-with-submission-manager');
 

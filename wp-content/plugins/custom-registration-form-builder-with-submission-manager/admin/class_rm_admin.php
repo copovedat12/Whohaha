@@ -262,5 +262,25 @@ class RM_Admin {
             }
         }
     }
+    
+    public function add_global_setting_notice()
+    {
+        if(is_admin())
+        {
+            $screen = get_current_screen();//var_dump($screen->id);die;
+            if($screen->id == 'registrationmagic_page_rm_options_manage')
+            {
+                ?>
+                <div style="text-align:center;background-color:#ffffce;color:orange" class= "notice notice-info">
+                  <p style="font-size:14px;">
+                  <?php
+                    echo __('Form specific settings can be found on form dashboard.','custom-registration-form-builder-with-submission-manager');
+                   ?>
+                  </p>
+                </div>
+                <?php 
+            }
+        }
+    }
 
 }

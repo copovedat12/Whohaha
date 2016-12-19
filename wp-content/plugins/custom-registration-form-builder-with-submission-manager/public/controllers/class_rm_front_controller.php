@@ -132,6 +132,8 @@ class RM_Front_Controller {
                     $data->is_user = true;
                     $data->user = $user;
                     $data->custom_fields = $service->get_custom_fields($user_email);
+                    foreach($data->custom_fields as $id => $f)
+                        if($f->type == 'Rating')unset($data->custom_fields[$id]);
                 } else {
                     $data->is_user = false;
                 }

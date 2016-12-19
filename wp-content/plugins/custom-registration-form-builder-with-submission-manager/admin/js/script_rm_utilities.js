@@ -166,7 +166,7 @@ function rm_toggle_field_add_form_fields(element){
     var field_type = jQuery(element).val();
 
     var field_type_help_text = rm_get_help_text(field_type);
-    jQuery('#rm_field_type_select_dropdown').parent().next('.rmnote').html(field_type_help_text);
+    jQuery('#rm_field_type_select_dropdown').parent().next('.rmnote').children('.rmnotecontent').html(field_type_help_text);
         jQuery.field_add_form_manage(field_type);
 }
 
@@ -199,7 +199,7 @@ function rm_toggle_visiblity(element) {
 function rm_toggle_visiblity_pricing_fields(element) {
     field_type = jQuery(element).val();
     var field_type_help_text = rm_get_help_text_price_field(field_type);
-    jQuery('#id_paypal_field_type_dd').parent().next('.rmnote').html(field_type_help_text);
+    jQuery('#id_paypal_field_type_dd').parent().next('.rmnote').children('.rmnotecontent').html(field_type_help_text);
 
     jQuery.setup_pricing_fields_visibility(field_type);
 

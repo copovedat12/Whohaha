@@ -16,7 +16,7 @@
  * Plugin Name:       RegistrationMagic
  * Plugin URI:        http://www.registrationmagic.com
  * Description:       A powerful system for customizing registration forms, setting up paid registrations, tracking submissions, managing users, assigning user roles, analyzing stats, and much more!!
- * Version:           3.5.4.2
+ * Version:           3.6.0.1
  * Tags:              registration, form, custom, analytics, simple, submissions
  * Requires at least: 3.3.0
  * Author:            CMSHelplive
@@ -62,9 +62,10 @@ if(version_compare(PHP_VERSION, '5.3') < 0){
 define('REGMAGIC_BASIC','99');
 $rmsilver = 'custom-registration-form-builder-with-submission-manager-silver/registration_magic.php';
 $rmgold = 'registrationmagic-gold/registration_magic.php';
+$rmgoldi2 = 'registrationmagic-gold-i2/registration_magic.php';
 $rmbasic = 'custom-registration-form-builder-with-submission-manager/registration_magic.php';
 
-if (defined('REGMAGIC_SILVER') || defined('REGMAGIC_GOLD')) {
+if (defined('REGMAGIC_SILVER') || defined('REGMAGIC_GOLD') || defined('REGMAGIC_GOLD_i2')) {
     return;    
 }
 
@@ -77,7 +78,7 @@ if (is_plugin_active_for_network($rmgold) || is_plugin_active($rmgold) ||
 }
 */
 if(!defined('RM_PLUGIN_VERSION')) {
-define('RM_PLUGIN_VERSION', '3.5.4.2');
+define('RM_PLUGIN_VERSION', '3.6.0.1');
 define('RM_DB_VERSION', 4.5);
 define('RM_SHOW_WHATSNEW_SPLASH', false);  //Set it to 'false' to disable whatsnew screen.
 define('RM_PLUGIN_BASENAME', plugin_basename(__FILE__ ));
