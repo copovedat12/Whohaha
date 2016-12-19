@@ -55,8 +55,7 @@ function check_guide_page($type){
         if ($type === 'image'){
             if ( 
                 isset($wp_query->query_vars['page']) && 
-                $wp_query->query_vars['page'] > 0 &&
-                getimagesize(get_site_url() . '/wp-content/uploads/user-images/'.$wp_query->query_vars['quizzes'].'_'.$wp_query->query_vars['page'].'_share.png') !== false
+                $wp_query->query_vars['page'] > 0
             ) {
                 return '/wp-content/uploads/user-images/'.$wp_query->query_vars['quizzes'].'_'.$wp_query->query_vars['page'].'_share.png';
             }
