@@ -22,6 +22,14 @@ function filter_wpseo_image($image){
     return $image;
 }
 
+function filter_wpseo_url($url){
+    $check_img = check_guide_page('url');
+    if ($check_img) {
+        $url = $check_img;
+    }
+    return $url;
+}
+
 function check_guide_page($type){
     if (is_tag()) {
         $tag = get_queried_object();
@@ -43,8 +51,8 @@ function check_guide_page($type){
         }
     }
     elseif (get_post_type() === 'quizzes') {
+        global $wp_query;
         if ($type === 'image'){
-            global $wp_query;
             if ( 
                 isset($wp_query->query_vars['page']) && 
                 $wp_query->query_vars['page'] > 0 &&
@@ -52,6 +60,9 @@ function check_guide_page($type){
             ) {
                 return '/wp-content/uploads/user-images/'.$wp_query->query_vars['quizzes'].'_'.$wp_query->query_vars['page'].'_share.png';
             }
+        }
+        if ($type === 'url'){
+            return get_site_url().'/quiz/'.$wp_query->query_vars['quizzes'].'/'.$wp_query->query_vars['page'].'/';
         }
     }
     // $wp_query->query_vars
@@ -61,5 +72,6 @@ function meta_change(){
     add_filter('wpseo_opengraph_title', 'filter_wpseo_title', 10, 1);
     add_filter('wpseo_opengraph_image', 'filter_wpseo_image', 10, 1);
     add_filter('wpseo_metadesc', 'filter_wpseo_description', 10, 1);
+    add_filter('wpseo_canonical', 'filter_wpseo_url', 10, 1);
 }
 add_action( 'wp', 'meta_change' );
