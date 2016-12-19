@@ -7,7 +7,7 @@ var fbFriendFind = (function($){
 	var data = {
 		host : window.location.host,
 		href : window.location.href,
-		appId : '333568150348676',
+		appId : '330367630668728',
 		queryCount : 0,
 		user : {
 			loggedIn : false,
@@ -19,6 +19,8 @@ var fbFriendFind = (function($){
 		friends : {}
 	},
 	url = window.location.href;
+
+	if (data.host !== 'whohaha.com') data.appId = '333568150348676';
 
 	/**
 	 * Check if user is logged in on page load
@@ -58,7 +60,7 @@ var fbFriendFind = (function($){
 				$('#loginbutton').removeAttr('disabled').text('FIND OUT');
 			}
 		},
-		{ scope:'user_friends,user_posts,user_photos,email,public_profile' });
+		{ scope:'user_posts,user_photos,email,public_profile' });
 	}
 
 	/**
