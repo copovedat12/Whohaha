@@ -24,6 +24,26 @@ function make_quiz_image_ajax(){
 		$image2 = Image::make($best_friend[img])->resize(330, 330);
 		$canvas->insert($image2, 'top-left', 695, 201);
 
+		$imgTemplate = Image::make(__DIR__.'/quiz/whh-quiz-share.png')->resize(1200, 630);
+		$canvas->insert($imgTemplate, 'top-left', 0, 0);
+
+		$canvas->text('IF SOMEONE WANTS TO BE YOUR LOVER', 600, 52, function($font){
+			$font->file(__DIR__.'/quiz/fonts/brandon_med-webfont.ttf');
+			$font->size(42);
+			$font->color('#FFFFFF');
+			$font->align('center');
+			$font->valign('top');
+		});
+		$canvas->text('THEY GOTTA GET WITH ' . strtoupper($best_friend['first_name']) , 600, 102, function($font){
+			$font->file(__DIR__.'/quiz/fonts/brandon_med-webfont.ttf');
+			$font->size(42);
+			$font->color('#FFFFFF');
+			$font->align('center');
+			$font->valign('top');
+		});
+
+		$share_img = $canvas->save( $uploads_dir['basedir'] . '/user-images/'. $slug .'_'.$user['id'].'_share.png', 50);
+
 		$imgTemplate = Image::make(__DIR__.'/quiz/whh-quiz-display.png')->resize(1200, 630);
 		$canvas->insert($imgTemplate, 'top-left', 0, 0);
 

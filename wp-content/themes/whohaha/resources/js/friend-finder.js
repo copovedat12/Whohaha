@@ -31,7 +31,7 @@ var fbFriendFind = (function($){
 				status  : true,
 				version : 'v2.7',
 			});
-			$('#loginbutton').removeAttr('disabled');
+			$('#loginbutton').removeAttr('disabled').text('FIND OUT');
 			checkLoginStatus();
 		});
 	});
@@ -55,7 +55,7 @@ var fbFriendFind = (function($){
 				FriendFind.start();
 			} else {
 				// console.log('not really logged in');
-				$('#loginbutton').removeAttr('disabled');
+				$('#loginbutton').removeAttr('disabled').text('FIND OUT');
 			}
 		},
 		{ scope:'user_friends,user_posts,user_photos,email,public_profile' });
@@ -81,7 +81,7 @@ var fbFriendFind = (function($){
 	 * If false: login()
 	 */
 	$('button#loginbutton').click(function(){
-		$('#loginbutton').attr('disabled', 'disabled');
+		$('#loginbutton').attr('disabled', 'disabled').text('LOADING...');
 		if(data.user.loggedIn){
 			FriendFind.start();
 		} else {
