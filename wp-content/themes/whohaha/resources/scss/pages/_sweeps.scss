@@ -511,6 +511,29 @@ header#masthead.sweeps{
 	}
 
 	.entry-form-container{
+		div.wpcf7{
+			margin-top: 20px;
+			form{
+				margin-top: 20px;
+			}
+			.screen-reader-response{
+				position: absolute;
+				overflow: hidden;
+				clip: rect(1px, 1px, 1px, 1px);
+				height: 1px;
+				width: 1px;
+				margin: 0;
+				padding: 0;
+				border: 0;
+			}
+			.wpcf7-not-valid-tip {
+			    position: absolute;
+			    bottom: -19px;
+			    left: 10px;
+			    font-size: 13px;
+			    color: $gpy-pink;
+			}
+		}
 		input.submit{
 			font-family: "brandon-grotesque", $strong-font;
 			margin-bottom: 10px;
@@ -688,5 +711,13 @@ header#masthead.sweeps{
 	}
 	.submit-button{
 		margin-top: 50px;
+	}
+	.wpcf7-response-output{
+		margin-bottom: 30px;
+		text-align: center;
+	    padding: 10px;
+	    text-transform: uppercase;
+	    background: $gpy-pink;
+	    display: none;
 	}
 }
