@@ -148,6 +148,7 @@ function whohaha_scripts() {
 	wp_enqueue_style( 'foundation-font', get_template_directory_uri() . '/fonts/foundation-icons/foundation-icons.css');
 
 	wp_enqueue_style( 'fontawesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' );
+	wp_enqueue_style( 'socicon', '//file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/icons.css' );
 
 	wp_enqueue_style( 'lightbox-style', get_template_directory_uri() . '/css/lightbox.min.css');
 

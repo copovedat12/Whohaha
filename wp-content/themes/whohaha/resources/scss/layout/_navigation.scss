@@ -94,8 +94,10 @@ header#masthead{
 						color: #48ceff;
 					}
 					i{
-						font-size: 18px;
-						line-height: 14px;
+						font-size: 16px;
+						&.socion{
+							font-size: 15px;
+						}
 					}
 				}
 			}
