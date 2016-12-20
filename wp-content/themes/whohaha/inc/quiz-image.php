@@ -9,7 +9,6 @@ function make_quiz_image_ajax(){
 	$uploads_dir = wp_upload_dir();
 	$template_dir = get_template_directory();
 
-	header('Content-Type: application/json');
 	try {
 
 		if (!file_exists( $uploads_dir['basedir'] . '/user-images' )) {

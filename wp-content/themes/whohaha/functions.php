@@ -129,7 +129,8 @@ function whohaha_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_script( 'dev-scripts', get_template_directory_uri() . '/resources/js/script.js', array('bootstrap-js'), '20151001', true );
+	wp_enqueue_script( 'dev-scripts', get_template_directory_uri() . '/resources/js/script.js', array('bootstrap-js'), '1.0.2', true );
+	wp_enqueue_script( 'nav-tags', get_template_directory_uri() . '/resources/js/nav-tags.js', array('jquery'), '1.0.2', true );
 
 	wp_enqueue_script( 'friend-finder', get_template_directory_uri() . '/resources/js/friend-finder.js', array('jquery'), '1.0.0', true );
 
@@ -239,19 +240,6 @@ function get_ID_by_page_name($page_name) {
    global $wpdb;
    $page_name_id = $wpdb->get_var("SELECT ID FROM $wpdb->posts WHERE post_title = '".$page_name."' AND post_type = 'page'");
    return $page_name_id;
-}
-
-function get_nav_menu_count(){
-	$menu_to_count = wp_nav_menu(array(
-		'echo' => false,
-		'menu' => 'Tag Menu'
-		));
-	$menu_items = substr_count($menu_to_count,'class="menu-item ');
-	if($menu_items < 4){
-		return false;
-	}else{
-		return true;
-	}
 }
 
 /**

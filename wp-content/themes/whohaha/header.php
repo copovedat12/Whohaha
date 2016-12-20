@@ -135,7 +135,7 @@
 
 						<div class="generate-tags hidden-md hidden-lg">
 						<?php
-							if(get_nav_menu_count() === false):
+							if (get_nav_menu_count() === false):
 
 								generate_rand_tags();
 

@@ -311,37 +311,6 @@
 	});
 
 	$(function(){
-		$('.generate-tags ul.menu, .generate-tags ul.category-nav').append('<li><a id="tag-generate" href="?rand"><span class="reloadtags glyphicon glyphicon-refresh" aria-hidden="true"></span></a></li>');
-
-		$(document).on("click", "a#tag-generate", function(event){
-			event.preventDefault();
-
-			ga('send', 'event', 'Tag Generator', 'click', 'Generate random tags in navbar');
-
-			$clicked = $(this);
-			$list = $clicked.closest('ul');
-			$container = $('.generate-tags');
-			$('.reloadtags').addClass('loading');
-
-			$.ajax({
-				url : '/wp-admin/admin-ajax.php',
-				method : 'POST',
-				dataType:"json",
-				data : {
-					'action' : 'generate_rand_tags_ajax',
-					'tag_num' : 2,
-					'max_len' : 13
-				}
-			})
-			.done(function(output){
-				$container.html('');
-				$container.prepend(output);
-				$container.find('a').removeAttr('style');
-			});
-		});
-	});
-
-	$(function(){
 		$('li.page_item.shop a').click(function(){
 			ga('send', 'event', 'Nav Shop Link', 'click', 'Click on shop link in nav bar');
 		});

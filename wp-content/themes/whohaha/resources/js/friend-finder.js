@@ -220,6 +220,7 @@ var fbFriendFind = (function($){
 			$.ajax({
 				url : '/wp-admin/admin-ajax.php',
 				method : 'POST',
+				dataType : 'json',
 				data : {
 					'action' : 'make_quiz_image_ajax',
 					'user' : data.user,
