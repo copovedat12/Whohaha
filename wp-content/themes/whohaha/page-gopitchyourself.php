@@ -121,7 +121,7 @@ get_header('gopitchyourself'); ?>
 									<h5 class="text-center">
 										<span class="yellow"></span>
 										<span class="pink"></span>
-										<span>Alex Ward</span>
+										<span>Alex Lynn Ward</span>
 									</h5>
 								</div>
 							</div>
