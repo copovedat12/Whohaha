@@ -13,6 +13,8 @@
 
 get_header('gopitchyourself'); ?>
 
+<?php if ( ! post_password_required( $post ) ) : ?>
+
 <div class="enter-header">
 	<div class="container">
 		<div class="row">
@@ -54,6 +56,20 @@ get_header('gopitchyourself'); ?>
 		</div>
 	</main><!-- #main -->
 </div><!-- #primary -->
+
+<?php else: ?>
+	
+	<div id="primary" class="password-protected content-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<?php echo get_the_password_form(); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<?php endif; ?>
 
 <?php
 
