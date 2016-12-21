@@ -280,6 +280,12 @@ header#masthead.sweeps{
 				z-index: 1;
 			}
 		}
+		@media (max-width: 430px) {
+			background: $gpy-pink;
+			&:before{
+				content: none;
+			}
+		}
 		.text{
 			position: relative;
 			max-width: 790px;
@@ -513,6 +519,15 @@ header#masthead.sweeps{
 			ul, h2{
 				position: relative;
 				z-index: 2;
+			}
+		}
+		@media (max-width: 430px) {
+			background: $gpy-pink;
+		    padding: 20px 20px 10px;
+	        width: 95%;
+		    margin-left: 2.5%;
+			&:before{
+				content: none;
 			}
 		}
 	}
