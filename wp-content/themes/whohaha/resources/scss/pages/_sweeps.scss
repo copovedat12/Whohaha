@@ -265,7 +265,7 @@ header#masthead.sweeps{
 			-webkit-perspective-origin: 50% 50%;
 			perspective: 1000px;
 			perspective-origin: 70% 40%;
-			&:before{
+			&::before{
 				content: "";
 				position: absolute;
 				background: $gpy-pink;
@@ -277,12 +277,14 @@ header#masthead.sweeps{
 				-webkit-transform: rotateX(-10deg) rotateY(2deg);
 				-moz-transform: rotateX(-10deg) rotateY(2deg);
 				transform: rotateX(-10deg) rotateY(2deg);
+				z-index: 1;
 			}
 		}
 		.text{
 			position: relative;
 			max-width: 790px;
 			display: inline-block;
+			z-index: 2;
 		}
 	}
 
@@ -499,6 +501,7 @@ header#masthead.sweeps{
 				-webkit-transform: rotateX(-10deg) rotateY(2deg);
 				-moz-transform: rotateX(-10deg) rotateY(2deg);
 				transform: rotateX(-10deg) rotateY(2deg);
+				z-index:1;
 			}
 			ul{
 				width: 90%;
@@ -506,6 +509,10 @@ header#masthead.sweeps{
 			h2{
 				margin-top: 0;
 				padding: 0 20px;
+			}
+			ul, h2{
+				position: relative;
+				z-index: 2;
 			}
 		}
 	}

@@ -26,7 +26,7 @@ get_header('gopitchyourself'); ?>
 						<li>Your video(s) should not be longer than 90 seconds (1 1/2 minutes) in length.</li>
 						<li>You may submit up to 5 new and unique videos.</li>
 						<li>Each video must be posted natively to one or more of the following social media channels: Youtube, Facebook, Twitter, Instagram, or Tumblr.</li>
-						<li>Each video MUST include the campaign hashtags #gopitchyourself and #pitchperfect3.</li>
+						<li>Each video MUST include the campaign hashtags #GoPitchYourself and #PitchPerfect3.</li>
 						<li>All participants must fill out the official submission form and include direct links to their entry(ies).</li>
 					</ul>
 				</div>
