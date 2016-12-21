@@ -21,7 +21,7 @@
 
 			<div class="post-featured-image">
 				<div id="canvas">
-					<?php the_post_thumbnail('full') ?>
+					<img src="<?php echo get_template_directory_uri(); ?>/inc/quiz/whh_quiz_display.png" alt="If someone wants to be your lover, which friend do they gotta get with?" width="1200" height="630">
 					<button disabled id="loginbutton" class="btn btn-primary facebook"><i class="fa fa-facebook" aria-hidden="true"></i> LOG IN TO FIND OUT</button>
 				</div>
 			</div>
