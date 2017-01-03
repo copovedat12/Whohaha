@@ -50,7 +50,8 @@
         <div class="rm-invite-label"><?php echo RM_UI_Strings::get('LABEL_QUEUE_IN_PROGRESS');?></div>
         <div class="rm-invite-label"><span class="rm-red"><?php echo $queue->offset."/".$queue->total." ".RM_UI_Strings::get('LABEL_SENT');?></span></div>
         <div class="rm-invite-label"><?php echo RM_UI_Strings::get('LABEL_STARTED_ON')." ".$queue->started_on;?></div>    
-            </div>
+        <div class="rm-invite-label rm-invite-cancel" data-fid="<?php echo $queue->form_id;?>" onclick="stop_queue(this)"><a href="javascript:void(0)"><?php echo RM_UI_Strings::get('LABEL_CANCEL');?></a></div>
+        </div>
             <!-- <div class="rm-invite-field-row"><?php echo RM_UI_Strings::get('MSG_QUEUE_RUNNING');?></div> -->
         
         </div>
@@ -81,7 +82,8 @@
         <div class="rm-invite-label"><?php echo RM_UI_Strings::get('LABEL_QUEUE_IN_PROGRESS');?></div>
         <div class="rm-invite-label"><span class="rm-red"><?php echo $data->job->offset."/".$data->job->total." ".RM_UI_Strings::get('LABEL_SENT');?></span></div>
         <div class="rm-invite-label"><?php echo RM_UI_Strings::get('LABEL_STARTED_ON')." ".$data->job->started_on;?></div>    
-            </div>
+        <div class="rm-invite-label rm-invite-cancel" data-fid="<?php echo $data->current_form_id;?>" onclick="stop_queue(this)"><a href="javascript:void(0)"><?php echo RM_UI_Strings::get('LABEL_CANCEL');?></a></div>
+        </div>
             <div class="rm-invite-field-row"><?php echo RM_UI_Strings::get('MSG_QUEUE_RUNNING');?></div>
         
         </div>
@@ -139,4 +141,26 @@
     include RM_ADMIN_DIR.'views/template_rm_promo_banner_bottom.php';
     ?>
     </div>
+                                        
+<pre class='rm-pre-wrapper-for-script-tags'><script>
+
+function stop_queue(element){
+    
+    var je = jQuery(element);
+    
+    var form_id = je.data('fid');
+    
+    var data = {
+                    'action': 'remove_queue',
+                    'form_id': form_id
+		};
+
+		
+        jQuery.post(ajaxurl, data, function(response) {
+            location.reload();
+		});
+}
+
+</script></pre>
+
                     

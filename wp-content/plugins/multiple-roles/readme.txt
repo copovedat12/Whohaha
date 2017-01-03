@@ -2,8 +2,8 @@
 Contributors: SeventhSteel, mista-flo
 Tags: multiple roles, multiple roles per user, user roles, edit user roles, edit roles, more than one role, more than one role per user, more than one role for each user, many roles per user, unlimited roles
 Requires at least: 3.1
-Tested up to: 4.6.1
-Stable tag: 1.1.1
+Tested up to: 4.7
+Stable tag: 1.1.4
 Donate link: https://www.paypal.me/FlorianTIAR/5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -63,10 +63,25 @@ Sure. The user will still be able to log in and out, but won't be able to access
 
 == Changelog ==
 
+= 1.1.4 =
+* 23 december 2016
+* Fix fatal error in new user in single site : After adding an user, a wp_die error was shown "You can’t give users that role", it was due to changes in 1.1.2
+* Workaround to handle multisite support without breaking single site features
+
+= 1.1.3 =
+* 22 december 2016
+* Fix fatal error in user update : After updating an user, a wp_die error was shown "You can’t give users that role", it was due to changes in 1.1.2
+
+= 1.1.2 =
+* 21 december 2016
+* Fix bug in multisite : After adding a new user with email confirmation, the multiple roles were not set, so the user did not have any roles on the site
+
 = 1.1.1 =
+* 3 november 2016
 * Remove PHP closure to ensure Backward Compatibility with PHP versions < 5.3
 
 = 1.1 =
+* 24 october 2016
 * New maintainer : Florian TIAR, you're strongly encouraged to update this plugin
 * Add support of role checkbox in new user form (admin)
 * Add Multisite support (for new user form)
@@ -77,4 +92,5 @@ Sure. The user will still be able to log in and out, but won't be able to access
 * Enhance UX of the form
 
 = 1.0 =
+* 2015
 * Initial release

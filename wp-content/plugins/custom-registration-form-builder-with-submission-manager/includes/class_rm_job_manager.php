@@ -32,7 +32,7 @@ class RM_Job_Manager {
 
     public static function add_job($form_id, array $mail_packet, $mails_in_one_go = 20, $optional_callback = null) {
         $job_batch = get_option("rm_option_jobman_job", null);
-
+        $inv_service = new RM_Invitations_Service;
         if ($job_batch == null)
             $job_batch = array();
 
@@ -49,7 +49,7 @@ class RM_Job_Manager {
         $job->callback = $optional_callback;
         $job->offset = 0;
         $job->mail_packet = $mail_packet;
-        $job->total = (int) RM_DBManager::count('SUBMISSIONS', array('form_id' => $form_id));
+        $job->total = $inv_service->get_resp_count($form_id);
 
         $job->started_on = RM_Utilities::get_current_time();
 
@@ -97,13 +97,14 @@ class RM_Job_Manager {
         //echo "<br>Batch:<br>";
         //return;
         //self::log_var_dump($job_batch);
+        $inv_service = new RM_Invitations_Service;
         $gopts = new RM_Options;
         $from_email = $gopts->get_value_of('senders_email_formatted');
         $header = "From: $from_email\r\n";
         $header.= "Content-Type: text/html; charset=utf-8\r\n";
 
         foreach ($job_batch as $key => $job) {
-            $results = RM_DBManager::get_submissions_for_form($job->form_id, $job->job_size, $job->offset);
+            $results = $inv_service->get_subs_to_process($job->form_id, $job->job_size, $job->offset);
             //echo "<br>in foreach:<br>";
             //var_dump($results);
             if ($results != false) {

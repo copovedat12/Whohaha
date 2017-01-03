@@ -149,6 +149,7 @@ class Registration_Magic
         $this->loader->add_action('wp_ajax_send_email_user_view', 'RM_User_Services', 'send_email_ajax');
         $this->loader->add_filter('admin_notices', $rm_admin, 'add_global_setting_notice', 10, 5); 
         $this->loader->add_action('wp_ajax_joyride_tour_update', 'RM_Utilities', 'update_tour_state_ajax');
+        $this->loader->add_action('wp_ajax_remove_queue', $rm_admin, 'remove_queue');
    }
 
     /**

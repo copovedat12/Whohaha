@@ -2455,3 +2455,8 @@ ul.rm-page-tabs-sidebar.ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget
 .rmagic .rm-user-area .rm-user-content table.user-content.ui-widget-content {
     color: inherit;
 }
+
+.rmagic .rm-invites .rm-invite-cancel.rm-invite-label {
+    width: calc(20% - 44px);
+    text-align: right;
+}

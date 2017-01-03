@@ -5,7 +5,7 @@ Tags: custom registration, custom form fields, custom registration fields, multi
 
 Requires at least: 3.5
 Tested up to: 4.7
-Stable tag: 3.6.0.1
+Stable tag: 3.6.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -283,19 +283,27 @@ Please update to version 1.4.2. It fixes an old bug that always moved the form a
 
 == Changelog ==
 
+
+= 3.6.0.2 =
+* Fixed: Admin notification email missing values for checkbox fields.
+* Fixed: 'Email Users' feature showing wrong count for recipients sometimes.
+* Fixed: 'Email Users' sending multiple emails to same users.
+* Added "Cancel" button to stop email queue.
+* Other minor improvements and bug fixes.
+
 = 3.6.0.1 =
-1. Added: Product tour for fresh installations.
-2. Added: Sample forms for fresh installation.
-3. Fixed: Wrong date of payment when using Stripe.
-4. Other minor bugfixes.
+* Added: Product tour for fresh installations.
+* Added: Sample forms for fresh installation.
+* Fixed: Wrong date of payment when using Stripe.
+* Other minor bugfixes.
 
 = 3.6.0.0 =
-1. New: WooCommerce integration. (Platinum bundle)
-2. Fixed: Notices appearing with php v7.
-3. Fixed: Auto responder email not containing correct values for file, image fields.
-4. Fixed: Form design: Placeholder color applying globally.
-5. Fixed: Magic popup blocking click to area underneath even after hiding.
-6. Lots of other minor fixes and improvements.
+* New: WooCommerce integration. (Platinum bundle)
+* Fixed: Notices appearing with php v7.
+* Fixed: Auto responder email not containing correct values for file, image fields.
+* Fixed: Form design: Placeholder color applying globally.
+* Fixed: Magic popup blocking click to area underneath even after hiding.
+* Lots of other minor fixes and improvements.
 
 = 3.5.4.2 =
 * Fixed: CSV export containing limited submissions.
@@ -708,19 +716,26 @@ Fixed: Blocks showing up on front-end with some WP themes.
 
 == Upgrade Notice ==
 
+= 3.6.0.2 =
+* Fixed: Admin notification email missing values for checkbox fields.
+* Fixed: 'Email Users' feature showing wrong count for recipients sometimes.
+* Fixed: 'Email Users' sending multiple emails to same users.
+* Added "Cancel" button to stop email queue.
+* Other minor improvements and bug fixes.
+
 = 3.6.0.1 =
-1. Added: Product tour for fresh installations.
-2. Added: Sample forms for fresh installation.
-3. Fixed: Wrong date of payment when using Stripe.
-4. Other minor bugfixes.
+* Added: Product tour for fresh installations.
+* Added: Sample forms for fresh installation.
+* Fixed: Wrong date of payment when using Stripe.
+* Other minor bugfixes.
 
 = 3.6.0.0 =
-1. New: WooCommerce integration. (Platinum bundle)
-2. Fixed: Notices appearing with php v7.
-3. Fixed: Auto responder email not containing correct values for file, image fields.
-4. Fixed: Form design: Placeholder color applying globally.
-5. Fixed: Magic popup blocking click to area underneath even after hiding.
-6. Lots of other minor fixes and improvements.
+* New: WooCommerce integration. (Platinum bundle)
+* Fixed: Notices appearing with php v7.
+* Fixed: Auto responder email not containing correct values for file, image fields.
+* Fixed: Form design: Placeholder color applying globally.
+* Fixed: Magic popup blocking click to area underneath even after hiding.
+* Lots of other minor fixes and improvements.
 
 = 3.5.4.2 =
 * Fixed: CSV export containing limited submissions.

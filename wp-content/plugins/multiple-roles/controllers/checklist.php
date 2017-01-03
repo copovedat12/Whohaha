@@ -61,9 +61,6 @@ class MDMR_Checklist_Controller {
 	 * @param int $user_id The user ID whose roles might get updated.
 	 */
 	public function process_checklist( $user_id ) {
-
-		do_action( 'mdmr_before_process_checklist', $user_id, $_POST['md_multiple_roles_nonce'] );
-
 		if ( isset( $_POST['md_multiple_roles_nonce'] ) && ! wp_verify_nonce( $_POST['md_multiple_roles_nonce'], 'update-md-multiple-roles' ) ) {
 			return;
 		}
@@ -78,6 +75,75 @@ class MDMR_Checklist_Controller {
 		}
 
 		$this->model->update_roles( $user_id, $new_roles );
+	}
+
+	/**
+	 * Add multiple roles in the $meta array in wp_signups db table
+	 *
+	 * @since 1.1.4
+	 *
+	 * @param $user
+	 * @param $user_email
+	 * @param $key
+	 * @param $meta
+	 */
+	public function mu_add_roles_in_signup_meta( $user, $user_email, $key, $meta ) {
+		if ( isset( $_POST['md_multiple_roles_nonce'] ) && ! wp_verify_nonce( $_POST['md_multiple_roles_nonce'], 'update-md-multiple-roles' ) ) {
+			return;
+		}
+
+		if ( ! $this->model->can_update_roles() ) {
+			return;
+		}
+
+		$new_roles = ( isset( $_POST['md_multiple_roles'] ) && is_array( $_POST['md_multiple_roles'] ) ) ? $_POST['md_multiple_roles'] : array();
+		if ( empty( $new_roles ) ) {
+			return;
+		}
+
+		global $wpdb;
+
+		// Get user signup
+		// Suppress errors in case the table doesn't exist
+		$suppress = $wpdb->suppress_errors();
+		$signup   = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$wpdb->signups} WHERE user_email = %s", $user_email ) );
+		$wpdb->suppress_errors( $suppress );
+
+		if ( empty( $signup ) || is_wp_error( $signup ) ) {
+			return new WP_Error( 'md_get_user_signups_failed' );
+		}
+
+		// Add multiple roles to a new array in meta var
+		$meta = maybe_unserialize( $meta );
+		$meta['md_roles'] = $new_roles;
+		$meta = maybe_serialize( $meta );
+
+		// Update user signup with good meta
+		$where        = array( 'signup_id' => (int) $signup->signup_id );
+		$where_format = array( '%d' );
+		$formats      = array( '%s' );
+		$fields       = array( 'meta' => $meta );
+		$result       = $wpdb->update( $wpdb->signups, $fields, $where, $formats, $where_format );
+
+		// Check for errors
+		if ( empty( $result ) && ! empty( $wpdb->last_error ) ) {
+			return new WP_Error( 'md_update_user_signups_failed' );
+		}
+	}
+
+	/**
+	 * Add multiple roles after user activation
+	 *
+	 * @since 1.1.4
+	 *
+	 * @param $user_id
+	 * @param $password
+	 * @param $meta
+	 */
+	public function mu_add_roles_after_activation( $user_id, $password, $meta ) {
+		if ( ! empty( $meta['md_roles'] ) ) {
+			$this->model->update_roles( $user_id, $meta['md_roles'] );
+		}
 	}
 
 }

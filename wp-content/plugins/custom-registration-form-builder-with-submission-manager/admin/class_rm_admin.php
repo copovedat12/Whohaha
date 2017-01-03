@@ -282,5 +282,14 @@ class RM_Admin {
             }
         }
     }
-
+    
+    public function remove_queue()
+    {
+        $inv_service = new RM_Invitations_Service;
+        $form_id= $_POST['form_id'];
+        
+        $inv_service->remove_queue($form_id);
+        
+        wp_die();
+    }
 }

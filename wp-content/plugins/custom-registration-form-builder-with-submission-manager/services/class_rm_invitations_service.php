@@ -14,8 +14,22 @@ class RM_Invitations_Service extends RM_Services
   }
   
   public function get_resp_count($form_id)
-  {
-        return (int) RM_DBManager::count('SUBMISSIONS', array('form_id' => $form_id));
+  { 
+        $res = RM_DBManager::get_generic('SUBMISSIONS', 'COUNT(DISTINCT `user_email`) as resp', "`child_id` = 0 AND `form_id` = $form_id");
+        if(is_array($res) && isset($res[0]))
+            return (int) $res[0]->resp;
+        else
+            return 0;
+  }
+  
+  public function get_subs_to_process($form_id, $limit, $offset)
+  { 
+        $res = RM_DBManager::get_generic('SUBMISSIONS', '`user_email`, `data`', "`child_id` = 0 AND `form_id` = $form_id GROUP BY `user_email` ORDER BY `submission_id` DESC LIMIT $limit OFFSET $offset");
+       
+        if(is_array($res) && $res)
+            return $res;
+        else
+            return null;
   }
   
   public function get_job_stat($form_id)
@@ -47,9 +61,14 @@ class RM_Invitations_Service extends RM_Services
   		$job_array = RM_Job_Manager::get_job_array();
   		
   		if($job_array == null)
-  			return array();
+                    return array();
 
   		return $job_array;
+  }
+  
+  public function remove_queue($form_id)
+  {
+      RM_Job_Manager::remove_job($form_id);
   }
 
   public function get_fields($form_id)

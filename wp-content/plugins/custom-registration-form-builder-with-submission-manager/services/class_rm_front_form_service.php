@@ -506,7 +506,7 @@ class RM_Front_Form_Service extends RM_Services {
 
 
         $form_type = $form->get_form_type();
-        var_dump($form_type == RM_REG_FORM);
+        //var_dump($form_type == RM_REG_FORM);
         if ($form_type == RM_REG_FORM && isset($request->req['username'])) {
             $username = $request->req['username'];
             $email_field_name = '';
@@ -606,9 +606,9 @@ class RM_Front_Form_Service extends RM_Services {
                         foreach($val->value as $in =>  $value){
                            if(empty($value))
                                unset($val->value[$in]);
-                    }
+                        }                    
+                    }     
                     $email_content .= '<span class="key-val">' . implode(', ', $val->value) . '</span><br/>'; 
-                    }
                 } else {
                     $email_content .= '<span class="key-val">' . $val->value . '</span><br/>';
                 }
@@ -632,7 +632,6 @@ class RM_Front_Form_Service extends RM_Services {
             $from_email = $gopt->get_value_of('senders_email_formatted');
             $header = "From: $from_email\r\n";
             $header.= "Content-Type: text/html; charset=UTF-8\r\n";
-
 
             $email->type = RM_EMAIL_POSTSUB_ADMIN;
             $email->to = $to;
