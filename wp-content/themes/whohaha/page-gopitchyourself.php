@@ -48,7 +48,7 @@ get_header('gopitchyourself'); ?>
 					<h3><span>LET OUR FAVORITE FUNNY LADY ELIZABETH BANKS TELL YOU MORE</span></h3>
 
 					<div class="video-embed">
-						<iframe width="853" height="480" src="https://www.youtube.com/embed/OgPm-yaLoyo" frameborder="0" allowfullscreen></iframe>
+						<iframe frameborder="0" width="560" height="315" src="//www.dailymotion.com/embed/video/k1Cx8XmJqsviBilhTUj" allowfullscreen></iframe>
 					</div>
 
 					<div class="row callout-boxes">
@@ -108,7 +108,7 @@ get_header('gopitchyourself'); ?>
 							<div class="row">
 								<div class="col-md-6">
 									<div class="video-embed">
-										<iframe width="853" height="480" src="https://www.youtube.com/embed/cmSbXsFE3l8" frameborder="0" allowfullscreen></iframe>
+										<iframe frameborder="0" width="560" height="315" src="//www.dailymotion.com/embed/video/k7qSZOL7MaOLeFlhUdb" allowfullscreen></iframe>
 									</div>
 									<h5 class="text-center">
 										<span class="yellow"></span>
@@ -118,7 +118,7 @@ get_header('gopitchyourself'); ?>
 								</div>
 								<div class="col-md-6">
 									<div class="video-embed">
-										<iframe width="853" height="480" src="https://www.youtube.com/embed/oqCYlxcq84c" frameborder="0" allowfullscreen></iframe>
+										<iframe frameborder="0" width="560" height="315" src="//www.dailymotion.com/embed/video/k2NEpEeEOwovEilhU9o" allowfullscreen></iframe>
 									</div>
 									<h5 class="text-center">
 										<span class="yellow"></span>
