@@ -53,7 +53,7 @@ get_header('gopitchyourself'); ?>
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
 					<div class="bottom-cta text-center">
-						<small>By clicking the SUBMIT button, you signify that you accept and agree to be bound by WhoHaha's Terms of Use (<a target="_blank" href="http://whohaha.com/terms-of-use">whohaha.com/terms-of-use</a>) and Privacy Policy (<a target="_blank" href="http://whohaha.com/privacy-policy/">whohaha.com/privacy-policy</a>), NBC Universal's Privacy Policy (<a target="_blank" href="http://nbcuniversal.com/privacy">nbcuniversal.com/privacy</a>), and the Challenge Official Rules and Regulations (<a target="_blank" href="http://whohaha.com/gopitchyourself/rules-and-regulations/">whohaha.com/gopitchyourself/rules-and-regulations</a>)</small>
+						<small>By clicking the SUBMIT button, you signify that you accept and agree to be bound by <a target="_blank" href="http://whohaha.com/terms-of-use">WhoHaha's Terms of Use</a> and <a target="_blank" href="http://whohaha.com/privacy-policy/">Privacy Policy</a>, <a target="_blank" href="http://nbcuniversal.com/privacy">NBC Universal's Privacy Policy</a>, and the <a target="_blank" href="http://whohaha.com/gopitchyourself/rules-and-regulations/">Challenge Official Rules and Regulations</a></small>
 					</div>
 				</div>
 			</div>
