@@ -612,6 +612,14 @@ header#masthead.sweeps{
 			font-weight: 900;
 			font-size: 12px;
 		}
+		small{
+			font-size: 95%;
+			margin-top: 20px;
+			display: block;
+			a{
+				color: darken($white, 10%);
+			}
+		}
 	}
 	.enter-header{
 		padding: 20px 0 30px;

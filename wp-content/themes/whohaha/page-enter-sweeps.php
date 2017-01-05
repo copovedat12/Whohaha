@@ -27,7 +27,7 @@ get_header('gopitchyourself'); ?>
 						<li>Participants must be at least 13 years old.</li>
 						<li>Your video(s) should not be longer than 90 seconds (1 1/2 minutes) in length.</li>
 						<li>You may submit up to 5 new and unique videos.</li>
-						<li>Each video must be posted natively to one or more of the following social media channels: Youtube, Facebook, Twitter, Instagram, or Tumblr.</li>
+						<li>Each video must be posted natively to one or more of the following social media channels: YouTube, Facebook, Twitter, Instagram, or Tumblr.</li>
 						<li>Each video MUST include the campaign hashtags #GoPitchYourself and #PitchPerfect3.</li>
 						<li>All participants must fill out the official submission form and include direct links to their entry(ies).</li>
 					</ul>
@@ -50,8 +50,12 @@ get_header('gopitchyourself'); ?>
 				</div>
 			</div>
 
-			<div class="bottom-cta text-center">
-				<a class="rules" href="#rules">Official Rules and Regulations</a>
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<div class="bottom-cta text-center">
+						<small>By clicking the SUBMIT button, you signify that you accept and agree to be bound by WhoHaha's Terms of Use (<a href="http://whohaha.com/terms-of-use">whohaha.com/terms-of-use</a>) and Privacy Policy (<a href="http://whohaha.com/privacy-policy/">whohaha.com/privacy-policy</a>), NBC Universal's Privacy Policy (<a href="http://nbcuniversal.com/privacy">nbcuniversal.com/privacy</a>), and the Challenge Official Rules and Regulations (<a href="http://whohaha.com/gopitchyourself/rules-and-regulations/">whohaha.com/gopitchyourself/rules-and-regulations</a>)</small>
+					</div>
+				</div>
 			</div>
 		</div>
 	</main><!-- #main -->
