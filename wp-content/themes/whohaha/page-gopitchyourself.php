@@ -136,7 +136,7 @@ get_header('gopitchyourself'); ?>
 							Enter Here!
 						</a>
 						<br>
-						<a class="rules" href="/gopitchyourself/rules-and-regulations/">Official Rules and Regulations</a>
+						<a target="_blank" class="rules" href="/gopitchyourself/rules-and-regulations/">Official Rules and Regulations</a>
 					</div>
 				</div>
 			</div>
