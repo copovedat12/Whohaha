@@ -23,7 +23,7 @@
 		</div>
 
 		<div class="gpy-footer">
-			Pitch Perfect 3 in theaters December 22, 2017
+			See Pitch Perfect 3 Christmas 2017
 		</div>
 
 		<footer id="colophon" class="site-footer" role="contentinfo">
