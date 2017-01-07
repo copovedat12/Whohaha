@@ -24,7 +24,8 @@ get_header('gopitchyourself'); ?>
 					<ul>
 						<li>Participants must be at least 13 years old.</li>
 						<li>Your video(s) should not be longer than 90 seconds (1 1/2 minutes) in length.</li>
-						<li>You may submit up to 5 new and unique videos.</li>
+						<li>You may submit up to 5 <strong>NEW</strong> and <strong>UNIQUE</strong> videos.
+						<br>Previously posted videos do not qualify as valid entries.</li>
 						<li>Each video must be posted natively to one or more of the following social media channels: YouTube, Facebook, Twitter, Instagram, or Tumblr.</li>
 						<li>Each video MUST include the campaign hashtags #GoPitchYourself and #PitchPerfect3.</li>
 						<li>All participants must fill out the official submission form and include direct links to their entry(ies).</li>
