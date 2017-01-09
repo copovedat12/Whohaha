@@ -9,6 +9,8 @@
 
 get_header(); ?>
 
+<?php if ( ! post_password_required( $post ) ) : ?>
+
 <?php
 	$pageTitle = get_the_title();
 	$pageUrl = urlencode(get_permalink());
@@ -136,6 +138,20 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
+
+<?php else: ?>
+	
+	<div id="primary" class="password-protected content-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<?php echo get_the_password_form(); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<?php endif; ?>
 
 <?php //get_sidebar(); ?>
 <?php get_footer(); ?>
