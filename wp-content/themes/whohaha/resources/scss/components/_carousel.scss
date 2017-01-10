@@ -1,3 +1,75 @@
+.slick-slider{
+	.slick-list{
+		z-index: 10;
+	}
+	.slick-dots{
+		z-index: 15;
+	}
+	.slick-arrow{
+		position: absolute;
+		z-index: 15;
+		top: 50%;
+		width: 50px;
+		height: 50px;
+		background: transparent;
+		color: $black;
+		border: 0;
+
+		font-size: 0;
+		line-height: 0;
+		color: transparent;
+
+		&::before{
+			font-family: 'FontAwesome';
+			text-rendering: auto;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			font-size: 40px;
+			color: $black;
+			line-height: 1;
+		}
+
+		&:focus,
+		&:hover{
+			outline: none;
+			background: $black;
+			// color: $white;
+			&::before{
+				color: $white;
+			}
+		}
+
+		&.slick-prev{
+			left: 0;
+			transform: translate(-100%, -50%);
+			&::before{
+				content: "\f104";
+			}
+		}
+		&.slick-next{
+			right: 0;
+			transform: translate(100%, -50%);
+			&::before{
+				content: "\f105";
+			}
+		}
+		&.slick-disabled{
+		  opacity: 0;
+		  cursor: default;
+		}
+		@media (max-width: $screen-xs-max){
+			width: 35px;
+			height: 35px;
+			&::before{
+				font-size: 25px;
+			}
+		}
+	}
+}
+.slick-slide img.slick-loading{
+	border: 0;
+}
+
 .carousel .carousel-control{
 	text-shadow: none;
 	opacity: 1;
@@ -13,30 +85,6 @@
     &:first-child{
 	  display: block;
 	}
-}
-
-/* Homepage Authors carousel */
-@media (max-width: $screen-xs-max){
-	section.homepage-authors{
-	  	button.slick-arrow{
-	  	    background: #fafafa;
-	  	}
-	  	#home-authors-carousel{
-	  	    padding: 0 20px;
-	  	}
-	  	button.slick-arrow{
-	  		.slick-prev{
-	  		    left: -10px;
-	  		}
-	  		.slick-next{
-	  		    right: -10px;
-	  		}
-	  	}
-	}
-}
-
-button.slick-arrow.slick-disabled{
-  opacity: 0.2;
 }
 
 /* hide author carousel on front page until slick.js loads */

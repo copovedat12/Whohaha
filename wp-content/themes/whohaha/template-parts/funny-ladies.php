@@ -8,7 +8,7 @@
 	<header class="side-header home-author-header">
 		<span>Funny Ladies</span>
 	</header>
-	<div id="home-authors-carousel">
+	<div class="row" id="home-authors-carousel">
 		<?php
 			$all_ladies = get_field('front_page_people');
 			$banks = $all_ladies[0];

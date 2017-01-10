@@ -1,6 +1,7 @@
-<header class="side-header home-author-header">
+<!-- <header class="side-header home-author-header">
 	<span>TRENDING HAHAs</span>
-</header>
+</header> -->
+<h3 class="section-header">Trending Hahas</h3>
 <?php
 //try http://www.wpbeginner.com/wp-tutorials/how-to-track-popular-posts-by-views-in-wordpress-without-a-plugin/
 $popular_posts = get_popular_posts_id(8, 'week');

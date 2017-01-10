@@ -1,0 +1,103 @@
+.whh-playlists{
+	margin-bottom: 40px;
+	* {
+		outline: none;
+	}
+	article{
+		display: none;
+		margin-bottom: 0;
+		overflow: hidden;
+		position: relative;
+		.hover-border{
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0;
+			box-shadow: inset 0 0 0 5px $pink;
+		}
+		&:hover{
+			.hover-border{
+				opacity: 1;
+			}
+		}
+		img{
+			height: auto;
+		}
+		.hover-border{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.slick-initialized article{
+		display: block;
+	}
+	.plist-popover-title,
+	.plist-popover-content{
+		display: none;
+	}
+	.popover{
+		max-width: 300px;
+		width: 100%;
+		.popover-title{
+			background-color: $black;
+			color: $white;
+			font-weight: 600;
+			font-size: 16px;
+			line-height: 1.4;
+			font-style: italic;
+		}
+		.episodes{
+			font-weight: 900;
+			margin-bottom: 10px;
+		}
+		.featured-video{
+			position: relative;
+			display: block;
+			span.title{
+				position: absolute;
+				z-index: 15;
+				bottom: 5px;
+				left: 5px;
+				right: 5px;
+				overflow: hidden;
+				white-space: nowrap; 
+				-o-text-overflow: ellipsis;
+				text-overflow: ellipsis;
+				color: $white;
+			}
+			&::after{
+				position: absolute;
+				z-index: 10;
+				content: "";
+				display: block;
+				width: 100%;
+				height: 45%;
+				bottom: 0;
+				left: 0;
+				background: -webkit-linear-gradient(transparent, rgba(0,0,0,0.5)); /* For Safari 5.1 to 6.0 */
+			    background: -o-linear-gradient(transparent, rgba(0,0,0,0.5)); /* For Opera 11.1 to 12.0 */
+			    background: -moz-linear-gradient(transparent, rgba(0,0,0,0.5)); /* For Firefox 3.6 to 15 */
+			    background: linear-gradient(transparent, rgba(0,0,0,0.5)); /* Standard syntax */
+			}
+		}
+		hr{
+			margin: 15px 0;
+			background: $pink;
+			border: 0;
+		}
+		img{
+			height: auto;
+		}
+		.btn{
+			font-size: 12px;
+			margin-top: 10px;
+		}
+		a:hover,
+		a:focus{
+			outline: none;
+		}
+	}
+}

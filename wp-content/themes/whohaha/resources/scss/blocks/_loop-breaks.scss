@@ -13,6 +13,9 @@
 /* Styles for first break loop on front page */
 #home-break-slides{
   padding: 0;
+  article.post{
+    margin-bottom: 0;
+  }
   .entry-image{
     height: 0;
     padding-bottom: 80%;
@@ -36,12 +39,6 @@
     padding: 0 15px;
     outline: none;
   }
-  button.slick-arrow.slick-prev{
-    left: -20px;
-  }
-  button.slick-arrow.slick-next{
-    right: -20px;
-  }
 }
 
 .db-ad{
@@ -53,9 +50,6 @@
   position: relative;
 }
 
-.break-banner{
-  margin-bottom: 50px;
-}
 @media (max-width: 991px){
   .break-social.tw,
   .break-banner,

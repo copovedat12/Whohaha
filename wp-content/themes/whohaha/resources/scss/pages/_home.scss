@@ -1,3 +1,12 @@
+#primary.content-area.homepage{
+	max-width: 1390px;
+	padding-left: 65px;
+	padding-right: 65px;
+	@media (max-width: $screen-xs-max){
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+}
 section.homepage-banner{
 	margin: 0 0 25px;
 	*, a{
@@ -52,7 +61,7 @@ section.homepage-authors{
 	padding: 20px 0 40px 0;
 	position: relative;
 	#home-authors-carousel{
-		padding: 0 40px;
+		// padding: 0 40px;
 		.author{
 			padding: 0 15px;
 			outline: none;
@@ -60,9 +69,9 @@ section.homepage-authors{
 		a{
 			outline: none;
 		}
-		.glyphicon{
-			top: -20px;
-		}
+		// .glyphicon{
+		// 	top: -20px;
+		// }
 	}
 	img{
 		border: 7px solid white;
@@ -83,33 +92,26 @@ section.homepage-authors{
 		background-color: #efefef;
 		max-width: 160px;
 	}
-	button.slick-arrow{
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		background: transparent;
-		border: none;
-		outline: none;
-		font-size: 20px;
-		&.slick-prev{
-			left: 0;
-		}
-		&.slick-next{
-			right: 0;
-		}
-	}
-	.slick-track{
-		padding: 5px 0;
-	}
+	// button.slick-arrow{
+	// 	position: absolute;
+	// 	top: 0;
+	// 	bottom: 0;
+	// 	background: transparent;
+	// 	border: none;
+	// 	outline: none;
+	// 	font-size: 20px;
+	// 	&.slick-prev{
+	// 		left: 0;
+	// 	}
+	// 	&.slick-next{
+	// 		right: 0;
+	// 	}
+	// }
+	// .slick-track{
+	// 	padding: 5px 0;
+	// }
 }
 section.homepage-posts{
 	position: relative;
 	padding: 20px 0 0;
-}
-
-@media (max-width: 991px){
-	body.home #primary.content-area {
-		padding-left: 15px;
-		padding-right: 15px;
-	}
 }

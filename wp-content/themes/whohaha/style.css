@@ -29,28 +29,6 @@ footer.post-footer article.post:hover{
   background: #000;
 }
 
-
-
-#home-break-slides button.slick-arrow,
-footer.entry-footer button.slick-arrow{
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  background: 0 0;
-  border: none;
-  outline: 0;
-  font-size: 20px;
-  background: #fafafa;
-  z-index: 100;
-}
-
-
-@media (max-width: 767px){
-  #home-break-slides button.slick-arrow{
-    display: none !important;
-  }
-}
-
 .sidebar header.top-header{
     margin-top: 0;
 }

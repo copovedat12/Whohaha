@@ -37,6 +37,13 @@ iframe,
 img{
 	max-width: 100%;
 }
+img{
+	height: auto;
+}
+
+.padd-both {
+    padding: 30px 0;
+}
 
 // Social Media Icons http://www.socicon.com/chart.php
 span.socicon,
@@ -44,11 +51,6 @@ a.socicon{
 	font-family: $social-font;
 }
 
-.break{
-	padding: 50px 30px 20px 30px;
-	margin: 0 1% 30px 1%;
-	width: 98%;
-}
 .entry-tags{
 	display: none;
 }

@@ -21,3 +21,16 @@ h3.entry-title{
 	}
 }
 
+h3.section-header{
+	text-transform: uppercase;
+	font-family: $body-font;
+	font-size: 18px;
+	color: lighten($black, 40%);
+	margin: 30px 0 10px;
+	&::after{
+		font: normal normal normal 18px/1 FontAwesome;
+		content: " \f105";
+		display: inline-block;
+		margin-left: 10px;
+	}
+}
