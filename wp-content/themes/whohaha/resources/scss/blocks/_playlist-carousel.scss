@@ -38,6 +38,38 @@
 	.plist-popover-content{
 		display: none;
 	}
+	.featured-video,
+	.playlist-video{
+		position: relative;
+		display: block;
+		span.title{
+			position: absolute;
+			z-index: 15;
+			bottom: 5px;
+			left: 5px;
+			right: 5px;
+			font-size: 14px;
+			overflow: hidden;
+			white-space: nowrap; 
+			-o-text-overflow: ellipsis;
+			text-overflow: ellipsis;
+			color: $white;
+		}
+		&::after{
+			position: absolute;
+			z-index: 10;
+			content: "";
+			display: block;
+			width: 100%;
+			height: 45%;
+			bottom: 0;
+			left: 0;
+			background: -webkit-linear-gradient(transparent, rgba(0,0,0,0.5)); /* For Safari 5.1 to 6.0 */
+		    background: -o-linear-gradient(transparent, rgba(0,0,0,0.5)); /* For Opera 11.1 to 12.0 */
+		    background: -moz-linear-gradient(transparent, rgba(0,0,0,0.5)); /* For Firefox 3.6 to 15 */
+		    background: linear-gradient(transparent, rgba(0,0,0,0.5)); /* Standard syntax */
+		}
+	}
 	.popover{
 		max-width: 300px;
 		width: 100%;
@@ -52,36 +84,6 @@
 		.episodes{
 			font-weight: 900;
 			margin-bottom: 10px;
-		}
-		.featured-video{
-			position: relative;
-			display: block;
-			span.title{
-				position: absolute;
-				z-index: 15;
-				bottom: 5px;
-				left: 5px;
-				right: 5px;
-				overflow: hidden;
-				white-space: nowrap; 
-				-o-text-overflow: ellipsis;
-				text-overflow: ellipsis;
-				color: $white;
-			}
-			&::after{
-				position: absolute;
-				z-index: 10;
-				content: "";
-				display: block;
-				width: 100%;
-				height: 45%;
-				bottom: 0;
-				left: 0;
-				background: -webkit-linear-gradient(transparent, rgba(0,0,0,0.5)); /* For Safari 5.1 to 6.0 */
-			    background: -o-linear-gradient(transparent, rgba(0,0,0,0.5)); /* For Opera 11.1 to 12.0 */
-			    background: -moz-linear-gradient(transparent, rgba(0,0,0,0.5)); /* For Firefox 3.6 to 15 */
-			    background: linear-gradient(transparent, rgba(0,0,0,0.5)); /* Standard syntax */
-			}
 		}
 		hr{
 			margin: 15px 0;
@@ -98,6 +100,32 @@
 		a:hover,
 		a:focus{
 			outline: none;
+		}
+	}
+
+	.playlist-video:hover{
+		&::after{
+			position: absolute;
+			z-index: 10;
+			content: "";
+			display: block;
+			width: 100%;
+			height: 100%;
+			bottom: 0;
+			left: 0;
+			background: -webkit-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)); /* For Safari 5.1 to 6.0 */
+		    background: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)); /* For Opera 11.1 to 12.0 */
+		    background: -moz-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)); /* For Firefox 3.6 to 15 */
+		    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)); /* Standard syntax */
+		}
+	}
+	.play-btn{
+		z-index: 15;
+		margin-left: -30px;
+	    margin-top: -30px;
+		svg{
+			width: 60px;
+			height: 60px;
 		}
 	}
 }

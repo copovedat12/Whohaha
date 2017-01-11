@@ -23,6 +23,8 @@
 			$taxonomy = new WP_Query($taxargs);
 			while ( $taxonomy->have_posts() ):
 				$taxonomy->the_post();
+				$video_url = get_post_meta(get_the_ID(), 'whh_video_url', true);
+				$video_id = array_pop(explode('/', $video_url));
 				?>
 				<div class="item col-md-4 col-sm-6">
 					<article title="<?php echo $playlist->name; ?>">
@@ -42,7 +44,7 @@
 						</div>
 						<hr>
 
-						<a href="/playlist/<?php echo $playlist->slug; ?>" class="featured-video">
+						<a href="/playlist/<?php echo $playlist->slug; ?>#<?php echo $video_id; ?>" class="featured-video">
 							<?php the_post_thumbnail( 'full' ); ?>
 							<span class="title"><?php echo get_the_title(); ?></span>
 						</a>
@@ -80,12 +82,16 @@
 		$taxonomy = new WP_Query($args);
 		while ( $taxonomy->have_posts() ):
 			$taxonomy->the_post();
+			$video_url = get_post_meta(get_the_ID(), 'whh_video_url', true);
+			$video_id = array_pop(explode('/', $video_url));
 			?>
 			<div class="item col-md-3 col-sm-4">
 				<article title="<?php echo get_the_title(); ?>">
-					<a onclick="event.preventDefault()" href="/playlist/<?php echo $plist->slug; ?>">
+					<a class="playlist-video" href="/playlist/<?php echo $plist->slug; ?>#<?php echo $video_id; ?>">
 						<?php the_post_thumbnail( 'full' ); ?>
 						<!-- <img data-lazy="<?php //the_post_thumbnail_url( 'full' ); ?>"> -->
+						<span class="title"><?php echo get_the_title(); ?></span>
+						<?php get_template_part('template-parts/play-button'); ?>
 					</a>
 				</article> 
 				<span class="plist-popover-title">

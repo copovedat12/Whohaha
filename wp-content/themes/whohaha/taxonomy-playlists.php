@@ -65,8 +65,11 @@ get_header(); ?>
 					</div>
 					<div class="col-md-4 custom-scrollbar">
 						<div class="v-player-list">
-							<?php while ( $query->have_posts() ) : $query->the_post(); ?>
-								<a href="#" onclick="event.preventDefault();" data-videourl="<?php echo get_post_meta(get_the_ID(), 'whh_video_url', true) ?>"><img src="<?php the_post_thumbnail_url('full') ?>" alt="<?php the_title(); ?>"><h2><?php the_title(); ?></h2></a>
+							<?php
+							while ( $query->have_posts() ) : $query->the_post();
+							$video_id = get_post_meta(get_the_ID(), 'whh_video_url', true);
+							?>
+								<a href="#<?php echo array_pop(explode('/', $video_id)); ?>" data-videoid="<?php echo array_pop(explode('/', $video_id)); ?>" data-videourl="<?php echo $video_id; ?>"><img src="<?php the_post_thumbnail_url('full') ?>" alt="<?php the_title(); ?>"><h2><?php the_title(); ?></h2></a>
 							<?php endwhile; wp_reset_postdata(); ?>
 						</div>
 					</div>
