@@ -28,11 +28,11 @@
 				?>
 				<div class="item col-md-4 col-sm-6">
 					<article title="<?php echo $playlist->name; ?>">
-						<a onclick="event.preventDefault()" href="/playlist/<?php echo $playlist->slug; ?>">
+						<div>
 							<?php the_post_thumbnail( 'full' ); ?>
 							<!-- <img data-lazy="<?php //the_post_thumbnail_url( 'full' ); ?>"> -->
-						</a>
-						<div class="hover-border"></div>
+						</div>
+						<a href="/playlist/<?php echo $playlist->slug; ?>" class="hover-border"></a>
 					</article>
 					<span class="plist-popover-title">
 						<?php echo $playlist->name; ?>
@@ -87,12 +87,13 @@
 			?>
 			<div class="item col-md-3 col-sm-4">
 				<article title="<?php echo get_the_title(); ?>">
-					<a class="playlist-video" href="/playlist/<?php echo $plist->slug; ?>#<?php echo $video_id; ?>">
+					<div class="playlist-video">
 						<?php the_post_thumbnail( 'full' ); ?>
 						<!-- <img data-lazy="<?php //the_post_thumbnail_url( 'full' ); ?>"> -->
 						<span class="title"><?php echo get_the_title(); ?></span>
 						<?php get_template_part('template-parts/play-button'); ?>
-					</a>
+					</adiv>
+					<a href="/playlist/<?php echo $plist->slug; ?>#<?php echo $video_id; ?>" class="hover-border"></a>
 				</article> 
 				<span class="plist-popover-title">
 					<?php echo get_the_title(); ?>
@@ -102,7 +103,7 @@
 						<?php echo get_the_excerpt(); ?>
 					</div>
 					
-					<a href="/playlist/<?php echo $plist->slug; ?>" class="btn btn-primary btn-block">Watch Now</a>
+					<a href="/playlist/<?php echo $plist->slug; ?>#<?php echo $video_id; ?>" class="btn btn-primary btn-block">Watch Now</a>
 				</span>
 			</div>
 			<?php

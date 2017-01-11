@@ -563,11 +563,11 @@ function socialShare(url, width, height) {
 	})
 	.on("mouseenter", function () {
 		var _this = this;
-		$(this).popover("show");
+		$(this).popover("show").addClass('active');
 		$(".popover").on("mouseleave", function () {
 			setTimeout(function(){
 				if (!$(_this).is(':hover')) {
-					$(_this).popover("hide");
+					$(_this).popover("hide").removeClass('active');
 				}
 			}, 100);
 		});
@@ -575,7 +575,7 @@ function socialShare(url, width, height) {
 		var _this = this;
 		setTimeout(function () {
 			if (!$(".popover:hover").length) {
-				$(_this).popover("hide");
+				$(_this).popover("hide").removeClass('active');
 			}
 		}, 100);
 	});
