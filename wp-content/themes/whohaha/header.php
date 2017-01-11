@@ -79,7 +79,7 @@
 		});
 	};
 </script>
-
+<?php if ($_SERVER['SERVER_NAME'] === 'whohaha.com'): ?>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -89,6 +89,7 @@
   ga('create', 'UA-13198218-54', 'auto');
   ga('send', 'pageview');
 </script>
+<?php endif; ?>
 
 <link href='https://fonts.googleapis.com/css?family=Oswald:300|Lato:900,400,400italic,300|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 
