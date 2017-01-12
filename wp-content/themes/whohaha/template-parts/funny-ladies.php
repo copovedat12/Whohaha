@@ -12,15 +12,11 @@
 		<?php
 			$all_ladies = get_field('front_page_people');
 			$banks = $all_ladies[0];
+			unset($all_ladies[0]);
 			shuffle($all_ladies);
-			$ladies = array();
-			$ladies[] = $banks;
-			foreach ($all_ladies as $lady){
-				if($lady['person']['user_nicename'] !== 'elizabethbanks'){
-					$ladies[] = $lady;
-				}
-			}
-			foreach ($ladies as $lady):
+			array_unshift($all_ladies, $banks);
+			$all_ladies = array_slice($all_ladies, 0, 18);
+			foreach ($all_ladies as $lady):
 				$person = $lady['person'];
 		?>
 			<div class="author carousel-author">
