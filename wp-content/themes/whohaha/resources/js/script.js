@@ -552,8 +552,8 @@ function socialShare(url, width, height) {
 (function($){
 	$('.whh-playlists article').popover({
 		html: true,
-		trigger: 'click',
-		// trigger : 'manual',
+		// trigger: 'click',
+		trigger : 'manual',
 		container : '.whh-playlists',
 		placement : 'auto right',
 		title : $(this).siblings('.plist-popover-title').text(),
@@ -562,15 +562,17 @@ function socialShare(url, width, height) {
 		}
 	})
 	.on("mouseenter", function () {
-		var _this = this;
-		$(this).popover("show").addClass('active');
-		$(".popover").on("mouseleave", function () {
-			setTimeout(function(){
-				if (!$(_this).is(':hover')) {
-					$(_this).popover("hide").removeClass('active');
-				}
-			}, 100);
-		});
+		if (window.innerWidth > 700) {
+			var _this = this;
+			$(this).popover("show").addClass('active');
+			$(".popover").on("mouseleave", function () {
+				setTimeout(function(){
+					if (!$(_this).is(':hover')) {
+						$(_this).popover("hide").removeClass('active');
+					}
+				}, 100);
+			});
+		}
 	}).on("mouseleave", function () {
 		var _this = this;
 		setTimeout(function () {
@@ -590,7 +592,8 @@ function socialShare(url, width, height) {
 		autoplaySpeed: 3000,
 		slidesToShow: 3,
 		slidesToScroll: 3,
-		lazyLoad: 'ondemand',
+		// lazyLoad: 'ondemand',
+		draggable: false,
 		responsive: [
 			{
 				breakpoint: 991,
@@ -617,7 +620,9 @@ function socialShare(url, width, height) {
 		autoplaySpeed: 3000,
 		slidesToShow: 4,
 		slidesToScroll: 4,
-		lazyLoad: 'ondemand',
+		// lazyLoad: 'ondemand',
+		draggable: false,
+		swipe: false,
 		responsive: [
 			{
 				breakpoint: 991,
@@ -631,6 +636,13 @@ function socialShare(url, width, height) {
 				settings: {
 				  slidesToShow: 2,
 				  slidesToScroll: 2
+				}
+			},
+			{
+				breakpoint: 500,
+				settings: {
+				  slidesToShow: 1,
+				  slidesToScroll: 1
 				}
 			}
 		]

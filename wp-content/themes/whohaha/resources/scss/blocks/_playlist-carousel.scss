@@ -103,6 +103,9 @@
 		a:focus{
 			outline: none;
 		}
+		@media (max-width: $screen-sm-max) {
+			max-width: 250px;
+		}
 	}
 
 	article.active .playlist-video::after,
@@ -122,11 +125,11 @@
 	}
 	.play-btn{
 		z-index: 15;
-		margin-left: -30px;
-	    margin-top: -30px;
+		margin-left: -25px;
+	    margin-top: -25px;
 		svg{
-			width: 60px;
-			height: 60px;
+			width: 50px;
+			height: 50px;
 		}
 	}
 }
