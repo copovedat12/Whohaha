@@ -20,16 +20,26 @@
 	header.page-header{
 		padding: 50px 0;
 		background: url(../resources/images/heroscope/logo-stars.png) no-repeat;
-		background-position: right center;
+		background-position: right 25%;
 	    background-size: 85% auto;
 		img{
-			display: inline-block;
+			display: block;
+			margin: auto;
 			width: 47%;
+			&.poweredby{
+				width: 10%;
+				margin: 10px 26.5% 0 auto;
+			}
 		}
 		@media (max-width: $screen-sm-max) {
 			background-size: 100% auto;
+			background-position: right center;
 			img{
 				width: 70%;
+				&.poweredby{
+					width: 17%;
+					margin: 10px 15% 0 auto;
+				}
 			}
 		}
 	}
