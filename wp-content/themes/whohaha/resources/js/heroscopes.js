@@ -2,12 +2,16 @@ var heroscope = (function($){
 	var player;
 
 	player = DM.player(document.getElementById("player"), {
-		video: 'x4kw90c',
+		video: 'k6XpSTZaUex5Eulo6Ur',
 		width: "100%",
 		height: "100%",
 		params: {
 			autoplay: false,
-			mute: false
+			mute: false,
+			'quality': '720',
+			'ui-start-screen-info' : false,
+			'ui-highlight' : 'E40D8D',
+			'ui-theme' : 'dark'
 		}
 	});
 	player.addEventListener('apiready', function(){
