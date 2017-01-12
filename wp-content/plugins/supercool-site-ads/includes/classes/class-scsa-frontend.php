@@ -220,12 +220,12 @@ class SC_Ads_Frontend{
 					<?php if ($options['sc_popup_ads_dev_mode']): ?>
 					console.log('Cookie would be set for <?php echo ($options['sc_popup_cookie_time'] / 60); ?> minutes.');
 					<?php else: ?>
-					Cookies.set('_sc_ads_popup', '<?php echo $_SERVER['REQUEST_URI']; ?>', { path: '/', expires: <?php echo $options['sc_popup_cookie_time']; ?> });
+					if (typeof(Cookies) !== 'undefined') Cookies.set('_sc_ads_popup', '<?php echo $_SERVER['REQUEST_URI']; ?>', { path: '/', expires: <?php echo $options['sc_popup_cookie_time']; ?> });
 					<?php endif; ?>
 				}
 
 				$(document).ready(function(){
-					if(typeof(Cookies.get('_sc_ads_popup')) !== 'undefined'){
+					if((typeof(Cookies) !== 'undefined') && typeof(Cookies.get('_sc_ads_popup')) !== 'undefined'){
 						$('.modal-overlay').remove();
 						$('.sc-ad-modal-wrapper').remove();
 						window.location.reload();
