@@ -348,15 +348,21 @@
 
 (function($){
 	var $list = $('.v-player-list'),
-		$window = $(window);
+		$window = $(window),
+		newHeight;
 
-	$window.on('load resize', function(){
+	var recalcHeight = function(){
 		if($window.outerWidth() >= 992){
-			var newHeight = $('#player').height();
+			newHeight = $('.player-container').outerHeight();
 			$list.css({'height' : newHeight+'px'});
 		}else{
 			$list.css({'height' : '348px'});
 		}
+	}
+	recalcHeight();
+
+	$window.on('load resize', function(){
+		recalcHeight();
 	});
 })(jQuery);
 

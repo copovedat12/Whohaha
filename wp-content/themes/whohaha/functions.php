@@ -130,7 +130,7 @@ function whohaha_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_script( 'dev-scripts', get_template_directory_uri() . '/resources/js/script.js', array('bootstrap-js'), '1.0.2', true );
+	wp_enqueue_script( 'dev-scripts', get_template_directory_uri() . '/resources/js/script.js', array('bootstrap-js'), '1.0.3', true );
 	wp_enqueue_script( 'nav-tags', get_template_directory_uri() . '/resources/js/nav-tags.js', array('jquery'), '1.0.2', true );
 
 	wp_enqueue_script( 'friend-finder', get_template_directory_uri() . '/resources/js/friend-finder.js', array('jquery'), '1.0.0', true );
