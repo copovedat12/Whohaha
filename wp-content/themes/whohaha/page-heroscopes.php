@@ -22,7 +22,7 @@ get_header(); ?>
 		<div class="heroscope-container">
 			<div class="container">
 				<header class="page-header text-center">
-					<img src="<?php echo get_template_directory_uri(); ?>/resources/images/heroscope/heroscopes-logo.png" alt="Heroscopes">
+					<img src="<?php echo get_template_directory_uri(); ?>/resources/images/heroscope/heroscopes-logo-lowercase.png" alt="Heroscopes">
 					<img class="poweredby" src="<?php echo get_template_directory_uri(); ?>/resources/images/heroscope/powered-by.png" alt="Powered By DailyMotion">
 				</header><!-- .page-header -->
 
