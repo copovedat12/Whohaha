@@ -33,7 +33,8 @@ class SC_Ads_Frontend{
 	public function load_scripts(){
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'cookies-js', plugins_url( '/assets/cookies.js', SC_ADS_DIR ), array(), '', true );
-		wp_enqueue_style( 'sc-ads', plugins_url( '/assets/sc-ads-styles.css', SC_ADS_DIR ) );
+		wp_enqueue_script( 'ads-js', plugins_url( '/assets/ads.js', SC_ADS_DIR ), array(), '', true );
+		wp_enqueue_style( 'sc-styles', plugins_url( '/assets/styles.css', SC_ADS_DIR ) );
 	}
 
 	public function check_for_cookies(){
@@ -118,7 +119,7 @@ class SC_Ads_Frontend{
 		// include plugin_dir_path( SC_ADS_DIR ) . 'includes/interstitial-frontend.php';
 		$options = get_option('sc_ads_opts_int');
 		?>
-		<div class="ad-container">
+		<div class="ad-container" style="display: none;">
 			<div class="sc-int-navbar">
 				<div class="sc-ads-bootstrap-container">
 					<div class="close-btn">
@@ -150,6 +151,10 @@ class SC_Ads_Frontend{
 		<script>
 			(function($){
 				$(document).ready(function(){
+					if (typeof(window.canRunAds) !== 'undefined') {
+						$('.ad-container').css('display', 'block');
+					}
+
 					if(typeof(Cookies.get('_sc_ads_int')) !== 'undefined'){
 						ad.remove();
 						$('body').css('overflow', 'initial');
@@ -207,7 +212,7 @@ class SC_Ads_Frontend{
 		// include plugin_dir_path( SC_ADS_DIR ) . 'includes/popup-frontend.php';
 		$options = get_option('sc_ads_opts_popup');
 		?>
-		<div class="sc-ad-modal-wrapper fade-in">
+		<div class="sc-ad-modal-wrapper fade-in" style="display: none;">
 			<div class="modal-overlay"></div>
 			<div class="sc-ad-modal">
 				<a class="modal-close">×</a>
@@ -225,6 +230,10 @@ class SC_Ads_Frontend{
 				}
 
 				$(document).ready(function(){
+					if (typeof(window.canRunAds) !== 'undefined') {
+						$('.sc-ad-modal-wrapper').css('display', 'block');
+					}
+
 					if((typeof(Cookies) !== 'undefined') && typeof(Cookies.get('_sc_ads_popup')) !== 'undefined'){
 						$('.modal-overlay').remove();
 						$('.sc-ad-modal-wrapper').remove();
