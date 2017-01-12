@@ -29,7 +29,14 @@
 				<div class="item col-md-4 col-sm-6">
 					<article title="<?php echo $playlist->name; ?>">
 						<div>
-							<?php the_post_thumbnail( 'full' ); ?>
+							<?php
+							$playlist_feat_img = get_field('featured_image', $playlist);
+							if($playlist_feat_img):
+							?>
+								<img src="<?php echo $playlist_feat_img['url']; ?>" alt="<?php echo $playlist_feat_img['alt']; ?>" width="<?php echo $playlist_feat_img['width']; ?>" height="<?php echo $playlist_feat_img['height']; ?>">
+							<?php else: ?>
+								<?php the_post_thumbnail( 'full' ); ?>
+							<?php endif; ?>
 							<!-- <img data-lazy="<?php //the_post_thumbnail_url( 'full' ); ?>"> -->
 						</div>
 						<a href="/playlist/<?php echo $playlist->slug; ?>" class="hover-border"></a>
