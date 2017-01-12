@@ -140,7 +140,9 @@ if ($data->form_type_status == "1" && !empty($data->user)) {
                                 echo $sub;
                             }  elseif ($sub->type == 'Time') {
                                 echo $sub_data['time'] . ", Timezone: " . $sub_data['timezone'];
-                            }else {
+                            }  elseif ($sub->type == 'Checkbox') {   
+                                echo implode(', ',RM_Utilities::get_lable_for_option($field_id, $sub_data));
+                            } else {
                                 $sub = implode(', ', $sub_data);
                                 echo $sub;
                             }
@@ -148,6 +150,8 @@ if ($data->form_type_status == "1" && !empty($data->user)) {
                             if ($sub->type == 'Rating') {
                                 echo RM_Utilities::enqueue_external_scripts('script_rm_rating', RM_BASE_URL . 'public/js/rating3/jquery.rateit.js');
                                 echo '<div class="rateit" id="rateit5" data-rateit-min="0" data-rateit-max="5" data-rateit-value="' . $sub_data . '" data-rateit-ispreset="true" data-rateit-readonly="true"></div>';
+                            } elseif ($sub->type == 'Radio' || $sub->type == 'Select') {   
+                                echo RM_Utilities::get_lable_for_option($field_id, $sub_data);                                
                             } else {
                                 echo $sub_data;
                             }                        }

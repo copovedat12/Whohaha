@@ -1227,10 +1227,12 @@ class RM_Services {
                            if(empty($val))
                                unset($value[$in]);
                        }
-                    $value = implode(',', $value);
+                    $value = implode(', ', $value);
                 } else
-                    $value = implode(',', $value);
+                    $value = implode(', ',RM_Utilities::get_lable_for_option($submission->field_id, $value));
             }
+            else
+                $value = RM_Utilities::get_lable_for_option($submission->field_id, $value);
             if (array_key_exists($submission->submission_id, $export_data))
                 $export_data[$submission->submission_id][$submission->field_id] = stripslashes($value);
         }

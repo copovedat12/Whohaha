@@ -1,60 +1,5 @@
 [
     {
-        "name": "symfony/css-selector",
-        "version": "v2.8.14",
-        "version_normalized": "2.8.14.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/css-selector.git",
-            "reference": "981abbbd6ba49af338a98490cbe29e7f39ca9fa9"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/css-selector/zipball/981abbbd6ba49af338a98490cbe29e7f39ca9fa9",
-            "reference": "981abbbd6ba49af338a98490cbe29e7f39ca9fa9",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.9"
-        },
-        "time": "2016-11-03 07:52:58",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.8-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Component\\CssSelector\\": ""
-            },
-            "exclude-from-classmap": [
-                "/Tests/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Jean-François Simon",
-                "email": "jeanfrancois.simon@sensiolabs.com"
-            },
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony CssSelector Component",
-        "homepage": "https://symfony.com"
-    },
-    {
         "name": "facebook/graph-sdk",
         "version": "5.4.2",
         "version_normalized": "5.4.2.0",
@@ -147,32 +92,87 @@
         ]
     },
     {
-        "name": "facebook/facebook-instant-articles-sdk-php",
-        "version": "v1.5.2",
-        "version_normalized": "1.5.2.0",
+        "name": "symfony/css-selector",
+        "version": "v3.1.7",
+        "version_normalized": "3.1.7.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/facebook/facebook-instant-articles-sdk-php.git",
-            "reference": "563726feebd4c3a0132d33bb5b946d4b460a9fa7"
+            "url": "https://github.com/symfony/css-selector.git",
+            "reference": "a37b3359566415a91cba55a2d95820b3fa1a9658"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/facebook/facebook-instant-articles-sdk-php/zipball/563726feebd4c3a0132d33bb5b946d4b460a9fa7",
-            "reference": "563726feebd4c3a0132d33bb5b946d4b460a9fa7",
+            "url": "https://api.github.com/repos/symfony/css-selector/zipball/a37b3359566415a91cba55a2d95820b3fa1a9658",
+            "reference": "a37b3359566415a91cba55a2d95820b3fa1a9658",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.9"
+        },
+        "time": "2016-11-03 08:04:31",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\CssSelector\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jean-François Simon",
+                "email": "jeanfrancois.simon@sensiolabs.com"
+            },
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony CssSelector Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "facebook/facebook-instant-articles-sdk-php",
+        "version": "v1.5.3",
+        "version_normalized": "1.5.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/facebook/facebook-instant-articles-sdk-php.git",
+            "reference": "4210c2b78a4d28b0c56c0e8575db47d30e48ef54"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/facebook/facebook-instant-articles-sdk-php/zipball/4210c2b78a4d28b0c56c0e8575db47d30e48ef54",
+            "reference": "4210c2b78a4d28b0c56c0e8575db47d30e48ef54",
             "shasum": ""
         },
         "require": {
             "apache/log4php": "2.3.0",
             "facebook/graph-sdk": "~5.0",
             "php": "^5.4 || ^7.0",
-            "symfony/css-selector": "2.8.*"
+            "symfony/css-selector": "2.8.* || ^3.0"
         },
         "require-dev": {
             "fzaninotto/faker": "^1.6.0",
             "phpunit/phpunit": "^4.8",
             "squizlabs/php_codesniffer": "^2.6.0"
         },
-        "time": "2016-10-07 18:26:43",
+        "time": "2016-11-29 15:38:03",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

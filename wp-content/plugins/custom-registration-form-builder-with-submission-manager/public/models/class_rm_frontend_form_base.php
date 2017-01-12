@@ -184,7 +184,7 @@ abstract class RM_Frontend_Form_Base
             $expiry_details = $this->service->get_form_expiry_stats($this);
             
             $exp_str = '<div class="rm_expiry_stat_container">';
-            if ($expiry_details->state !== 'perpetual' && $this->service->get_setting('display_progress_bar') == 'yes' && $this->form_options->display_progress_bar[0]=='yes')
+            if ($expiry_details->state !== 'perpetual' && $this->service->get_setting('display_progress_bar') == 'yes')
             {
                 if ($expiry_details->state === 'expired')
                     $exp_str .= '<div class="rm-formcard-expired">' . 'Expired' . '</div>';

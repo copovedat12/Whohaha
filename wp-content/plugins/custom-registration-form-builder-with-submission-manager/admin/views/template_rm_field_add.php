@@ -113,11 +113,17 @@ $form->addElement(new Element_Textboxsortable("<b>" . RM_UI_Strings::get('LABEL_
 
 
 //$form->addElement(new Element_HTML(""));
-$form->addElement(new Element_HTML('<div id="rmaddotheroptiontextboxdiv" style="display:none">'));
-$form->addElement(new Element_HTML('<div class="rmrow"><div class="rmfield" for="rm_other_option_text"><label>  </label></div><div class="rminput"><input type="text" name="rm_textbox" id="rm_other_option_text" class="rm_static_field" readonly="disabled" value="'.RM_UI_Strings::get('MSG_THEIR_ANS').'"><div id="rmaddotheroptiontextdiv2"><div onclick="jQuery.rm_delete_textbox_other(this)">'.RM_UI_Strings::get('LABEL_DELETE').'</div></div></div></div>'));
+if(!$data->model->field_options->field_is_other_option)
+    $form->addElement(new Element_HTML('<div id="rmaddotheroptiontextboxdiv" style="display:none">'));
+else
+    $form->addElement(new Element_HTML('<div id="rmaddotheroptiontextboxdiv">'));
+$form->addElement(new Element_HTML('<div class="rmrow"><div class="rmfield" for="rm_other_option_text"><label>  </label></div><div class="rminput"><input type="text" name="rm_textbox" id="rm_other_option_text" class="rm_static_field" readonly="disabled" value="'.RM_UI_Strings::get('MSG_THEIR_ANS').'"><div id="rmaddotheroptiontextdiv2"><div onclick="jQuery.rm_delete_textbox_other(this)"><a href=javascript:void(0)>'.RM_UI_Strings::get('LABEL_DELETE').'</a></div></div></div></div>'));
 $form->addElement(new Element_HTML('</div>'));
 //$form->addElement(new Element_HTML("<div onclick=''>".RM_UI_Strings::get('LABEL_DELETE')."</div></div>"));
-$form->addElement(new Element_Hidden("field_is_other_option", "", array("id" => "rm_field_is_other_option")));
+if(!$data->model->field_options->field_is_other_option)
+    $form->addElement(new Element_Hidden("field_is_other_option", "", array("id" => "rm_field_is_other_option")));
+else
+    $form->addElement(new Element_Hidden("field_is_other_option", "1", array("id" => "rm_field_is_other_option")));
 $form->addElement(new Element_HTML('<div class="rmrow" id="rm_jqnotice_row"><div class="rmfield" for="rm_field_value_options_textarea"><label></label></div><div class="rminput" id="rm_jqnotice_text"></div></div>'));
 
 $form->addElement(new Element_Textbox("<b>" . RM_UI_Strings::get('LABEL_PLACEHOLDER_TEXT') . ":</b>", "field_placeholder", array("id" => "rm_field_placeholder", "class" => "rm_static_field rm_text_type_field rm_input_type", "value" => $data->model->field_options->field_placeholder, "longDesc"=>RM_UI_Strings::get('HELP_ADD_FIELD_PLACEHOLDER'))));

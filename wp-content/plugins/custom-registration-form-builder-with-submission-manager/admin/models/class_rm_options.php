@@ -490,14 +490,18 @@ class RM_Options
     {  
       
         //remove multiple whitespaces and newline with single whitespace.
-        $val = preg_replace('/\s+/', ' ',$val);
-        
-        $val = trim($val);
-        
-        if($val == '')
+        if(is_array($val))
+        {
+           $ips= $val;
+        }
+        else
+        {
+            $val = preg_replace('/\s+/', ' ',$val);
+            $val = trim($val);
+            if($val == '')
             return array();
-        
-        $ips = explode(' ', $val);
+            $ips = explode(' ', $val);
+        }
         
         $sanitized_ips = array();
         

@@ -1007,20 +1007,24 @@ class RM_Utilities {
          
     }
     
-     public static function load_js_data(){
+    public static function load_js_data(){
         $data= new stdClass();
         
         // Validation message override
         $data->validations= array();
-        $data->validations['required']=   RM_UI_Strings::get("VALIDATION_REQUIRED");
+        $data->validations['required']= RM_UI_Strings::get("VALIDATION_REQUIRED");
         $data->validations['email']= RM_UI_Strings::get("INVALID_EMAIL");
         $data->validations['url']= RM_UI_Strings::get("INVALID_URL");
         $data->validations['pattern']= RM_UI_Strings::get("INVALID_FORMAT");
         $data->validations['number']= RM_UI_Strings::get("INVALID_NUMBER");
-        $data->validations['digits']= RM_UI_Strings::get("INVALID_DIGITS");
+        $data->validations['digits']= RM_UI_Strings::get("INVALID_DIGITS");        
+        $data->validations['maxlength']= RM_UI_Strings::get("INVALID_MAXLEN");
+        $data->validations['minlength']= RM_UI_Strings::get("INVALID_MINLEN");
+        $data->validations['max']= RM_UI_Strings::get("INVALID_MAX");
+        $data->validations['min']= RM_UI_Strings::get("INVALID_MIN");        
         
         echo json_encode($data);
-        die;
+        wp_die();
          
     }
     
@@ -1068,4 +1072,62 @@ class RM_Utilities {
         self::update_tour_state($tour_id, $state);
         wp_die();
     }
+    
+    public static function process_field_options($value)
+    {
+       $p_options = array();
+       
+       if(!is_array($value))
+           $tmp_options = explode(',', $value);
+       else
+           $tmp_options = $value;
+               
+       foreach($tmp_options as $val)
+       {
+           $val = trim($val);
+           $val = trim($val, "|");
+           $t = explode("|",$val);
+
+           if(count($t) <= 1 || trim($t[1]) === "")
+               $p_options[$val] = $val;
+           else
+               $p_options[trim($t[1])] = trim($t[0]);
+       }
+       
+       return $p_options;
+   }
+   
+   public static function get_lable_for_option($field_id, $opt_value)
+   {
+       $rmf = new RM_Fields;
+       if(!$rmf->load_from_db($field_id))
+           return null;
+       
+       //Return same value if it is not a multival field
+       if(!in_array($rmf->field_type, array('Checkbox','Radio','Select')))
+           return $opt_value;
+       
+       $val = $rmf->get_field_value();
+       $p_opts = self::process_field_options($val);
+       
+       if(!is_array($opt_value))
+       {
+           if(isset($p_opts[$opt_value]))
+               return $p_opts[$opt_value];
+           else
+               return $opt_value;
+       }
+       else
+       {
+           $tmp = array();
+           foreach($opt_value as $val)
+           {
+               if(isset($p_opts[$val]))
+                   $tmp[] = $p_opts[$val];
+               else
+                   $tmp[] = $val;
+           }
+           return $tmp;
+       }
+   }
 }

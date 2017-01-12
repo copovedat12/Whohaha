@@ -767,7 +767,7 @@ class RM_DBManager
                 $interval_string = 'BETWEEN DATE_SUB(CURDATE(),INTERVAL (DAY(CURDATE())-1) DAY) AND LAST_DAY(NOW())';
                 break;
             case 'year':
-                $interval_string = 'BETWEEN DATE_FORMAT(NOW() ,"01/01/%Y") AND LAST_DAY(NOW())';
+                $interval_string = 'BETWEEN DATE_FORMAT(NOW() ,"%Y-01-01") AND LAST_DAY(NOW())';
                 break;
             case 'custom':
                 if(is_array($dates))
@@ -884,7 +884,7 @@ class RM_DBManager
                 $interval_string = 'BETWEEN DATE_SUB(CURDATE(),INTERVAL (DAY(CURDATE())-1) DAY) AND LAST_DAY(NOW())';
                 break;
             case 'year':
-                $interval_string = 'BETWEEN DATE_FORMAT(NOW() ,"01/01/%Y") AND LAST_DAY(NOW())';
+                $interval_string = 'BETWEEN DATE_FORMAT(NOW() ,"%Y-01-01") AND LAST_DAY(NOW())';
                 break;
             case 'all':
 
@@ -1323,7 +1323,7 @@ class RM_DBManager
                 $interval_string = 'BETWEEN DATE_SUB(CURDATE(),INTERVAL (DAY(CURDATE())-1) DAY) AND LAST_DAY(NOW())';
                 break;
             case 'year':
-                $interval_string = 'BETWEEN DATE_FORMAT(NOW() ,"01/01/%Y") AND LAST_DAY(NOW())';
+                $interval_string = 'BETWEEN DATE_FORMAT(NOW() ,"%Y-01-01") AND LAST_DAY(NOW())';
                 break;
             case 'custom':
                    
@@ -1636,7 +1636,7 @@ class RM_DBManager
                   $interval_string = 'BETWEEN DATE_SUB(CURDATE(),INTERVAL (DAY(CURDATE())-1) DAY) AND LAST_DAY(NOW())';
                   break;
               case 'year':
-                  $interval_string = 'BETWEEN DATE_FORMAT(NOW() ,"01/01/%Y") AND LAST_DAY(NOW())';
+                  $interval_string = 'BETWEEN DATE_FORMAT(NOW() ,"%Y-01-01") AND LAST_DAY(NOW())';
                   break;
               case 'custom':
                      if($filters['rm_fromdate'] != '' || $filters['rm_dateupto'] != '')

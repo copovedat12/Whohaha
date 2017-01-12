@@ -104,6 +104,8 @@
                                                 echo $sub;
                                         } elseif ($sub->type == 'Time') {                                  
                                     echo $meta['time'].", Timezone: ".$meta['timezone'];
+                                } elseif ($sub->type == 'Checkbox') {   
+                                    echo implode(', ',RM_Utilities::get_lable_for_option($field_id, $meta));
                                 } else {
                                             $sub = implode(', ', $meta);
                                             echo $sub;
@@ -114,6 +116,10 @@
                                            echo RM_Utilities::enqueue_external_scripts('script_rm_rating', RM_BASE_URL . 'public/js/rating3/jquery.rateit.js');
                                            echo '<div class="rateit" id="rateit5" data-rateit-min="0" data-rateit-max="5" data-rateit-value="'.$meta.'" data-rateit-ispreset="true" data-rateit-readonly="true"></div>';
                                  
+                                        }
+                                        elseif ($sub->type == 'Radio' || $sub->type == 'Select')
+                                        {   
+                                            echo RM_Utilities::get_lable_for_option($field_id, $meta);
                                         }
                                         else
                                         echo $meta;

@@ -119,11 +119,24 @@ class RM_Job_Manager {
 
                         if (isset($sub_values[$field_id])) {
                             if (is_array($sub_values[$field_id]->value))
-                                $sub_values[$field_id]->value = implode(",", $sub_values[$field_id]->value);
+                            {
+                                if($sub_values[$field_id]->type == 'Checkbox')
+                                    $sub_values[$field_id]->value = implode(",", RM_Utilities::get_lable_for_option ($field_id, $sub_values[$field_id]->value));
+                                else
+                                    $sub_values[$field_id]->value = implode(",", $sub_values[$field_id]->value);
+                            }
+                            else
+                            {
+                                if($sub_values[$field_id]->type == 'Radio' || $sub_values[$field_id]->type == 'Select')
+                                    $sub_values[$field_id]->value = RM_Utilities::get_lable_for_option ($field_id, $sub_values[$field_id]->value);                                
+                            }
 
                             $processed_msg = str_replace("{{" . $field_placeholder . "}}", $sub_values[$field_id]->value, $processed_msg);
                         }
                     }
+                    //Remove remaining unreplaced placeholders
+                    $processed_msg = preg_replace("/{{[^}]*}}/","",$processed_msg);
+                    
                     $cron_mail = new stdClass;
                     $cron_mail->type = RM_EMAIL_BATCH;
                     $cron_mail->to = $result->user_email;

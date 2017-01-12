@@ -141,7 +141,9 @@
                                     echo $sub;
                                 }  elseif ($sub->type == 'Time') {                                  
                                     echo $sub_data['time'].", Timezone: ".$sub_data['timezone'];
-                                } 
+                                } elseif ($sub->type == 'Checkbox') {   
+                                    echo implode(', ',RM_Utilities::get_lable_for_option($field_id, $sub_data));
+                                }
                                 //If submitted data is a Star Rating.
                                 
                                 
@@ -159,6 +161,9 @@
                                 if($sub->type == 'Rating')
                                 {
                                     echo '<div class="rateit" id="rateit5" data-rateit-min="0" data-rateit-max="5" data-rateit-value="'.$sub->value.'" data-rateit-ispreset="true" data-rateit-readonly="true"></div>';
+                                }
+                                elseif ($sub->type == 'Radio' || $sub->type == 'Select') {   
+                                    echo RM_Utilities::get_lable_for_option($field_id, $sub_data);
                                 }
                                 else
                                 {

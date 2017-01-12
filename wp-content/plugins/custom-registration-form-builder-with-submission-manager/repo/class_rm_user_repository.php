@@ -44,7 +44,7 @@ class RM_User_Repository {
                          break;
                      case 'month' : $qry = "SELECT distinct user_email from $table_name WHERE SUBMITTED_ON BETWEEN DATE_SUB(CURDATE(),INTERVAL (DAY(CURDATE())-1) DAY) AND LAST_DAY(NOW())";
                          break;
-                     case 'year' : $qry = 'SELECT distinct user_email from ' . $table_name . ' WHERE SUBMITTED_ON BETWEEN DATE_FORMAT(NOW() ,"01/01/%Y") AND LAST_DAY(NOW())';
+                     case 'year' : $qry = 'SELECT distinct user_email from ' . $table_name . ' WHERE SUBMITTED_ON BETWEEN DATE_FORMAT(NOW() ,"%Y-01-01") AND LAST_DAY(NOW())';
                          break;
                      default: $qry = "SELECT distinct user_email from $table_name";
                          break;

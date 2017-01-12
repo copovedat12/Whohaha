@@ -309,7 +309,8 @@ class RM_Table_Tech
                     `browser_name` varchar(50),
                     `visited_on` varchar(50),
                     `submitted_on` varchar(50),
-                    `time_taken` INT(11)
+                    `time_taken` INT(11),
+                    `submission_id` INT(6)
                     )$charset_collate;";
 
             dbDelta($sql);

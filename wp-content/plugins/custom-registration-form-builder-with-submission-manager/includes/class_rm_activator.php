@@ -53,6 +53,7 @@ class RM_Activator
         self::migrate_rm_4_0_to_rm_4_1($network_wide, $existing_rm_db_version);
         self::migrate_rm_4_1_to_rm_4_2($network_wide, $existing_rm_db_version);
         self::migrate_rm_4_2_to_rm_4_4($network_wide, $existing_rm_db_version);
+        self::migrate_rm_4_5_to_rm_4_6($network_wide, $existing_rm_db_version);
         
         update_site_option('rm_option_db_version', RM_DB_VERSION);
     }
@@ -124,6 +125,27 @@ class RM_Activator
         } else
         {
             self::migrate_per_site_rm_4_2_to_rm_4_4();
+        }        
+    }
+    
+    //Not actual migration, it fixes broken database. Basic edition missed sub_id field in stats table.
+    private static function migrate_rm_4_5_to_rm_4_6($network_wide, $existing_rm_db_version)
+    {        
+        global $wpdb;
+        if (is_multisite() && $network_wide)
+        {
+            $current_blog = $wpdb->blogid;
+            $blog_ids = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
+            foreach ($blog_ids as $blog_id)
+            {
+                switch_to_blog($blog_id);
+                self::migrate_per_site_rm_4_5_to_rm_4_6();
+                restore_current_blog();
+            }
+            switch_to_blog($current_blog);
+        } else
+        {
+            self::migrate_per_site_rm_4_5_to_rm_4_6();
         }        
     }
 
@@ -199,6 +221,17 @@ class RM_Activator
     private static function migrate_per_site_rm_4_2_to_rm_4_4()
     {
         RM_Table_Tech::repair_tables();
+    }
+    
+    private static function migrate_per_site_rm_4_5_to_rm_4_6()
+    {
+        global $wpdb;
+        $db_name = DB_NAME;
+        $stat_table_name = $wpdb->prefix."rm_stats";
+        $test_query = "SELECT * FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = '$db_name' AND TABLE_NAME = '$stat_table_name' AND COLUMN_NAME = 'submission_id'";
+        $result = $wpdb->get_results($test_query);
+        if($result == NULL || count($result) == 0)
+            $wpdb->query("ALTER TABLE `$stat_table_name` ADD `submission_id` INT(6)");
     }
 
     private static function migrate_per_site_crf_to_rm_4_0()

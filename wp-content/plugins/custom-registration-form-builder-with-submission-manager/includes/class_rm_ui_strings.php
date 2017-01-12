@@ -1768,10 +1768,10 @@ class RM_UI_Strings {
                 return __("Feature not available. PHP extension CURL is not enabled on server.", 'custom-registration-form-builder-with-submission-manager');
 
             case 'RM_ERROR_EXTENSION_CURL':
-                return __("PHP extension CURL is not enabled on server. Following features will not be available:<ul><li>Facebook Integration</li><li>Mailchimp Integration</li><li>Stripe Payment</li><li>Export submission to external URL</li></ul>", 'custom-registration-form-builder-with-submission-manager');
+                return __("PHP extension CURL is not enabled on server. Following features will not be available:<ul style=\"padding-left:25px;list-style-type:disc;margin-top:0px;\"><li>Facebook Integration</li><li>Mailchimp Integration</li><li>Stripe Payment</li><li>Export submission to external URL</li></ul>", 'custom-registration-form-builder-with-submission-manager');
 
             case 'RM_ERROR_EXTENSION_ZIP':
-                return __("PHP extension ZIP is not enabled on server. Following features will not be available:<ul><li>Downloading multiple attachments as zip</li></ul>", 'custom-registration-form-builder-with-submission-manager');
+                return __("PHP extension ZIP is not enabled on server. Following features will not be available:<ul style=\"padding-left:25px;list-style-type:disc;margin-top:0px;\"><li>Downloading multiple attachments as zip</li></ul>", 'custom-registration-form-builder-with-submission-manager');
 
 
             case 'NEWSLETTER_SUB_MSG':
@@ -3651,6 +3651,18 @@ class RM_UI_Strings {
                  
              case 'LABEL_TOUR' : 
                 return __ ('Tour', 'custom-registration-form-builder-with-submission-manager');
+                 
+             case 'INVALID_MAXLEN' : 
+                return __ ('Please enter no more than {0} characters.', 'custom-registration-form-builder-with-submission-manager');
+                 
+             case 'INVALID_MINLEN' : 
+                return __ ('Please enter at least {0} characters.', 'custom-registration-form-builder-with-submission-manager');
+                 
+             case 'INVALID_MAX' : 
+                return __ ('Please enter a value less than or equal to {0}.', 'custom-registration-form-builder-with-submission-manager');
+                 
+             case 'INVALID_MIN' : 
+                return __ ('Please enter a value greater than or equal to {0}', 'custom-registration-form-builder-with-submission-manager');
 
             default:
                 return __('NO STRING FOUND', 'custom-registration-form-builder-with-submission-manager');

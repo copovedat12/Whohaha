@@ -5,7 +5,7 @@ Tags: custom registration, custom form fields, custom registration fields, multi
 
 Requires at least: 3.5
 Tested up to: 4.7
-Stable tag: 3.6.0.2
+Stable tag: 3.6.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -283,6 +283,16 @@ Please update to version 1.4.2. It fixes an old bug that always moved the form a
 
 == Changelog ==
 
+= 3.6.0.4 =
+* Improvement: Front-end error messages can be translated now.
+* Fixed: A rare bug that may cause Magic pop-up panel to go behind site content sometimes.
+* Other minor bug-fixes and improvements.
+
+= 3.6.0.3 =
+* Enhancement: Now different values can be specified for dropdown, radio and check-box fields using pipe(|). Syntax: label|value.
+* Fixed: "This year" filter in submissions.
+* Fixed: Checkbox label not displaying sometimes for Terms and Conditions field.
+* Other minor bug-fixes and improvements.
 
 = 3.6.0.2 =
 * Fixed: Admin notification email missing values for checkbox fields.
@@ -715,6 +725,17 @@ Fixed: Blocks showing up on front-end with some WP themes.
 * Added Custom Fields
 
 == Upgrade Notice ==
+
+= 3.6.0.4 =
+* Improvement: Front-end error messages can be translated now.
+* Fixed: A rare bug that may cause Magic pop-up panel to go behind site content sometimes.
+* Other minor bug-fixes and improvements.
+
+= 3.6.0.3 =
+* Enhancement: Now different values can be specified for dropdown, radio and check-box fields using pipe(|). Syntax: label|value.
+* Fixed: "This year" filter in submissions.
+* Fixed: Checkbox label not displaying sometimes for Terms and Conditions field.
+* Other minor bug-fixes and improvements.
 
 = 3.6.0.2 =
 * Fixed: Admin notification email missing values for checkbox fields.

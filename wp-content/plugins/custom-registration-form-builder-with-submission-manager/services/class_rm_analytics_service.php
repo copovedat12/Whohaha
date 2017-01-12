@@ -74,7 +74,7 @@ class RM_Analytics_Service extends RM_Services
                 
                 foreach ($single_sub as $f_v) 
                 {
-                  if(isset($res[$f_v]))
+                  if(isset($vals[$f_v], $res[$f_v]))
                     $res[$f_v]+=1;
                   else
                     $other_option_submission++;              

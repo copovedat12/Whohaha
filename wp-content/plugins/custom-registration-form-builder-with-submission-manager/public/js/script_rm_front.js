@@ -270,13 +270,19 @@ function load_js_data(){
 
     jQuery.post(rm_ajax_url, data, function (response) {
        rm_js_data= JSON.parse(response);
-       initialize_valdation_strings();
+       initialize_validation_strings();
     });
 
 }
 
-function initialize_valdation_strings(){
-    jQuery.extend(jQuery.validator.messages,rm_js_data.validations); 
+function initialize_validation_strings(){
+    if(typeof jQuery.validator != 'undefined'){
+        rm_js_data.validations.maxlength = jQuery.validator.format(rm_js_data.validations.maxlength);
+        rm_js_data.validations.minlength = jQuery.validator.format(rm_js_data.validations.minlength);
+        rm_js_data.validations.max = jQuery.validator.format(rm_js_data.validations.max);
+        rm_js_data.validations.min = jQuery.validator.format(rm_js_data.validations.min);
+        jQuery.extend(jQuery.validator.messages,rm_js_data.validations); 
+    }
 }
 // Intializing the necessary scripts
 jQuery(document).ready(function(){

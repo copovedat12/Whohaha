@@ -48,14 +48,16 @@ class Element_Terms extends Element {
              $cb_label = '';
          
        $scroll = '';
-       if($this->required_scroll==1)
-           $scroll = "onscroll='scroll_down_end(this);'";
+       if($this->required_scroll==1){
+           $scroll = "onscroll='scroll_down_end(this);' ";
+           $disabled='disabled';
+       }
        
        $checked = '';
         if($this->getAttribute('value') == 'on')
             $checked = "checked";
         
-        echo "<div class='rm_terms_checkbox'><input ",$checked," value='on' type='checkbox'", $this->getAttributes(array("default_value", "value")),  " class='rm_check_box'>".$cb_label."</div>";
+        echo "<div class='rm_terms_checkbox'><input ",$checked," ",$disabled," value='on' type='checkbox'", $this->getAttributes(array("default_value", "value")),  " class='rm_check_box'>".$cb_label."</div>";
         
            echo "<div id='rm_terms_textarea' class='rm_terms_textarea'><textarea ", $style ," ",$scroll," readonly  id='rm_terms_area_", $this->_attributes['name'], "' class='rm_terms_area'>";
         if (!empty($this->_attributes["default_value"]))

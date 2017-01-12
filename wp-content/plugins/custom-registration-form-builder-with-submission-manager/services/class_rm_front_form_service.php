@@ -595,7 +595,7 @@ class RM_Front_Form_Service extends RM_Services {
             /*
              * Loop through serialized data for submission
              */
-            foreach ($params->sub_data as $val) {
+            foreach ($params->sub_data as $field_id => $val) {
                 if (isset($val->value['rm_field_type']) && $val->value['rm_field_type'] == 'File')
                     continue;
                 $email_content .= '<div class="row"> <span class="key">' . $val->label . ':</span>';
@@ -606,11 +606,19 @@ class RM_Front_Form_Service extends RM_Services {
                         foreach($val->value as $in =>  $value){
                            if(empty($value))
                                unset($val->value[$in]);
-                        }                    
-                    }     
-                    $email_content .= '<span class="key-val">' . implode(', ', $val->value) . '</span><br/>'; 
+                        }                                        
+                        $email_content .= '<span class="key-val">' . implode(', ', $val->value) . '</span><br/>';                         
+                    } elseif ($val->type == 'Checkbox') {   
+                        $email_content .= '<span class="key-val">' . implode(', ',RM_Utilities::get_lable_for_option($field_id, $val->value)) . '</span><br/>';
+                    } else {
+                        $email_content .= '<span class="key-val">' . implode(', ', $val->value) . '</span><br/>';
+                    }
                 } else {
-                    $email_content .= '<span class="key-val">' . $val->value . '</span><br/>';
+                    if ($val->type == 'Radio' || $val->type == 'Select') {   
+                       $email_content .= '<span class="key-val">' . RM_Utilities::get_lable_for_option($field_id, $val->value). '</span><br/>';
+                    }
+                    else
+                       $email_content .= '<span class="key-val">' . $val->value . '</span><br/>';
                 }
             }
 
@@ -657,8 +665,8 @@ class RM_Front_Form_Service extends RM_Services {
 
             foreach ($params->req as $key => $val) {
                 //echo "<pre", var_dump($request->req),die;
-                if (!is_array($val)){
-                    $key_parts = explode('_', $key);
+                $key_parts = explode('_', $key);
+                if (!is_array($val)){                    
                     if ($key_parts[0] == 'File' || $key_parts[0] == 'Image') {
                 
                         $field_id = $key_parts[1];
@@ -680,6 +688,11 @@ class RM_Front_Form_Service extends RM_Services {
                         $email_content = str_replace('{{' . $key . '}}', $values, $email_content);
                     
                     }
+                    elseif ($key_parts[0] == 'Radio' || $key_parts[0] == 'Select') {   
+                       $values = '';
+                       $values =  RM_Utilities::get_lable_for_option($key_parts[1], $val);
+                       $email_content = str_replace('{{' . $key . '}}', $values, $email_content);
+                    }
                     else
                         $email_content = str_replace('{{' . $key . '}}', $val, $email_content);                   
                 }
@@ -690,6 +703,9 @@ class RM_Front_Form_Service extends RM_Services {
                                     if (empty($value))
                                         unset($val[$in]);
                                 }
+                    }
+                    elseif ($key_parts[0] == 'Checkbox') {   
+                         $val = RM_Utilities::get_lable_for_option($key_parts[1], $val);
                     }
                     $email_content = str_replace('{{' . $key . '}}', implode(',', $val), $email_content);
                 }

@@ -144,7 +144,7 @@ class RM_Field_Factory {
     }
     
     public function create_terms_field(){
-        $this->opts['cb_label'] = isset($field_options->tnc_cb_label)?$field_options->tnc_cb_label:null;
+        $this->opts['cb_label'] = isset($this->field_options->tnc_cb_label)?$this->field_options->tnc_cb_label:null;
         return new RM_Frontend_Field_Terms($this->db_field->field_id, $this->db_field->field_label, $this->opts, $this->db_field->field_value, $this->db_field->page_no, $this->db_field->is_field_primary, $this->x_opts);
     }
     

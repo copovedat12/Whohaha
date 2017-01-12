@@ -15,10 +15,10 @@ class RM_Frontend_Field_Select extends RM_Frontend_Field_Multivalue
        
         if(isset($options['value']))
         {
-        if(!is_array($options['value']))
-            $options['value'] = RM_Utilities::trim_array(explode(',', $options['value']));
-        else
-            $options['value'] = $options['value'];
+            if(!is_array($options['value']))
+                $options['value'] = RM_Utilities::trim_array(explode(',', $options['value']));
+            else
+                $options['value'] = $options['value'];
         }
         parent::__construct($id, 'Select', $label, $options, $value, $page_no, $is_primary, $extra_opts);
         
@@ -26,15 +26,8 @@ class RM_Frontend_Field_Select extends RM_Frontend_Field_Multivalue
             $multiple=$options['multiple'];
         else
             $multiple='';    
-        $options = array();
         
-        if(!is_array($value))
-            $tmp_options = RM_Utilities::trim_array(explode(',', $value));
-        else
-            $tmp_options = $value;
-        
-        foreach ($tmp_options as $val)
-            $options[$val] = trim($val);
+        $options = RM_Utilities::process_field_options($value);
         
         if($multiple=='multiple')
               $options = array(null => RM_UI_Strings::get('SELECT_FIELD_MULTI_OPTION')) + $options;

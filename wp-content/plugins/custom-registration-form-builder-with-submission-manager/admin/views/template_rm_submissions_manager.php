@@ -178,8 +178,12 @@
                                                 if ($key == $field_names[$i])
                                                 {
                                                     
-                                                    $value = $sub_data->value;
                                                     $type=  isset($sub_data->type)?$sub_data->type:'';
+                                                    if($type=='Checkbox' || $type == 'Select' || $type == 'Radio')
+                                                       $value = RM_Utilities::get_lable_for_option($key, $sub_data->value);
+                                                    else
+                                                       $value = $sub_data->value;
+
                                                 }
                                         ?>
 

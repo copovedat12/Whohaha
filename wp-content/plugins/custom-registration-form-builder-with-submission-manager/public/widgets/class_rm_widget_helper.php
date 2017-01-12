@@ -59,8 +59,10 @@ class RM_Widget_Helper {
             $data->is_user = true;
             $data->user = $user;
             $data->custom_fields = $service->get_custom_fields($user_email);
+            if($data->custom_fields){
             foreach($data->custom_fields as $id => $f)
                 if($f->type == 'Rating')unset($data->custom_fields[$id]);
+            }
             include_once 'html/account.php';
         }
     }

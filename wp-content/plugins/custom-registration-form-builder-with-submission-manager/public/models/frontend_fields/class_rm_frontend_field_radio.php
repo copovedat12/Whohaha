@@ -11,5 +11,6 @@ class RM_Frontend_Field_Radio extends RM_Frontend_Field_Multivalue
     public function __construct($id, $label, $options, $value, $page_no = 1, $is_primary = false, $extra_opts = null)
     {
         parent::__construct($id, 'Radio', $label, $options, $value, $page_no, $is_primary, $extra_opts);  
+        $this->field_value = RM_Utilities::process_field_options($value);
     }
 }

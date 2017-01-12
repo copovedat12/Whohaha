@@ -24,8 +24,11 @@ class RM_Invitations_Service extends RM_Services
   
   public function get_subs_to_process($form_id, $limit, $offset)
   { 
-        $res = RM_DBManager::get_generic('SUBMISSIONS', '`user_email`, `data`', "`child_id` = 0 AND `form_id` = $form_id GROUP BY `user_email` ORDER BY `submission_id` DESC LIMIT $limit OFFSET $offset");
-       
+        global $wpdb;
+        $sub_table = RM_Table_Tech::get_table_name_for('SUBMISSIONS');
+
+        $qry = "SELECT * FROM (SELECT * FROM `$sub_table` WHERE `child_id` = 0 AND `form_id` = $form_id ORDER BY `submission_id` DESC) AS subs GROUP BY subs.user_email LIMIT $limit OFFSET $offset";
+        $res = $wpdb->get_results($qry);
         if(is_array($res) && $res)
             return $res;
         else

@@ -16,7 +16,7 @@
  * Plugin Name:       RegistrationMagic
  * Plugin URI:        http://www.registrationmagic.com
  * Description:       A powerful system for customizing registration forms, setting up paid registrations, tracking submissions, managing users, assigning user roles, analyzing stats, and much more!!
- * Version:           3.6.0.2
+ * Version:           3.6.0.4
  * Tags:              registration, form, custom, analytics, simple, submissions
  * Requires at least: 3.3.0
  * Author:            CMSHelplive
@@ -78,8 +78,8 @@ if (is_plugin_active_for_network($rmgold) || is_plugin_active($rmgold) ||
 }
 */
 if(!defined('RM_PLUGIN_VERSION')) {
-define('RM_PLUGIN_VERSION', '3.6.0.2');
-define('RM_DB_VERSION', 4.5);
+define('RM_PLUGIN_VERSION', '3.6.0.4');
+define('RM_DB_VERSION', 4.6);
 define('RM_SHOW_WHATSNEW_SPLASH', false);  //Set it to 'false' to disable whatsnew screen.
 define('RM_PLUGIN_BASENAME', plugin_basename(__FILE__ ));
 //define FB SDK req flags. Flags should be combined using logical OR and should be checked using AND.
@@ -181,11 +181,7 @@ function registration_magic_register_autoload() {
             session_start();
         require_once RM_EXTERNAL_DIR . 'PFBC/Form.php';
         require_once RM_EXTERNAL_DIR . 'mailchimp/class_rm_mailchimp.php';
-        //require_once plugin_dir_path(__FILE__) . 'external/Facebook/autoload.php';
         require_once RM_EXTERNAL_DIR . 'cron/cron_helper.php';
-        //require_once ABSPATH . 'wp-includes/pluggable.php';
-        //require_once ABSPATH . 'wp-admin/includes/user.php';
-
         //check for FB SDK v5 requirements and setup the global var accordingly.
         global $rm_fb_sdk_req;
         global $rm_env_requirements;
