@@ -458,9 +458,9 @@ function socialShare(url, width, height) {
 	var woo = $(document);
 	var input = $(woo).find('.quantity input');
 
-    // $(woo).find('.quantity');
-        // .prepend('<span class="input-num input-number-decrement">-</span>')
-        // .append('<span class="input-num input-number-increment">+</span>');
+	// $(woo).find('.quantity');
+		// .prepend('<span class="input-num input-number-decrement">-</span>')
+		// .append('<span class="input-num input-number-increment">+</span>');
 
 	var val = input.val();
 	var inputMin = input.attr('min');
@@ -494,28 +494,28 @@ function socialShare(url, width, height) {
 })(jQuery);
 
 (function($){
-    var main_img_link = $('a.woocommerce-main-image');
-    var main_img = $(main_img_link).find('img');
+	var main_img_link = $('a.woocommerce-main-image');
+	var main_img = $(main_img_link).find('img');
 
-    $('.images .thumbnails > a').on('click', function(e){
-        e.preventDefault();
-        var selected = $(this);
-        var selectedImg = $(selected).find('img');
+	$('.images .thumbnails > a').on('click', function(e){
+		e.preventDefault();
+		var selected = $(this);
+		var selectedImg = $(selected).find('img');
 
-        var newLink = $(selected).attr('href');
-        var newSrc = $(selectedImg).attr('src');
-        var newSrcset = $(selectedImg).attr('srcset');
+		var newLink = $(selected).attr('href');
+		var newSrc = $(selectedImg).attr('src');
+		var newSrcset = $(selectedImg).attr('srcset');
 
-        $(main_img_link).attr('href', newLink);
-        $(main_img).attr('src', newSrc).attr('srcset', newSrcset);
-    });
+		$(main_img_link).attr('href', newLink);
+		$(main_img).attr('src', newSrc).attr('srcset', newSrcset);
+	});
 })(jQuery);
 
 (function($){
 	lightbox.option({
-      'resizeDuration': 300,
+	  'resizeDuration': 300,
 			'disableScrolling' : true
-    });
+	});
 })(jQuery);
 
 (function($){
@@ -547,4 +547,104 @@ function socialShare(url, width, height) {
 	floatLabel(".floatlabel");
 
 	jQuery('.entry-form-container select.form-control').select2();
+})(jQuery);
+
+(function($){
+	$('.whh-playlists article').popover({
+		html: true,
+		// trigger: 'click',
+		trigger : 'manual',
+		container : '.whh-playlists',
+		placement : 'auto right',
+		title : $(this).siblings('.plist-popover-title').text(),
+		content : function() {
+			return $(this).siblings('.plist-popover-content').html();
+		}
+	})
+	.on("mouseenter", function () {
+		if (window.innerWidth > 700) {
+			var _this = this;
+			$(this).popover("show").addClass('active');
+			$(".popover").on("mouseleave", function () {
+				setTimeout(function(){
+					if (!$(_this).is(':hover')) {
+						$(_this).popover("hide").removeClass('active');
+					}
+				}, 100);
+			});
+		}
+	}).on("mouseleave", function () {
+		var _this = this;
+		setTimeout(function () {
+			if (!$(".popover:hover").length) {
+				$(_this).popover("hide").removeClass('active');
+			}
+		}, 100);
+	});
+
+
+	$('.playlist-carousel').slick({
+		dots: false,
+		infinite: false,
+		arrows: true,
+		speed: 300,
+		autoplay: false,
+		autoplaySpeed: 3000,
+		slidesToShow: 3,
+		slidesToScroll: 3,
+		// lazyLoad: 'ondemand',
+		draggable: false,
+		responsive: [
+			{
+				breakpoint: 991,
+				settings: {
+				  slidesToShow: 2,
+				  slidesToScroll: 2
+				}
+			},
+			{
+				breakpoint: 700,
+				settings: {
+				  slidesToShow: 1,
+				  slidesToScroll: 1
+				}
+			}
+		]
+	});
+	$('.single-playlist-carousel').slick({
+		dots: false,
+		infinite: false,
+		arrows: true,
+		speed: 300,
+		autoplay: false,
+		autoplaySpeed: 3000,
+		slidesToShow: 4,
+		slidesToScroll: 4,
+		// lazyLoad: 'ondemand',
+		draggable: false,
+		swipe: false,
+		responsive: [
+			{
+				breakpoint: 991,
+				settings: {
+				  slidesToShow: 3,
+				  slidesToScroll: 3
+				}
+			},
+			{
+				breakpoint: 700,
+				settings: {
+				  slidesToShow: 2,
+				  slidesToScroll: 2
+				}
+			},
+			{
+				breakpoint: 500,
+				settings: {
+				  slidesToShow: 1,
+				  slidesToScroll: 1
+				}
+			}
+		]
+	});
 })(jQuery);

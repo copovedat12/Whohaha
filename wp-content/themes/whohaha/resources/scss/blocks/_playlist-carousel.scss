@@ -1,0 +1,135 @@
+.whh-playlists{
+	margin-bottom: 40px;
+	* {
+		outline: none;
+	}
+	article{
+		display: none;
+		margin-bottom: 0;
+		overflow: hidden;
+		position: relative;
+		.hover-border{
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0;
+			box-shadow: inset 0 0 0 5px $pink;
+			z-index: 20;
+		}
+		&:hover,
+		&.active{
+			.hover-border{
+				opacity: 1;
+			}
+		}
+		img{
+			height: auto;
+		}
+		.hover-border{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.slick-initialized article{
+		display: block;
+	}
+	.plist-popover-title,
+	.plist-popover-content{
+		display: none;
+	}
+	.featured-video,
+	.playlist-video{
+		position: relative;
+		display: block;
+		span.title{
+			position: absolute;
+			z-index: 15;
+			bottom: 5px;
+			left: 10px;
+			right: 10px;
+			font-size: 14px;
+			overflow: hidden;
+			white-space: nowrap; 
+			-o-text-overflow: ellipsis;
+			text-overflow: ellipsis;
+			color: $white;
+		}
+		&::after{
+			position: absolute;
+			z-index: 10;
+			content: "";
+			display: block;
+			width: 100%;
+			height: 45%;
+			bottom: 0;
+			left: 0;
+			background: -webkit-linear-gradient(transparent, rgba(0,0,0,0.5)); /* For Safari 5.1 to 6.0 */
+		    background: -o-linear-gradient(transparent, rgba(0,0,0,0.5)); /* For Opera 11.1 to 12.0 */
+		    background: -moz-linear-gradient(transparent, rgba(0,0,0,0.5)); /* For Firefox 3.6 to 15 */
+		    background: linear-gradient(transparent, rgba(0,0,0,0.5)); /* Standard syntax */
+		}
+	}
+	.popover{
+		max-width: 300px;
+		width: 100%;
+		.popover-title{
+			background-color: $black;
+			color: $white;
+			font-weight: 600;
+			font-size: 16px;
+			line-height: 1.4;
+			font-style: italic;
+		}
+		.episodes{
+			font-weight: 900;
+			margin-bottom: 10px;
+		}
+		hr{
+			margin: 15px 0;
+			background: $pink;
+			border: 0;
+		}
+		img{
+			height: auto;
+		}
+		.btn{
+			font-size: 12px;
+			margin-top: 10px;
+		}
+		a:hover,
+		a:focus{
+			outline: none;
+		}
+		@media (max-width: $screen-sm-max) {
+			max-width: 250px;
+		}
+	}
+
+	article.active .playlist-video::after,
+	article:hover .playlist-video::after{
+		position: absolute;
+		z-index: 10;
+		content: "";
+		display: block;
+		width: 100%;
+		height: 100%;
+		bottom: 0;
+		left: 0;
+		background: -webkit-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)); /* For Safari 5.1 to 6.0 */
+	    background: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)); /* For Opera 11.1 to 12.0 */
+	    background: -moz-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)); /* For Firefox 3.6 to 15 */
+	    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)); /* Standard syntax */
+	}
+	.play-btn{
+		z-index: 15;
+		margin-left: -25px;
+	    margin-top: -25px;
+		svg{
+			width: 50px;
+			height: 50px;
+		}
+	}
+}

@@ -33,7 +33,7 @@ get_header(); ?>
 								<p class="social-links">
 									<?php 
 									if(get_usermeta(get_the_author_id(),'user_url')): ?>
-									<a class="socicon" href="<?php the_author_meta( 'user_url'); ?>" target="_blank"><i class="fi-web"></i></a>
+									<a class="socicon" href="<?php the_author_meta( 'user_url'); ?>" target="_blank"><i class="fa fa-globe" aria-hidden="true"></i></a>
 									<?php endif;
 									if(get_field('user_fb', 'user_'.get_the_author_id())): ?>
 									<a class="socicon" href="<?php the_field('user_fb', 'user_'.get_the_author_id()); ?>" target="_blank">b</a>

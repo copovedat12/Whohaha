@@ -18,19 +18,29 @@ get_header(); ?>
 	<?php get_template_part('template-parts/home', 'banner'); ?>
 	</section>
 
-	<div id="primary" class="content-area container">
+	<div id="primary" class="content-area homepage container-fluid">
 		<main id="main" class="site-main" role="main">
 
 			<?php get_template_part('template-parts/funny-ladies'); ?>
 
-			<?php if ( have_posts() ) : ?>
-			<section class="homepage-posts">
+			<?php get_template_part('template-parts/whohaha-series'); ?>
 
-				<?php get_template_part('template-parts/home', 'recent-posts'); ?>
+			<?php get_template_part('template-parts/loop-breaks/break-part', '0'); ?>
+
+			<section class="homepage-posts">
+				<header class="top-header home-author-header">
+					<span>WHOHAHA TV</span>
+				</header>
+
+				<?php if(have_posts()): ?>
+					<div id="homeposts">
+						<?php get_template_part( 'template-parts/infinite-loop', 'home' ); ?>
+					</div>
+				<?php endif; ?>
+
+				<?php the_posts_navigation(); ?>
+
 			</section>
-			<?php else : ?>
-				<?php get_template_part( 'template-parts/content', 'none' ); ?>
-			<?php endif; ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
