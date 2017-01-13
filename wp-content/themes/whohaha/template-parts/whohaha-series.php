@@ -27,7 +27,7 @@
 				$video_id = array_pop(explode('/', $video_url));
 				?>
 				<div class="item col-md-4 col-sm-6">
-					<article title="<?php echo $playlist->name; ?>">
+					<article class="has-tooltip" title="<?php echo $playlist->name; ?>">
 						<div>
 							<?php
 							$playlist_feat_img = get_field('featured_image', $playlist);
@@ -101,8 +101,9 @@
 						<?php get_template_part('template-parts/play-button'); ?>
 					</adiv>
 					<a href="/playlist/<?php echo $plist->slug; ?>#<?php echo $video_id; ?>" class="hover-border"></a>
-				</article> 
-				<span class="plist-popover-title">
+				</article>
+				<?php /* ?>
+				<!-- <span class="plist-popover-title">
 					<?php echo get_the_title(); ?>
 				</span>
 				<span class="plist-popover-content">
@@ -111,7 +112,8 @@
 					</div>
 					
 					<a href="/playlist/<?php echo $plist->slug; ?>#<?php echo $video_id; ?>" class="btn btn-primary btn-block">Watch Now</a>
-				</span>
+				</span> -->
+				<?php */ ?>
 			</div>
 			<?php
 		endwhile;

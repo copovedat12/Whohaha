@@ -109,7 +109,6 @@ function whohaha_scripts() {
 
 	wp_enqueue_script( 'select2', '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js', array('jquery'), '4.0.3', true);
 
-	// wp_enqueue_script( 'slick-js', get_template_directory_uri() . '/js/slick.js', array('jquery'), '1.2.43', true );
 	wp_enqueue_script( 'slick-js', '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js', array('jquery'), '1.6.0', true );
 
 	wp_enqueue_script( 'jquery-ias', get_template_directory_uri() . '/js/jquery-ias.min.js', array('jquery'), '', true );
@@ -122,17 +121,12 @@ function whohaha_scripts() {
 
 	wp_enqueue_script( 'fittext', '//cdnjs.cloudflare.com/ajax/libs/FitText.js/1.2.0/jquery.fittext.min.js', array('jquery'), '1.2.0', true );
 
-	// wp_enqueue_script( 'whohaha-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
-	// wp_enqueue_script( 'whohaha-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
-
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
 	wp_enqueue_script( 'dev-scripts', get_template_directory_uri() . '/resources/js/script.js', array('bootstrap-js'), '1.0.3', true );
 	wp_enqueue_script( 'nav-tags', get_template_directory_uri() . '/resources/js/nav-tags.js', array('jquery'), '1.0.2', true );
-
 	wp_enqueue_script( 'friend-finder', get_template_directory_uri() . '/resources/js/friend-finder.js', array('jquery'), '1.0.0', true );
 
 	/*

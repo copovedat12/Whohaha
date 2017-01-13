@@ -556,7 +556,7 @@ function socialShare(url, width, height) {
 })(jQuery);
 
 (function($){
-	$('.whh-playlists article').popover({
+	$('.whh-playlists article.has-tooltip').popover({
 		html: true,
 		// trigger: 'click',
 		trigger : 'manual',
@@ -587,7 +587,6 @@ function socialShare(url, width, height) {
 			}
 		}, 100);
 	});
-
 
 	$('.playlist-carousel').slick({
 		dots: false,
