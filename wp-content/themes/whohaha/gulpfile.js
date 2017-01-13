@@ -3,6 +3,7 @@ var gulp = require('gulp'),
   notify = require('gulp-notify'),
   babel = require('gulp-babel'),
   concat = require('gulp-concat'),
+  uglify = require('gulp-uglify'),
   sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('styles', function(){
@@ -26,6 +27,7 @@ gulp.task('scripts', function(){
     //   presets : ['es2015']
     // }))
     .pipe(concat('scripts.js'))
+    .pipe(uglify())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./js'))
     .pipe(notify('Scripts created'));
