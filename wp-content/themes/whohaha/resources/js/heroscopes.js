@@ -1,8 +1,27 @@
 var heroscope = (function($){
-	var player;
+	var availSigns = [
+		'aries',
+		'libra',
+		'taurus',
+		'scorpio',
+		'gemini',
+		'sagittarius',
+		'cancer',
+		'capricorn',
+		'leo',
+		'aquarius',
+		'virgo',
+		'pisces',
+	];
+	var currHash = (window.location.hash.length > 0) ? window.location.hash.replace('#','') : null;
+	var player,
+		videoId,
+		currentSign = (currHash !== null && availSigns.indexOf(currHash) > 0) ? currHash : 'aries';
+
+	videoId = $('.v-player-list .horoscope-sign[data-sign="'+currentSign+'"]').data('videoid');
 
 	player = DM.player(document.getElementById("player"), {
-		video: 'k6XpSTZaUex5Eulo6Ur',
+		video: videoId,
 		width: "100%",
 		height: "100%",
 		params: {
@@ -22,6 +41,8 @@ var heroscope = (function($){
 	$('.v-player-list .horoscope-sign').on('click', function(event){
 		event.preventDefault();
 		var playerId = $(this).data('videoid');
+
+		window.location.hash = $(this).data('sign');
 
 		player.load(playerId, {
 			autoplay : true

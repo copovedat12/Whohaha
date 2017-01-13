@@ -38,18 +38,18 @@ get_header(); ?>
 						</div>
 						<div class="col-md-4 custom-scrollbar">
 							<div class="v-player-list">
-								<a href="//www.dailymotion.com/embed/video/k6XpSTZaUex5Eulo6Ur" class="horoscope-sign aries" data-videoid="k6XpSTZaUex5Eulo6Ur"></a>
-								<a href="//www.dailymotion.com/embed/video/k59A2SDdH8o5nSlniJN" class="horoscope-sign libra" data-videoid="k59A2SDdH8o5nSlniJN"></a>
-								<a href="//www.dailymotion.com/embed/video/k3qfKM2AzYqr8Dlo00A" class="horoscope-sign taurus" data-videoid="k3qfKM2AzYqr8Dlo00A"></a>
-								<a href="//www.dailymotion.com/embed/video/k5sqbg8Spt7urglnY18" class="horoscope-sign scorpio" data-videoid="k5sqbg8Spt7urglnY18"></a>
-								<a href="//www.dailymotion.com/embed/video/k2DvJTQd5ISQwclni9f" class="horoscope-sign gemini" data-videoid="k2DvJTQd5ISQwclni9f"></a>
-								<a href="//www.dailymotion.com/embed/video/kmg9Bx8lK7HmsDlnYD6" class="horoscope-sign sagittarius" data-videoid="kmg9Bx8lK7HmsDlnYD6"></a>
-								<a href="//www.dailymotion.com/embed/video/k3ZLtKAyOiqE9vlnZHB" class="horoscope-sign cancer" data-videoid="k3ZLtKAyOiqE9vlnZHB"></a>
-								<a href="//www.dailymotion.com/embed/video/k511HvrwYcr8eslnhyc" class="horoscope-sign capricorn" data-videoid="k511HvrwYcr8eslnhyc"></a>
-								<a href="//www.dailymotion.com/embed/video/k174teFNc2A19llniwP" class="horoscope-sign leo" data-videoid="k174teFNc2A19llniwP"></a>
-								<a href="//www.dailymotion.com/embed/video/kkUPs1XmIZJiZ2lo0qS" class="horoscope-sign aquarius" data-videoid="kkUPs1XmIZJiZ2lo0qS"></a>
-								<a href="//www.dailymotion.com/embed/video/k6sbObdoGKgBWBlnZcw" class="horoscope-sign virgo" data-videoid="k6sbObdoGKgBWBlnZcw"></a>
-								<a href="//www.dailymotion.com/embed/video/k1B81R9b8MqFCglnj4G" class="horoscope-sign pisces" data-videoid="k1B81R9b8MqFCglnj4G"></a>
+								<a href="//www.dailymotion.com/embed/video/k6XpSTZaUex5Eulo6Ur" class="horoscope-sign aries" data-videoid="k6XpSTZaUex5Eulo6Ur" data-sign="aries"></a>
+								<a href="//www.dailymotion.com/embed/video/k59A2SDdH8o5nSlniJN" class="horoscope-sign libra" data-videoid="k59A2SDdH8o5nSlniJN" data-sign="libra"></a>
+								<a href="//www.dailymotion.com/embed/video/k3qfKM2AzYqr8Dlo00A" class="horoscope-sign taurus" data-videoid="k3qfKM2AzYqr8Dlo00A" data-sign="taurus"></a>
+								<a href="//www.dailymotion.com/embed/video/k5sqbg8Spt7urglnY18" class="horoscope-sign scorpio" data-videoid="k5sqbg8Spt7urglnY18" data-sign="scorpio"></a>
+								<a href="//www.dailymotion.com/embed/video/k2DvJTQd5ISQwclni9f" class="horoscope-sign gemini" data-videoid="k2DvJTQd5ISQwclni9f" data-sign="gemini"></a>
+								<a href="//www.dailymotion.com/embed/video/kmg9Bx8lK7HmsDlnYD6" class="horoscope-sign sagittarius" data-videoid="kmg9Bx8lK7HmsDlnYD6" data-sign="sagittarius"></a>
+								<a href="//www.dailymotion.com/embed/video/k3ZLtKAyOiqE9vlnZHB" class="horoscope-sign cancer" data-videoid="k3ZLtKAyOiqE9vlnZHB" data-sign="cancer"></a>
+								<a href="//www.dailymotion.com/embed/video/k511HvrwYcr8eslnhyc" class="horoscope-sign capricorn" data-videoid="k511HvrwYcr8eslnhyc" data-sign="capricorn"></a>
+								<a href="//www.dailymotion.com/embed/video/k174teFNc2A19llniwP" class="horoscope-sign leo" data-videoid="k174teFNc2A19llniwP" data-sign="leo"></a>
+								<a href="//www.dailymotion.com/embed/video/kkUPs1XmIZJiZ2lo0qS" class="horoscope-sign aquarius" data-videoid="kkUPs1XmIZJiZ2lo0qS" data-sign="aquarius"></a>
+								<a href="//www.dailymotion.com/embed/video/k6sbObdoGKgBWBlnZcw" class="horoscope-sign virgo" data-videoid="k6sbObdoGKgBWBlnZcw" data-sign="virgo"></a>
+								<a href="//www.dailymotion.com/embed/video/k1B81R9b8MqFCglnj4G" class="horoscope-sign pisces" data-videoid="k1B81R9b8MqFCglnj4G" data-sign="pisces"></a>
 							</div>
 						</div>
 						<div class="result"></div>
