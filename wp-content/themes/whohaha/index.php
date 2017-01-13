@@ -23,7 +23,15 @@ get_header(); ?>
 
 			<?php get_template_part('template-parts/funny-ladies'); ?>
 
-			<?php get_template_part('template-parts/whohaha-series'); ?>
+			<section class="whh-playlists">
+				<header class="top-header home-author-header">
+					<span>WHOHAHA ORIGINAL SERIES</span>
+				</header>
+				<?php
+				whh_render_all_series();
+				whh_render_single_series();
+				?>
+			</section>
 
 			<?php get_template_part('template-parts/loop-breaks/break-part', '0'); ?>
 

@@ -127,5 +127,3 @@
 	<?php endif; ?>
 
 </div> <!-- .row.sticky-container -->
-
-<?php get_template_part( 'template-parts/content', 'single-footer' ); ?>

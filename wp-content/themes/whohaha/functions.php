@@ -105,7 +105,7 @@ function whohaha_scripts() {
 
 	wp_enqueue_script( 'lodash', '//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.2/lodash.min.js', null, '4.17.12', true );
 
-	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/bootstrap/assets/javascripts/bootstrap.min.js', array('jquery'), '', true );
+	wp_enqueue_script( 'bootstrap-js', '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), '3.3.7', true );
 
 	wp_enqueue_script( 'select2', '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js', array('jquery'), '4.0.3', true);
 
@@ -127,7 +127,7 @@ function whohaha_scripts() {
 
 	// Remove this after 01.13.17
 	// it's being loaded into the dev-styles
-	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/resources/css/vendor/bootstrap.css');
+	wp_enqueue_style( 'bootstrap', '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css');
 
 	wp_enqueue_style( 'select2', '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css' );
 
@@ -316,3 +316,8 @@ require get_template_directory() . '/inc/woocommerce.php';
  * Make images for WHH FB Quizzes
  */
 require get_template_directory() . '/inc/quiz-image.php';
+
+/**
+ * Render WhoHaha Playlist carousels
+ */
+require get_template_directory() . '/inc/whh-playlists.php';

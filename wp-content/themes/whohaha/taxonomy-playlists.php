@@ -83,9 +83,27 @@ get_header(); ?>
 
 		<?php endif; ?>
 
-		<?php
-			get_template_part( 'template-parts/content', 'archive-footer' );
-		?>
+		<section class="whh-playlists">
+			<header class="top-header home-author-header">
+				<span>WhoHaha &amp; Chill</span>
+			</header>
+			<?php
+			whh_render_all_series( array(get_queried_object()->term_id) );
+			whh_render_single_series(
+				array(
+					'limit' => 1,
+					'shuffle' => true,
+					'exclude' => array(get_queried_object()->term_id)
+				)
+			);
+			?>
+		</section>
+
+		<div class="row">
+			<div class="col-md-12">
+				<?php get_template_part('template-parts/funny-ladies'); ?>
+			</div>
+		</div>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

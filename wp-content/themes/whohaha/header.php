@@ -89,6 +89,16 @@
   ga('create', 'UA-13198218-54', 'auto');
   ga('send', 'pageview');
 </script>
+<?php else: ?>
+<script>
+	// Don't let the lack fo GA stop other scripts from running
+	var ga = function(){
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
+		console.log(args)
+	};
+</script>
 <?php endif; ?>
 
 <link href='https://fonts.googleapis.com/css?family=Oswald:300|Lato:900,400,400italic,300|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>

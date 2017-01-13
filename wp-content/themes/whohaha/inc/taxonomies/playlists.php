@@ -15,7 +15,7 @@ function video_playlist_init() {
 				'new_item_name'     => __( 'New Playlist Name'),
 				'menu_name'         => __( 'Playlists'),
 			),
-			'rewrite' => array( 'slug' => 'playlist' ),
+			'rewrite' => array( 'slug' => 'series' ),
 			'show_ui' => true,
 			'show_admin_column' => true,
 			'show_in_menu' => true,
