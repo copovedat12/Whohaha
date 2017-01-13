@@ -22,13 +22,14 @@
 		background: url(../resources/images/heroscope/logo-stars.png) no-repeat;
 		background-position: right 25%;
 	    background-size: 85% auto;
+	    margin-bottom: 0;
 		img{
 			display: block;
 			margin: auto;
 			width: 47%;
 			&.poweredby{
 				width: 10%;
-				margin: 10px 26.5% 0 auto;
+				margin: 0 26.5% 0 auto;
 			}
 		}
 		@media (max-width: $screen-sm-max) {
