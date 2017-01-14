@@ -130,8 +130,8 @@ get_header(); ?>
 		});
 	</script>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main container category" role="main">
+	<div id="primary" class="content-area container">
+		<main id="main" class="site-main category" role="main">
 
 		<?php
 			get_template_part( 'template-parts/content', 'archive-footer' );
