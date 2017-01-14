@@ -10,7 +10,7 @@
 get_header(); ?>
 
 	<section id="primary" class="content-area container">
-		<main id="main" class="site-main category" role="main">
+		<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -18,7 +18,7 @@ get_header(); ?>
 				<span>Results for <?php echo get_search_query(); ?></span>
 			</header>
 
-			<div id="archiveposts">
+			<section class="posts-grid" id="archiveposts">
 				<div class="row loop-post">
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php if (is_search() && ($post->post_type=='page')) continue; ?>
@@ -35,7 +35,7 @@ get_header(); ?>
 
 				<?php endwhile; ?>
 				</div>
-			</div>
+			</section>
 
 			<?php the_posts_navigation(); ?>
 

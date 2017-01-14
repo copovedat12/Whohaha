@@ -10,7 +10,7 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area container">
-		<main id="main" class="site-main author" role="main">
+		<main id="main" class="site-main" role="main">
 
 		<section class="author-header">
 			<div class="row">
@@ -60,16 +60,13 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header top-header">
-				<!-- <h1 class="page-title"><?php //single_cat_title( '', true ); ?></h1> -->
-				<span>Videos Featuring <?php echo get_the_author(); ?></span>
-			</header><!-- .page-header -->
-
-			<?php /* Start the Loop */ ?>
-			<?php //while ( have_posts() ) : the_post(); ?>
+			<section class="posts-grid">
+				<header class="page-header top-header">
+					<!-- <h1 class="page-title"><?php //single_cat_title( '', true ); ?></h1> -->
+					<span>Videos Featuring <?php echo get_the_author(); ?></span>
+				</header><!-- .page-header -->
 
 				<?php
-
 					/*
 					 * Include the Post-Format-specific template for the content.
 					 * If you want to override this in a child theme, then include a file
@@ -78,8 +75,7 @@ get_header(); ?>
 					get_template_part( 'template-parts/content', 'archive' );
 					// get_template_part( 'template-parts/content', get_post_format() );
 				?>
-
-			<?php// endwhile; ?>
+			</section>
 
 		<?php else : ?>
 

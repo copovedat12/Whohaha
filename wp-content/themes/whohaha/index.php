@@ -35,7 +35,7 @@ get_header(); ?>
 
 			<?php get_template_part('template-parts/loop-breaks/break-part', '0'); ?>
 
-			<section class="homepage-posts">
+			<section class="homepage-posts posts-grid">
 				<header class="top-header home-author-header">
 					<span>WHOHAHA TV</span>
 				</header>

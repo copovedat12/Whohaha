@@ -1,8 +1,14 @@
-#main.tag{
+body.tag{
 	header.page-header.top-header{
 		margin: 0 0 60px;
 	}
 	.tag-posts > article.post{
 		margin-bottom: 60px;
+	}
+	aside.sidebar{
+		margin-top: 0;
+		header.top-header{
+			margin-top: 0;
+		}
 	}
 }

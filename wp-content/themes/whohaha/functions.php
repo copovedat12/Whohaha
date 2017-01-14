@@ -127,8 +127,7 @@ function whohaha_scripts() {
 
 	// Remove this after 01.13.17
 	// it's being loaded into the dev-styles
-	wp_enqueue_style( 'bootstrap', '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css');
-
+	// wp_enqueue_style( 'bootstrap', '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css');
 	wp_enqueue_style( 'select2', '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css' );
 
 	wp_enqueue_style( 'slick-styles', '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css');
@@ -139,7 +138,7 @@ function whohaha_scripts() {
 
 	wp_enqueue_style( 'lightbox-style', get_template_directory_uri() . '/resources/css/vendor/lightbox.min.css');
 
-	wp_enqueue_style( 'styles', get_template_directory_uri() . '/css/style.css');
+	wp_enqueue_style( 'styles', get_template_directory_uri() . '/css/style.css', array(), '1.0.0');
 
 	wp_enqueue_style( 'whohaha-style', get_stylesheet_uri() );
 }
