@@ -20,7 +20,7 @@ gulp.task('scripts', function(){
     './resources/js/vendor/*.js',
     './resources/js/script.js',
     './resources/js/nav-tags.js',
-    './reources/js/friend-finder.js'
+    './resources/js/friend-finder.js'
     ])
     .pipe(sourcemaps.init())
     // .pipe(babel({
