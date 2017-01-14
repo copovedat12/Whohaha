@@ -13,8 +13,8 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main container category" role="main">
+	<div id="primary" class="content-area container">
+		<main id="main" class="site-main category" role="main">
 			<header class="page-header top-header">
 				<span><?php echo get_the_title(); ?></span>
 			</header><!-- .page-header -->

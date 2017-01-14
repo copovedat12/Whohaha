@@ -9,8 +9,8 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main container category" role="main">
+	<div id="primary" class="content-area container extra-side-padd">
+		<main id="main" class="site-main category" role="main">
 
 		<?php
 		$post = get_queried_object();

@@ -9,8 +9,8 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main container author" role="main">
+	<div id="primary" class="content-area container">
+		<main id="main" class="site-main author" role="main">
 
 		<section class="author-header">
 			<div class="row">
@@ -36,19 +36,19 @@ get_header(); ?>
 									<a class="socicon" href="<?php the_author_meta( 'user_url'); ?>" target="_blank"><i class="fa fa-globe" aria-hidden="true"></i></a>
 									<?php endif;
 									if(get_field('user_fb', 'user_'.get_the_author_id())): ?>
-									<a class="socicon" href="<?php the_field('user_fb', 'user_'.get_the_author_id()); ?>" target="_blank">b</a>
+									<a class="socicon socicon-facebook" href="<?php the_field('user_fb', 'user_'.get_the_author_id()); ?>" target="_blank"></a>
 									<?php endif;
 										  if(get_field('user_tw', 'user_'.get_the_author_id())): ?>
-									<a class="socicon" href="<?php the_field('user_tw', 'user_'.get_the_author_id()); ?>" target="_blank">a</a>
+									<a class="socicon socicon-twitter" href="<?php the_field('user_tw', 'user_'.get_the_author_id()); ?>" target="_blank"></a>
 									<?php endif;
 										  if(get_field('user_ig', 'user_'.get_the_author_id())): ?>
-									<a class="socicon" href="<?php the_field('user_ig', 'user_'.get_the_author_id()); ?>" target="_blank">x</a>
+									<a class="socicon socicon-instagram" href="<?php the_field('user_ig', 'user_'.get_the_author_id()); ?>" target="_blank"></a>
 									<?php endif;
 										  if(get_field('user_yt', 'user_'.get_the_author_id())): ?>
-									<a class="socicon" href="<?php the_field('user_yt', 'user_'.get_the_author_id()); ?>" target="_blank">r</a>
+									<a class="socicon socicon-youtube" href="<?php the_field('user_yt', 'user_'.get_the_author_id()); ?>" target="_blank"></a>
 									<?php endif;
 										  if(get_field('user_pin', 'user_'.get_the_author_id())): ?>
-									<a class="socicon" href="<?php the_field('user_pin', 'user_'.get_the_author_id()); ?>" target="_blank">d</a>
+									<a class="socicon socicon-pinterest" href="<?php the_field('user_pin', 'user_'.get_the_author_id()); ?>" target="_blank"></a>
 									<?php endif; ?>
 								</p>
 							</div>

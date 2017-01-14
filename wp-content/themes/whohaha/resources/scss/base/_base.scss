@@ -12,17 +12,26 @@ body{
 	padding-top: 64px;
 }
 
-#main.container{
+#main.container,
+#primary.container{
 	padding-top: 40px;
 }
 
 #primary.content-area{
-	padding-left: 20px;
-	padding-right: 20px;
-	padding-bottom: 20px;
-	@media (max-width: $screen-sm-max) {
-		padding-left: 0;
-		padding-right: 0;
+	// padding-left: 20px;
+	// padding-right: 20px;
+	// padding-bottom: 20px;
+	// @media (max-width: $screen-sm-max) {
+	// 	padding-left: 0;
+	// 	padding-right: 0;
+	// }
+	max-width: 1390px;
+	padding-left: 65px;
+	padding-right: 65px;
+	margin: auto;
+	@media (max-width: $screen-xs-max){
+		padding-left: 50px;
+		padding-right: 50px;
 	}
 }
 
