@@ -19,19 +19,21 @@ gulp.task('scripts', function(){
   gulp.src([
     './resources/js/vendor/*.js',
     './resources/js/script.js',
+    './resources/js/whh-woocommerce.js',
     './resources/js/nav-tags.js',
     './resources/js/friend-finder.js'
     ])
     .pipe(sourcemaps.init())
-    // .pipe(babel({
-    //   presets : ['es2015']
-    // }))
+    .pipe(babel({
+      presets : ['es2015'],
+      only : 'script.js'
+    }))
     .pipe(concat('scripts.js'))
     .pipe(uglify())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./js'))
     .pipe(notify('Scripts created'));
-})
+});
 
 gulp.task('watch', function(){
   gulp.watch('./resources/scss/**/*.scss', ['styles']);

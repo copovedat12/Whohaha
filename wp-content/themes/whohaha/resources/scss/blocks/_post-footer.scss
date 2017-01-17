@@ -1,5 +1,5 @@
 footer.entry-footer{
-	overflow: hidden;
+	// overflow: hidden;
 	margin-top: 30px;
 	.people-in-video,
 	.author-of-post{
@@ -71,14 +71,10 @@ article footer.entry-footer{
 	div:focus{
 		outline: none;
 	}
-	button.slick-arrow.slick-prev{
-		left: 10px;
-	}
-	button.slick-arrow.slick-next{
-		right: 10px;
-	}
-	button+.slick-list{
-		padding: 0 40px;
+	@media (min-width: $screen-md) {
+		.in-post-carousel {
+			margin: 0 40px;
+		}
 	}
 }
 

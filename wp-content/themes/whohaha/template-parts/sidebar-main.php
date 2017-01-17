@@ -4,6 +4,7 @@
 	</header>
 	<div class="posts">
 		<?php
+		$sidebar_posts_num = 2;
 		global $do_not_duplicate;
 
 		$authors = get_coauthors();
@@ -29,7 +30,7 @@
 				'orderby' => 'rand',
 				'post_type' => 'post',
 				'post_status' => 'publish',
-				'posts_per_page' => 2,
+				'posts_per_page' => $sidebar_posts_num,
 				'post__not_in' => $do_not_duplicate,
 				'nopaging' => false
 			);
@@ -41,10 +42,10 @@
 					$sidebar_posts[] = $pfa;
 				}
 			}
-			$extra_posts = 2 - count($posts_from_auth);
+			$extra_posts = $sidebar_posts_num - count($posts_from_auth);
 		} else {
 			$has_co_authors = false;
-			$extra_posts = 2;
+			$extra_posts = $sidebar_posts_num;
 		}
 
 		if($extra_posts > 0){
@@ -67,7 +68,7 @@
 		foreach ($query_posts as $query_post):
 			$do_not_duplicate[] = $query_post->ID;
 		?>
-		    <article id="post-<?php echo $query_post->ID; ?>" class="post col-md-12 col-sm-4">
+		    <article id="post-<?php echo $query_post->ID; ?>" class="post col-md-12 col-sm-6">
 		    	<div class="background">
 			    	<div class="entry-image">
 			    		<a href="<?php echo esc_url( get_permalink($query_post->ID) ); ?>">
