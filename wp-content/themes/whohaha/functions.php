@@ -232,6 +232,17 @@ function get_ID_by_page_name($page_name) {
  */
 add_filter( 'wpcf7_load_css', '__return_false' );
 
+/**
+ * Hide password protected posts from wordpress loop
+ */
+function wpb_password_post_filter( $where = '' ) {
+    if (!is_single() && !is_admin()) {
+        $where .= " AND post_password = ''";
+    }
+    return $where;
+}
+add_filter( 'posts_where', 'wpb_password_post_filter' );
+
 /*
  * Create wp admin theme
  */
