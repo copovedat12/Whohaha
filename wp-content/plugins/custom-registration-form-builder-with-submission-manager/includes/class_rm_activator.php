@@ -32,7 +32,7 @@ class RM_Activator
     { 
         RM_Table_Tech::create_tables($network_wide);
         RM_Utilities::create_submission_page();
-        self::insert_sample_data();
+        self::first_install_proc();
         error_log(self::migrate($network_wide));
     }
 
@@ -336,7 +336,7 @@ class RM_Activator
         return 'migrate_success';
     }
     
-    public static function insert_sample_data()
+    public static function first_install_proc()
     {
         global $wpdb;
         
@@ -366,7 +366,9 @@ class RM_Activator
                 }                
             }
             
-            update_site_option('rm_option_inserted_sample_data', $inserted_sample_data);            
+            update_site_option('rm_option_inserted_sample_data', $inserted_sample_data);  
+            update_site_option('rm_option_install_date', time());
+            update_site_option('rm_option_install_type', 'basic');
         }
         else
         {

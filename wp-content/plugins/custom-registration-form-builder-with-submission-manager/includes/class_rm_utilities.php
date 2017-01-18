@@ -1101,7 +1101,7 @@ class RM_Utilities {
    {
        $rmf = new RM_Fields;
        if(!$rmf->load_from_db($field_id))
-           return null;
+           return $opt_value;
        
        //Return same value if it is not a multival field
        if(!in_array($rmf->field_type, array('Checkbox','Radio','Select')))

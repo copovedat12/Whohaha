@@ -5,7 +5,7 @@ Tags: custom registration, custom form fields, custom registration fields, multi
 
 Requires at least: 3.5
 Tested up to: 4.7
-Stable tag: 3.6.0.4
+Stable tag: 3.6.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -282,6 +282,11 @@ Please update to version 1.4.2. It fixes an old bug that always moved the form a
 14. Global Settings.
 
 == Changelog ==
+
+= 3.6.0.5 =
+* Fixed: PDF content not displaying Cyrillic characters properly. (Premium)
+* Added: Option to exclude pdf from admin email. (Premium)
+* Other bug-fixes and improvement.
 
 = 3.6.0.4 =
 * Improvement: Front-end error messages can be translated now.
@@ -725,6 +730,11 @@ Fixed: Blocks showing up on front-end with some WP themes.
 * Added Custom Fields
 
 == Upgrade Notice ==
+
+= 3.6.0.5 =
+* Fixed: PDF content not displaying Cyrillic characters properly. (Premium)
+* Added: Option to exclude pdf from admin email. (Premium)
+* Other bug-fixes and improvement.
 
 = 3.6.0.4 =
 * Improvement: Front-end error messages can be translated now.
