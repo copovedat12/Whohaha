@@ -69,8 +69,14 @@ function whh_render_all_series($exclude = null){
 }
 
 function filter_tax_terms($val){
-	return $val->count > 4;
+	// use 2 so AHA playlist can display, otherwise use 3
+	return $val->count > 2;
 }
+/**
+ * Render series carousels
+ * @param  array  $args [limit, exclude, shuffle]
+ * @return string       carousel html
+ */
 function whh_render_single_series($args = array()){
 	$limit = (!empty($args['limit'])) ? $args['limit'] : 3;
 
