@@ -122,7 +122,13 @@
 
 	<?php if (get_field('remove_sidebar') == null || get_field('remove_sidebar') == false ): ?>
 	<div class="col-md-3 sticky-sidebar">
-		<?php get_template_part( 'template-parts/sidebar', 'main' ); ?>
+		<?php
+		if ( has_tag('aha') ) {
+			get_template_part( 'template-parts/sidebar', 'aha' );
+		} else {
+			get_template_part( 'template-parts/sidebar', 'main' );
+		}
+		?>
 	</div><!-- .col-md-3 -->
 	<?php endif; ?>
 
