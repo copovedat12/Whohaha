@@ -361,12 +361,12 @@ class acf_field_file extends acf_field {
 	
 	function update_value( $value, $post_id, $field ) {
 		
+		// bail early if is empty
+		if( empty($value) ) return false;
+		
+		
 		// validate
-		if( is_numeric($value) ) { 
-
-			// do nothing 
-			
-		} elseif( is_array($value) && isset($value['ID']) ) { 
+		if( is_array($value) && isset($value['ID']) ) { 
 			
 			$value = $value['ID'];
 			
@@ -375,6 +375,14 @@ class acf_field_file extends acf_field {
 			$value = $value->ID;
 			
 		}
+		
+		
+		// bail early if not attachment ID
+		if( !$value || !is_numeric($value) ) return false;
+		
+		
+		// confirm type
+		$value = (int) $value;
 		
 		
 		// maybe connect attacment to post 

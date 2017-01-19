@@ -106,6 +106,10 @@ http://support.advancedcustomfields.com/
 
 == Changelog ==
 
+= 5.5.5 =
+* File field: Fixed bug creating draft post when saving an empty value
+* Image field: Fixed bug mentioned above
+
 = 5.5.4 =
 * File field: Added logic to 'connect' selected attachment to post (only if attachment is not 'connected')
 * File field: Removed `filesize()` call causing performance issues with externally hosted attachments

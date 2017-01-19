@@ -4951,28 +4951,36 @@ function acf_strip_protocol( $url ) {
 *  @type	function
 *  @date	11/01/2017
 *  @since	5.5.4
-*  @author	Aaron 
 *
 *  @param	$attachment_id (int)
 *  @param	$post_id (int)
-*  @return	(string) 
+*  @return	(boolean) 
 */
 
 function acf_connect_attachment_to_post( $attachment_id = 0, $post_id = 0 ) {
+	
+	// bail ealry if $attachment_id is not valid
+	if( !$attachment_id || !is_numeric($attachment_id) ) return false;
+	
+	
+	// bail ealry if $post_id is not valid
+	if( !$post_id || !is_numeric($post_id) ) return false;
+	
 	
 	// vars 
 	$post = get_post( $attachment_id );
 	
 	
-	// bail early if no post 
-	if( !$post ) return false;
-	
-	
-	// If the attachment does not have a post parent and the post ID is numeric 
-	if( $post->post_parent == 0 && is_numeric($post_id) ) { 
-
-		wp_update_post( array('ID' => $attachment_id, 'post_parent' => $post_id) );
-
+	// check if valid post
+	if( $post && $post->post_type == 'attachment' && $post->post_parent == 0 ) {
+		
+		// update
+		wp_update_post( array('ID' => $post->ID, 'post_parent' => $post_id) );
+		
+		
+		// return
+		return true;
+		
 	}
 	
 	
