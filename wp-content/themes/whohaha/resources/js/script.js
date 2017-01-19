@@ -434,15 +434,19 @@
 
 // Global function for social icons on post pages
 var socialShare = (function($){
-	var share = function(platform, width, height) {
+	var share = function(elem, platform, width, height) {
 		var winLeft = (window.innerWidth / 2) - (width / 2),
 			winTop = (window.innerHeight / 2) - (height / 2),
 			currentUrl = window.location.href,
-			$this = $(event.target),
+			$this = $(elem),
 			url;
 		switch (platform) {
 			case 'facebook':
-				url = `https://www.facebook.com/dialog/share?app_id=905558792907373&display=popup&href=${currentUrl}`;
+				url = `https://www.facebook.com/dialog/share?
+				app_id=905558792907373&
+				display=popup&
+				href=${currentUrl}&
+				redirect_uri=${currentUrl}`;
 				break;
 			case 'twitter':
 				url = `http://twitter.com/intent/tweet?status=${$this.data('pagetitle')}+${currentUrl}`;
@@ -451,7 +455,7 @@ var socialShare = (function($){
 				url = `http://pinterest.com/pin/create/bookmarklet/?media=${$this.data('thumbnail')}&url=${currentUrl}&is_video=false&description=${$this.data('pagetitle')}`;
 				break;
 		}
-		console.log(url);
+		// console.log($this);
 		window.open(url, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height='+height+',width='+width+',top='+winTop+',left='+winLeft);
 	}
 	return {share:share};
