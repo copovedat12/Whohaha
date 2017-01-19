@@ -20,7 +20,19 @@
 			</header><!-- .entry-header -->
 
 			<?php
-			if ( get_field('dailymotion_video_embed_code') ):
+			if ( has_tag('aha') ):
+			?>
+			<div class="video-embed aha-video">
+				<?php
+				if (get_field('dailymotion_video_embed_code')){
+					echo get_field('dailymotion_video_embed_code');
+				} else {
+					echo get_field('video_embed_code');
+				}
+				?>
+			</div>
+			<?php
+			elseif ( get_field('dailymotion_video_embed_code') ):
 			?>
 
 				<div class="video-embed">
