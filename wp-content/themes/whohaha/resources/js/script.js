@@ -433,11 +433,29 @@
 })(jQuery);
 
 // Global function for social icons on post pages
-function socialShare(url, width, height) {
-	var winLeft = (window.innerWidth / 2) - (width / 2);
-	var winTop = (window.innerHeight / 2) - (height / 2);
-	window.open(url, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height='+height+',width='+width+',top='+winTop+',left='+winLeft);
-}
+var socialShare = (function($){
+	var share = function(platform, width, height) {
+		var winLeft = (window.innerWidth / 2) - (width / 2),
+			winTop = (window.innerHeight / 2) - (height / 2),
+			currentUrl = window.location.href,
+			$this = $(event.target),
+			url;
+		switch (platform) {
+			case 'facebook':
+				url = `https://www.facebook.com/dialog/share?app_id=905558792907373&display=popup&href=${currentUrl}`;
+				break;
+			case 'twitter':
+				url = `http://twitter.com/intent/tweet?status=${$this.data('pagetitle')}+${currentUrl}`;
+				break;
+			case 'pinterest':
+				url = `http://pinterest.com/pin/create/bookmarklet/?media=${$this.data('thumbnail')}&url=${currentUrl}&is_video=false&description=${$this.data('pagetitle')}`;
+				break;
+		}
+		console.log(url);
+		window.open(url, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height='+height+',width='+width+',top='+winTop+',left='+winLeft);
+	}
+	return {share:share};
+})(jQuery);
 
 /*
  * Add google event when youtube subscribe iframe is clicked in interstitial ad
