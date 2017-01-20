@@ -31,8 +31,6 @@ get_header(); ?>
 					<div class="row">
 						<div class="outer-container col-md-8">
 							<div class="player-container">
-								<!-- <div id="player"></div> -->
-								<!-- <iframe id="player" style="opacity: 1;" width="853" height="480" src="//www.dailymotion.com/embed/video/x4kw90c" frameborder="0" allowfullscreen></iframe> -->
 								<?php get_heroscope_plist(); ?>
 							</div>
 						</div>
