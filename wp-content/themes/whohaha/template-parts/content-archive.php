@@ -25,7 +25,7 @@ if(have_posts() && !is_paged() ):
 					<article class="post top-two format-video">
 						<div class="entry-image">
 							<a href="<?php echo get_term_link($heroscopes); ?>">
-								<img src="<?php echo $playlist_feat_img['sizes']['home-posts-lg']; ?>" alt="<?php echo $playlist_feat_img['alt']; ?>" width="<?php echo $playlist_feat_img['sizes']['home-posts-lg-width']; ?>" height="<?php echo $playlist_feat_img['sizes']['home-posts-lg-height']; ?>">
+								<img src="http://whohaha.com/wp-content/uploads/2017/01/alw-heroscopes-630x400.jpg" alt="<?php echo $playlist_feat_img['alt']; ?>" width="<?php echo $playlist_feat_img['sizes']['home-posts-lg-width']; ?>" height="<?php echo $playlist_feat_img['sizes']['home-posts-lg-height']; ?>">
 								<?php get_template_part('template-parts/play-button'); ?>
 							</a>
 
