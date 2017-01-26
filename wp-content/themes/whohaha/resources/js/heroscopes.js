@@ -55,6 +55,8 @@ var heroscope = (function($){
 		event.preventDefault();
 		videoId = $(this).data('videoid');
 
+		$('#player').siblings('.video-overlay').remove();
+
 		// window.location.hash = $(this).data('sign');
 		history.replaceState( null, null, '/series/heroscopes/' + $(this).data('sign') + '/' );
 
