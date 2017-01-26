@@ -1,21 +1,21 @@
 <?php
 
 function filter_wpseo_title($title){
-    $check_title = check_guide_page('title');
+    $check_title = check_page_seo('title');
     if ($check_title) {
         $title = $check_title;
     }
     return $title;
 }
 function filter_wpseo_description($description){
-    $check_desc = check_guide_page('description');
+    $check_desc = check_page_seo('description');
     if ($check_desc) {
         $description = $check_desc;
     }
     return $description;
 }
 function filter_wpseo_image($image){
-    $check_img = check_guide_page('image');
+    $check_img = check_page_seo('image');
     if ($check_img) {
         $image = $check_img;
     }
@@ -23,16 +23,16 @@ function filter_wpseo_image($image){
 }
 
 function filter_wpseo_url($url){
-    $check_img = check_guide_page('url');
+    $check_img = check_page_seo('url');
     if ($check_img) {
         $url = $check_img;
     }
     return $url;
 }
 
-function check_guide_page($type){
+function check_page_seo($type){
     $object = get_queried_object();
-    if (is_tag()) {
+    if (is_tag()) { // Check guide page
         $uc_name = ucwords($object->name);
 
         if ($type === 'title') {
@@ -49,7 +49,7 @@ function check_guide_page($type){
 
             return $thumb_url[0];
         }
-    } elseif (get_post_type() === 'quizzes') {
+    } elseif (get_post_type() === 'quizzes') { // Check fb quiz page
         global $wp_query;
         if ($type === 'image'){
             if ( 
@@ -62,7 +62,7 @@ function check_guide_page($type){
         if ($type === 'url'){
             return get_site_url().'/quiz/'.$wp_query->query_vars['quizzes'].'/'.$wp_query->query_vars['page'].'/';
         }
-    } elseif (is_tax('playlists') && $object->slug === 'heroscopes' && get_query_var('heroscope')) {
+    } elseif (is_tax('playlists') && $object->slug === 'heroscopes' && get_query_var('heroscope')) { // Check heroscope page
         $post = get_posts(array(
             'posts_per_page' => 1,
             'post_type' => 'videos',
@@ -90,6 +90,9 @@ function check_guide_page($type){
                 $thumb_url = wp_get_attachment_image_src($thumb_id,'thumbnail-size', true);
 
                 return $thumb_url[0];
+            }
+            if($type === 'url') {
+                return get_term_link($object->term_id) . get_query_var('heroscope') . '/';
             }
         }
     }
