@@ -31,16 +31,16 @@ function filter_wpseo_url($url){
 }
 
 function check_guide_page($type){
+    $object = get_queried_object();
     if (is_tag()) {
-        $tag = get_queried_object();
-        $uc_name = ucwords($tag->name);
+        $uc_name = ucwords($object->name);
 
         if ($type === 'title') {
-            $uc_name = ucwords($tag->name);
+            $uc_name = ucwords($object->name);
             return $uc_name . ' Archive | WhoHaha';
         }
         if ($type === 'description') {
-            $uc_name = ucwords($tag->name);
+            $uc_name = ucwords($object->name);
             return $uc_name . ' Archives for WhoHaha.com';
         }
         if ($type === 'image') {
@@ -49,8 +49,7 @@ function check_guide_page($type){
 
             return $thumb_url[0];
         }
-    }
-    elseif (get_post_type() === 'quizzes') {
+    } elseif (get_post_type() === 'quizzes') {
         global $wp_query;
         if ($type === 'image'){
             if ( 
@@ -63,8 +62,37 @@ function check_guide_page($type){
         if ($type === 'url'){
             return get_site_url().'/quiz/'.$wp_query->query_vars['quizzes'].'/'.$wp_query->query_vars['page'].'/';
         }
+    } elseif (is_tax('playlists') && $object->slug === 'heroscopes' && get_query_var('heroscope')) {
+        $post = get_posts(array(
+            'posts_per_page' => 1,
+            'post_type' => 'videos',
+            // 'tag' => get_query_var('heroscope') . '',
+            'name' => get_query_var('heroscope') . '-heroscope-january',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'playlists',
+                    'field'    => 'slug',
+                    'terms'    => 'heroscopes',
+                ),
+            ),
+        ));
+        if ($post) {
+            $post = $post[0];
+            // print_r($post);
+            if ($type === 'title') {
+                return $post->post_title;
+            }
+            if ($type === 'description') {
+                return $post->post_excerpt;
+            }
+            if ($type === 'image') {
+                $thumb_id = get_post_thumbnail_id($post->ID);
+                $thumb_url = wp_get_attachment_image_src($thumb_id,'thumbnail-size', true);
+
+                return $thumb_url[0];
+            }
+        }
     }
-    // $wp_query->query_vars
 }
 function meta_change(){
     add_filter('wpseo_title', 'filter_wpseo_title', 10, 1);

@@ -12,7 +12,7 @@ function get_heroscope_plist(){
 }
 
 function heroscopes_page_urls(){
-  add_rewrite_tag('%heroscopes_page%', '([^&]+)');
+  add_rewrite_tag('%heroscope%', '([^&]+)');
   add_rewrite_rule(
     'series/heroscopes/([^/]*)/?',
     'index.php?playlists=heroscopes&heroscope=$matches[1]',
