@@ -1,30 +1,35 @@
 var heroscope = (function($){
-	var availSigns = [
-		'aries',
-		'libra',
-		'taurus',
-		'scorpio',
-		'gemini',
-		'sagittarius',
-		'cancer',
-		'capricorn',
-		'leo',
-		'aquarius',
-		'virgo',
-		'pisces',
-	];
+	var availSigns = {
+		'x5861cj' : 'aries',
+		'x581wjb' : 'libra',
+		'x585gvo' : 'taurus',
+		'x585az2' : 'scorpio',
+		'x581usd' : 'gemini',
+		'x585csg' : 'sagittarius',
+		'x585fyz' : 'cancer',
+		'x581t0k' : 'capricorn',
+		'x581vwz' : 'leo',
+		'x585i4y' : 'aquarius',
+		'x585ehg' : 'virgo',
+		'x581xja' : 'pisces'
+	},
+	// set default currentSign to aries
+	currentSign;
 
-	// if still using hash, convert to path
+	// if still using hash, convert to path and replace current sign
 	var currHash = (window.location.hash.length > 0) ? window.location.hash.replace('#','') : null;
-	if (currHash !== null && availSigns.indexOf(currHash) > 0) window.location.replace('/series/heroscopes/'+currHash+'/');
+	if (currHash !== null && _.has(availSigns, currHash)) {
+		currentSign = _.get(availSigns, currHash, 'aries');
+		history.replaceState( null, null, '/series/heroscopes/' + currentSign + '/' );
+	}
 
 	var pagepathArr = window.location.pathname.split('/');
 	var currPath = (pagepathArr[3].length > 0) ? pagepathArr[3] : null;
 	var player,
 		videoId,
-		currentSign = (currPath !== null && availSigns.indexOf(currPath) > 0) ? currPath : 'aries';
+		currentSign = (currPath !== null) ? currPath : 'aries';
 
-	videoId = $('.v-player-list .horoscope-sign[data-sign="'+currentSign+'"]').data('videoid');
+	videoId = $('.v-player-list .horoscope-sign[data-sign="'+currentSign+'"]').data('videourl');
 
 	player = DM.player(document.getElementById("player"), {
 		video: videoId,
@@ -53,7 +58,7 @@ var heroscope = (function($){
 
 	$('.v-player-list .horoscope-sign').on('click', function(event){
 		event.preventDefault();
-		videoId = $(this).data('videoid');
+		videoId = $(this).data('videourl');
 
 		$('#player').siblings('.video-overlay').remove();
 
