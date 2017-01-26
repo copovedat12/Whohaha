@@ -19,7 +19,19 @@
     	width: 100%;
     	height: 100%;
     }
-
+    .btn.facebook-share{
+        position: relative;
+        top: 50%;
+        @include translate(0, -50%);
+        color: $white;
+        background: #3b5999;
+        font-size: 18px;
+        &:hover,
+        &:focus{
+            background: darken(#3b5999, 10%);
+            outline: none;
+        }
+    }
     .video-overlay{
         position: absolute;
         top: 0;

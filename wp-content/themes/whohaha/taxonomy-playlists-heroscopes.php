@@ -29,7 +29,7 @@ get_header(); ?>
 				<div class="yt-section">
 					<div class="row">
 						<div class="outer-container col-md-8">
-							<div class="player-container">
+							<div class="video-embed">
 								<?php get_heroscope_plist(); ?>
 							</div>
 						</div>

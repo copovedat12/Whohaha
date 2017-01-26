@@ -43,15 +43,22 @@ var heroscope = (function($){
 		$('#player').css('opacity', 1);
 		console.log('ready');
 	});
+	player.addEventListener('end', function(){
+		var $this = $(this);
+		this.load(videoId, {
+			autoplay : false
+		});
+		$this.after('<div class="video-overlay"><button class="facebook btn btn-facebook facebook-share" onclick="javascript:socialShare.share(this, \'facebook\', 600, 600);return false;"><i class="fa fa-facebook" aria-hidden="true"></i> Share on Facebook</button></div>');
+	});
 
 	$('.v-player-list .horoscope-sign').on('click', function(event){
 		event.preventDefault();
-		var playerId = $(this).data('videoid');
+		videoId = $(this).data('videoid');
 
 		// window.location.hash = $(this).data('sign');
 		history.replaceState( null, null, '/series/heroscopes/' + $(this).data('sign') + '/' );
 
-		player.load(playerId, {
+		player.load(videoId, {
 			autoplay : true
 		});
 	});
