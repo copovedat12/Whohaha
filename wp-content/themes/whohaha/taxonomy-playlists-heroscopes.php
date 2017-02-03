@@ -56,6 +56,7 @@ get_header(); ?>
 				<div class="row">
 					<div class="col-md-8 post-content">
 						<div class="socials">
+							<h4>Share:</h4>
 							<span class="social-icon">
 								<a class="facebook" target="_blank" onclick="javascript:socialShare.share(this, 'facebook', 600, 600);return false;" href="https://www.facebook.com/sharer/sharer.php?s=100&u=<?php echo $pageUrl ?>/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 							</span>
