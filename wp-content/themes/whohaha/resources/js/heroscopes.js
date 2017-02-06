@@ -53,7 +53,7 @@ var heroscope = (function($){
 		this.load(videoId, {
 			autoplay : false
 		});
-		$this.after('<div class="video-overlay"><button class="facebook btn btn-facebook facebook-share" onclick="javascript:socialShare.share(this, \'facebook\', 600, 600);return false;"><i class="fa fa-facebook" aria-hidden="true"></i> Share on Facebook</button></div>');
+		$this.after('<div class="video-overlay"><button class="facebook btn btn-facebook facebook-share" onclick="ga(\'send\', \'event\', \'Share\', \'click\', \'Heroscope Facebook share after video\'); javascript:socialShare.share(this, \'facebook\', 600, 600);return false;"><i class="fa fa-facebook" aria-hidden="true"></i> Share on Facebook</button></div>');
 	});
 
 	$('.v-player-list .horoscope-sign').on('click', function(event){

@@ -58,13 +58,13 @@ get_header(); ?>
 						<div class="socials">
 							<h4>Share:</h4>
 							<span class="social-icon">
-								<a class="facebook" target="_blank" onclick="javascript:socialShare.share(this, 'facebook', 600, 600);return false;" href="https://www.facebook.com/sharer/sharer.php?s=100&u=<?php echo $pageUrl ?>/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+								<a class="facebook" target="_blank" onclick="ga('send', 'event', 'Share', 'click', 'Heroscope Facebook share under video'); javascript:socialShare.share(this, 'facebook', 600, 600);return false;" href="https://www.facebook.com/sharer/sharer.php?s=100&u=<?php echo $pageUrl ?>/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 							</span>
 							<span class="social-icon">
-								<a class="twitter" target="_blank" data-pagetitle="<?php echo $pageTitle ?>" onclick="javascript:socialShare.share(this, 'twitter', 550, 450);return false;" href="http://twitter.com/intent/tweet?status=<?php echo $pageTitle ?>+<?php echo $pageUrl; ?>"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+								<a class="twitter" target="_blank" data-pagetitle="<?php echo $pageTitle ?>" onclick="ga('send', 'event', 'Share', 'click', 'Heroscope Twitter share under video'); javascript:socialShare.share(this, 'twitter', 550, 450);return false;" href="http://twitter.com/intent/tweet?status=<?php echo $pageTitle ?>+<?php echo $pageUrl; ?>"><i class="fa fa-twitter" aria-hidden="true"></i></a>
 							</span>
 							<span class="social-icon">
-								<a class="pinterest" target="_blank" data-pagetitle="<?php echo $pageTitle ?>" data-thumbnail="<?php echo $pageThumb[0] ?>" onclick="javascript:socialShare.share(this, 'pinterest', 750, 600);return false;" href="http://pinterest.com/pin/create/bookmarklet/?media=<?php echo $pageThumb[0] ?>&url=<?php echo $pageUrl ?>&is_video=false&description=<?php echo $pageTitle ?>"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
+								<a class="pinterest" target="_blank" data-pagetitle="<?php echo $pageTitle ?>" data-thumbnail="<?php echo $pageThumb[0] ?>" onclick="ga('send', 'event', 'Share', 'click', 'Heroscope Pinterest share under video'); javascript:socialShare.share(this, 'pinterest', 750, 600);return false;" href="http://pinterest.com/pin/create/bookmarklet/?media=<?php echo $pageThumb[0] ?>&url=<?php echo $pageUrl ?>&is_video=false&description=<?php echo $pageTitle ?>"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
 							</span>
 						</div>
 						<?php 
