@@ -35,18 +35,18 @@ get_header(); ?>
 						</div>
 						<div class="col-md-4 custom-scrollbar">
 							<div class="v-player-list">
-								<a href="/series/heroscopes/aries/" class="horoscope-sign aries" data-videoid="k6XpSTZaUex5Eulo6Ur" data-videourl="x5861cj" data-sign="aries"></a>
-								<a href="/series/heroscopes/libra/" class="horoscope-sign libra" data-videoid="k59A2SDdH8o5nSlniJN" data-videourl="x581wjb" data-sign="libra"></a>
-								<a href="/series/heroscopes/taurus/" class="horoscope-sign taurus" data-videoid="k3qfKM2AzYqr8Dlo00A" data-videourl="x585gvo" data-sign="taurus"></a>
-								<a href="/series/heroscopes/scorpio/" class="horoscope-sign scorpio" data-videoid="k5sqbg8Spt7urglnY18" data-videourl="x585az2" data-sign="scorpio"></a>
-								<a href="/series/heroscopes/gemini/" class="horoscope-sign gemini" data-videoid="k2DvJTQd5ISQwclni9f" data-videourl="x581usd" data-sign="gemini"></a>
-								<a href="/series/heroscopes/sagittarius/" class="horoscope-sign sagittarius" data-videoid="kmg9Bx8lK7HmsDlnYD6" data-videourl="x585csg" data-sign="sagittarius"></a>
-								<a href="/series/heroscopes/cancer/" class="horoscope-sign cancer" data-videoid="k3ZLtKAyOiqE9vlnZHB" data-videourl="x585fyz" data-sign="cancer"></a>
-								<a href="/series/heroscopes/capricorn/" class="horoscope-sign capricorn" data-videoid="k511HvrwYcr8eslnhyc" data-videourl="x581t0k" data-sign="capricorn"></a>
-								<a href="/series/heroscopes/leo/" class="horoscope-sign leo" data-videoid="k174teFNc2A19llniwP" data-videourl="x581vwz" data-sign="leo"></a>
-								<a href="/series/heroscopes/aquarius/" class="horoscope-sign aquarius" data-videoid="kkUPs1XmIZJiZ2lo0qS" data-videourl="x585i4y" data-sign="aquarius"></a>
-								<a href="/series/heroscopes/virgo/" class="horoscope-sign virgo" data-videoid="k6sbObdoGKgBWBlnZcw" data-videourl="x585ehg" data-sign="virgo"></a>
-								<a href="/series/heroscopes/pisces/" class="horoscope-sign pisces" data-videoid="k1B81R9b8MqFCglnj4G" data-videourl="x581xja" data-sign="pisces"></a>
+								<a href="/series/heroscopes/aquarius/" class="horoscope-sign aquarius" data-videoid="x5at0ul" data-sign="aquarius"></a>
+								<a href="/series/heroscopes/pisces/" class="horoscope-sign pisces" data-videoid="x5at278" data-sign="pisces"></a>
+								<a href="/series/heroscopes/aries/" class="horoscope-sign aries" data-videoid="x5at18b" data-sign="aries"></a>
+								<a href="/series/heroscopes/taurus/" class="horoscope-sign taurus" data-videoid="x5at2hx" data-sign="taurus"></a>
+								<a href="/series/heroscopes/gemini/" class="horoscope-sign gemini" data-videoid="x5at1wa" data-sign="gemini"></a>
+								<a href="/series/heroscopes/cancer/" class="horoscope-sign cancer" data-videoid="x5at1ef" data-sign="cancer"></a>
+								<a href="/series/heroscopes/leo/" class="horoscope-sign leo" data-videoid="x5at20a" data-sign="leo"></a>
+								<a href="/series/heroscopes/virgo/" class="horoscope-sign virgo" data-videoid="x5at2m0" data-sign="virgo"></a>
+								<a href="/series/heroscopes/libra/" class="horoscope-sign libra" data-videoid="x5at23n" data-sign="libra"></a>
+								<a href="/series/heroscopes/scorpio/" class="horoscope-sign scorpio" data-videoid="x5at2eu" data-sign="scorpio"></a>
+								<a href="/series/heroscopes/sagittarius/" class="horoscope-sign sagittarius" data-videoid="x5at2b5" data-sign="sagittarius"></a>
+								<a href="/series/heroscopes/capricorn/" class="horoscope-sign capricorn" data-videoid="x5at1o0" data-sign="capricorn"></a>
 							</div>
 						</div>
 						<div class="result"></div>

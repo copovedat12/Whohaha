@@ -1,17 +1,17 @@
 var heroscope = (function($){
 	var availSigns = {
-		'x5861cj' : 'aries',
-		'x581wjb' : 'libra',
-		'x585gvo' : 'taurus',
-		'x585az2' : 'scorpio',
-		'x581usd' : 'gemini',
-		'x585csg' : 'sagittarius',
-		'x585fyz' : 'cancer',
-		'x581t0k' : 'capricorn',
-		'x581vwz' : 'leo',
-		'x585i4y' : 'aquarius',
-		'x585ehg' : 'virgo',
-		'x581xja' : 'pisces'
+		'x5at0ul' : 'aquarius',
+		'x5at278' : 'pisces',
+		'x5at18b' : 'aries',
+		'x5at2hx' : 'taurus',
+		'x5at1wa' : 'gemini',
+		'x5at1ef' : 'cancer',
+		'x5at20a' : 'leo',
+		'x5at2m0' : 'virgo',
+		'x5at23n' : 'libra',
+		'x5at2eu' : 'scorpio',
+		'x5at2b5' : 'sagittarius',
+		'x5at1o0' : 'capricorn',
 	},
 	// set default currentSign to aries
 	currentSign;
@@ -29,7 +29,7 @@ var heroscope = (function($){
 		videoId,
 		currentSign = (currPath !== null) ? currPath : 'aries';
 
-	videoId = $('.v-player-list .horoscope-sign[data-sign="'+currentSign+'"]').data('videourl');
+	videoId = $('.v-player-list .horoscope-sign[data-sign="'+currentSign+'"]').data('videoid');
 
 	player = DM.player(document.getElementById("player"), {
 		video: videoId,
@@ -58,7 +58,7 @@ var heroscope = (function($){
 
 	$('.v-player-list .horoscope-sign').on('click', function(event){
 		event.preventDefault();
-		videoId = $(this).data('videourl');
+		videoId = $(this).data('videoid');
 
 		$('#player').siblings('.video-overlay').remove();
 
