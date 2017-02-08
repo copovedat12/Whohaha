@@ -68,10 +68,9 @@ get_header(); ?>
 							</span>
 						</div>
 						<?php 
-						// $post = get_queried_object();
-						// print_r($post->description);
+						$post = get_queried_object();
+						print_r($post->description);
 						?>
-						Regular horoscopes are so unscientific and vague. Whether you're an Aries or a Scorpio, it seems like your weekly horoscope is always 'you will meet a stranger' or 'you have many interesting qualities'. Horoscope? More like horo-nope. But <strong>Her</strong>oscopes, now those are the real deal! WhoHaha's got you covered with a personal video for each and every sign. Let our resident psychic - played by Alex Lynn Ward - tell you what the stars really have in store for you.
 					</div>
 					<div class="col-md-4 planets">
 						<img src="<?php echo get_template_directory_uri(); ?>/resources/images/heroscope/planets.png" alt="Planets Zodiac">
