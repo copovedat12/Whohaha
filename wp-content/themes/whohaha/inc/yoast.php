@@ -67,7 +67,7 @@ function check_page_seo($type){
             'posts_per_page' => 1,
             'post_type' => 'videos',
             // 'tag' => get_query_var('heroscope') . '',
-            'name' => get_query_var('heroscope') . '-your-heroscope-for-february',
+            'name' => get_query_var('heroscope') . '-heroscope-february',
             'tax_query' => array(
                 array(
                     'taxonomy' => 'playlists',
