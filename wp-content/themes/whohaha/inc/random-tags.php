@@ -48,7 +48,7 @@ function generate_rand_tags(){
         }
         ?>
         <li class="page_item"><a href="/tv/">WhoHaha TV</a></li>
-        <li class="page_item shop"><a target="_blank" href="https://cznd.co/collections/whohaha">Shop</a></li>
+        <li class="page_item shop"><a target="_blank" href="https://shop.whohaha.com">Shop</a></li>
     </ul>
     <?php
 }
