@@ -37,47 +37,11 @@ class RM_Front_Form_Service extends RM_Services {
     }
 
     public function is_ip_banned() {
-        //return true;
-        $banned_ip_formats = $this->get_setting('banned_ip');
-        $banned = false;
-        $user_ip = $this->get_user_ip();
-
-        if (!$user_ip)
-            return true;
-        if ($user_ip == '::1')
-            return false;
-        //Prepare IP address into proper format
-        $ip_as_arr = explode('.', $user_ip);
-        if (count($ip_as_arr) !== 4)
-            return true;
-
-        $sanitized_user_ip = sprintf("%'03s.%'03s.%'03s.%'03s", $ip_as_arr[0], $ip_as_arr[1], $ip_as_arr[2], $ip_as_arr[3]);
-
-        if (is_array($banned_ip_formats))
-            foreach ($banned_ip_formats as $banned_ip_format) {
-                if (RM_Utilities::is_banned_ip($sanitized_user_ip, $banned_ip_format)) {
-                    $banned = true;
-                    break;
-                }
-            }
-
-        return $banned;
+        return false;        
     }
 
     public function is_email_banned($email) {
-        //return true;
-        $banned_email_formats = $this->get_setting('banned_email');
-        $banned = false;
-
-        if (is_array($banned_email_formats))
-            foreach ($banned_email_formats as $banned_email_format) {
-                if (RM_Utilities::is_banned_email($email, $banned_email_format)) {
-                    $banned = true;
-                    break;
-                }
-            }
-
-        return $banned;
+        return false;
     }
 
     public function create_stat_entry($params) {
@@ -620,6 +584,8 @@ class RM_Front_Form_Service extends RM_Services {
                     else
                        $email_content .= '<span class="key-val">' . $val->value . '</span><br/>';
                 }
+                
+                $email_content .= "</div>";
             }
 
             

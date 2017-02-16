@@ -229,6 +229,7 @@ class RM_Paypal_Service implements RM_Gateway_Service
             $cstm_data = $log_entry_id."|0";
         
         $this->paypal->add_field('custom', $cstm_data);
+        $this->paypal->add_field('bn', 'CMSHelp_SP');
         $this->paypal->add_field('return', $this_script . $sign . 'rm_pproc=success&rm_pproc_id='.$log_entry_id.'&rm_fid='.$form_id.'&rm_fno='.$form_no); // return URL after the transaction got over
         $this->paypal->add_field('cancel_return', $this_script . $sign . 'rm_pproc=cancel&rm_pproc_id='.$log_entry_id.'&rm_fid='.$form_id.'&rm_fno='.$form_no); // cancel URL if the trasaction was cancelled during half of the transaction
         $this->paypal->add_field('notify_url', $this_script . $sign . 'rm_pproc=ipn&rm_pproc_id='.$log_entry_id.'&rm_fid='.$form_id.'&rm_fno='.$form_no); // Notify URL which received IPN (Instant Payment Notification)

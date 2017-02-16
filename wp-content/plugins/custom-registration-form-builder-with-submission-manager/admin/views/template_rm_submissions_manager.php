@@ -191,7 +191,7 @@
                                             if (is_array($value))
                                                 $value = implode(', ', $value);
 
-                                            echo $value;
+                                            echo mb_strimwidth($value, 0, 70, "...");
                                             ?></td>
 
                                         <?php
@@ -219,7 +219,9 @@
         <?php }
         ?>
                 </table>
+                
             </form>
+    <?php include RM_ADMIN_DIR.'views/template_rm_submission_legends.php'; ?>
         </div>
         <?php
         echo $data->filter->render_pagination();

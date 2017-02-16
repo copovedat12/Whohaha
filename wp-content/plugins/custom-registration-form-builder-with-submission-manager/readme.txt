@@ -1,11 +1,11 @@
 === RegistrationMagic-Custom Registration Forms ===
 Contributors: cmshelplive, registrationmagic, registrationmagicsupport
 Donate link: http://registrationmagic.com/
-Tags: custom registration, custom form fields, custom registration fields, multiple registration forms, wordpress registration form, customize wordpress registration form, advance registration form for wordpress, registration form manager, wordpress custom fields, wordpress custom contact, form autoresponder, terms and conditions checkbox, form terms and conditions, form required fields, auto generate password, simple contact form, simple registration form, easy contact form, easy registration form, wordpress form save, save form submissions, wordpress simple registration form, wordpress simple contact form, form success message, wordpress form redirect, wordpress form success message,wordpress form manager, create wordpress forms, wordpress user registration plugin, wordpress new user registration, new user registration wordpress, registration form wordpress, wordpress user registration captcha, user registration plugin for wordpress, wordpress plugin for registration form, custom contact, custom contact form fields, custom contact fields, multiple contact forms, wordpress contact form, customize wordpress contact form, advance contact form for wordpress, contact form manager, form IP capture, form browser capture, form submit user location, default register page, mail merge, paypal, payment form, paypal payment form, registration payment, pay to register, paid registrations, form attachments, User Registration, Registration Magic, paypal registration, paypal wordpress registration, custom user roles, user role manager, create custom user roles, user manager, deactivate user, activate user, edit user, custom user fields, registration captcha, registration, register, online registration, user registration form, registration page, user registration spam, front-end registration, custom registration page, custom registration url, register form, registration form, custom registration form, user management, custom login, wp registration, class registration, custom field registration, front-end user registration, Social Login, Custom Login, Facebook Login, Front-end Login, Custom Login Widget, Twitter Login, Social Network Login, Google Login, Log In, Login Captcha, Login With Facebook, WordPress Login, Login Form, Online Registration, User Registration Spam, Autoresponder, Webform, Paypal
+Tags: custom registration, custom form fields, custom registration fields, multiple registration forms, wordpress registration form, customize wordpress registration form, advance registration form for wordpress, registration form manager, wordpress custom fields, wordpress custom contact, form autoresponder, terms and conditions checkbox, form terms and conditions, form required fields, auto generate password, simple contact form, simple registration form, easy contact form, easy registration form, wordpress form save, save form submissions, wordpress simple registration form, wordpress simple contact form, form success message, wordpress form redirect, wordpress form success message,wordpress form manager, create wordpress forms, wordpress user registration plugin, wordpress new user registration, new user registration wordpress, registration form wordpress, wordpress user registration captcha, user registration plugin for wordpress, wordpress plugin for registration form, custom contact, custom contact form fields, custom contact fields, multiple contact forms, wordpress contact form, customize wordpress contact form, advance contact form for wordpress, contact form manager, form IP capture, form browser capture, form submit user location, default register page, mail merge, paypal, payment form, paypal payment form, registration payment, pay to register, paid registrations, form attachments, User Registration, Registration Magic, paypal registration, paypal wordpress registration, custom user roles, user role manager, create custom user roles, user manager, deactivate user, activate user, edit user, custom user fields, registration captcha, registration, register, online registration, user registration form, registration page, user registration spam, front-end registration, custom registration page, custom registration url, register form, registration form, custom registration form, user management, custom login, wp registration, class registration, custom field registration, front-end user registration, Social Login, Custom Login, Facebook Login, Front-end Login, Custom Login Widget, Twitter Login, Social Network Login, Google Login, Log In, Login Captcha, Login With Facebook, WordPress Login, Login Form, Online Registration, User Registration Spam, Autoresponder, Webform, Paypal, WooCommerce Registration, WooCommerce Registration Form, WooCommerce Registration Fields, WooCommerce Registration Page
 
 Requires at least: 3.5
 Tested up to: 4.7
-Stable tag: 3.6.0.5
+Stable tag: 3.6.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -282,6 +282,33 @@ Please update to version 1.4.2. It fixes an old bug that always moved the form a
 14. Global Settings.
 
 == Changelog ==
+
+= 3.6.1.0 =
+* Transaction log display is now tabular and includes stripe log as well. (Requested by Ulf Skogeng)
+* Added "receipt_email" in stripe payments (mapped to user email). (Requested by @toonwolf)
+* Fixed: default submissions page not being created properly in multi-site env.
+* Fixed: Long email address messing up table layout (submission manager page)
+
+= 3.6.0.9 =
+* Minor Fixes
+
+= 3.6.0.8 =
+* Fixed: Text cuts-off for long entries in submission pdf (reported by: Veronica)
+* Fixed: File upload field validation issue with uppercase extensions (reported by: Peter)
+* Added: Legend on submission manager page for quick information about icons.
+* Improvement: Gender options are now translatable in Gender type field (reported by: Ulf Skogeng)
+* Improvement: long-entries are now truncated on submission manager page.
+Other minor bug-fixes and improvement.
+
+= 3.6.0.7 =
+* Added: Paypal response details now available in submission details.
+* Other bug-fixes and improvements.
+
+= 3.6.0.6 =
+* Added: Post-logout redirection feature (Global Settings >> General) - Requested by @ms416
+* Added: Product tour for form settings dashboard.
+* Expiry detail displayed above the form can now be fully translated with ordered arguments - Reported by Lolita
+* Other bug-fixes and improvements.
 
 = 3.6.0.5 =
 * Fixed: PDF content not displaying Cyrillic characters properly. (Premium)
@@ -730,6 +757,34 @@ Fixed: Blocks showing up on front-end with some WP themes.
 * Added Custom Fields
 
 == Upgrade Notice ==
+
+= 3.6.1.0 =
+* Transaction log display is now tabular and includes stripe log as well. (Requested by Ulf Skogeng)
+* Added "receipt_email" in stripe payments (mapped to user email). (Requested by @toonwolf)
+* Fixed: default submissions page not being created properly in multi-site env.
+* Fixed: Long email address messing up table layout (submission manager page)
+
+
+= 3.6.0.9 =
+* Minor Fixes
+
+= 3.6.0.8 =
+* Fixed: Text cuts-off for long entries in submission pdf (reported by: Veronica)
+* Fixed: File upload field validation issue with uppercase extensions (reported by: Peter)
+* Added: Legend on submission manager page for quick information about icons.
+* Improvement: Gender options are now translatable in Gender type field (reported by: Ulf Skogeng)
+* Improvement: long-entries are now truncated on submission manager page.
+Other minor bug-fixes and improvement.
+
+= 3.6.0.7 =
+* Added: Paypal response details now available in submission details.
+* Other bug-fixes and improvements.
+
+= 3.6.0.6 =
+* Added: Post-logout redirection feature (Global Settings >> General) - Requested by @ms416
+* Added: Product tour for form settings dashboard.
+* Expiry detail displayed above the form can now be fully translated with ordered arguments - Reported by Lolita
+* Other bug-fixes and improvements.
 
 = 3.6.0.5 =
 * Fixed: PDF content not displaying Cyrillic characters properly. (Premium)

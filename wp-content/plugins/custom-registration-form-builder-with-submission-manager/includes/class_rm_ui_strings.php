@@ -3590,10 +3590,10 @@ class RM_UI_Strings {
                 return __('Global Overrides provide an easy way for power users to override default Global Settings on individual forms. Once you have turned on the override, corresponding Global Setting values will have no effect on this form. ', 'custom-registration-form-builder-with-submission-manager');
                 
             case 'NO_EMBED_CODE':    
-                return __("Embed Code not available.", 'registrationmagic-gold');
+                return __("Embed Code not available.", 'custom-registration-form-builder-with-submission-manager');
                 
             case 'FD_BASIC_DASHBOARD':    
-                return __("<b>Standard Edition Dashboard</b>", 'registrationmagic-gold');
+                return __("<b>Standard Edition Dashboard</b>", 'custom-registration-form-builder-with-submission-manager');
                 
             case 'FD_TOGGLE_TOOLTIP':    
                 return __("To toggle this setting you need to configure it first. <a href='%s'>Click here </a>to configure now.</span>", 'custom-registration-form-builder-with-submission-manager');
@@ -3661,10 +3661,46 @@ class RM_UI_Strings {
              case 'INVALID_MAX' : 
                 return __ ('Please enter a value less than or equal to {0}.', 'custom-registration-form-builder-with-submission-manager');
                  
-             case 'INVALID_MIN' : 
-                return __ ('Please enter a value greater than or equal to {0}', 'custom-registration-form-builder-with-submission-manager');
+             case 'LABEL_AFTER_LOGOUT_URL' : 
+                return __ ('After logout redirect user to:', 'custom-registration-form-builder-with-submission-manager');
+             
+             case 'HELP_OPTIONS_POST_LOGOUT_REDIR' : 
+                return __ ('User will be redirected to this page after logging out.', 'custom-registration-form-builder-with-submission-manager');
 
-            default:
+             case 'EXPIRY_DETAIL_BOTH' : 
+                return __ ('%1$d out of %2$d filled and %3$d days to go', 'custom-registration-form-builder-with-submission-manager');
+
+             case 'EXPIRY_DETAIL_SUBS' : 
+                return __ ('%1$d out of %2$d filled', 'custom-registration-form-builder-with-submission-manager');
+                 
+             case 'EXPIRY_DETAIL_DATE' : 
+                return __ ('%d days to go', 'custom-registration-form-builder-with-submission-manager');
+
+             case 'LABEL_PAYPAL_TRANSACTION_LOG' : 
+                return __ ('Transaction log', 'custom-registration-form-builder-with-submission-manager');
+                 
+             case 'LABEL_LEGENDS' : 
+                return __ ('Legends', 'custom-registration-form-builder-with-submission-manager');
+                 
+             case 'LABEL_LEGENDS_PAYMENT_PENDING' : 
+                return __ ('Payment Pending', 'custom-registration-form-builder-with-submission-manager');
+                 
+             case 'LABEL_LEGENDS_PAYMENT_COMPLETED' : 
+                return __ ('Payment Completed', 'custom-registration-form-builder-with-submission-manager');
+                 
+             case 'LABEL_LEGENDS_USER_BLOCKED' : 
+                return __ ('User Blocked', 'custom-registration-form-builder-with-submission-manager');
+                 
+             case 'LABEL_LEGENDS_NOTES' : 
+                return __ ('Has Notes', 'custom-registration-form-builder-with-submission-manager');
+                 
+             case 'LABEL_LEGENDS_MESSAGE' : 
+                return __ ('Messaged', 'custom-registration-form-builder-with-submission-manager');
+                 
+             case 'LABEL_LEGENDS_ATTACHMENT' : 
+                return __ ('Has Attachment(s)', 'custom-registration-form-builder-with-submission-manager');
+                 
+             default:
                 return __('NO STRING FOUND', 'custom-registration-form-builder-with-submission-manager');
 
         }

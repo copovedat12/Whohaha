@@ -201,7 +201,19 @@
                 </div>
                 <div class="rm-submission-field-row">
                     <div class="rm-submission-label"><?php echo RM_UI_Strings::get('LABEL_STATUS_PAYMENT'); ?></div>
-                    <div class="rm-submission-value"><?php if (isset($data->payment->status)) echo $data->payment->status; ?></div>
+                    <div class="rm-submission-value">
+                        <?php if (isset($data->payment->status)) echo $data->payment->status; ?>
+                        <?php if (isset($data->payment->log) && $data->payment->log):?>
+                        <a href="javascript:void(0)" onclick="rm_toggle_pp_log_box()"><?php echo RM_UI_Strings::get('LABEL_PAYPAL_TRANSACTION_LOG'); ?></a>
+                        <div id="rm_sub_pp_log_detail" style="display:none;
+                                                              height: 200px;
+                                                              border: #dcdbdb 1px solid;
+                                                              overflow-y: auto;
+                                                              overflow-x: auto;">
+                            <?php echo RM_Utilities::var_to_html($data->payment->log); ?>
+                        </div>
+                        <?php endif; ?> 
+                    </div>
                 </div>
                 <div class="rm-submission-field-row">
                     <div class="rm-submission-label"><?php echo RM_UI_Strings::get('LABEL_PAID_AMOUNT'); ?></div>
@@ -252,3 +264,29 @@
     include RM_ADMIN_DIR.'views/template_rm_promo_banner_bottom.php';
     ?>
 </div>
+
+
+<pre class="rm-pre-wrapper-for-script-tags"><script type="text/javascript">
+ 
+ function rm_toggle_pp_log_box(){
+     var is_log_visible = jQuery('#rm_sub_pp_log_detail').is(":visible");
+     
+     if(is_log_visible){
+         jQuery('#rm_sub_pp_log_detail').slideUp();
+     }
+     else{
+         jQuery('#rm_sub_pp_log_detail').slideDown();
+     }
+     
+ }
+ 
+/* jQuery(document).mouseup(function (e) {debugger;
+        var container = jQuery("#rm_sub_pp_log_detail");
+        if (!container.is(e.target) // if the target of the click isn't the container... 
+                && container.has(e.target).length === 0) // ... nor a descendant of the container 
+        {
+            container.hide();
+        }
+    });
+*/
+</script></pre>

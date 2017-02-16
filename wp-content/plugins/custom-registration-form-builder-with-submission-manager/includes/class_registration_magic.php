@@ -169,7 +169,7 @@ class Registration_Magic
         //$this->loader->add_action('media_buttons', $rm_public, 'add_field_invites');
         $this->loader->add_shortcode('RM_Login', $rm_public, 'rm_login');
         $this->loader->add_shortcode('RM_Form', $rm_public, 'rm_user_form_render');
-        $this->loader->add_shortcode('RM_Users', $rm_public, 'rm_user_list');
+       // $this->loader->add_shortcode('RM_Users', $rm_public, 'rm_user_list');
         $this->loader->add_shortcode('RM_Front_Submissions', $rm_public, 'rm_front_submissions');
 //        $this->loader->add_action('widgets_init', $rm_public, 'register_otp_widget');
         $this->loader->add_action('wp_ajax_nopriv_rm_set_otp', $this->controller, 'run');
@@ -206,6 +206,7 @@ class Registration_Magic
         $this->loader->add_action('wpmu_new_blog', 'RM_Table_Tech', 'on_create_blog',10,6);
         $this->loader->add_filter('wpmu_drop_tables', 'RM_Table_Tech', 'on_delete_blog');
         $this->loader->add_filter('plugins_loaded', $this, 'run_onload_tasks');
+        $this->loader->add_filter('wp_logout', $this, 'after_logout_redirect');
 
     }
 
@@ -337,6 +338,20 @@ class Registration_Magic
         $post_id = get_option('rm_option_post_submission_redirection_url');
 
         return RM_Utilities::after_login_redirect($user);
+    }
+    
+    public function after_logout_redirect()
+    {
+        $post_id = get_option('rm_option_post_logout_redirection_page_id');
+        if($post_id)
+        {
+            $url = get_permalink($post_id);
+            if($url)
+            {
+                wp_redirect($url);
+                exit;
+            }
+        }
     }
 
     public function rm_register_redirect($registration_redirect)

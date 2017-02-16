@@ -193,7 +193,8 @@ abstract class RM_Frontend_Form_Base
                     switch ($expiry_details->criteria)
                     {
                         case 'both':
-                            $exp_str .= '<div class="rm-formcard-expired"><span class="rm_sandclock"></span>' . ($expiry_details->sub_limit - $expiry_details->remaining_subs) . ' out of ' . $expiry_details->sub_limit . ' filled and ' . $expiry_details->remaining_days . ' days to go </div>';
+                            $message = sprintf(RM_UI_Strings::get('EXPIRY_DETAIL_BOTH'), ($expiry_details->sub_limit - $expiry_details->remaining_subs), $expiry_details->sub_limit, $expiry_details->remaining_days);
+                            $exp_str .= '<div class="rm-formcard-expired"><span class="rm_sandclock"></span>' . $message . '</div>';
                             break;
                         case 'subs':
                             $total = $expiry_details->sub_limit;
@@ -201,11 +202,13 @@ abstract class RM_Frontend_Form_Base
                             $wtot = 100;
                             $rem = ($rem * 100) / $total;
                             $done = 100 - $rem;
-                            $exp_str .= '<div class="rm-formcard-expired"><span class="rm_sandclock"></span>' . ($expiry_details->sub_limit - $expiry_details->remaining_subs) . ' out of ' . $expiry_details->sub_limit . ' filled' . '</div>';
+                            $message = sprintf(RM_UI_Strings::get('EXPIRY_DETAIL_SUBS'), ($expiry_details->sub_limit - $expiry_details->remaining_subs), $expiry_details->sub_limit);
+                            $exp_str .= '<div class="rm-formcard-expired"><span class="rm_sandclock"></span>' . $message . '</div>';
                             break;
 
                         case 'date':
-                            $exp_str .= '<div class="rm-formcard-expired"><span class="rm_sandclock"></span>' . $expiry_details->remaining_days . ' days to go' . '</div>';
+                            $message = sprintf(RM_UI_Strings::get('EXPIRY_DETAIL_DATE'), $expiry_details->remaining_days);
+                            $exp_str .= '<div class="rm-formcard-expired"><span class="rm_sandclock"></span>' . $message . '</div>';
                             break;
                     }
                 }

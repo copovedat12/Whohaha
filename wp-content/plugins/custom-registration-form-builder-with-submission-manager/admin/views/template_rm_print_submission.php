@@ -19,7 +19,7 @@
             }
 
             .rmagic  a {
-                font-family: 'Roboto', 'Helvetica',sans-serif;
+/*                font-family: 'freeserif','Roboto', 'Helvetica',sans-serif;*/
                 text-transform: uppercase;
                 color: #ff6c6c;
                 text-decoration: none;
@@ -27,15 +27,15 @@
 
             .rmagic {
 
-                font-family: 'Roboto', 'helvetica',sans-serif;
+/*                font-family: 'freeserif','Roboto', 'helvetica',sans-serif;*/
                 display: block;
                 float: left;
                 width: 100%;
-                max-width: 1100px;
-                margin: 5%;
-                margin-left: 7%;
+               /* margin: 5%;
+                margin-left: 7%;*/
                 color: rgb(125,125,125);
                 font-size: 14px;
+                margin: 0px;
 
             }
 
@@ -78,7 +78,7 @@
             }
 
             .rmagic .cancel {
-                font-family: 'Roboto', 'Arial', serif;
+/*                font-family: 'freeserif','Roboto', 'Arial', serif;*/
                 display: inline-block;
                 float: left;
                 color: rgb(200,200,200);
@@ -102,8 +102,9 @@
                 background-color: #fffffe;
                 float: left;
                 width: 100%;
-                padding: 25px;
+                padding: 0px;
             }
+             .rm-submission-field-row { display: table;}
 
             .rmagic .rm-submission-label, .rm-submission-value {
                 display: inline-block;
@@ -112,7 +113,10 @@
 
             .rmagic .rm-submission-label {font-weight: bold; width: 20%; text-transform: uppercase; font-size: 12px;}
             .rmagic .rm-submission-value {width: 80%;}
-
+            
+            .rmagic .rm-submission-label,
+            .rmagic .rm-submission-value { display: table-cell;height:50px;}
+            
             .rmagic .rm-submission-field-row .rm-submission-attachment {
                 display: inline-block;
                 float: left;
@@ -180,10 +184,10 @@
             }
 
             .rmagic .rmtitle {
-                font-family: 'Titillium Web', 'Verdana', sans-serif;
+/*                font-family: 'freeserif','Titillium Web', 'Verdana', sans-serif;*/
                 display: block;
                 float: left;
-                padding-left: 20px;
+                padding: 20px;
                 width:70%;
                 font-size:24px;
                 color:#94cdc9;

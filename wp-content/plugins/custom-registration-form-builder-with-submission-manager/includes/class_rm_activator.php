@@ -31,9 +31,31 @@ class RM_Activator
     public static function activate($network_wide)
     { 
         RM_Table_Tech::create_tables($network_wide);
-        RM_Utilities::create_submission_page();
+        self::setup_submission_page($network_wide);
         self::first_install_proc();
         error_log(self::migrate($network_wide));
+    }
+    
+    //Create default submission page while taking care of multisite installation.
+    private static function setup_submission_page($network_wide)
+    {
+        global $wpdb;
+
+        if (is_multisite() && $network_wide)
+        {
+            $current_blog = $wpdb->blogid;
+            $blog_ids = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
+            foreach ($blog_ids as $blog_id)
+            {
+                switch_to_blog($blog_id);
+                RM_Utilities::create_submission_page();
+                restore_current_blog();
+            }
+            
+        } else
+        {
+            RM_Utilities::create_submission_page();
+        }        
     }
 
     public static function migrate($network_wide)
@@ -76,7 +98,7 @@ class RM_Activator
                     self::migrate_per_site_rm_4_0_to_rm_4_1();
                     restore_current_blog();
                 }
-                switch_to_blog($current_blog);
+                
             } else
             {
                 self::migrate_per_site_rm_4_0_to_rm_4_1();
@@ -99,7 +121,7 @@ class RM_Activator
                     self::migrate_per_site_rm_4_1_to_rm_4_2();
                     restore_current_blog();
                 }
-                switch_to_blog($current_blog);
+                
             } else
             {
                 self::migrate_per_site_rm_4_1_to_rm_4_2();
@@ -121,7 +143,7 @@ class RM_Activator
                 self::migrate_per_site_rm_4_2_to_rm_4_4();
                 restore_current_blog();
             }
-            switch_to_blog($current_blog);
+            
         } else
         {
             self::migrate_per_site_rm_4_2_to_rm_4_4();
@@ -142,7 +164,7 @@ class RM_Activator
                 self::migrate_per_site_rm_4_5_to_rm_4_6();
                 restore_current_blog();
             }
-            switch_to_blog($current_blog);
+            
         } else
         {
             self::migrate_per_site_rm_4_5_to_rm_4_6();
@@ -188,7 +210,7 @@ class RM_Activator
                     self::migrate_per_site_crf_to_rm_4_0();
                     restore_current_blog();
                 }
-                switch_to_blog($current_blog);
+                
             } else
             {
                 self::migrate_per_site_crf_to_rm_4_0();
@@ -375,6 +397,8 @@ class RM_Activator
             //set tours as taken.
             RM_Utilities::update_tour_state('form_manager_tour', 'taken');
             RM_Utilities::update_tour_state('form_gensett_tour', 'taken');
+            RM_Utilities::update_tour_state('form_setting_dashboard_tour', 'taken');
+            RM_Utilities::update_tour_state('submissions_tour', 'taken');
         }
                 
     }

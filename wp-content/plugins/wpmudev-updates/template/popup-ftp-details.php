@@ -17,7 +17,7 @@ $ftp_host = preg_replace(
 	parse_url( admin_url(), PHP_URL_HOST )
 );
 
-$credentials = get_option( 'ftp_credentials', array( 'hostname' => '', 'username' => '' ) );
+$credentials = get_option( 'ftp_credentials', array( 'hostname' => '', 'username' => '' ) );		      	 			 	    
 $credentials['hostname'] = defined( 'FTP_HOST' ) ? FTP_HOST : $credentials['hostname'];
 $credentials['username'] = defined( 'FTP_USER' ) ? FTP_USER : $credentials['username'];
 $hostname = isset( $credentials['hostname'] ) ? $credentials['hostname'] : '';

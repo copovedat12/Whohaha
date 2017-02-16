@@ -73,6 +73,7 @@ class RM_Table_Tech
         {
             switch_to_blog($blog_id);
             self::create_tables_per_site();
+            RM_Utilities::create_submission_page();
             restore_current_blog();
         }
     }
@@ -104,7 +105,7 @@ class RM_Table_Tech
                 self::create_tables_per_site();
                 restore_current_blog();
             }
-            switch_to_blog($current_blog);
+            
         } else
         {
             self::create_tables_per_site();

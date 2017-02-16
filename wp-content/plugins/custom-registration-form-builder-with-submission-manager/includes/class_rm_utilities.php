@@ -1130,4 +1130,28 @@ class RM_Utilities {
            return $tmp;
        }
    }
+   
+   //Print nested array like vars as html table.
+    public static function var_to_html($variable)
+    {
+        $html = "";
+
+        if (is_array($variable) || is_object($variable))
+        {
+            $html .=  "<table style='border:none; padding:3px; width:100%; margin: 0px;'>";
+            if(count($variable) === 0) $html .= "empty";
+            foreach ($variable as $k => $v) {
+                    $html .=  '<tr><td style="background-color:#F0F0F0; vertical-align:top; min-width:100px;">';
+                    $html .=  '<strong>' . $k . "</strong></td><td>";
+                    $html .=  self::var_to_html($v);
+                    $html .=  "</td></tr>";
+            }
+
+            $html .=  "</table>";
+            return $html;
+        }
+
+        $html .=  $variable ? $variable : "NULL";
+        return $html;
+   }
 }

@@ -54,6 +54,12 @@ class RM_Form_Settings_Controller {
         
         $this->add_form_timewise_stat($data);
         
+        //Include joyride script and style
+        wp_enqueue_script('rm_joyride_js', RM_BASE_URL.'admin/js/jquery.joyride-2.1.js');
+        wp_enqueue_style('rm_joyride_css', RM_BASE_URL.'admin/css/joyride-2.1.css');
+        
+        $data->autostart_tour = !RM_Utilities::has_taken_tour('form_setting_dashboard_tour');
+        
         $view = $this->mv_handler->setView('form_settings');
         $view->render($data);
     }
@@ -469,7 +475,7 @@ class RM_Form_Settings_Controller {
                     case 'image':
                         $data->attachments[$i]->image_url = $att->guid;
                         break;
-                    case 'default':
+                    default:
                         $data->attachments[$i]->image_url = RM_IMG_URL . 'attachment-placeholder.png';
                 }
                 $data->attachments[$i]->name = basename($att->guid);

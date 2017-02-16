@@ -71,6 +71,7 @@ class RM_Options_Controller
             $options['allowed_file_types'] = isset($request->req['allowed_file_types']) ? $request->req['allowed_file_types']: null;
             $options['default_registration_url'] = $request->req['default_registration_url'];
             $options['post_submission_redirection_url'] = $request->req['post_submission_redirection_url'];
+            $options['post_logout_redirection_page_id'] = $request->req['post_logout_redirection_page_id'];
             $options['user_ip'] = isset($request->req['user_ip']) ? "yes" : null;
             $options['allow_multiple_file_uploads'] = isset($request->req['allow_multiple_file_uploads']) ? "yes" : null;
             $options['form_layout'] = $request->req['form_layout'];

@@ -82,8 +82,10 @@ $layout_radio_button_html_string = '<div class="rmrow"><div class="rmfield" for=
 
         $selected = ($data['post_submission_redirection_url'] !== null) ? $data['post_submission_redirection_url'] : 0;
         $form->addElement(new Element_Select(RM_UI_Strings::get('LABEL_AFTER_LOGIN_URL'), "post_submission_redirection_url", $wp_pages, array("value" => $selected, "longDesc" => RM_UI_Strings::get('HELP_OPTIONS_POST_SUB_REDIR'))));
-        //$form->addElement(new Element_Checkbox(RM_UI_Strings::get('LABEL_SHOW_FLOATING_ICON'), "display_floating_action_btn", array("yes" => ''), $data['display_floating_action_btn'] == 'yes' ? array("value" => "yes", "longDesc" => RM_UI_Strings::get('HELP_SHOW_FLOATING_ICON')) : array("longDesc" => RM_UI_Strings::get('HELP_SHOW_FLOATING_ICON'))));
-
+        
+        $selected = ($data['post_logout_redirection_page_id'] !== null) ? $data['post_logout_redirection_page_id'] : 0;
+        $form->addElement(new Element_Select(RM_UI_Strings::get('LABEL_AFTER_LOGOUT_URL'), "post_logout_redirection_page_id", $wp_pages, array("value" => $selected, "longDesc" => RM_UI_Strings::get('HELP_OPTIONS_POST_LOGOUT_REDIR'))));
+        
   $submission_type=array(
              "all"=>"All",
              "today"=>"Today",
