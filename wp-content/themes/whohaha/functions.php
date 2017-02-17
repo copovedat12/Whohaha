@@ -119,7 +119,7 @@ function whohaha_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.4', true );
+	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.5', true );
 
 	/*
 	 * enqueue styles here
@@ -138,7 +138,7 @@ function whohaha_scripts() {
 
 	wp_enqueue_style( 'lightbox-style', get_template_directory_uri() . '/resources/css/vendor/lightbox.min.css');
 
-	wp_enqueue_style( 'styles', get_template_directory_uri() . '/css/style.css', array(), '1.0.4');
+	wp_enqueue_style( 'styles', get_template_directory_uri() . '/css/style.css', array(), '1.0.5');
 
 	wp_enqueue_style( 'whohaha-style', get_stylesheet_uri() );
 }

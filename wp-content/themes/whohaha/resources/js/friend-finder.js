@@ -1,5 +1,4 @@
 var fbFriendFind = (function($){
-
 	/**
 	 * All variables sored in a data object
 	 * @type {Object}
@@ -20,6 +19,7 @@ var fbFriendFind = (function($){
 	},
 	url = window.location.href;
 
+	// Localhost Testing
 	if (data.host !== 'whohaha.com') data.appId = '333568150348676';
 
 	/**

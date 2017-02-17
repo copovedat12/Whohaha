@@ -6,11 +6,14 @@
  *
  * @package whohaha
  */
+
+$post_slug = $post->post_name;
+$quiz_asset_dir = get_template_directory_uri() . '/inc/quiz/' . $post_slug;
 ?>
 
 <div class="row sticky-container">
 	<div class="col-md-9">
-		<article data-name="<?php echo $post->post_name; ?>" id="quiz" <?php post_class(); ?>>
+		<article data-name="<?php echo $post_slug; ?>" id="quiz" <?php post_class(); ?>>
 			<header class="entry-header">
 				<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
 					<?php $author_image = get_field('profile_image', 'user_'.get_the_author_id()); ?>
@@ -19,9 +22,9 @@
 				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 			</header><!-- .entry-header -->
 
-			<div class="post-featured-image">
+			<div class="post-featured-image <?php echo $post_slug; ?>">
 				<div id="canvas">
-					<img src="<?php echo get_template_directory_uri(); ?>/inc/quiz/whh_quiz_display.png" alt="If someone wants to be your lover, which friend do they gotta get with?" width="1200" height="630">
+					<img src="<?php echo $quiz_asset_dir; ?>/whh_quiz_display.png" alt="If someone wants to be your lover, which friend do they gotta get with?" width="1200" height="630">
 					<button disabled id="loginbutton" class="btn btn-primary facebook"><i class="fa fa-facebook" aria-hidden="true"></i> LOG IN TO FIND OUT</button>
 				</div>
 			</div>
