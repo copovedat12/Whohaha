@@ -138,7 +138,7 @@ function whohaha_scripts() {
 
 	wp_enqueue_style( 'lightbox-style', get_template_directory_uri() . '/resources/css/vendor/lightbox.min.css');
 
-	wp_enqueue_style( 'styles', get_template_directory_uri() . '/css/style.css', array(), '1.0.5');
+	wp_enqueue_style( 'styles', get_template_directory_uri() . '/css/style.css', array(), '1.0.6');
 
 	wp_enqueue_style( 'whohaha-style', get_stylesheet_uri() );
 }

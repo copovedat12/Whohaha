@@ -18,7 +18,7 @@ get_header('gopitchyourself'); ?>
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 				<img class="gopitchyourself" src="/wp-content/themes/whohaha/resources/images/pitchperfect/go-pitch-yourself-black.png" width="1504" height="414" alt="Go Pitch Yourself">
-				
+				<?php if (time() <= strtotime("2017-02-17 +8 hours")): ?>
 				<div class="entry-list-rules">
 					<h2 class="text-center"><span>More Important Details</span></h2>
 					<ul>
@@ -31,6 +31,7 @@ get_header('gopitchyourself'); ?>
 						<li>All participants must fill out the official submission form and include direct links to their entry(ies).</li>
 					</ul>
 				</div>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>
@@ -40,6 +41,8 @@ get_header('gopitchyourself'); ?>
 
 	<main id="main" class="site-main" role="main">
 		<div class="container">
+
+			<?php if (time() <= strtotime("2017-02-17 +8 hours")): ?>
 
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
@@ -56,6 +59,18 @@ get_header('gopitchyourself'); ?>
 					</div>
 				</div>
 			</div>
+
+			<?php else: ?>
+
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center deadline-passed">
+					<h3>Sorry!</h3>
+					<p>The submission deadline has passed.</p>
+					<p>Winners will be announced in March.</p>
+				</div>
+			</div>
+
+			<?php endif; ?>
 		</div>
 	</main><!-- #main -->
 </div><!-- #primary -->

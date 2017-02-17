@@ -532,6 +532,31 @@ header#masthead.sweeps{
 		}
 	}
 
+	.deadline-passed{
+		margin-bottom: 60px;
+		h3{
+			font-family: "brandon-grotesque","Oswald",Helvetica,Arial;
+			font-size: 5em;
+			text-transform: uppercase;
+		}
+		p{
+			font-size: 2em;
+		}
+		@media (max-width: $screen-xs-max) {
+			p{
+				font-size: 1.3em;
+			}
+		}
+		@media (max-width: $screen-xs) {
+			h3{
+				font-size: 3em;
+			}
+			p{
+				font-size: 1em;
+			}
+		}
+	}
+
 	.entry-form-container{
 		div.wpcf7{
 			margin-top: 20px;
