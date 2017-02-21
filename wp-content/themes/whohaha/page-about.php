@@ -35,7 +35,10 @@ get_header(); ?>
 							<div class="entry-content">
 								<div class="row">
 									<div class="col-md-12">
-										<div style="position: relative; padding-bottom: 56.25%; height: 0; margin-bottom: 20px;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/LwuY1hKP9ug?rel=0&amp;controls=1&amp;showinfo=0&amp;autoplay=1" width="300" height="150" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
+										<!-- <div style="position: relative; padding-bottom: 56.25%; height: 0; margin-bottom: 20px;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/LwuY1hKP9ug?rel=0&amp;controls=1&amp;showinfo=0&amp;autoplay=1" width="300" height="150" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div> -->
+										<div class="video-embed">
+											<iframe frameborder="0" width="560" height="315" src="//www.dailymotion.com/embed/video/x4kd4wd?autoplay=true" allowfullscreen></iframe><br /><a href="http://www.dailymotion.com/video/x4kd4wd_elizabeth-banks-delivers-important-psa-whohaha_fun" target="_blank">Elizabeth Banks Delivers Important PSA - &quot;WhoHaha&quot;</a> <i>by <a href="http://www.dailymotion.com/WhoHaha" target="_blank">WhoHaha</a></i>
+										</div>
 									</div>
 								</div>
 								<div class="row">
