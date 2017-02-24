@@ -1,11 +1,13 @@
-.video-embed {
+.outer-container{
+    margin-bottom: 10px;
+}
+.video-embed,
+.player-container {
     position: relative;
     padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
-    // &.instagram{
-    //     display: none;
-    // }
+    width: 100%;
     &.vine{
         width: 56%;
     }
@@ -18,6 +20,10 @@
     	left: 0;
     	width: 100%;
     	height: 100%;
+        &.player,
+        &#player{
+            opacity: 0;
+        }
     }
     .btn.facebook-share{
         position: relative;

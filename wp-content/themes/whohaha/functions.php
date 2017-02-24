@@ -292,6 +292,7 @@ require get_template_directory() . '/inc/video/heroscope-playlist.php';
  */
 require get_template_directory() . '/inc/post-types/front-page-people.php';
 require get_template_directory() . '/inc/post-types/quiz.php';
+require get_template_directory() . '/inc/post-types/specialty-posts.php';
 
 require get_template_directory() . '/inc/options-pages.php';
 
