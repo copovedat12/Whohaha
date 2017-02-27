@@ -253,6 +253,14 @@ function my_admin_theme_style() {
 add_action('admin_enqueue_scripts', 'my_admin_theme_style');
 add_action('login_enqueue_scripts', 'my_admin_theme_style');
 
+function whh_rewrite_author_slug()
+{
+    global $wp_rewrite;
+    $wp_rewrite->author_base = 'spotlight';
+    $wp_rewrite->author_structure = '/' . $wp_rewrite->author_base . '/%author%';
+}
+add_action('init', 'whh_rewrite_author_slug');
+
 /**
  * Add Custom Meta Box functionality
  */
