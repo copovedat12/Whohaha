@@ -10,7 +10,7 @@ function create_specialty_posttype() {
 			'supports' => array('title','author','thumbnail','editor'),
 			'public' => true,
 			'has_archive' => true,
-			'rewrite' => array('slug' => '/'),
+			'rewrite' => array('slug' => ''),
 			'menu_icon' => 'dashicons-admin-post',
 			'taxonomies' => array('post_tag')
 		)
