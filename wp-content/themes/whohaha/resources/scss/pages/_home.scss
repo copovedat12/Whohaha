@@ -82,25 +82,10 @@ section.homepage-authors{
 		text-transform: uppercase;
 		background-color: #efefef;
 		max-width: 160px;
+		@media (max-width: 470px) {
+			font-size: 9px;
+		}
 	}
-	// button.slick-arrow{
-	// 	position: absolute;
-	// 	top: 0;
-	// 	bottom: 0;
-	// 	background: transparent;
-	// 	border: none;
-	// 	outline: none;
-	// 	font-size: 20px;
-	// 	&.slick-prev{
-	// 		left: 0;
-	// 	}
-	// 	&.slick-next{
-	// 		right: 0;
-	// 	}
-	// }
-	// .slick-track{
-	// 	padding: 5px 0;
-	// }
 }
 section.homepage-posts{
 	position: relative;
