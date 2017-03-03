@@ -33,4 +33,9 @@ class RM_Support_Controller
         $view= $this->mv_handler->setView('whats_new');
         $view->render();
     }
+    
+    public function premium_page($model,$service,$request,$params){
+        $view= $this->mv_handler->setView('premium');
+        $view->render();
+    }
 }

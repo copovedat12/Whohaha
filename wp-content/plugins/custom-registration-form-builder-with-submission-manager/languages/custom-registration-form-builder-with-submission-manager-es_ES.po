@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Registration Magic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-06 06:56+0000\n"
-"PO-Revision-Date: 2017-02-06 06:56+0000\n"
+"POT-Creation-Date: 2017-02-18 09:44+0000\n"
+"PO-Revision-Date: 2017-02-18 09:44+0000\n"
 "Last-Translator: Terrific <maruti.sharma@alcanttor.com>\n"
 "Language-Team: Spanish (Spain)\n"
 "Language: es-ES\n"
@@ -2424,6 +2424,21 @@ msgstr ""
 msgid "Has Attachment(s)"
 msgstr ""
 
+#: includes/class_rm_ui_strings.php:3704
+#, php-format
+msgid "Total Price: %s"
+msgstr ""
+
+#: includes/class_rm_ui_strings.php:3707
+msgid "Show total price on the form"
+msgstr ""
+
+#: includes/class_rm_ui_strings.php:3710
+msgid ""
+"Enables a real-time display of total amount that user will be charged for "
+"submission"
+msgstr ""
+
 #: admin/class_rm_admin.php:277
 msgid "Form specific settings can be found on form dashboard."
 msgstr ""
@@ -4727,7 +4742,7 @@ msgstr "Agregar Nuevo"
 msgid "Latest Submissions"
 msgstr "Ultimas entregas"
 
-#: includes/class_rm_ui_strings.php:3704
+#: includes/class_rm_ui_strings.php:3713
 msgid "NO STRING FOUND"
 msgstr "NO SE HA ENCONTRADO STRING"
 

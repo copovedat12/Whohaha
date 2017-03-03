@@ -1154,4 +1154,18 @@ class RM_Utilities {
         $html .=  $variable ? $variable : "NULL";
         return $html;
    }
+   
+   public static function is_date_valid()
+   {
+       $date = $_POST['date'];
+       
+       try {
+            $test = new DateTime($date);
+            echo "VALID";
+        } catch(Exception $e) {
+            echo "INVALID";
+        }
+        
+        wp_die();
+   }
 }

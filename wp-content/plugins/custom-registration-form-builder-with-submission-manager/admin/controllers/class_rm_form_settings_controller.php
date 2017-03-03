@@ -71,6 +71,7 @@ class RM_Form_Settings_Controller {
             $options['form_name'] = $request->req['form_name'];
             $options['form_description'] = $request->req['form_description'];
             $options['form_custom_text'] = $request->req['form_custom_text'];
+            $options['show_total_price'] = $request->req['show_total_price'];
 
             if (isset($request->req['rm_form_id']) && (int)$request->req['rm_form_id']) {
                 $model->load_from_db($request->req['rm_form_id']);

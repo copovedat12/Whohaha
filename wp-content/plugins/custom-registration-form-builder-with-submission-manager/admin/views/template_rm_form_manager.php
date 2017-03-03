@@ -237,12 +237,12 @@ global $regmagic_errors;
         <div id="rm_embed_code_dialog" style="display:none"><textarea readonly="readonly" id="rm_embed_code" onclick="jQuery(this).focus().select()"></textarea><img class="rm-close" src="<?php echo plugin_dir_url(dirname(dirname(__FILE__))) . 'images/close-rm.png'; ?>" onclick="jQuery('#rm_embed_code_dialog').fadeOut()"></div>
         
 </div>
- <div class="rm-side-banner">
+ <!--   <div class="rm-side-banner">
 
-            <div class="rm-sidebaner-section-title dbfl"><img src="<?php echo RM_IMG_URL; ?>icon.png"><span>Want More?</span></div>
+            <div class="rm-sidebaner-section-title dbfl"><img src="<?php// echo RM_IMG_URL; ?>icon.png"><span>Want More?</span></div>
 
             <div class="rm-sidebanner-image">
-                <img src="<?php echo RM_IMG_URL; ?>Layer 1.png" />
+                <img src="<?php //echo RM_IMG_URL; ?>Layer 1.png" />
             </div>
 
             <div class="sidebanner-content-wrapper">
@@ -275,11 +275,11 @@ global $regmagic_errors;
                 </div>
 
                 <div class="rm-sidebanner-icons">
-                    <img src="<?php echo RM_IMG_URL; ?>icon-pack.png">
+                    <img src="<?php //echo RM_IMG_URL; ?>icon-pack.png">
                 </div>
 
-            </div> <!-- sidebanner-content-wrapper -->
-        </div>
+            </div> <!-- sidebanner-content-wrapper 
+        </div>-->
 
 
   <pre class="rm-pre-wrapper-for-script-tags"><script type="text/javascript">

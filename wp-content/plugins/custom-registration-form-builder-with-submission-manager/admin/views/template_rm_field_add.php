@@ -17,8 +17,8 @@ else
 {
     $f_icon = new stdClass;
     $f_icon->codepoint = null;
-    $f_icon->fg_color = '#000000';
-    $f_icon->bg_color = null;
+    $f_icon->fg_color = '000000';
+    $f_icon->bg_color = 'ffffff';
     $f_icon->shape = 'square';
     $f_icon->bg_alpha = 1.0;
 }
@@ -128,6 +128,35 @@ $form->addElement(new Element_HTML('<div class="rmrow" id="rm_jqnotice_row"><div
 
 $form->addElement(new Element_Textbox("<b>" . RM_UI_Strings::get('LABEL_PLACEHOLDER_TEXT') . ":</b>", "field_placeholder", array("id" => "rm_field_placeholder", "class" => "rm_static_field rm_text_type_field rm_input_type", "value" => $data->model->field_options->field_placeholder, "longDesc"=>RM_UI_Strings::get('HELP_ADD_FIELD_PLACEHOLDER'))));
 
+//The unusual Date Format field
+    $rm_date_format = !$data->model->field_options->date_format ? "mm/dd/yy" : $data->model->field_options->date_format;
+    $rm_date_format_label = RM_UI_Strings::get('LABEL_DATE_FORMAT');
+    //Preprocess this special help text
+    $rm_date_format_helptext = sprintf(RM_UI_Strings::get('HELP_ADD_FIELD_DATEFORMAT'),"href='javascript:void(0)' onclick='jQuery(\"#id_rm_dateformat_help\").slideToggle()'");
+
+$rm_date_format_fieldhtml = <<<EOD
+    <div class="rmrow" id="rm_field_dateformat_container"><div class="rmfield" for="rm_field_dateformat"><label><b>$rm_date_format_label :</b></label></div><div class="rminput"><input type="text" name="date_format" id="rm_field_dateformat" class="rm_static_field rm_text_type_field rm_input_type" value="$rm_date_format" onkeyup="rm_test_date_format()" onchange="rm_test_date_format()" data-rmvaliddateformat="true">
+        <div id="id_rm_dateformat_test"></div>
+        <div id="id_rm_dateformat_help" style="display: none; padding: 20px 0px;">
+    <strong> The format can be combinations of the following:</strong>
+    <ul style="list-style: disc; list-style-position: inside;">
+    <li>d - day of month (no leading zero)</li> 
+    <li>dd - day of month (two digit)</li>  
+    <li>o - day of the year (no leading zeros)</li>  
+    <li>oo - day of the year (three digit)</li>  
+    <li>D - day name short</li>    
+    <li>DD - day name long</li>   
+    <li>m - month of year (no leading zero)</li>   
+    <li>mm - month of year (two digit)</li>  
+    <li>M - month name short</li>  
+    <li>MM - month name long</li>   
+    <li>y - year (two digit)</li>       
+    <li>yy - year (four digit)</li> </ul><a href="javascript:void(0)" onclick="jQuery('#id_rm_dateformat_help').slideUp()">&#9652; Hide</a>
+       </div></div><div class="rmnote"><div class="rmprenote"></div><div class="rmnotecontent">$rm_date_format_helptext</div></div></div>
+EOD;
+
+    $form->addElement(new Element_HTML($rm_date_format_fieldhtml));
+//PHEW..
 if($data->selected_field !== 'HTMLP' && $data->selected_field !== 'HTMLH')
 {
     $form->addElement(new Element_HTML('<div id="rm_field_helptext_container">'));
@@ -345,17 +374,18 @@ function rm_get_help_text(ftype){
                    e.preventDefault();
                }
                }
-               /*if(jQuery("#rm_field_max_length").val()!='')
-               {
-                   var max=jQuery("#rm_field_max_length").val();
-                    if(max<10)
-                    {
-                        jQuery('#rm_length_error_text').html('Minimum length is 10');
-                        jQuery('#rm_length_error_row').show();
-                        e.preventDefault();
-                    }
-               }*/
             }            
         );
     });
+    
+    function rm_test_date_format() {
+       
+       var date_format = jQuery("#rm_field_dateformat").val().toString().trim();
+       if(!date_format)
+           return;
+       var test_date = jQuery.datepicker.formatDate( date_format, new Date() );
+       var ele_testbox = jQuery("#id_rm_dateformat_test");
+       ele_testbox.html(test_date);       
+   }
+    
     </script></pre>

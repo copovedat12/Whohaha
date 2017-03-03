@@ -56,6 +56,8 @@ class RM_Frontend_Field_Price extends RM_Frontend_Field_Base
             if (isset($this->field_options['labelStyle']))
                 $properties['labelStyle'] = $this->field_options['labelStyle'];
             
+            $properties['data-rmfieldtype'] = 'price';
+            
             $element = null;
             switch ($paypal_field->get_type())
             {
@@ -66,8 +68,9 @@ class RM_Frontend_Field_Price extends RM_Frontend_Field_Base
                         $properties['value'] = $paypal_field->get_name() . " (" . $paypal_field->get_value() . " " . $this->curr_symbol . ")";
                     $properties['readonly'] = 1;
                     $properties['class'] = $paypal_field->get_class();
+                    $properties['data-rmfieldprice'] = $paypal_field->get_value();
                     if ($paypal_field->get_extra_options() != 'yes')
-                        $element = new Element_Hidden($name, $properties['value']);
+                        $element = new Element_Hidden($name, $properties['value'], $properties);
                     else
                         $element = new Element_Textbox($label, $name, $properties);
                     break;

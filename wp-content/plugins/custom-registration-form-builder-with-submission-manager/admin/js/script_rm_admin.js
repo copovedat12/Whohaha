@@ -293,6 +293,8 @@
 //        RM_jQ("#scroll").hide();
         RM_jQ("#rm_field_helptext_container").show();
         RM_jQ("#rm_icon_setting_container").show();
+        RM_jQ("#rm_field_dateformat_container").hide();
+        RM_jQ("#rm_field_dateformat").attr('disabled', true);
         
         switch (field_type) {
             case 'Textbox' :
@@ -352,14 +354,12 @@
                 RM_jQ(".rm_check").show();
                 break;
             case 'Bdate' :
-            var object = RM_jQ(".rm_static_field").not(".rm_required, #rm_field_is_required-0, #rm_field_helptext_container, #rm_field_is_editable-0");
+            var object = RM_jQ(".rm_static_field").not(".rm_required, #rm_field_is_required-0, #rm_field_helptext_container, #rm_field_is_editable-0,#rm_field_placeholder");
 		RM_jQ("#date_range").show();
+                RM_jQ("#rm_field_dateformat_container").show();
+                RM_jQ("#rm_field_dateformat").attr('disabled', false);
                 break;
-
-            case 'jQueryUIDate' :
-            case 'Email' :
-            case 'SecEmail' :
-            case 'Number' :
+                        
             case 'Country' :
             case 'Gender' :
             case 'Timezone' :
@@ -371,6 +371,15 @@
                 var object = RM_jQ(".rm_static_field").not(".rm_required, #rm_field_is_required-0, #rm_field_helptext_container, #rm_field_is_editable-0");
                 break;
             
+            case 'jQueryUIDate' :
+                var object = RM_jQ(".rm_static_field").not(".rm_required, #rm_field_is_required-0, #rm_field_helptext_container, #rm_field_is_editable-0, #rm_field_dateformat,#rm_field_placeholder");
+                RM_jQ("#rm_field_dateformat_container").show();
+                RM_jQ("#rm_field_dateformat").attr('disabled', false);
+                break;
+                
+            case 'Email' :
+            case 'SecEmail' :
+            case 'Number' :
             case 'Facebook' :
             case 'Twitter' :
             case 'Google' :

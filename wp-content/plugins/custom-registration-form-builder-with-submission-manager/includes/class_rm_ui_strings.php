@@ -3679,8 +3679,8 @@ class RM_UI_Strings {
              case 'LABEL_PAYPAL_TRANSACTION_LOG' : 
                 return __ ('Transaction log', 'custom-registration-form-builder-with-submission-manager');
                  
-             case 'LABEL_LEGENDS' : 
-                return __ ('Legends', 'custom-registration-form-builder-with-submission-manager');
+             case 'LABEL_LEGEND' : 
+                return __ ('Legend', 'custom-registration-form-builder-with-submission-manager');
                  
              case 'LABEL_LEGENDS_PAYMENT_PENDING' : 
                 return __ ('Payment Pending', 'custom-registration-form-builder-with-submission-manager');
@@ -3700,6 +3700,24 @@ class RM_UI_Strings {
              case 'LABEL_LEGENDS_ATTACHMENT' : 
                 return __ ('Has Attachment(s)', 'custom-registration-form-builder-with-submission-manager');
                  
+            case 'FE_FORM_TOTAL_PRICE' :
+                return __ ('Total Price: %s', 'custom-registration-form-builder-with-submission-manager');
+                
+            case 'LABEL_SHOW_TOTAL_PRICE' :
+                return __ ('Show total price on the form', 'custom-registration-form-builder-with-submission-manager');
+                
+            case 'HELP_SHOW_TOTAL_PRICE' :
+                return __ ('Enables a real-time display of total amount that user will be charged for submission', 'custom-registration-form-builder-with-submission-manager');
+                
+            case 'LABEL_DATE_FORMAT' :
+                return __ ('Date format', 'custom-registration-form-builder-with-submission-manager');
+
+            case 'HELP_ADD_FIELD_DATEFORMAT' :
+                return __ ('For a list of supported types please click <a %s>here</a>.', 'custom-registration-form-builder-with-submission-manager');
+                
+            case 'ADMIN_MENU_PREMIUM' :
+                return __ ('Premium', 'custom-registration-form-builder-with-submission-manager');
+
              default:
                 return __('NO STRING FOUND', 'custom-registration-form-builder-with-submission-manager');
 

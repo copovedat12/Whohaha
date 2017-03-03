@@ -421,3 +421,8 @@ div#rm_terms_textarea_without_scroll {display: inline-block; float: left; margin
     width: 60%;
     margin-left: 40%;
 }
+
+.rmagic .rm_total_price {
+    text-align:center;
+    font-size:larger;
+}

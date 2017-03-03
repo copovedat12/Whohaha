@@ -54,6 +54,8 @@
         $form->addElement(new Element_Radio("<b>" . RM_UI_Strings::get('LABEL_SELECT_FORM_TYPE') . "</b>:", "form_type", $form_type_selection_array, array("class" => "rm_user_create", "value" => $data->model->form_type)));
 
         $form->addElement(new Element_TinyMCEWP("<b>" . RM_UI_Strings::get('LABEL_CONTENT_ABOVE') . ":</b>", $data->model->form_options->form_custom_text, "form_custom_text", array('editor_class' => 'rm_TinyMCE', 'editor_height' => '100px'), array("longDesc" => RM_UI_Strings::get('HELP_ADD_FORM_CONTENT_ABOVE_FORM'))));
+        
+        $form->addElement(new Element_Checkbox("<b>" . RM_UI_Strings::get('LABEL_SHOW_TOTAL_PRICE') . ":</b>", "show_total_price", array(1 => ""), array("id" => "rm_", "value" => $data->model->form_options->show_total_price, "longDesc" => RM_UI_Strings::get('HELP_SHOW_TOTAL_PRICE'))));
          
         if(!isset($data->model->form_id))
         $form->addElement(new Element_HTMLL('&#8592; &nbsp; Cancel', 'javascript:void(0)', array('class' => 'cancel', 'onClick' => 'window.history.back();')));

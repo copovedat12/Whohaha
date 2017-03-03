@@ -284,7 +284,101 @@ function initialize_validation_strings(){
         jQuery.extend(jQuery.validator.messages,rm_js_data.validations); 
     }
 }
+
+function rm_init_total_pricing() {
+    var price_elems = jQuery('[data-rmfieldtype="price"]');
+    if(price_elems.length > 0) {
+        price_elems.each(function(i){
+           var el = jQuery(this);
+           var form_id = el.closest("form").attr('id');               
+           rm_calc_total_pricing(form_id);
+           el.change(function(e){       
+               rm_calc_total_pricing(form_id);
+           });
+           
+           if(el.attr('type') == 'number'){
+                el.keyup(function(e){       
+                 rm_calc_total_pricing(form_id);
+             });
+           }
+           
+        });
+    }
+}
+
+function rm_calc_total_pricing(form_id){
+    var price_elems = jQuery('#'+form_id).find('[data-rmfieldtype="price"]');
+    if(price_elems.length > 0) {
+        var tot_price = 0;
+        price_elems.each(function(i){
+           var el = jQuery(this);
+           
+           if(el.prop("tagName") == "INPUT") {
+                var el_type = el.attr('type');
+
+                switch(el_type){
+                    case 'text':               
+                    case 'hidden':
+                        ele_price = el.data("rmfieldprice");
+                        if(!ele_price)
+                            ele_price = 0;
+                        break;
+
+                    case 'number':
+                         ele_price = el.val();
+                         if(!ele_price)
+                             ele_price = 0;
+                        break;
+
+                    case 'checkbox':
+                        if(el.prop("checked")){
+                         ele_val = el.val();
+                         price_val = el.data("rmfieldprice");
+                         ele_price = price_val[ele_val];
+                         if(!ele_price)
+                             ele_price = 0;
+                         }
+                         else
+                             ele_price = 0;                    
+                        break;
+                        
+                    default:
+                        ele_price = 0;
+                        break;
+                }
+            } else if(el.prop("tagName") == "SELECT") {
+                ele_val = el.val();
+                if(!ele_val){
+                    ele_price = 0;                      
+                } else {
+                    price_val = el.data("rmfieldprice");
+                    ele_price = price_val[ele_val];
+                    if(!ele_price)
+                        ele_price = 0;   
+                }
+            } else {
+                ele_price = 0;
+            }            
+           tot_price += parseFloat(ele_price);
+        });        
+        var tot_price_ele = jQuery('#'+form_id).find(".rm_total_price");
+        if(tot_price_ele.length > 0) {
+            var price_formatting = tot_price_ele.data("rmpriceformat");
+            var f_tot_price = '';
+            if(price_formatting.pos == 'after')
+                f_tot_price = tot_price.toFixed(2) + price_formatting.symbol;
+            else
+                f_tot_price = price_formatting.symbol + tot_price.toFixed(2);
+
+            tot_price_ele.html(price_formatting.loc_total_text.replace("%s",f_tot_price));
+        }
+    }
+}
+
 // Intializing the necessary scripts
 jQuery(document).ready(function(){
     load_js_data();
+    
+    /*Initialize "Total" price display functionality*/
+    rm_init_total_pricing();
 });

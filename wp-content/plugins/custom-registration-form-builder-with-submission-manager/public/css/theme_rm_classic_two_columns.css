@@ -389,3 +389,11 @@
     color: red;
     font-size: 80%;
 }
+
+.rmagic .rm_total_price {
+    text-align:center;
+    font-size:larger;
+}
+
+.rmagic .rmrow.rm_captcha_fieldrow, .rmagic .rmrow.rm_captcha_fieldrow * { width:100%;}
+.rmagic .rmrow.rm_captcha_fieldrow .g-recaptcha > div { margin: 0px auto;}

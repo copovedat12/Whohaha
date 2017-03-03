@@ -308,3 +308,8 @@ div#rm_terms_textarea_without_scroll {display: inline-block; float: left; margin
 }
 
 .rm-floating-page .rm-floating-page-content .rmagic { float: none; width: 97%; margin: 0px auto;}
+
+.rmagic .rm_total_price {
+    text-align:center;
+    font-size:larger;
+}

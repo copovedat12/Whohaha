@@ -208,9 +208,28 @@ class RM_Frontend_Form_Reg extends RM_Frontend_Form_Multipage//RM_Frontend_Form_
             
             if (get_option('rm_option_enable_captcha') == "yes")
                 $form->addElement(new Element_Captcha());
+            
             if ($this->service->get_setting('enable_mailchimp') == 'yes' && $this->form_options->form_is_opt_in_checkbox == 1)
             {
-                $form->addElement(new Element_Checkbox('', 'rm_subscribe_mc', array(1 => $this->form_options->form_opt_in_text ? : RM_UI_Strings::get('MSG_SUBSCRIBE')),array("value"=>$this->form_options->form_opt_in_text)));
+                //This outer div is added so that the optin text can be made full width by CSS.
+                $form->addElement(new Element_HTML('<div class="rm_optin_text">'));
+                
+                if($this->form_options->form_opt_in_default_state == 'Checked')
+                    $form->addElement(new Element_Checkbox('', 'rm_subscribe_mc', array(1 => $this->form_options->form_opt_in_text ? : RM_UI_Strings::get('MSG_SUBSCRIBE')),array("value"=>1)));
+                else 
+                    $form->addElement(new Element_Checkbox('', 'rm_subscribe_mc', array(1 => $this->form_options->form_opt_in_text ? : RM_UI_Strings::get('MSG_SUBSCRIBE'))));
+            
+                $form->addElement(new Element_HTML('</div>'));             
+            }
+                        
+            if($this->form_options->show_total_price)
+            {
+                $gopts = new RM_Options;
+                $total_price_localized_string = RM_UI_Strings::get('FE_FORM_TOTAL_PRICE');
+                $curr_symbol = $gopts->get_currency_symbol();
+                $curr_pos = $gopts->get_value_of('currency_symbol_position');
+                $price_formatting_data = json_encode(array("loc_total_text" => $total_price_localized_string, "symbol" => $curr_symbol, "pos" => $curr_pos));
+                $form->addElement(new Element_HTML("<div class='rmrow rm_total_price' style='{$this->form_options->style_label}' data-rmpriceformat='$price_formatting_data'></div>"));
             }
         }
     }

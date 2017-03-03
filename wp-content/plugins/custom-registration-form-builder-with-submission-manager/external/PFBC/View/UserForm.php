@@ -52,6 +52,10 @@ class View_UserForm extends View_SideBySide{
                 $element->setAttribute('id',$unique_ele_id);
                 echo '<div class="rmrow">', $this->renderLabel($element), '<div class="rminput">', $element->render(), '</div>', $this->renderDescriptions($element), '</div>';
                 ++$elementCount;
+            }elseif($element instanceof Element_Captcha )
+            {
+                echo '<div class="rmrow rm_captcha_fieldrow">', $this->renderLabel($element), '<div class="rminput">', $element->render(), '</div>', $this->renderDescriptions($element), '</div>';
+                ++$elementCount;
             }else
             {
                 echo '<div class="rmrow">', $this->renderLabel($element), '<div class="rminput">', $element->render(), '</div>', $this->renderDescriptions($element), '</div>';

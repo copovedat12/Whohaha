@@ -983,3 +983,8 @@ i.rm_front_field_icon {
 #rm_edit_sub_link { clear: both;}
 
 pre.rm-pre-wrapper-for-script-tags { display:none !important; }
+
+/* Make optin texts for Mailchimp etc to take up full row width*/
+.rmagic .rm_optin_text .rmrow, .rmagic .rm_optin_text .rminput, .rmagic .rm_optin_text .rmradio {
+    width:100%;
+}

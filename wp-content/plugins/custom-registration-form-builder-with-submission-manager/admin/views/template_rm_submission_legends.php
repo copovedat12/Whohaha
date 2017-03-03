@@ -3,7 +3,7 @@
 ?>
         <!-- Legends -->
         <div class="rm-sub-legends">    
-                <div class="rm-subsection-heading"><?php echo RM_UI_Strings::get('LABEL_LEGENDS'); ?></div>
+                <div class="rm-subsection-heading"><?php echo RM_UI_Strings::get('LABEL_LEGEND'); ?></div>
                 
                 <div class="rm-sub-legends-row">
                     <div class="rm-legend-wrap">

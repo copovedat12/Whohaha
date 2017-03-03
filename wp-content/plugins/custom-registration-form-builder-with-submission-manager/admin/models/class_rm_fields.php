@@ -33,7 +33,7 @@ class RM_Fields extends RM_Base_Model
         $this->field_id = NULL;
         $this->field_order = 99999999;
         $this->field_is_editable = 0;
-        $this->valid_options = array('field_is_multiline','field_placeholder', 'field_timezone', 'field_max_length', 'field_is_required_range', 'field_is_required_max_range', 'field_is_required_min_range', 'field_is_required_scroll', 'field_default_value', 'field_css_class', 'field_textarea_columns', 'field_textarea_rows', 'field_is_required','field_is_show_asterix', /*'field_is_required_scroll',*/'field_is_read_only', 'field_is_other_option', 'help_text', 'icon','field_validation','custom_validation', 'tnc_cb_label');
+        $this->valid_options = array('field_is_multiline','field_placeholder', 'field_timezone', 'field_max_length', 'field_is_required_range', 'field_is_required_max_range', 'field_is_required_min_range', 'field_is_required_scroll', 'field_default_value', 'field_css_class', 'field_textarea_columns', 'field_textarea_rows', 'field_is_required','field_is_show_asterix', /*'field_is_required_scroll',*/'field_is_read_only', 'field_is_other_option', 'help_text', 'icon','field_validation','custom_validation', 'tnc_cb_label', 'date_format');
         $this->field_options = new stdClass;
         foreach ($this->valid_options as $valid_option)
             $this->field_options->$valid_option = null;

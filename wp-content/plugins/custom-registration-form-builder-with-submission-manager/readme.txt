@@ -5,7 +5,7 @@ Tags: custom registration, custom form fields, custom registration fields, multi
 
 Requires at least: 3.5
 Tested up to: 4.7
-Stable tag: 3.6.1.0
+Stable tag: 3.7.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -282,6 +282,25 @@ Please update to version 1.4.2. It fixes an old bug that always moved the form a
 14. Global Settings.
 
 == Changelog ==
+
+= 3.7.0.0 =
+* Multiple bug fixes
+* Added new page
+
+= 3.6.1.3 =
+* Fixed: Missing placeholder configuration for Primary Email, Secondary Email, Number, Date and Birth-date fields (Reported by: Dimitri).
+* Fixed: MailChimp, Constant Contact and Aweber opt-in text taking only half width of row (Reported by: Lynda Wildblood).
+* Improvement: reCaptcha is now centered on two-columns layout (Suggested by: Philip Andrianos).
+* Norwegian translation added for front-end (partial) (Contributed by: Ulf Skogeng).
+* Other bug-fixes and improvements.
+
+= 3.6.1.2 =
+* Added: Customizable date format for Date and Birth-date fields. (Requested by @toonwolf).
+* Other bug-fixes and improvements.
+
+= 3.6.1.1 =
+* Added: Now total price can be displayed on the forms with multiple price fields. Enable it in Form Settings >> General Settings.
+* Other bug-fixes and improvements.
 
 = 3.6.1.0 =
 * Transaction log display is now tabular and includes stripe log as well. (Requested by Ulf Skogeng)
@@ -757,6 +776,25 @@ Fixed: Blocks showing up on front-end with some WP themes.
 * Added Custom Fields
 
 == Upgrade Notice ==
+
+= 3.7.0.0 =
+* Multiple bug fixes
+* Added new page
+
+= 3.6.1.3 =
+* Fixed: Missing placeholder configuration for Primary Email, Secondary Email, Number, Date and Birth-date fields (Reported by: Dimitri).
+* Fixed: MailChimp, Constant Contact and Aweber opt-in text taking only half width of row (Reported by: Lynda Wildblood).
+* Improvement: reCaptcha is now centered on two-columns layout (Suggested by: Philip Andrianos).
+* Norwegian translation added for front-end (partial) (Contributed by: Ulf Skogeng).
+* Other bug-fixes and improvements.
+
+= 3.6.1.2 =
+* Added: Customizable date format for Date and Birth-date fields. (Requested by @toonwolf).
+* Other bug-fixes and improvements.
+
+= 3.6.1.1 =
+* Added: Now total price can be displayed on the forms with multiple price fields. Enable it in Form Settings >> General Settings.
+* Other bug-fixes and improvements.
 
 = 3.6.1.0 =
 * Transaction log display is now tabular and includes stripe log as well. (Requested by Ulf Skogeng)

@@ -897,7 +897,8 @@ class RM_Front_Form_Service extends RM_Services {
             $properties['custom_validation'] = $options->custom_validation;
         if (isset($options->field_is_multiline))
             $properties['field_is_multiline'] = $options->field_is_multiline;
-        
+        if (isset($options->date_format))
+            $properties['date_format'] = $options->date_format;
         
         return $properties;
     }

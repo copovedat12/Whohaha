@@ -8,11 +8,12 @@ class Validation_Date extends Validation {
 	}
 
     public function isValid($value) {
-        try {
+        return true;
+        /*try {
             $date = new DateTime($value);
             return true;
         } catch(Exception $e) {
             return false;
-        }
+        }*/
     }
 }
