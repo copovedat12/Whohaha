@@ -74,20 +74,28 @@ function filter_tax_terms($val){
 }
 /**
  * Render series carousels
- * @param  array  $args [limit, exclude, shuffle]
+ * @param  array  $args [featured, limit, exclude, shuffle]
  * @return string       carousel html
  */
 function whh_render_single_series($args = array()){
-	$limit = (!empty($args['limit'])) ? $args['limit'] : 3;
-
 	$tax_args = array('taxonomy' => 'playlists', 'hide_empty' => true);
 
+	// limit args given
+	$limit = (!empty($args['limit'])) ? $args['limit'] : 3;
+
+	// exclude args given
 	if (!empty($args['exclude'])) $tax_args['exclude'] = $args['exclude'];
 
-	$taxTerms = get_terms( $tax_args );
+	// featured args given
+	if (!empty($args['featured']) && $args['featured'] === true && have_rows('series_list', 'options')){
+		$taxTerms = get_field('series_list', 'options');
+	} else {
+		$taxTerms = get_terms( $tax_args );
+	}
 
 	$filtered_playlists = array_filter($taxTerms, 'filter_tax_terms');
 
+	// shuffle args given
 	if (!empty($args['shuffle']) && $args['shuffle'] === true)
 		shuffle($filtered_playlists);
 
@@ -125,18 +133,6 @@ function whh_render_single_series($args = array()){
 					</div>
 					<a href="<?php echo get_term_link($playlist); ?>#<?php echo $video_id; ?>" class="hover-border"></a>
 				</article>
-				<?php /* ?>
-				<!-- <span class="playlist-popover-title">
-					<?php echo get_the_title(); ?>
-				</span>
-				<span class="playlist-popover-content">
-					<div class="desciption">
-						<?php echo get_the_excerpt(); ?>
-					</div>
-					
-					<a href="<?php echo get_term_link($playlist); ?>#<?php echo $video_id; ?>" class="btn btn-primary btn-block">Watch Now</a>
-				</span> -->
-				<?php */ ?>
 			</div>
 			<?php
 		endwhile;

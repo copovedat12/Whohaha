@@ -29,7 +29,7 @@ get_header(); ?>
 				</header>
 				<?php
 				whh_render_all_series();
-				whh_render_single_series();
+				whh_render_single_series(['featured' => true]);
 				?>
 			</section>
 
