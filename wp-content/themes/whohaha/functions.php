@@ -267,6 +267,8 @@ add_action('init', 'whh_rewrite_author_slug');
 if( file_exists( get_template_directory() . '/cmb2/init.php' ) )
 	require get_template_directory() . '/cmb2/init.php';
 
+require get_template_directory() . '/inc/search.php';
+
 /**
  * Mailchimp redirect functions
  */

@@ -6,7 +6,6 @@
  *
  * @package whohaha
  */
-
 get_header(); ?>
 
 	<section id="primary" class="content-area container">
@@ -15,7 +14,7 @@ get_header(); ?>
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header top-header">
-				<span>Results for <?php echo get_search_query(); ?></span>
+				<span>Results for <?php echo $searchQuery; ?></span>
 			</header>
 
 			<section class="posts-grid" id="archiveposts">
@@ -24,16 +23,10 @@ get_header(); ?>
 					<?php if (is_search() && ($post->post_type=='page')) continue; ?>
 
 					<?php
-					/**
-					* Run the loop for the search to output the results.
-					* If you want to overload this in a child theme then include a file
-					* called content-search.php and that will be used instead.
-					*/
-					//get_template_part( 'template-parts/content', 'search' );
 					get_template_part( 'template-parts/content-displayposts', 'medium' );
 					?>
 
-				<?php endwhile; ?>
+				<?php endwhile; wp_reset_postdata(); ?>
 				</div>
 			</section>
 
